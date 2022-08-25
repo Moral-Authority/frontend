@@ -19,10 +19,6 @@ const CreateUser = () => {
         address: address,
       },
     });
-
-    if (error) {
-      console.log(error);
-    }
   };
 
   return (
@@ -54,6 +50,7 @@ const CreateUser = () => {
         />
         <button type="submit">Create User</button>
       </form>
+      {error && <div>{error.message}</div>}
     </div>
   );
 };
