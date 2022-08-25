@@ -4,11 +4,10 @@ import { GET_USERS_QUERY } from '../graphql/Queries';
 
 const GetUsers = () => {
   const [users, setUsers] = useState([]);
-  const { loading, data, error } = useQuery(GET_USERS_QUERY);
+  const { loading, error, data } = useQuery(GET_USERS_QUERY);
 
   useEffect(() => {
     if (data) setUsers(data.users);
-    console.log(data);
   }, [data]);
 
   if (loading) return <div>Loading...</div>;
@@ -16,7 +15,6 @@ const GetUsers = () => {
 
   return (
     <div>
-      <h1>Users</h1>
       {users.map(user => (
         <p>{user.name}</p>
       ))}
