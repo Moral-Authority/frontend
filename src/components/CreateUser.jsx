@@ -7,7 +7,8 @@ const CreateUser = () => {
   const [age, setAge] = useState('');
   const [address, setAddress] = useState('');
 
-  const [createUser, { error }] = useMutation(CREATE_USER_MUTATION);
+  const [createUser, { loading, error, data }] =
+    useMutation(CREATE_USER_MUTATION);
 
   const handleSubmit = e => {
     e.preventDefault();
@@ -15,7 +16,7 @@ const CreateUser = () => {
     createUser({
       variables: {
         name: name,
-        age: age,
+        age: Number(age),
         address: address,
       },
     });
@@ -50,7 +51,10 @@ const CreateUser = () => {
         />
         <button type="submit">Create User</button>
       </form>
+      <h2>Newly Added User</h2>
+      {loading && <div>Loading...</div>}
       {error && <div>{error.message}</div>}
+      {data && <p>{data.createUser.name}</p>}
     </div>
   );
 };
