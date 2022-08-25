@@ -2,7 +2,7 @@ import { gql } from '@apollo/client';
 
 const CREATE_USER_MUTATION = gql`
   mutation CreateUser($name: String!, $age: Int!, $address: String!) {
-    createUser(name: $name, age: $age, address: $address) {
+    createUser(input: { name: $name, age: $age, address: $address }) {
       id
       name
       createdAt
@@ -19,7 +19,7 @@ const UPDATE_USER_MUTATION = gql`
     $age: Int!
     $address: String!
   ) {
-    updateUser(id: $id, name: $name, age: $age, address: $address) {
+    updateUser(id: $id, input: { name: $name, age: $age, address: $address }) {
       id
       name
       createdAt
@@ -31,7 +31,13 @@ const UPDATE_USER_MUTATION = gql`
 
 const DELETE_USER_MUTATION = gql`
   mutation DeleteUser($id: Int!) {
-    deleteUser(id: $id)
+    deleteUser(id: $id) {
+      id
+      name
+      createdAt
+      age
+      address
+    }
   }
 `;
 
