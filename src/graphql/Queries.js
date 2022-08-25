@@ -13,8 +13,8 @@ const GET_USERS_QUERY = gql`
 `;
 
 const GET_USER_QUERY = gql`
-  query User($id: Int!) {
-    user(id: $id) {
+  query User($input: Int!) {
+    user(input: $input) {
       id
       name
       createdAt
