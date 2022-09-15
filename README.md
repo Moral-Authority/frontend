@@ -10,6 +10,10 @@ Built with:
 
 ## Get Started
 
+If you've never contributed to a group repo before please use this guide: 
+
+https://www.notion.so/purcell3a/Frontend-Making-an-Endpoint-c50d1947940c4f2eabf683453d2b6e67
+
 Clone this repository using Git:
 
 ```
