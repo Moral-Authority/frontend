@@ -275,7 +275,7 @@ const CreateUser = () => {
 export default CreateUser;
 ```
 
-And for updating user info we'll do:
+And for updating the user:
 
 ```js
 import { UPDATE_USER_MUTATION } from '../graphql/Mutations';
@@ -293,7 +293,7 @@ updateUser({
 });
 ```
 
-Now if we want ot delete a user we have to provide the current user `id` as an argument.
+Now, to delete a user we'll just have to provide the current user `id` as an argument.
 
 ```js
 import { DELETE_USER_MUTATION } from '../graphql/Mutations';
