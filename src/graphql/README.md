@@ -4,7 +4,7 @@ In this guide, I'll show you how to create and consume GraphQL APIs.
 
 ## Defining Schema
 
-our GraphQL server uses a schema to describe the shape of your available data. This schema defines a hierarchy of types with fields that are populated from your back-end data stores. The schema also specifies exactly which queries and mutations are available for clients to execute.
+Our GraphQL server uses a schema to describe the shape of your available data. This schema defines a hierarchy of types with fields that are populated from your back-end data stores. The schema also specifies exactly which queries and mutations are available for clients to execute.
 
 For example, If we want to store a `user`.
 We have to define the schema in our `back-end` like so:
@@ -42,7 +42,7 @@ After that, you'll have to create resolvers to handle these requests. A Resolver
 
 For example, if we want to create a resolver for the `user` query we defined earlier in our schema, we would do something like this.
 
-```
+```js
 const resolvers = {
   Query: {
     user: (parent, args, context, info) => {
@@ -64,7 +64,7 @@ Apollo Client automatically tracks a query's loading and error states, which are
 
 Create a new file called `Queries.js` in the `src/graphql` directory and add the following code:
 
-```
+```js
 import { gql } from '@apollo/client';
 
 const GET_USERS_QUERY = gql`
@@ -98,7 +98,7 @@ Next, let’s implement the component that renders a list of users.
 
 Go to the `src/components` directory, and create a new file called `GetUsers.js`. Then add the following code:
 
-```
+```js
 import { useState, useEffect } from 'react';
 import { useQuery } from '@apollo/client';
 import { GET_USERS_QUERY } from '../graphql/Queries';
@@ -128,7 +128,7 @@ export default GetUsers;
 
 Or, if you want to get a single user.
 
-```
+```js
 import { useState, useEffect } from 'react';
 import { useQuery } from '@apollo/client';
 import { GET_USER_QUERY } from '../graphql/Queries';
@@ -156,13 +156,11 @@ export default GetUser;
 
 ## Mutations in Apollo Client
 
-## Mutate Data with `useMutation`
-
 Now if we want to modify our data, we'll use `useMutation` hook for that.
 
 Create a new file in the `src/graphql` directory and call it `Mutations.js`. Then paste the following code into it:
 
-```
+```js
 import { gql } from '@apollo/client';
 
 const CREATE_USER_MUTATION = gql`
@@ -212,7 +210,7 @@ export { CREATE_USER_MUTATION };
 Now let's say we want to create a new user. so what we'll do is:
 Create a new file in the `src/components` directory and call it `CreateUser.js`. Then paste the following code into it:
 
-```
+```js
 import { useState } from 'react';
 import { useMutation } from '@apollo/client';
 import { CREATE_USER_MUTATION } from '../graphql/Mutations';
@@ -279,7 +277,7 @@ export default CreateUser;
 
 And for updating user info we'll do:
 
-```
+```js
 import { UPDATE_USER_MUTATION } from '../graphql/Mutations';
 
 const [updateUser, { loading, error, data }] =
@@ -297,7 +295,7 @@ updateUser({
 
 Now if we want ot delete a user we have to provide the current user `id` as an argument.
 
-```
+```js
 import { DELETE_USER_MUTATION } from '../graphql/Mutations';
 
 const [deleteUser, { loading, error, data }] =
