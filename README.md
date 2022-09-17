@@ -10,10 +10,7 @@ Built with:
 
 ## Get Started
 
-If you've never contributed to a group repo before please use this guide: 
-
-https://www.notion.so/purcell3a/Frontend-Making-an-Endpoint-c50d1947940c4f2eabf683453d2b6e67
-
+If you've never contributed to a group repo before please use this guide: [ Your first Pull Request ]( https://github.com/howstrongiam/frontend/wiki/Find-or-Create-An-Issue )
 Clone this repository using Git:
 
 ```
