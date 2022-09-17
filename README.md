@@ -2,6 +2,10 @@
 
 `Password: qwerty`
 
+## Helpful Links
+- [ Your first Pull Request ]( https://github.com/howstrongiam/frontend/wiki/Find-or-Create-An-Issue )
+- [ Making your first endpoint ]( https://github.com/howstrongiam/frontend/wiki/Find-or-Create-An-Issue](https://github.com/howstrongiam/frontend/tree/main/src/graphql )
+
 Built with:
 
 - React
