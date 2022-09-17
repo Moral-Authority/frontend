@@ -9,6 +9,7 @@ export const App = () => {
       <Header />
       <LandingPage />
       <Footer />
-    </ProtectedRoute>
+  </ProtectedRoute>
+
   );
 };

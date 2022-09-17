@@ -1,0 +1,68 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+
+/* NavBar */
+.navHeader {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    padding: 20px 50px;
+}
+.logo {
+    margin-right: auto;
+}
+.navHeader li {
+    list-style: none;
+    display: inline-block;
+    padding: 0 20px;
+}
+
+.searchbar{
+margin: 0 auto;
+margin-left: 100px;
+text-align: center;
+align-items: center;
+display: flex;
+justify-content: center;
+}
+
+.departments {
+    display: flex;
+    justify-content: center;
+    padding: 10px 50px;
+    background-color: darkgray;
+    color: white;
+}
+
+.departments li {
+    list-style: none;
+    display: inline-block;
+    padding: 0 20px;
+}
+
+
+
+
+/* NavBar media query */
+@media only screen and (max-width: 600px) {
+
+
+    .responsive-Nav, .logo, .navHeader li, .searchbar, .departments {
+        margin: 0 auto;
+        text-align: center;
+        flex-direction: column;
+        display: flex;
+        justify-content: center;
+    }
+}
+
+
+
+/* Landing Page */
+.user {
+display: flex;
+justify-content: center;
+}
