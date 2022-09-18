@@ -66,3 +66,27 @@ justify-content: center;
 display: flex;
 justify-content: center;
 }
+
+
+/* /..protectiveRoute../ */
+
+.protectiveRoute {
+ display: flex;
+ justify-content: center;
+ margin: 400px auto;
+}
+/*....protectiveRoute Media query */
+@media only screen and (max-width: 600px) {
+    .protectiveRoute {
+        margin: 250px auto;
+        text-align: center;
+    }
+}
+
+.center {
+    margin: 0 auto;
+    display: flex;
+    justify-content: center;
+}
+
+/*...................................*/

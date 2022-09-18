@@ -1,5 +1,6 @@
 import { useRef } from "react";
 
+
 const PASSWORD = 'qwerty';
 
 export const ProtectedRouteForm = ({ onAccessGranted }) => {
@@ -13,18 +14,30 @@ export const ProtectedRouteForm = ({ onAccessGranted }) => {
 		if (onAccessGranted && password === PASSWORD) {
 			onAccessGranted();
 		}
+		else {
+			alert("password is incorrect!!!")
+		}
 	}
 
 	return (
+		<div className="protectiveRoute">
+	
 		<form onSubmit={handleSubmit}>
+		
+		<h1>JUSTCORPZ</h1>
+		<div className="center">
 			<input
 				type="password"
 				placeholder="Password"
 				ref={passwordInputRef}
 			/>
-			<button type="submit">
+			</div>
+			<div className="center">
+			<button type="submit" >
 				Submit
 			</button>
+			</div>
 		</form>
+		</div>
 	)
 }
