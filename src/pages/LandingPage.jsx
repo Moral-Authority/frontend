@@ -1,16 +1,12 @@
-import CreateUser from '../components/CreateUser';
-import GetUsers from '../components/GetUsers';
-
+import React from "react";
+import OurMissionLeft from "../img/OurMissionLeft.png"
+import OurMissionRight from "../img/OurMissionRight.png"
 const LandingPage = () => {
   return (
-    <div className='user'>
-    <div style={{ marginTop: 100 }}>
-      <CreateUser />
-      <h2>List of Users</h2>
-      <GetUsers />
-    </div>
+    <div className='landingPageConatiner'>
+      <img src={OurMissionLeft} alt="left"  className="img-left"/>
+      <img src={OurMissionRight} alt="right"  className="img-right"/>
     </div>
   );
 };
-
 export default LandingPage;
