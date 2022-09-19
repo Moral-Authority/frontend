@@ -1,5 +1,6 @@
 import { useState } from "react"
 import { ProtectedRouteForm } from "./ProtectedRouteForm";
+import './protectedRoute.css';
 
 export const ProtectedRoute = ({ children }) => {
 	const [showPage, setShowPage] = useState(false);

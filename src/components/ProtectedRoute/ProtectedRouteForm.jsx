@@ -24,19 +24,25 @@ export const ProtectedRouteForm = ({ onAccessGranted }) => {
 	
 		<form onSubmit={handleSubmit}>
 		
-		<h1>JUSTCORPZ</h1>
-		<div className="center">
-			<input
-				type="password"
-				placeholder="Password"
-				ref={passwordInputRef}
-			/>
-			</div>
+			<h1>JUSTCORPZ</h1>
+
 			<div className="center">
-			<button type="submit" >
-				Submit
-			</button>
+
+				<input
+					type="password"
+					className="formInput"
+					placeholder="Password"
+					ref={passwordInputRef}
+				/>
+
 			</div>
+
+			<div className="center">
+
+				<button className="btn submit">Submit</button>
+
+			</div>
+
 		</form>
 		</div>
 	)
