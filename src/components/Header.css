@@ -3,7 +3,21 @@
   left: 0;
   top: 0; */
   /* width: 100%; */
-  background-color: rgb(159, 155, 167);
+  background-color:rgb(42, 41, 45);
   color: white;
   text-align: center;
+}
+
+.departments {
+  display: flex;
+  justify-content: center;
+  padding: 10px 50px;
+  background-color: #c6640ed4;
+  color: white;
+}
+
+.departments li {
+  list-style: none;
+  display: inline-block;
+  padding: 0 20px;
 }

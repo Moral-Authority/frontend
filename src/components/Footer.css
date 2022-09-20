@@ -3,7 +3,48 @@
   left: 0;
   bottom: 0;
   width: 100%;
-  background-color: rgb(159, 155, 167);
+  background-color: #2a292d;
   color: white;
   text-align: center;
+}
+
+img {
+  padding: .5rem;
+}
+
+/* Container for flexboxes */
+.row {
+  display: -webkit-flex;
+  display: flex;
+  padding: 1.25em;
+}
+
+/* Create three equal columns that sits next to each other */
+.column-founders {
+  -webkit-flex: 1;
+  -ms-flex: 1;
+  flex: 2;
+  /* height: 300px;  */
+}
+
+.column-links {
+  -webkit-flex: 1;
+  -ms-flex: 1;
+  flex: 1;
+  /* height: 300px;  */
+}
+
+.column-social{
+  -webkit-flex: 1;
+  -ms-flex: 1;
+  flex: 1;
+  /* height: 300px;  */
+}
+
+.footerSocial {
+  flex-direction: column;
+}
+
+.footerSocial a {
+  color: white;
 }
