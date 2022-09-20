@@ -60,7 +60,7 @@ justify-content: center;
 }
 
 /* Landing Page */
-.landingPageConatiner {
+.landingPageContainer {
 display: flex;
 justify-content: center;
 border: solid 1px lightgray;
@@ -73,7 +73,7 @@ border: solid 1px lightgray;
 
 
 @media only screen and (max-width: 600px) {
-    .landingPageConatiner {
+    .landingPageContainer {
       display: flex;
       flex-direction: column;
       text-align: center;
