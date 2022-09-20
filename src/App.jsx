@@ -8,7 +8,6 @@ import LandingPage from './pages/LandingPage';
 export const App = () => {
   return (
     <ProtectedRoute>
-      <div>
         <Router>
       <Header />
       <Routes>
@@ -16,8 +15,6 @@ export const App = () => {
       </Routes>
       <Footer />
       </Router>
-      </div>
   </ProtectedRoute>
-
   );
 };
