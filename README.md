@@ -4,7 +4,7 @@
 
 ## Helpful Links
 - [ Your first Pull Request ]( https://github.com/howstrongiam/frontend/wiki/Find-or-Create-An-Issue )
-- [ Making your first endpoint ]( https://github.com/howstrongiam/frontend/wiki/Find-or-Create-An-Issue](https://github.com/howstrongiam/frontend/tree/main/src/graphql )
+- [ Making your first endpoint ](https://github.com/howstrongiam/frontend/blob/main/src/graphql/README.md)
 
 Built with:
 
