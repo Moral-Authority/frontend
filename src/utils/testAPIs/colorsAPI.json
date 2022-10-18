@@ -1,0 +1,24 @@
+{
+  "colors": [
+    {
+      "title": "PINK",
+      "value": "#FF86A3"
+    },
+    {
+      "title": "PURPLE",
+      "value": "#B486FF"
+    },
+    {
+      "title": "ORANGE",
+      "value": "#FFB186"
+    },
+    {
+      "title": "GREEN",
+      "value": "#79B847"
+    },
+    {
+      "title": "BLUE",
+      "value": "#86A1FF"
+    }
+  ]
+}

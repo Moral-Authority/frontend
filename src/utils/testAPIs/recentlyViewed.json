@@ -1,0 +1,16 @@
+{
+  "items": [
+    {
+      "imgSrc": "img/model1.png",
+      "category": "Clothing",
+      "title": "Short T-Shirt",
+      "price": 234
+    },
+    {
+      "imgSrc": "img/model2.png",
+      "category": "Clothing",
+      "title": "Short T-Shirt",
+      "price": 234
+    }
+  ]
+}
