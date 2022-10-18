@@ -1,35 +1,16 @@
-import './Header.css';
+import { useStateValue } from "@/utils/stateProvider/useStateValue";
+import MainNav from "./Navbar/MainNav";
+import MobileNav from "./Navbar/MobileNav";
 
-const Header = () => {
+const Header = ({ userLoggedIn = false }) => {
+  const [{ navMenu }] = useStateValue();
   return (
     <div>
-      <div>
-
-        <header className="navHeader header responsive-Nav">
-          <h1 className="logo">Logo</h1>
-          <div className='searchbar'>
-       <label for="site-search">Search the site:</label>
-                <input type="search" id="site-search" name="q" />
-
-                <button>Search</button>
-          </div>
-          <nav>
-            <ul className="navbar">
-              <li>Login</li>
-             
-              <li>Register</li>
-            </ul>
-          </nav>
-        </header>
-        <div className='departments'>
-            <ul>
-              <li>Welcome</li>
-              <li>Featured Businesses</li>
-              <li>Contact Us</li>
-              <li>More</li>
-            </ul>
-            </div>
-      </div>
+      {!navMenu ? (
+        <MainNav userLoggedIn={userLoggedIn} />
+      ) : (
+        <MobileNav userLoggedIn={userLoggedIn} />
+      )}
     </div>
   );
 };

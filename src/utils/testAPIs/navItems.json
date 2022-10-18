@@ -1,0 +1,60 @@
+{
+  "navItems": [
+    {
+      "title": "Shopping",
+      "children": {
+        "items": [
+          {
+            "title": "Online Shopping",
+            "navLink": "/shop"
+          },
+          {
+            "title": "Local Shopping",
+            "navLink": "/shop"
+          }
+        ],
+        "length": 2
+      }
+    },
+    {
+      "title": "Events",
+      "navLink": "/"
+    },
+    {
+      "title": "Self-Care",
+      "navLink": "/"
+    },
+    {
+      "title": "Development",
+      "navLink": "/"
+    },
+    {
+      "title": "Services",
+      "navLink": "/"
+    },
+    {
+      "title": "Clothing",
+      "navLink": "/"
+    },
+    {
+      "title": "Kids & Fur Babies",
+      "navLink": "/"
+    },
+    {
+      "title": "Food & Beverage",
+      "navLink": "/"
+    },
+    {
+      "title": "Home Goods",
+      "navLink": "/shop"
+    },
+    {
+      "title": "Eco-Conscious",
+      "navLink": "/"
+    },
+    {
+      "title": "LGBTQIA+",
+      "navLink": "/"
+    }
+  ]
+}

@@ -3,10 +3,13 @@ import {
   ApolloClient,
   createHttpLink,
   InMemoryCache,
-} from '@apollo/client';
+} from "@apollo/client";
+import reducer from "./utils/stateProvider/reducer";
+import state from "./utils/stateProvider/state";
+import { StateProvider } from "./utils/stateProvider/useStateValue";
 
 const httpLink = createHttpLink({
-  uri: 'http://localhost:8000',
+  uri: "http://localhost:8000",
 });
 
 const client = new ApolloClient({
@@ -15,5 +18,11 @@ const client = new ApolloClient({
 });
 
 export const Providers = ({ children }) => {
-  return <ApolloProvider client={client}>{children}</ApolloProvider>;
+  return (
+    <ApolloProvider client={client}>
+      <StateProvider reducer={reducer} state={state}>
+        {children}
+      </StateProvider>
+    </ApolloProvider>
+  );
 };
