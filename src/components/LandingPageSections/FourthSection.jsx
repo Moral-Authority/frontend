@@ -1,9 +1,9 @@
 import React from "react";
-import ExFm from "images/exfm.png";
-import Gaia from "images/gaia.png";
-import Eyeem from "images/eyeem.png";
-import Tuenti from "images/tuenti.png";
-import MyLife from "images/myLife.png";
+import asba from "images/asba_22-23.png";
+import GPECC from "images/GPECC-logo-1021-sq-BLK.png";
+import Human_Rights from "images/Human_Rights.png";
+import Molly_Tommy from "images/Molly_Tommy_Logo_Color.png";
+// import MyLife from "images/myLife.png";
 const FourthSection = () => {
   return (
     <div className="w-full flex flex-col space-y-10 items-center justify-center bg-white h-[50vh]">
@@ -12,11 +12,11 @@ const FourthSection = () => {
         <h1 className=" text-4xl capitalize font-bold">Our Affiliations</h1>
       </section>
       <section className="flex justify-evenly w-full">
-        <img className="w-[74px] h-[74px] text-gray-500" src={ExFm} alt="" />
-        <img className="w-[74px] h-[74px] text-gray-500" src={Gaia} alt="" />
-        <img className="w-[74px] h-[74px] text-gray-500" src={Eyeem} alt="" />
-        <img className="w-[74px] h-[74px] text-gray-500" src={Tuenti} alt="" />
-        <img className="w-[74px] h-[74px] text-gray-500" src={MyLife} alt="" />
+        <img className="w-[114px] h-[114px] text-gray-500" src={asba} alt="" />
+        <img className="w-[114px] h-[114px] text-gray-500" src={GPECC} alt="" />
+        <img className="w-[114px] h-[114px] text-gray-500" src={Human_Rights} alt="" />
+        <img className="w-[124px] h-[114px] text-gray-500" src={Molly_Tommy} alt="" />
+        {/* <img className="w-[74px] h-[74px] text-gray-500" src={MyLife} alt="" /> */}
       </section>
     </div>
   );

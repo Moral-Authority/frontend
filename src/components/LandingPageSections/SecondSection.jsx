@@ -1,7 +1,7 @@
 import React from "react";
 import { CurrencyDollarIcon } from "@heroicons/react/24/solid";
 import { SocialIcon } from "react-social-icons";
-import ToriSav from "images/toriSav.png";
+import ToriSav from "images/sav&tori.png";
 const SecondSection = () => {
   return (
     <div className="h-[70vh] lg:h-screen flex items-center bg-white px-4 py-8 sm:px-8 sm:py-12 lg:py-12 lg:px-36">
