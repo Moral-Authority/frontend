@@ -24,29 +24,35 @@ const SecondSection = () => {
         </div>
         <div className="flex items-center space-x-4">
           <SocialIcon
-            url="https://facebook.com"
+            url="https://www.instagram.com/howstrongiam.llc/"
+            target="_blank"
+            rel="noopener noreferrer" 
             className=""
             bgColor="black"
             style={{ width: "30px", height: "30px" }}
           />
           <SocialIcon
-            url="https://twitter.com"
+            url="https://www.linkedin.com/company/hsia-justcorpz/"
+            target="_blank"
+            rel="noopener noreferrer" 
             className=""
             bgColor="black"
             style={{ width: "30px", height: "30px" }}
           />
           <SocialIcon
-            url="https://tiktok.com"
+            url="https://www.tiktok.com/@howstrongiam?lang=en"
+            target="_blank"
+            rel="noopener noreferrer" 
             className=""
             bgColor="black"
             style={{ width: "30px", height: "30px" }}
           />
-          <SocialIcon
+          {/* <SocialIcon
             url="https://youtube.com"
             className=""
             bgColor="black"
             style={{ width: "30px", height: "30px" }}
-          />
+          /> */}
         </div>
         <div className="text-[#5F646F] flex items-center space-x-2">
           <CurrencyDollarIcon className="w-6 h-6" />
@@ -54,7 +60,9 @@ const SecondSection = () => {
         </div>
         <div className="flex space-x-5">
           <button className="text-white bg-black w-[158px] h-[46px] text-center">
+            <a href="https://www.paypal.com/donate/?hosted_button_id=K9DZSE7JC8R5Q" target="_blank">
             Support Us
+            </a>
           </button>
 
           <button className="text-black border border-black bg-white w-[158px] h-[46px] text-center">
