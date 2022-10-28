@@ -14,8 +14,8 @@ const FourthSection = () => {
       <section className="flex justify-evenly w-full">
         <img className="w-[114px] h-[114px] text-gray-500" src={asba} alt="" />
         <img className="w-[114px] h-[114px] text-gray-500" src={GPECC} alt="" />
-        <img className="w-[114px] h-[114px] text-gray-500" src={Human_Rights} alt="" />
-        <img className="w-[124px] h-[114px] text-gray-500" src={Molly_Tommy} alt="" />
+        <img className="w-[144px] h-[104px] text-gray-500" src={Human_Rights} alt="" />
+        <img className="w-[144px] h-[94px] text-gray-500" src={Molly_Tommy} alt="" />
         {/* <img className="w-[74px] h-[74px] text-gray-500" src={MyLife} alt="" /> */}
       </section>
     </div>
