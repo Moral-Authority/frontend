@@ -3,7 +3,6 @@ import asba from "images/asba_22-23.png";
 import GPECC from "images/GPECC-logo-1021-sq-BLK.png";
 import Human_Rights from "images/Human_Rights.png";
 import Molly_Tommy from "images/Molly_Tommy_Logo_Color.png";
-
 // import MyLife from "images/myLife.png";
 const FourthSection = () => {
   return (
