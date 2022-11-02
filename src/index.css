@@ -39,6 +39,8 @@ justify-content: center;
 
 
 
+
+
 /* NavBar media query */
 @media only screen and (max-width: 600px) {
 
@@ -103,4 +105,11 @@ border: solid 1px lightgray;
     justify-content: center;
 }
 
-/*...................................*/
+/* ..............affiliations_mobile..............  */
+
+@media only screen and (max-width: 600px) {
+    .affiliations_mobile {
+      width: 74px;
+      height: 74px;
+    }
+}
