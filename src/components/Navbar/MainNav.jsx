@@ -5,6 +5,7 @@ import { Bars3Icon } from "@heroicons/react/24/solid";
 import { useStateValue } from "@/utils/stateProvider/useStateValue";
 import { Link } from "react-router-dom";
 import ProfilePicture from "images/profilePicture.png";
+import Logo from "images/jclogo.jpg";
 
 const MainNav = ({ userLoggedIn }) => {
   const [, dispatch] = useStateValue();
@@ -15,7 +16,8 @@ const MainNav = ({ userLoggedIn }) => {
    md:px-20 xl:px-32"
       >
         <h1 className="text-2xl lg:text-3xl font-bold">
-          Logo<span className="text-[#D6AD60]">.</span>
+        <img className="w-[150px] h-[75px]" src={Logo} alt="" />
+          {/* Logo<span className="text-[#D6AD60]">.</span> */}
         </h1>
         <div className="hidden lg:inline-flex py-1 space-x-2 items-center border-b border-b-black">
           <MagnifyingGlassIcon className="h-6 w-6" />
