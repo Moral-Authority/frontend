@@ -34,11 +34,13 @@ const ThirdSection = () => {
           </div>
           <div className="flex space-x-5 mt-10 sm:mt-14">
             <button className="w-[158px] h-[46px] text-black capitalize bg-[#D6AD60]">
-              Get Started
+              Sign Up
             </button>
-            <button className="w-[158px] h-[46px] text-[#D6AD60] capitalize bg-black border border-[#D6AD60]">
+
+            {/*  TODO Learn more can be implemented when we have blog pages for SEO */}
+            {/* <button className="w-[158px] h-[46px] text-[#D6AD60] capitalize bg-black border border-[#D6AD60]">
               Learn More
-            </button>{" "}
+            </button>{" "} */}
           </div>
         </div>
         <div className="flex w-full lg:w-1/2">

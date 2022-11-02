@@ -22,63 +22,13 @@ const CreateAccountForm = () => {
         "
         >
           <option value="Select user type">Select user type</option>
-          <option value="Free user">Free user</option>
-          <option value="Pro user">Pro User</option>
+          <option value="Free user">User</option>
+          <option value="Pro user">Company</option>
         </select>
       </div>
 
-      <div className="flex flex-col space-y-1">
-        <label className="text-[#777D88]">Comapny Name</label>
-        <input
-          type="text"
-          className="border border-[#E3E7F4] px-4 py-2 placeholder:text-[#777D88]/30 focus:outline-none outline-none"
-          placeholder="Enter company name"
-        />
-      </div>
-
-      <div className="flex flex-col space-y-1">
-        <label className="text-[#777D88]">Location</label>
-        <input
-          type="text"
-          className="border border-[#E3E7F4] px-4 py-2 placeholder:text-[#777D88]/30 focus:outline-none outline-none"
-          placeholder="Enter location"
-        />
-      </div>
-
-      <div className="flex flex-col space-y-1">
-        <label className="text-[#777D88]">Company URL</label>
-        <input
-          type="url"
-          className="border border-[#E3E7F4] px-4 py-2 placeholder:text-[#777D88]/30 focus:outline-none outline-none"
-          placeholder="Enter company url"
-        />
-      </div>
-
-      <div className="flex flex-col space-y-1">
-        <label className="text-[#777D88]">Photo</label>
-        <div className="flex items-center justify-between border border-[#E3E7F4] px-4 py-2 ">
-          <div className="flex space-x-2">
-            <CameraIcon className="h-6 w-6 text-[#798086]" />
-            <label htmlFor="userPhoto" className="text-[#798086]">
-              Upload photo here
-            </label>
-          </div>
-          <label htmlFor="userPhoto">
-            <ArrowUpTrayIcon className="h-6 w-6 text-[#798086]" />
-          </label>
-        </div>
-        <input
-          type="file"
-          id="userPhoto"
-          accept="image/*"
-          className="hidden border border-[#E3E7F4] px-4 py-2 placeholder:text-[#777D88]/30 focus:outline-none outline-none"
-          placeholder="Upload photo here"
-        />
-      </div>
-
-      <div className="flex flex-col space-y-1">
-        <label className="text-[#777D88]">Proof of membership</label>
-
+      {/* <div className="flex flex-col space-y-1">
+        <label className="text-[#777D88]">Logo</label>
         <div className="flex items-center justify-between border border-[#E3E7F4] px-4 py-2 ">
           <div className="flex space-x-2">
             <CameraIcon className="h-6 w-6 text-[#798086]" />
@@ -97,10 +47,10 @@ const CreateAccountForm = () => {
           className="hidden border border-[#E3E7F4] px-4 py-2 placeholder:text-[#777D88]/30 focus:outline-none outline-none"
           placeholder="Upload photo here"
         />
-      </div>
+      </div> */}
 
       <div className="flex flex-col space-y-1">
-        <label className="text-[#777D88]">First name</label>
+        <label className="text-[#777D88]">First Name</label>
         <input
           type="text"
           className="border border-[#E3E7F4] px-4 py-2 placeholder:text-[#777D88]/30 focus:outline-none outline-none"
@@ -109,7 +59,7 @@ const CreateAccountForm = () => {
       </div>
 
       <div className="flex flex-col space-y-1">
-        <label className="text-[#777D88]">Last name</label>
+        <label className="text-[#777D88]">Last Name</label>
         <input
           type="text"
           className="border border-[#E3E7F4] px-4 py-2 placeholder:text-[#777D88]/30 focus:outline-none outline-none"
