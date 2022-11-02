@@ -8,7 +8,6 @@ const Signup = () => {
       <section className="w-full lg:w-1/2 flex flex-col py-10 px-8 sm:py-24 sm:px-36 items-start mx-auto bg-white min-h-screen">
         <h1 className="text-3xl">Hi, Welcome!</h1>
         <p className="text-sm sm:text-base text-[#777D88] mt-2">
-          Welcome!, please enter your details to register
         </p>
         <CreateAccountForm />
       </section>
