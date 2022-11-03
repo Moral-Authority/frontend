@@ -5,10 +5,11 @@ import { Bars3Icon } from "@heroicons/react/24/solid";
 import { useStateValue } from "@/utils/stateProvider/useStateValue";
 import { Link } from "react-router-dom";
 import ProfilePicture from "images/profilePicture.png";
+import Controller from "images/controller.png";
 import Logo from "images/jclogo.jpg";
 
 const MainNav = ({ userLoggedIn }) => {
-  const [, dispatch] = useStateValue();
+  const [{ userProfile }, dispatch] = useStateValue();
   return (
     <div>
       <header
@@ -16,7 +17,7 @@ const MainNav = ({ userLoggedIn }) => {
    md:px-20 xl:px-32"
       >
         <h1 className="text-2xl lg:text-3xl font-bold">
-        <img className="w-[150px] h-[75px]" src={Logo} alt="" />
+          <img className="w-[150px] h-[75px]" src={Logo} alt="" />
           {/* Logo<span className="text-[#D6AD60]">.</span> */}
         </h1>
         <div className="hidden lg:inline-flex py-1 space-x-2 items-center border-b border-b-black">
@@ -45,11 +46,18 @@ const MainNav = ({ userLoggedIn }) => {
               </li>
 
               <li>
-                <Link to="/profile">
-                  <div className="h-14 bg-[#D6AD60]/20 w-14 rounded-full">
+                <Link
+                  to="/profile"
+                  onClick={() =>
+                    dispatch({
+                      type: "CHANGE_USER_PROFILE",
+                    })
+                  }
+                >
+                  <div className="h-14 w-14 rounded-full">
                     <img
-                      src={ProfilePicture}
-                      className="w-full h-full object-cover"
+                      src={userProfile ? ProfilePicture : Controller}
+                      className="w-full h-full object-cover rounded-full"
                       alt="profilePicture"
                     />
                   </div>

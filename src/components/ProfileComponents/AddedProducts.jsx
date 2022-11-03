@@ -1,6 +1,7 @@
 import { ChevronLeftIcon } from "@heroicons/react/24/outline";
 import React from "react";
-import { useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
+import Product from "../Products/Product";
 
 const AddedProducts = () => {
   const navigate = useNavigate();
@@ -15,6 +16,28 @@ const AddedProducts = () => {
         </div>
         <p className="text-center">Added Products</p>
       </div>
+      <div className="w-full flex justify-end">
+        <Link to={"/profile/add-product"}>
+          <button className="px-6 py-3 bg-[#D6AD60] text-black">
+            + Add a product
+          </button>
+        </Link>
+      </div>
+      <Product approved={true} favorite={false} />
+      <Product approved={false} favorite={false} />
+      <Product approved={false} favorite={false} />
+      <Product approved={false} favorite={false} />
+      <Product approved={false} favorite={false} />
+      <Product approved={false} favorite={false} />
+      <Product approved={false} favorite={false} />
+      <Product approved={false} favorite={false} />
+      <Product approved={false} favorite={false} />
+      <Product approved={false} favorite={false} />
+      <Product approved={false} favorite={false} />
+      <Product approved={false} favorite={false} />
+      <Product approved={false} favorite={false} />
+      <Product approved={false} favorite={false} />
+      <Product approved={false} favorite={false} />
     </div>
   );
 };

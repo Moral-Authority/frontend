@@ -16,21 +16,21 @@ const FavoritedProducts = () => {
         </div>
         <p className="text-center">Favorited Products</p>
       </div>
-      <Product approved={true} />
-      <Product approved={false} />
-      <Product approved={false} />
-      <Product approved={false} />
-      <Product approved={false} />
-      <Product approved={false} />
-      <Product approved={false} />
-      <Product approved={false} />
-      <Product approved={false} />
-      <Product approved={false} />
-      <Product approved={false} />
-      <Product approved={false} />
-      <Product approved={false} />
-      <Product approved={false} />
-      <Product approved={false} />
+      <Product approved={true} favorite={true} />
+      <Product approved={false} favorite={true} />
+      <Product approved={false} favorite={true} />
+      <Product approved={false} favorite={true} />
+      <Product approved={false} favorite={true} />
+      <Product approved={false} favorite={true} />
+      <Product approved={false} favorite={true} />
+      <Product approved={false} favorite={true} />
+      <Product approved={false} favorite={true} />
+      <Product approved={false} favorite={true} />
+      <Product approved={false} favorite={true} />
+      <Product approved={false} favorite={true} />
+      <Product approved={false} favorite={true} />
+      <Product approved={false} favorite={true} />
+      <Product approved={false} favorite={true} />
     </div>
   );
 };
