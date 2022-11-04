@@ -19,7 +19,7 @@ const AddedProducts = () => {
       <div className="w-full flex justify-center sm:justify-end">
         <Link to={"/profile/add-product"} className="w-full sm:w-fit">
           <button className="px-4 py-2 lg:px-6 lg:py-3 bg-[#D6AD60] text-black w-full">
-            + Add a product
+            <span className="hidden sm:inline">+</span> Add a product
           </button>
         </Link>
       </div>
