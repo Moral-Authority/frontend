@@ -16,9 +16,9 @@ const AddedProducts = () => {
         </div>
         <p className="text-center">Added Products</p>
       </div>
-      <div className="w-full flex justify-end">
-        <Link to={"/profile/add-product"}>
-          <button className="px-6 py-3 bg-[#D6AD60] text-black">
+      <div className="w-full flex justify-center sm:justify-end">
+        <Link to={"/profile/add-product"} className="w-full sm:w-fit">
+          <button className="px-4 py-2 lg:px-6 lg:py-3 bg-[#D6AD60] text-black w-full">
             + Add a product
           </button>
         </Link>
