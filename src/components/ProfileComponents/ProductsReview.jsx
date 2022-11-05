@@ -1,6 +1,7 @@
 import { ChevronLeftIcon } from "@heroicons/react/24/outline";
 import React from "react";
 import { useNavigate } from "react-router-dom";
+import ReviewProductCard from "../Products/ReviewProductCard";
 
 const ProductsReview = () => {
   const navigate = useNavigate();
@@ -14,6 +15,11 @@ const ProductsReview = () => {
           <ChevronLeftIcon className="h-8 w-8" />
         </div>
         <p className="text-center">Product Reviews</p>
+      </div>
+      <div className="w-full h-full">
+        <div>
+          <ReviewProductCard approved={true} />
+        </div>
       </div>
     </div>
   );

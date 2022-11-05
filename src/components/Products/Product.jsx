@@ -3,7 +3,7 @@ import Chair from "images/chair.png";
 import { HeartIcon } from "@heroicons/react/24/solid";
 import { HeartIcon as HeartEmpty } from "@heroicons/react/24/outline";
 
-const Product = ({ approved, favorite = false }) => {
+const ProductCard = ({ approved, favorite = false }) => {
   const [liked, setliked] = useState(favorite ? true : false);
   return (
     <div className="w-full h-[170px] flex border-2 p-2 space-x-2 border-[#EDEFF6]">
@@ -51,4 +51,4 @@ const Product = ({ approved, favorite = false }) => {
   );
 };
 
-export default Product;
+export default ProductCard;

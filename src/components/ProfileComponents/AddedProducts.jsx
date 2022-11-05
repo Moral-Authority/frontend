@@ -1,7 +1,7 @@
 import { ChevronLeftIcon } from "@heroicons/react/24/outline";
 import React from "react";
 import { Link, useNavigate } from "react-router-dom";
-import Product from "../Products/Product";
+import ProductCard from "../Products/Product";
 
 const AddedProducts = () => {
   const navigate = useNavigate();
@@ -23,21 +23,21 @@ const AddedProducts = () => {
           </button>
         </Link>
       </div>
-      <Product approved={true} favorite={false} />
-      <Product approved={false} favorite={false} />
-      <Product approved={false} favorite={false} />
-      <Product approved={false} favorite={false} />
-      <Product approved={false} favorite={false} />
-      <Product approved={false} favorite={false} />
-      <Product approved={false} favorite={false} />
-      <Product approved={false} favorite={false} />
-      <Product approved={false} favorite={false} />
-      <Product approved={false} favorite={false} />
-      <Product approved={false} favorite={false} />
-      <Product approved={false} favorite={false} />
-      <Product approved={false} favorite={false} />
-      <Product approved={false} favorite={false} />
-      <Product approved={false} favorite={false} />
+      <ProductCard approved={true} favorite={false} />
+      <ProductCard approved={false} favorite={false} />
+      <ProductCard approved={false} favorite={false} />
+      <ProductCard approved={false} favorite={false} />
+      <ProductCard approved={false} favorite={false} />
+      <ProductCard approved={false} favorite={false} />
+      <ProductCard approved={false} favorite={false} />
+      <ProductCard approved={false} favorite={false} />
+      <ProductCard approved={false} favorite={false} />
+      <ProductCard approved={false} favorite={false} />
+      <ProductCard approved={false} favorite={false} />
+      <ProductCard approved={false} favorite={false} />
+      <ProductCard approved={false} favorite={false} />
+      <ProductCard approved={false} favorite={false} />
+      <ProductCard approved={false} favorite={false} />
     </div>
   );
 };

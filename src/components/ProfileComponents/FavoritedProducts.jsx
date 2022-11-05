@@ -1,7 +1,7 @@
 import { ChevronLeftIcon } from "@heroicons/react/24/outline";
 import React from "react";
 import { useNavigate } from "react-router-dom";
-import Product from "../Products/Product";
+import ProductCard from "../Products/Product";
 
 const FavoritedProducts = () => {
   const navigate = useNavigate();
@@ -16,21 +16,21 @@ const FavoritedProducts = () => {
         </div>
         <p className="text-center">Favorited Products</p>
       </div>
-      <Product approved={true} favorite={true} />
-      <Product approved={false} favorite={true} />
-      <Product approved={false} favorite={true} />
-      <Product approved={false} favorite={true} />
-      <Product approved={false} favorite={true} />
-      <Product approved={false} favorite={true} />
-      <Product approved={false} favorite={true} />
-      <Product approved={false} favorite={true} />
-      <Product approved={false} favorite={true} />
-      <Product approved={false} favorite={true} />
-      <Product approved={false} favorite={true} />
-      <Product approved={false} favorite={true} />
-      <Product approved={false} favorite={true} />
-      <Product approved={false} favorite={true} />
-      <Product approved={false} favorite={true} />
+      <ProductCard approved={true} favorite={true} />
+      <ProductCard approved={false} favorite={true} />
+      <ProductCard approved={false} favorite={true} />
+      <ProductCard approved={false} favorite={true} />
+      <ProductCard approved={false} favorite={true} />
+      <ProductCard approved={false} favorite={true} />
+      <ProductCard approved={false} favorite={true} />
+      <ProductCard approved={false} favorite={true} />
+      <ProductCard approved={false} favorite={true} />
+      <ProductCard approved={false} favorite={true} />
+      <ProductCard approved={false} favorite={true} />
+      <ProductCard approved={false} favorite={true} />
+      <ProductCard approved={false} favorite={true} />
+      <ProductCard approved={false} favorite={true} />
+      <ProductCard approved={false} favorite={true} />
     </div>
   );
 };
