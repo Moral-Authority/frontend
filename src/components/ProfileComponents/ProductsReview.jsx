@@ -17,7 +17,8 @@ const ProductsReview = () => {
         <p className="text-center">Product Reviews</p>
       </div>
       <div className="w-full h-full">
-        <div>
+        <div className="flex flex-col space-y-5">
+          <ReviewProductCard approved={true} />
           <ReviewProductCard approved={true} />
         </div>
       </div>
