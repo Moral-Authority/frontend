@@ -18,25 +18,38 @@ const SecondSection = () => {
         </div>
         <div className="text-[#5F646F] leading-[35px]">
           <p>
-          <p>This project is dedicated to the disparity of our most valuable resource, Time.</p> 
-          <br></br>
-          <p>With lower income individuals and minorities being the most affected and least equiped to participate in
-              decisions made by corporations and politicians the need for better resources is clear.</p>
-          <br></br>
-          <p>We have seen statistically in our most recent elections that the people of our country are active, engaged
-              and motivated. Yet not everyone has the time or resources to influence the corporate world they way we do so
-              every four years with our vote.</p>
-              <br></br>
-          <p>We're building JustCorpz as a public resource, for individuals to easily find companies and products which match their
-              values. As JustCorpz grows we see it becoming a source of trusted information empowering individuals to have impact with their
-              purchases.</p>
+            <span>
+              This project is dedicated to the disparity of our most valuable
+              resource, Time.
+            </span>
+            <br></br>
+            <span>
+              With lower income individuals and minorities being the most
+              affected and least equiped to participate in decisions made by
+              corporations and politicians the need for better resources is
+              clear.
+            </span>
+            <br></br>
+            <span>
+              We have seen statistically in our most recent elections that the
+              people of our country are active, engaged and motivated. Yet not
+              everyone has the time or resources to influence the corporate
+              world they way we do so every four years with our vote.
+            </span>
+            <br></br>
+            <span>
+              We're building JustCorpz as a public resource, for individuals to
+              easily find companies and products which match their values. As
+              JustCorpz grows we see it becoming a source of trusted information
+              empowering individuals to have impact with their purchases.
+            </span>
           </p>
         </div>
         <div className="flex items-center space-x-4">
           <SocialIcon
             url="https://www.instagram.com/howstrongiam.llc/"
             target="_blank"
-            rel="noopener noreferrer" 
+            rel="noopener noreferrer"
             className=""
             bgColor="black"
             style={{ width: "30px", height: "30px" }}
@@ -44,7 +57,7 @@ const SecondSection = () => {
           <SocialIcon
             url="https://www.linkedin.com/company/hsia-justcorpz/"
             target="_blank"
-            rel="noopener noreferrer" 
+            rel="noopener noreferrer"
             className=""
             bgColor="black"
             style={{ width: "30px", height: "30px" }}
@@ -52,7 +65,7 @@ const SecondSection = () => {
           <SocialIcon
             url="https://www.tiktok.com/@howstrongiam?lang=en"
             target="_blank"
-            rel="noopener noreferrer" 
+            rel="noopener noreferrer"
             className=""
             bgColor="black"
             style={{ width: "30px", height: "30px" }}
@@ -65,13 +78,16 @@ const SecondSection = () => {
           /> */}
         </div>
         {/* <div className="text-[#5F646F] flex items-center space-x-2"> */}
-          {/* <CurrencyDollarIcon className="w-6 h-6" /> */}
-          {/* <p>Payments Accepted</p> */}
+        {/* <CurrencyDollarIcon className="w-6 h-6" /> */}
+        {/* <p>Payments Accepted</p> */}
         {/* </div> */}
         <div className="flex space-x-5">
           <button className="text-white bg-black w-[158px] h-[46px] text-center">
-            <a href="https://www.paypal.com/donate/?hosted_button_id=K9DZSE7JC8R5Q" target="_blank">
-            Support Us
+            <a
+              href="https://www.paypal.com/donate/?hosted_button_id=K9DZSE7JC8R5Q"
+              target="_blank"
+            >
+              Support Us
             </a>
           </button>
 

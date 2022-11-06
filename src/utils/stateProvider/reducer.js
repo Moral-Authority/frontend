@@ -6,6 +6,9 @@ const reducer = (state, action) => {
         case "SHOP_FILTERS_TOGGLE":
             state = { ...state, shopFiltersToggle: !state.shopFiltersToggle }
             return state
+        case "CHANGE_USER_PROFILE":
+            state = { ...state, userProfile: !state.userProfile }
+            return state;
         default:
             return state;
     }
