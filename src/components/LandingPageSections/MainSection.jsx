@@ -17,18 +17,17 @@ const MainSection = () => {
         </div>
         <div className="text-white text-2xl sm:text-3xl lg:text-5xl font-semibold sm:font-bold leading-snug">
           <p className="">
-            One platform<span className="text-[#D6AD60]">.</span> One Cart
+            One platform<span className="text-[#D6AD60]">.</span> One Resource
             <span className="text-[#D6AD60]">.</span>
           </p>
           <p>
-            One single shipping fee<span className="text-[#D6AD60]">.</span>
+          24/7 Impact<span className="text-[#D6AD60]">.</span>
           </p>
         </div>
         <div className="w-3/4 sm:w-1/2 text-white/80 leading-loose mt-5">
           <p>
-            Just Corpz revolutionize the ability to conveniently access products
-            and services exclusively from business that are committed to
-            positive social and enviromental impacts.
+            A public resource empowering you to conveniently access products and services exclusively from businesses committed to
+            positive social, political and enviromental impacts.
           </p>
         </div>
         <div className="flex items-center space-x-10 mt-16 text-white">
