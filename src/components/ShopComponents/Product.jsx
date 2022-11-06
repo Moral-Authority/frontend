@@ -31,7 +31,7 @@ const Product = ({ index }) => {
         <Link
           className="text-black absolute w-11/12 hidden group-hover:block bottom-5 bg-[#D6AD60] h-12"
           key={index}
-          to="/profile"
+          to="/product"
         >
           <motion.button
             initial={{ opacity: 0 }}

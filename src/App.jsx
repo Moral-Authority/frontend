@@ -13,6 +13,7 @@ import FavoritedProducts from "./components/ProfileComponents/FavoritedProducts"
 import AddProduct from "./components/ProfileComponents/AddProduct";
 import AddedProducts from "./components/ProfileComponents/AddedProducts";
 import ProductsReview from "./components/ProfileComponents/ProductsReview";
+import Product from "./pages/Product";
 
 export const App = () => {
   const [{ navMenu }] = useStateValue();
@@ -30,6 +31,7 @@ export const App = () => {
                 <Route path="/login" element={<Login />} />
                 <Route path="/shop" element={<Shop />} />
                 <Route path="/profile" element={<Profile />} />
+                <Route path="/product" element={<Product />} />
                 <Route path="/profile" element={<Profile />}>
                   <Route index path="add-product" element={<AddProduct />} />
                   <Route path="added" element={<AddedProducts />} />
