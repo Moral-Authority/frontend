@@ -7,7 +7,7 @@ const ProductLink = ({ title, link, className }) => {
     <NavLink
       className={({
         isActive,
-      }) => `flex outline-none justify-between sm:block sm:text-sm lg:text-base sm:text-center
+      }) => `flex outline-none justify-between sm:block sm:text-xs lg:text-base sm:text-center
       ${
         isActive ? "text-black sm:border-b-2 pb-2 border-b-black" : "text-base"
       } ${className}`}

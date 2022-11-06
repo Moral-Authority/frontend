@@ -1,6 +1,7 @@
 import { ChevronLeftIcon } from "@heroicons/react/24/outline";
 import React from "react";
-import { useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
+import ProductCard from "../Products/Product";
 
 const AddedProducts = () => {
   const navigate = useNavigate();
@@ -15,6 +16,28 @@ const AddedProducts = () => {
         </div>
         <p className="text-center">Added Products</p>
       </div>
+      <div className="w-full flex justify-center sm:justify-end">
+        <Link to={"/profile/add-product"} className="w-full sm:w-fit">
+          <button className="px-4 py-2 lg:px-6 lg:py-3 bg-[#D6AD60] text-black w-full">
+            <span className="hidden sm:inline">+</span> Add a product
+          </button>
+        </Link>
+      </div>
+      <ProductCard approved={true} favorite={false} />
+      <ProductCard approved={false} favorite={false} />
+      <ProductCard approved={false} favorite={false} />
+      <ProductCard approved={false} favorite={false} />
+      <ProductCard approved={false} favorite={false} />
+      <ProductCard approved={false} favorite={false} />
+      <ProductCard approved={false} favorite={false} />
+      <ProductCard approved={false} favorite={false} />
+      <ProductCard approved={false} favorite={false} />
+      <ProductCard approved={false} favorite={false} />
+      <ProductCard approved={false} favorite={false} />
+      <ProductCard approved={false} favorite={false} />
+      <ProductCard approved={false} favorite={false} />
+      <ProductCard approved={false} favorite={false} />
+      <ProductCard approved={false} favorite={false} />
     </div>
   );
 };

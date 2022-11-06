@@ -3,8 +3,8 @@ import Chair from "images/chair.png";
 import { HeartIcon } from "@heroicons/react/24/solid";
 import { HeartIcon as HeartEmpty } from "@heroicons/react/24/outline";
 
-const Product = ({ approved }) => {
-  const [liked, setliked] = useState(true);
+const ProductCard = ({ approved, favorite = false }) => {
+  const [liked, setliked] = useState(favorite ? true : false);
   return (
     <div className="w-full h-[170px] flex border-2 p-2 space-x-2 border-[#EDEFF6]">
       <div className="bg-[#F6FBFF] flex w-3/4 lg:w-1/2 justify-center items-center">
@@ -30,7 +30,9 @@ const Product = ({ approved }) => {
         </div>
         <div>
           <p className="text-[#798086] sm:text-xs lg:text-sm flex lg:space-x-2">
-            <span className="hidden lg:block">Remove from favorite</span>
+            <span className="hidden lg:block">
+              {favorite ? "Remove from favorite" : "Add to favorite"}
+            </span>
             {liked ? (
               <HeartIcon
                 onClick={() => setliked(!liked)}
@@ -49,4 +51,4 @@ const Product = ({ approved }) => {
   );
 };
 
-export default Product;
+export default ProductCard;
