@@ -4,6 +4,7 @@ import MainHeading from "../components/ProductPageSections/MainHeading";
 import MainImages from "../components/ProductPageSections/MainImages";
 import ProductDescription from "../components/ProductPageSections/ProductDescription";
 import ProductInfo from "../components/ProductPageSections/ProductInfo";
+import RelatedProducts from "../components/ProductPageSections/RelatedProducts";
 
 const Product = () => {
   const TABS = {
@@ -50,7 +51,9 @@ const Product = () => {
         {activeTab === TABS.DESCRIPTION && <ProductDescription />}
       </section>
       {/* Related Products */}
-      <section></section>
+      <section className="h-full flex flex-col space-y-10 w-full px-36 py-16">
+        <RelatedProducts />
+      </section>
     </div>
   );
 };

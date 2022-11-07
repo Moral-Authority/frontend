@@ -69,7 +69,7 @@ const ProductInfo = () => {
           </div>
         </div>
         <div className="flex space-x-4">
-          <button className="px-10 py-4 bg-[#D6AD60]">Buy Now</button>
+          <button className="px-12 py-3 bg-[#D6AD60]">Buy Now</button>
           <button onClick={() => setliked(!liked)} className="px-4 py-2 border">
             {liked ? (
               <HeartFilled className="h-6 w-6 text-red-500" />
