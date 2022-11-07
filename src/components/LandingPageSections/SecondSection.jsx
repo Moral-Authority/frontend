@@ -23,25 +23,22 @@ const SecondSection = () => {
               resource, Time.
             </span>
             <br></br>
+            <br></br>
             <span>
-              With lower income individuals and minorities being the most
+              Lower income individuals and minorities are the most
               affected and least equiped to participate in decisions made by
-              corporations and politicians the need for better resources is
-              clear.
+              corporations and politicians.
+              <br></br>
+              <br></br>
+              The need for better resources is clear and immediate.
             </span>
             <br></br>
-            <span>
-              We have seen statistically in our most recent elections that the
-              people of our country are active, engaged and motivated. Yet not
-              everyone has the time or resources to influence the corporate
-              world they way we do so every four years with our vote.
-            </span>
             <br></br>
             <span>
-              We're building JustCorpz as a public resource, for individuals to
-              easily find companies and products which match their values. As
+              We're building JustCorpz as a public resource, where people can 
+              easily find companies and products aligned with their values. As
               JustCorpz grows we see it becoming a source of trusted information
-              empowering individuals to have impact with their purchases.
+              empowering individuals to have impact with their purchases 24/7 instead of every four years.
             </span>
           </p>
         </div>
