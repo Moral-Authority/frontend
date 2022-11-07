@@ -5,7 +5,7 @@ import ChairSide from "images/chairSide.png";
 
 const MainImages = () => {
   return (
-    <div className="w-1/2 flex flex-col space-y-2">
+    <div className="w-full md:w-1/2 flex flex-col space-y-2">
       {/* Main Image */}
       <section className="bg-[#F6FBFF]">
         <img src={Chair} className="w-full h-full object-cover" alt="product" />
