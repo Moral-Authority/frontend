@@ -5,7 +5,6 @@ import {
 } from "@heroicons/react/24/outline";
 import React from "react";
 import { useNavigate } from "react-router-dom";
-import UploadWidget from "./UploadWidget";
 
 
 const AddProduct = () => {
@@ -24,7 +23,7 @@ const AddProduct = () => {
 
       <div>
         <form className="flex flex-col space-y-8">
-          {/* <div className="flex flex-col space-y-1">
+          <div className="flex flex-col space-y-1">
             <label className="text-[#777D88]">Product Photos</label>
 
             <div className="flex items-center  h-36 justify-center space-x-20 border border-[#E3E7F4] px-4 py-2 ">
@@ -45,8 +44,7 @@ const AddProduct = () => {
               className="hidden border border-[#E3E7F4] px-4 py-2 placeholder:text-[#777D88]/30 focus:outline-none outline-none"
               placeholder="Upload photo here"
             />
-          </div> */}
-          <UploadWidget />
+          </div>
           <div className="flex flex-col space-y-1">
             <label className="text-[#777D88]">Product name</label>
             <input
