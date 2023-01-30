@@ -89,12 +89,12 @@ const CreateAccountForm = () => {
           Create an account
         </button>
       </div>
-      <div>
+      {/* <div>
         <button className="w-full h-[51px] border border-[#E3E7F4] bg-white text-[#777D88] mt-5  flex items-center justify-center">
           <img src={Google} alt="" />
           <span>Sign up with Google</span>
         </button>
-      </div>
+      </div> */}
       <p>
         Already have an account?{" "}
         <span className="text-[#D6AD60] cursor-pointer">

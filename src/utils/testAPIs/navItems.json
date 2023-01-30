@@ -1,39 +1,45 @@
 {
   "navItems": [
     {
-      "title": "Shopping",
+      "title": "Shops, Restaraunts & Services",
       "children": {
         "items": [
           {
-            "title": "Online Shopping",
+            "title": "Shops",
             "navLink": "/shop"
           },
           {
-            "title": "Local Shopping",
+            "title": "Services",
+            "navLink": "/shop"
+          },
+          {
+            "title": "Restaraunts",
             "navLink": "/shop"
           }
         ],
         "length": 2
       }
     },
+
+
     {
-      "title": "Events",
+      "title": "Home & Garden",
       "navLink": "/"
     },
     {
-      "title": "Self-Care",
+      "title": "Grocery & Household Items",
       "navLink": "/"
     },
     {
-      "title": "Development",
+      "title": "Apparel & Beauty",
       "navLink": "/"
     },
     {
-      "title": "Services",
+      "title": "Kids, Pets & Baby",
       "navLink": "/"
     },
     {
-      "title": "Clothing",
+      "title": "Electronics & Accessories",
       "navLink": "/"
     },
     {
@@ -41,20 +47,12 @@
       "navLink": "/"
     },
     {
-      "title": "Food & Beverage",
+      "title": "Books, Games & Entertainment",
       "navLink": "/"
     },
     {
-      "title": "Home Goods",
+      "title": "Art & Hobby",
       "navLink": "/shop"
-    },
-    {
-      "title": "Eco-Conscious",
-      "navLink": "/"
-    },
-    {
-      "title": "LGBTQIA+",
-      "navLink": "/"
     }
   ]
 }
