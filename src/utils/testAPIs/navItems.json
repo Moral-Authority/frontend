@@ -1,7 +1,7 @@
 {
   "navItems": [
     {
-      "title": "Shops, Restaraunts & Services",
+      "title": "Services",
       "children": {
         "items": [
           {
@@ -27,31 +27,31 @@
       "navLink": "/"
     },
     {
-      "title": "Grocery & Household Items",
+      "title": "Grocery",
       "navLink": "/"
     },
     {
-      "title": "Apparel & Beauty",
+      "title": "Clothing & Accessories",
       "navLink": "/"
     },
     {
-      "title": "Kids, Pets & Baby",
+      "title": "Health, Bath & Beauty",
       "navLink": "/"
     },
     {
-      "title": "Electronics & Accessories",
+      "title": "Toys, Kids & Babies",
       "navLink": "/"
     },
     {
-      "title": "Kids & Fur Babies",
+      "title": "Devices & Electronics",
       "navLink": "/"
     },
     {
-      "title": "Books, Games & Entertainment",
+      "title": "Hobby & Entertainment",
       "navLink": "/"
     },
     {
-      "title": "Art & Hobby",
+      "title": "Pets",
       "navLink": "/shop"
     }
   ]

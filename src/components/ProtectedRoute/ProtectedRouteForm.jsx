@@ -24,7 +24,7 @@ export const ProtectedRouteForm = ({ onAccessGranted }) => {
 	
 		<form onSubmit={handleSubmit}>
 		
-			<h1>JUSTCORPZ</h1>
+			<h1>MORAL AUTHORITY</h1>
 
 			<div className="center">
 

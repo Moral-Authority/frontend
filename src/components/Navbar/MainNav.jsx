@@ -6,7 +6,7 @@ import { useStateValue } from "@/utils/stateProvider/useStateValue";
 import { Link } from "react-router-dom";
 import ProfilePicture from "images/profilePicture.png";
 import Controller from "images/controller.png";
-import Logo from "images/jclogo.jpg";
+import Logo from "images/MoralAuthorityLogo.png";
 
 const MainNav = ({ userLoggedIn }) => {
   const [{ userProfile }, dispatch] = useStateValue();
@@ -18,7 +18,7 @@ const MainNav = ({ userLoggedIn }) => {
       >
         <Link to="/">
         <h1 className="text-2xl lg:text-3xl font-bold">
-          <img className="w-[150px] h-[75px]" src={Logo} alt="" />
+          <img className="w-[] h-[80px]" src={Logo} alt="" />
           {/* Logo<span className="text-[#D6AD60]">.</span> */}
         </h1>
         </Link>

@@ -16,7 +16,7 @@ const ThirdSection = () => {
             <section>
               <ul className="flex flex-col space-y-5 sm:space-y-10 text-[#E1E1E1]/90 list-disc">
                 <li>
-                  Just Corpz is an eCommerce platform that allows consumers to
+                  Moral Authority is an eCommerce platform that allows consumers to
                   shop ethically with the same convenience as Amazon.
                 </li>
                 <li>
