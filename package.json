@@ -2,7 +2,9 @@
   "scripts": {
     "dev": "vite",
     "build": "vite build",
-    "preview": "vite preview"
+    "preview": "vite preview",
+    "heroku-postbuild": "npm run build",
+    "start": "vite preview"
   },
   "dependencies": {
     "@apollo/client": "^3.6.9",
