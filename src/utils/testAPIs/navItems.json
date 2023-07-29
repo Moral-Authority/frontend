@@ -5,15 +5,15 @@
       "children": {
         "items": [
           {
-            "title": "Shops",
+            "title": "Automotive",
             "navLink": "/shop"
           },
           {
-            "title": "Services",
+            "title": "Personal Development",
             "navLink": "/shop"
           },
           {
-            "title": "Restaraunts",
+            "title": "Professional Development",
             "navLink": "/shop"
           }
         ],
@@ -21,38 +21,172 @@
       }
     },
 
-
     {
       "title": "Home & Garden",
-      "navLink": "/"
+      "children": {
+        "items": [
+          {
+            "title": "Home",
+            "navLink": "/shop"
+          },
+          {
+            "title": "Garden",
+            "navLink": "/shop"
+          },
+          {
+            "title": "Other",
+            "navLink": "/shop"
+          }
+        ],
+        "length": 2
+      }
     },
+
     {
       "title": "Grocery",
-      "navLink": "/"
+      "children": {
+        "items": [
+          {
+            "title": "Other",
+            "navLink": "/shop"
+          },
+          {
+            "title": "Other",
+            "navLink": "/shop"
+          },
+          {
+            "title": "Other",
+            "navLink": "/shop"
+          }
+        ],
+        "length": 2
+      }
     },
+
     {
       "title": "Clothing & Accessories",
-      "navLink": "/"
+      "children": {
+        "items": [
+          {
+            "title": "Other",
+            "navLink": "/shop"
+          },
+          {
+            "title": "Other",
+            "navLink": "/shop"
+          },
+          {
+            "title": "Other",
+            "navLink": "/shop"
+          }
+        ],
+        "length": 2
+      }
     },
+
     {
       "title": "Health, Bath & Beauty",
-      "navLink": "/"
+      "children": {
+        "items": [
+          {
+            "title": "Other",
+            "navLink": "/shop"
+          },
+          {
+            "title": "Other",
+            "navLink": "/shop"
+          },
+          {
+            "title": "Other",
+            "navLink": "/shop"
+          }
+        ],
+        "length": 2
+      }
     },
+
     {
       "title": "Toys, Kids & Babies",
-      "navLink": "/"
+      "children": {
+        "items": [
+          {
+            "title": "Other",
+            "navLink": "/shop"
+          },
+          {
+            "title": "Other",
+            "navLink": "/shop"
+          },
+          {
+            "title": "Other",
+            "navLink": "/shop"
+          }
+        ],
+        "length": 2
+      }
     },
+
     {
       "title": "Devices & Electronics",
-      "navLink": "/"
+      "children": {
+        "items": [
+          {
+            "title": "Other",
+            "navLink": "/shop"
+          },
+          {
+            "title": "Other",
+            "navLink": "/shop"
+          },
+          {
+            "title": "Other",
+            "navLink": "/shop"
+          }
+        ],
+        "length": 2
+      }
     },
+
     {
       "title": "Hobby & Entertainment",
-      "navLink": "/"
+      "children": {
+        "items": [
+          {
+            "title": "Other",
+            "navLink": "/shop"
+          },
+          {
+            "title": "Other",
+            "navLink": "/shop"
+          },
+          {
+            "title": "Other",
+            "navLink": "/shop"
+          }
+        ],
+        "length": 2
+      }
     },
+
     {
       "title": "Pets",
-      "navLink": "/shop"
+      "children": {
+        "items": [
+          {
+            "title": "Other",
+            "navLink": "/shop"
+          },
+          {
+            "title": "Other",
+            "navLink": "/shop"
+          },
+          {
+            "title": "Other",
+            "navLink": "/shop"
+          }
+        ],
+        "length": 2
+      }
     }
   ]
 }
