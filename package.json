@@ -7,24 +7,27 @@
     "start": "vite preview --port $PORT",
     "postinstall": "npm run build",
     "serve-heroku": "vite --host 0.0.0.0 --port $PORT preview"
-
   },
   "dependencies": {
     "@apollo/client": "^3.6.9",
+    "@emotion/react": "^11.11.1",
+    "@emotion/styled": "^11.11.0",
     "@fortawesome/fontawesome-svg-core": "^6.2.0",
     "@fortawesome/free-regular-svg-icons": "^6.2.0",
     "@fortawesome/free-solid-svg-icons": "^6.2.0",
     "@fortawesome/react-fontawesome": "^0.2.0",
     "@heroicons/react": "^2.0.12",
+    "@mui/material": "^5.14.3",
     "@vitejs/plugin-react": "^2.0.1",
     "bootstrap": "^5.2.1",
     "framer-motion": "^7.5.3",
     "graphql": "^16.6.0",
+    "node-modules": "^1.0.1",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "react-router-dom": "^6.4.0",
     "react-social-icons": "^5.15.0",
-    "vite": "^3.0.9"
+    "vite": "^3.2.7"
   },
   "devDependencies": {
     "autoprefixer": "^10.4.12",
