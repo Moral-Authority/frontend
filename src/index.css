@@ -114,6 +114,27 @@ border: solid 1px lightgray;
     justify-content: center;
 }
 
+.scrolling-wrapper{
+
+    display: flex;
+    height: 100%;
+    justify-content: space-between;
+    overflow-x: auto;
+
+}
+
+.card{
+    flex-basis: 50%;
+    flex-shrink: 0;
+    height: 100%;
+    /* background-color: aqua; */
+    opacity: 0.4;
+}
+
+.text-4xl capitalize font-bold{
+    text-align: left;
+}
+
 /* ..............affiliations_mobile..............  */
 
 @media only screen and (max-width: 600px) {
