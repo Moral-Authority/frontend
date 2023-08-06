@@ -25,7 +25,7 @@ const MainSection = () => {
           </p>
         </div>
         <div className="w-3/4 sm:w-1/2 text-white/80 leading-loose mt-5">
-          <p>
+          <p className="public-resource">
             A public resource empowering you to conveniently access products and services exclusively from businesses committed to
             positive social, political and enviromental impacts.
           </p>

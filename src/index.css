@@ -62,9 +62,6 @@ justify-content: center;
 .card{
 
     border: 2px solid red;
-    /* position: relative; */
-    /* bottom: 10%; */
-    /* height: 0px !important; */
     
 }
 
@@ -199,6 +196,124 @@ border: solid 1px lightgray;
     top: 115%;
 }
 
+
+/* For 480px */
+
+@media screen and (max-width: 480px) {
+
+    .btn-started, .btn-started-special{
+        position: absolute;
+        top: 73%;
+    }
+
+    .lower-income{
+        font-size: 0.8rem;
+    }
+
+    .moral{
+        font-size: 0.8rem;
+        position: absolute;
+        top: 110%;
+    }
+
+    .font-semibold{
+        font-size: small;
+    }
+    
+}
+
+
+/* For 380px */
+
+@media screen and (max-width: 380px) {
+
+
+    .public-resource{
+        font-size: 80%;
+    }
+
+    .btn-started, .btn-started-special{
+        position: absolute;
+        top: 75%;
+        height: 7%;
+    }
+
+    .lower-income{
+        font-size: 0.7rem;
+    }
+
+    .moral{
+        font-size: 0.7rem;
+        position: absolute;
+        top: 112%;
+    }
+
+    .font-semibold{
+        font-size: 80%;
+    }
+
+    .homepage-icon{
+        margin-top: 70%;
+    }
+
+    .homepage-bg-black-points{
+        font-size: small;
+    }
+    
+    .bottom-btn{
+        height: 10%;
+        padding: 2%;
+    }
+}
+
+
+/* For 380px */
+
+@media screen and (max-width: 320px) {
+
+
+    .public-resource{
+        font-size: 80%;
+    }
+
+    .btn-started, .btn-started-special{
+        position: absolute;
+        top: 75%;
+        height: 7%;
+        width: 35%;
+    }
+
+    .lower-income{
+        font-size: 0.7rem;
+    }
+
+    .moral{
+        font-size: 0.7rem;
+        position: absolute;
+        top: 112%;
+    }
+
+    .font-semibold{
+        font-size: 50%;
+    }
+
+    .homepage-icon{
+        margin-top: 120%;
+    }
+
+    .homepage-bg-black-points{
+        font-size: small;
+    }
+    
+    .bottom-btn{
+        height: 10%;
+        padding: 2%;
+    }
+
+    .font-bold{
+        font-size: 130%;
+    }
+}
 
 
 /* ..............affiliations_mobile..............  */

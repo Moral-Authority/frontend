@@ -41,7 +41,7 @@ const SecondSection = () => {
             url="https://www.instagram.com/"
             target="_blank"
             rel="noopener noreferrer"
-            className=""
+            className="homepage-icon"
             bgColor="black"
             style={{ width: "30px", height: "30px" }}
           />
@@ -49,13 +49,13 @@ const SecondSection = () => {
             url=""
             target="_blank"
             rel="noopener noreferrer"
-            className=""
+            className="homepage-icon"
             bgColor="black"
             style={{ width: "30px", height: "30px" }}
           />
           <SocialIcon
             url="https://youtube.com"
-            className=""
+            className="homepage-icon"
             bgColor="black"
             style={{ width: "30px", height: "30px" }}
           />
