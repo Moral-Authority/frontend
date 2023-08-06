@@ -6,9 +6,12 @@ const ThirdSection = () => {
     <div className="min-h-screen lg:h-screen text-white px-8 py-9 sm:px-12 sm:py-14 lg:py-14 lg:px-36 w-full bg-black">
       <section className="flex w-full items-center space-x-5">
         <h1 className="text-2xl sm:text-3xl lg:text-4xl capitalize font-semibold lg:font-bold">
-          How we achieve this <span className="text-[#E8A94A]">mission</span>
+          How we achieve this
         </h1>
         <div className="w-[154px] lg:w-[60px] border-2 border-[#D6AD60]"></div>
+        <h1 className="text-1xl sm:text-3xl lg:text-4xl capitalize font-semibold lg:font-bold">
+          Mission
+        </h1>
       </section>
       <section className="flex flex-col lg:flex-row w-full lg:space-x-10">
         <div className="w-full lg:w-1/2 ">
@@ -16,8 +19,8 @@ const ThirdSection = () => {
             <section>
               <ul className="flex flex-col space-y-5 sm:space-y-10 text-[#E1E1E1]/90 list-disc">
                 <li>
-                  Moral Authority is an eCommerce platform that allows consumers to
-                  shop ethically with the same convenience as Amazon.
+                  Moral Authority is an eCommerce platform that allows consumers
+                  to shop ethically with the same convenience as Amazon.
                 </li>
                 <li>
                   Consumers that are looking for services or local
@@ -35,6 +38,9 @@ const ThirdSection = () => {
           <div className="flex space-x-5 mt-10 sm:mt-14">
             <button className="w-[158px] h-[46px] text-black capitalize bg-[#D6AD60]">
               Sign Up
+            </button>
+            <button className="w-[158px] h-[46px] bg-black text-black capitalize bg-[#D6AD60]">
+              Learn More
             </button>
 
             {/*  TODO Learn more can be implemented when we have blog pages for SEO */}

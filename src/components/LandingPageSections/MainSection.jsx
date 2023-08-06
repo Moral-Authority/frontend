@@ -31,8 +31,11 @@ const MainSection = () => {
           </p>
         </div>
         <div className="flex items-center space-x-10 mt-16 text-white">
-          <button className="w-[159px] capitalize h-[52px] text-black font-[500] bg-[#D6AD60]">
+          <button className="w-[159px] btn-started capitalize h-[52px] text-black font-[500] bg-[#D6AD60]">
             Get Started
+          </button>
+          <button className="w-[159px] btn-started-special capitalize h-[52px] text-black font-[500] bg-[#D6AD60]">
+            Learn More
           </button>
           {/*  TODO Learn more can be implemented when we have blog pages for SEO */}
           {/* <p className="items-center flex capitalize">
