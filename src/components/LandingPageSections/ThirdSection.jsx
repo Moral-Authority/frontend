@@ -8,7 +8,7 @@ const ThirdSection = () => {
         <h1 className="text-2xl sm:text-3xl lg:text-4xl capitalize font-semibold lg:font-bold">
           How we achieve this
         </h1>
-        <div className="w-[154px] lg:w-[60px] border-2 border-[#D6AD60]"></div>
+        <div className="w-[80px] lg:w-[60px] border-2 border-[#D6AD60]"></div>
         <h1 className="text-1xl sm:text-3xl lg:text-4xl capitalize font-semibold lg:font-bold">
           Mission
         </h1>
@@ -18,16 +18,16 @@ const ThirdSection = () => {
           <div className="mt-10 sm:mt-14 flex flex-col space-y-5 sm:space-y-10">
             <section>
               <ul className="flex flex-col space-y-5 sm:space-y-10 text-[#E1E1E1]/90 list-disc">
-                <li>
+                <li className="homepage-bg-black-points">
                   Moral Authority is an eCommerce platform that allows consumers
                   to shop ethically with the same convenience as Amazon.
                 </li>
-                <li>
+                <li className="homepage-bg-black-points">
                   Consumers that are looking for services or local
                   brick-and-mortar stores could identify and locate them through
                   the app utilizing location services.
                 </li>
-                <li>
+                <li className="homepage-bg-black-points">
                   Businesses will be screened and verified through our system
                   prior to being featured. Badges will be awarded to businesses
                   based on verified social or environmental endorsements.
@@ -36,10 +36,10 @@ const ThirdSection = () => {
             </section>
           </div>
           <div className="flex space-x-5 mt-10 sm:mt-14">
-            <button className="w-[158px] h-[46px] text-black capitalize bg-[#D6AD60]">
+            <button className="w-[158px] h-[46px] text-black bottom-btn capitalize bg-[#D6AD60]">
               Sign Up
             </button>
-            <button className="w-[158px] h-[46px] bg-black text-black capitalize bg-[#D6AD60]">
+            <button className="w-[158px] h-[46px] bg-black text-black bottom-btn capitalize bg-[#D6AD60]">
               Learn More
             </button>
 
