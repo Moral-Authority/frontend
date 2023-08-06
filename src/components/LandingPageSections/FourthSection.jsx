@@ -11,7 +11,7 @@ const FourthSection = () => {
         <div className="w-[60px] border-2 border-[#D6AD60]"></div>
         <h6 className=" text-4xl capitalize font-bold">Our Affiliations</h6>
       </section>
-      <section className="flex justify-evenly w-full">
+      {/* <section className="flex justify-evenly w-full"> */}
         {/* <img className="w-[114px] h-[114px] text-gray-500 affiliations_mobile" src={asba} alt="" /> */}
         {/* <img className="w-[114px] h-[114px] text-gray-500 affiliations_mobile" src={GPECC} alt="" /> */}
         {/* <img className="w-[144px] h-[104px] text-gray-500 affiliations_mobile" src={Human_Rights} alt="" /> */}
@@ -20,22 +20,22 @@ const FourthSection = () => {
 
         <div class="scrolling-wrapper">
           <div class="card">
-            <img src="../../img/exfm.png" alt="" />
+            <img className="img-scroll" src="../../img/exfm.png" alt="" />
           </div>
           <div class="card">
-            <img src="../../img/gaia.png" alt="" />
+            <img className="img-scroll" src="../../img/gaia.png" alt="" />
           </div>
           <div class="card">
-            <img src="../../img/eyeem.png" alt="" />
+            <img className="img-scroll" src="../../img/eyeem.png" alt="" />
           </div>
           <div class="card">
-            <img src="../../img/tuenti.png" alt="" />
+            <img className="img-scroll img-four" src="../../img/tuenti.png" alt="" />
           </div>
           <div class="card">
-            <img src="../../img/myLife.png" alt="" />
+            <img className="img-scroll " src="../../img/myLife.png" alt="" />
           </div>
         </div>
-      </section>
+      {/* </section> */}
     </div>
   );
 };
