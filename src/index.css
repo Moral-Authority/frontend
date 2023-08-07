@@ -138,62 +138,72 @@ border: solid 1px lightgray;
         margin: 250px auto;
         text-align: center;
     }
-}
 
-.center {
-    margin: 0 auto;
-    display: flex;
-    justify-content: center;
-}
+    .center {
+        margin: 0 auto;
+        display: flex;
+        justify-content: center;
+    }
+    
+    .scrolling-wrapper{
+    
+        display: flex;
+        height: 100%;
+        justify-content: space-between;
+        overflow-x: auto;
+    
+    }
+    
+    .card{
+        flex-basis: 50%;
+        flex-shrink: 0;
+        height: 100%;
+        /* background-color: aqua; */
+        opacity: 0.4;
+    }
+    
+    .text-4xl capitalize font-bold{
+        text-align: left;
+    }
+    
+    .bg-black{
+        background-color: black;
+        border: 2px solid #D6AD60 !important;
+        color: #D6AD60;
+    
+    }
+    
+    .btn-started{
+        position: absolute;
+    }
+    
+    .btn-started-special{
+        position: absolute;
+        left: 30%;
+        color: white;
+        background-color: transparent;
+    }
+    
+    .lower-income{
+        position: absolute;
+        top: 88%;
+        display: block;
+    }
+    
+    .moral{
+        position: absolute;
+        top: 115%;
+    
+    }
 
-.scrolling-wrapper{
+    .products{
+        /* margin-left: 5%; */
+    }
 
-    display: flex;
-    height: 100%;
-    justify-content: space-between;
-    overflow-x: auto;
-
-}
-
-.card{
-    flex-basis: 50%;
-    flex-shrink: 0;
-    height: 100%;
-    /* background-color: aqua; */
-    opacity: 0.4;
-}
-
-.text-4xl capitalize font-bold{
-    text-align: left;
-}
-
-.bg-black{
-    background-color: black;
-    border: 2px solid #D6AD60 !important;
-    color: #D6AD60;
-
-}
-
-.btn-started{
-    position: absolute;
-}
-
-.btn-started-special{
-    position: absolute;
-    left: 30%;
-    color: white;
-    background-color: transparent;
-}
-
-.lower-income{
-    position: absolute;
-    top: 88%;
-    display: block;
-}
-
-.moral{
-    position: absolute;
-    top: 115%;
+    .products-box{
+        width: 100%;
+    }
+ 
 }
 
 
@@ -219,6 +229,20 @@ border: solid 1px lightgray;
     .font-semibold{
         font-size: small;
     }
+
+    .products-box{
+        display:block !important;
+        width: 100%;
+        /* background-color: lavender; */
+        margin-top: 5%;
+    }
+
+    .chair{
+        height: 110%;
+    }
+ 
+
+ 
     
 }
 
