@@ -32,5 +32,8 @@
     "autoprefixer": "^10.4.0",
     "postcss": "^8.4.5",
     "tailwindcss": "^2.2.15"
+  },
+  "engines": {
+    "node": "6.11.1"
   }
 }
