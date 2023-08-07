@@ -34,7 +34,7 @@ const FourthSection = () => {
           <div class="card">
             <img className="img-scroll " src="../../img/myLife.png" alt="" />
           </div>
-        </div> */}
+
       {/* </section> */}
     </div>
   );
