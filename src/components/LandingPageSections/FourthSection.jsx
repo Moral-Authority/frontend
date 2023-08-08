@@ -18,7 +18,7 @@ const FourthSection = () => {
         {/* <img className="w-[144px] h-[94px] text-gray-500 affiliations_mobile" src={Molly_Tommy} alt="" /> */}
         {/* <img className="w-[74px] h-[74px] text-gray-500" src={MyLife} alt="" /> */}
 
-        <div class="scrolling-wrapper">
+        {/* <div class="scrolling-wrapper">
           <div class="card">
             <img className="img-scroll" src="../../img/exfm.png" alt="" />
           </div>
@@ -34,7 +34,7 @@ const FourthSection = () => {
           <div class="card">
             <img className="img-scroll " src="../../img/myLife.png" alt="" />
           </div>
-        </div>
+
       {/* </section> */}
     </div>
   );

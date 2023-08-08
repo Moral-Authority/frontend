@@ -138,34 +138,207 @@ border: solid 1px lightgray;
         margin: 250px auto;
         text-align: center;
     }
+
+    .center {
+        margin: 0 auto;
+        display: flex;
+        justify-content: center;
+    }
+    
+    .scrolling-wrapper{
+    
+        display: flex;
+        height: 100%;
+        justify-content: space-between;
+        overflow-x: auto;
+    
+    }
+    
+    .card{
+        flex-basis: 50%;
+        flex-shrink: 0;
+        height: 100%;
+        /* background-color: aqua; */
+        opacity: 0.4;
+    }
+    
+    .text-4xl capitalize font-bold{
+        text-align: left;
+    }
+    
+    .bg-black{
+        background-color: black;
+        border: 2px solid #D6AD60 !important;
+        color: #D6AD60;
+    
+    }
+    
+    .btn-started{
+        position: absolute;
+    }
+    
+    .btn-started-special{
+        position: absolute;
+        left: 30%;
+        color: white;
+        background-color: transparent;
+    }
+    
+    .lower-income{
+        position: absolute;
+        top: 88%;
+        display: block;
+    }
+    
+    .moral{
+        position: absolute;
+        top: 115%;
+    
+    }
+
+    .products{
+        /* margin-left: 5%; */
+    }
+
+    .products-box{
+        width: 100%;
+    }
+ 
 }
 
-.center {
-    margin: 0 auto;
-    display: flex;
-    justify-content: center;
+
+/* For 480px */
+
+@media screen and (max-width: 480px) {
+
+    .btn-started, .btn-started-special{
+        position: absolute;
+        top: 73%;
+    }
+
+    .lower-income{
+        font-size: 0.8rem;
+    }
+
+    .moral{
+        font-size: 0.8rem;
+        position: absolute;
+        top: 110%;
+    }
+
+    .font-semibold{
+        font-size: small;
+    }
+
+    .products-box{
+        display:block !important;
+        width: 100%;
+        /* background-color: lavender; */
+        margin-top: 5%;
+    }
+
+    .chair{
+        height: 110%;
+    }
+ 
+
+ 
+    
 }
 
-.scrolling-wrapper{
 
-    display: flex;
-    height: 100%;
-    justify-content: space-between;
-    overflow-x: auto;
+/* For 380px */
 
+@media screen and (max-width: 380px) {
+
+
+    .public-resource{
+        font-size: 80%;
+    }
+
+    .btn-started, .btn-started-special{
+        position: absolute;
+        top: 75%;
+        height: 7%;
+    }
+
+    .lower-income{
+        font-size: 0.7rem;
+    }
+
+    .moral{
+        font-size: 0.7rem;
+        position: absolute;
+        top: 112%;
+    }
+
+    .font-semibold{
+        font-size: 80%;
+    }
+
+    .homepage-icon{
+        margin-top: 70%;
+    }
+
+    .homepage-bg-black-points{
+        font-size: small;
+    }
+    
+    .bottom-btn{
+        height: 10%;
+        padding: 2%;
+    }
 }
 
-.card{
-    flex-basis: 50%;
-    flex-shrink: 0;
-    height: 100%;
-    /* background-color: aqua; */
-    opacity: 0.4;
+
+/* For 380px */
+
+@media screen and (max-width: 320px) {
+
+
+    .public-resource{
+        font-size: 80%;
+    }
+
+    .btn-started, .btn-started-special{
+        position: absolute;
+        top: 75%;
+        height: 7%;
+        width: 35%;
+    }
+
+    .lower-income{
+        font-size: 0.7rem;
+    }
+
+    .moral{
+        font-size: 0.7rem;
+        position: absolute;
+        top: 112%;
+    }
+
+    .font-semibold{
+        font-size: 50%;
+    }
+
+    .homepage-icon{
+        margin-top: 120%;
+    }
+
+    .homepage-bg-black-points{
+        font-size: small;
+    }
+    
+    .bottom-btn{
+        height: 10%;
+        padding: 2%;
+    }
+
+    .font-bold{
+        font-size: 130%;
+    }
 }
 
-.text-4xl capitalize font-bold{
-    text-align: left;
-}
 
 .bg-black{
     background-color: black;

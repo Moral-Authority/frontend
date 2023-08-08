@@ -42,7 +42,7 @@ const Products = () => {
           <p className="select-none">Filters</p>
         </div>
       </section>
-      <section className="grid grid-cols-2 sm:grid-cols-3 gap-2 lg:gap-x-2 lg:gap-y-8">
+      <section className="grid products-box grid-cols-2 sm:grid-cols-3 gap-2 lg:gap-x-2 lg:gap-y-8">
         {Array(15)
           .fill(0)
           .map((item, index) => (

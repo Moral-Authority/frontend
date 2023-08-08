@@ -10,7 +10,7 @@ const CreateAccountForm = () => {
         <label className="text-[#777D88]">Username</label>
         <input
           type="text"
-          className="border border-[#E3E7F4] px-4 py-2 placeholder:text-[#777D88]/30 focus:outline-none outline-none"
+          className="border name-input border-[#E3E7F4] px-4 py-2 placeholder:text-[#777D88]/30 focus:outline-none outline-none"
           placeholder="Enter a username"
         />
       </div>

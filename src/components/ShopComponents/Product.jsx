@@ -8,7 +8,7 @@ import Chair from "images/chair.png";
 const Product = ({ index }) => {
   const [liked, setliked] = useState(false);
   return (
-    <div className="w-[174px] lg:w-[261px] relative p-1 lg:p-2 flex flex-col h-[234px] lg:h-[355px] border-2 border-[#EDEFF6]">
+    <div className="w-[174px] lg:w-[261px] products-box relative p-1 lg:p-2 flex flex-col h-[234px] lg:h-[355px] border-2 border-[#EDEFF6]">
       <div className="flex z-20 justify-between absolute top-5 lg:top-8 w-11/12 -ml-1 lg:-ml-2">
         <div className="text-white text-sm bg-black py-1 px-4">New</div>
         {liked ? (
@@ -27,7 +27,7 @@ const Product = ({ index }) => {
         key={index}
         className="w-full z-0 relative h-3/4 group bg-[#F6FBFF] items-center flex justify-center"
       >
-        <img src={Chair} alt="" />
+        <img src={Chair} className="chair" alt="" />
         <Link
           className="text-black absolute w-11/12 hidden group-hover:block bottom-5 bg-[#D6AD60] h-12"
           key={index}
