@@ -201,7 +201,7 @@ const Filters = () => {
         </FilterDiv>
 
         {/* Verified Button */}
-        <FilterDiv>
+        {/* <FilterDiv>
           <div className="flex space-x-2">
             <FilterLabel label={"Verified"} />
             <div>
@@ -215,10 +215,10 @@ const Filters = () => {
               />
             </div>
           </div>
-        </FilterDiv>
+        </FilterDiv> */}
 
         {/* Location */}
-        <FilterDiv>
+        {/* <FilterDiv>
           <FilterLabel label={"Location (state/zipcode)"} />
           <div className="flex flex-col w-full space-y-5 ml-6 pt-5">
             <select
@@ -237,7 +237,7 @@ const Filters = () => {
               id=""
             />
           </div>
-        </FilterDiv>
+        </FilterDiv> */}
 
         {/* Rating */}
         <FilterDiv>
