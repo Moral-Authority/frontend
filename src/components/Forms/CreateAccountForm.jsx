@@ -6,48 +6,6 @@ import Google from "images/google.png";
 const CreateAccountForm = () => {
   return (
     <form className="mt-8 h-full flex flex-col space-y-5 w-full text-[#777D88]">
-      <div className="flex flex-col space-y-1">
-        <label className="text-[#777D88]">Username</label>
-        <input
-          type="text"
-          className="border name-input border-[#E3E7F4] px-4 py-2 placeholder:text-[#777D88]/30 focus:outline-none outline-none"
-          placeholder="Enter a username"
-        />
-      </div>
-
-      <div className="flex flex-col space-y-1">
-        <label className="text-[#777D88]">User type</label>
-        <select
-          className="border border-[#E3E7F4] px-4 py-2 bg-white text-[#798086]
-        "
-        >
-          <option value="Select user type">Select user type</option>
-          <option value="Free user">User</option>
-          <option value="Pro user">Company</option>
-        </select>
-      </div>
-
-      {/* <div className="flex flex-col space-y-1">
-        <label className="text-[#777D88]">Logo</label>
-        <div className="flex items-center justify-between border border-[#E3E7F4] px-4 py-2 ">
-          <div className="flex space-x-2">
-            <CameraIcon className="h-6 w-6 text-[#798086]" />
-            <label htmlFor="proofOfMembership" className="text-[#798086]">
-              Upload photo here
-            </label>
-          </div>
-          <label htmlFor="proofOfMembership">
-            <ArrowUpTrayIcon className="h-6 w-6 text-[#798086]" />
-          </label>
-        </div>
-        <input
-          type="file"
-          id="proofOfMembership"
-          accept="image/*"
-          className="hidden border border-[#E3E7F4] px-4 py-2 placeholder:text-[#777D88]/30 focus:outline-none outline-none"
-          placeholder="Upload photo here"
-        />
-      </div> */}
 
       <div className="flex flex-col space-y-1">
         <label className="text-[#777D88]">First Name</label>

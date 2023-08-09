@@ -7,8 +7,8 @@ const LoginForm = () => {
     <form className="mt-8 h-full flex flex-col space-y-5 w-full text-[#777D88]">
       <div className="flex flex-col space-y-1">
         <div className="flex justify-between">
-          <label className="text-[#777D88]">Username</label>
-          <span className="text-sm text-[#D6AD60]">Forgot username</span>
+          <label className="text-[#777D88]">Username or Email</label>
+          <span className="text-sm text-[#D6AD60]">Forgot Username</span>
         </div>
         <input
           type="text"
@@ -34,13 +34,13 @@ const LoginForm = () => {
         </button>
       </div>
       <div>
-        <button className="w-full h-[51px] border border-[#E3E7F4] bg-white text-[#777D88] mt-5  flex items-center justify-center">
+        {/* <button className="w-full h-[51px] border border-[#E3E7F4] bg-white text-[#777D88] mt-5  flex items-center justify-center">
           <img src={Google} alt="" />
           <span>Sign in with Google</span>
-        </button>
+        </button> */}
       </div>
       <p>
-        Already have an account?{" "}
+        Don't have an account?{" "}
         <span className="text-[#D6AD60] cursor-pointer">
           <Link to="/create-account">Sign up</Link>
         </span>
