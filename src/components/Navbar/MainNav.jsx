@@ -17,10 +17,10 @@ const MainNav = ({ userLoggedIn }) => {
    md:px-20 xl:px-32"
       >
         <Link to="/">
-        <h1 className="text-2xl lg:text-3xl font-bold">
-          <img className="w-[] h-[80px]" src={Logo} alt="" />
-          {/* Logo<span className="text-[#D6AD60]">.</span> */}
-        </h1>
+          <h1 className="text-2xl lg:text-3xl font-bold">
+            <img className="w-[] h-[80px]" src={Logo} alt="" />
+            {/* Logo<span className="text-[#D6AD60]">.</span> */}
+          </h1>
         </Link>
         <div className="hidden lg:inline-flex py-1 space-x-2 items-center border-b border-b-black">
           <MagnifyingGlassIcon className="h-6 w-6" />
@@ -102,10 +102,8 @@ const MainNav = ({ userLoggedIn }) => {
           />
         </nav>
       </header>
-      <div className="hidden lg:flex justify-center w-full h-14 bg-black text-white ">
-        <ul className="flex text-sm justify-center space-x-5 items-center h-full">
-          <NavItems />
-        </ul>
+      <div className="hidden lg:flex justify-center space-x-5 w-full h-14 bg-black text-white ">
+        <NavItems />
       </div>
     </div>
   );
