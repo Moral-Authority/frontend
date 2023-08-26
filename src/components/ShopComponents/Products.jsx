@@ -23,7 +23,7 @@ const Products = () => {
         <div className="flex space-x-2 w-full overflow-x-scroll overflow-y-hidden">
           {navItems.navItems.map((item, index) => (
             <Link key={index} to={item.navLink} className="">
-              <button className="bg-black text-white text-xs w-[145px] h-[44px] px-4 py-1">
+              <button className="bg-black !border-none !text-white text-xs w-[145px] h-[44px] px-4 py-1">
                 {item.title}
               </button>
             </Link>
@@ -42,7 +42,7 @@ const Products = () => {
           <p className="select-none">Filters</p>
         </div>
       </section>
-      <section className="grid products-box grid-cols-2 sm:grid-cols-3 gap-2 lg:gap-x-2 lg:gap-y-8">
+      <section className="grid grid-cols-2 md:grid-cols-3 gap-2 lg:gap-x-2 lg:gap-y-8 place-items-center">
         {Array(15)
           .fill(0)
           .map((item, index) => (
