@@ -12,7 +12,7 @@ const Shop = () => {
       <div
         className={`${
           shopFiltersToggle ? "block" : "hidden"
-        } absolute w-full px-4 flex items-center justify-center top-0 bottom-0 py-4 lg:hidden`}
+        } absolute w-full px-4 flex lg:items-center justify-center top-0 bottom-0 py-20 lg:py-4 lg:hidden`}
       >
         <Filters />
       </div>
