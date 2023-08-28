@@ -23,16 +23,16 @@ const SecondSection = () => {
               resource, Time.
             </span> */}
             <span className="lower-income">
-              Lower income individuals and minorities are the most
-              affected and least equiped to participate in decisions made by
-              corporations and politicians.
-              The need for better resources is clear and immediate.
+              Lower income individuals and minorities are the most affected and
+              least equiped to participate in decisions made by corporations and
+              politicians. The need for better resources is clear and immediate.
             </span>
             <span className="moral">
-              Moral Authority is as a public resource, where people can 
-              easily find companies and products aligned with their values. As
-              Moral Authority grows we see it becoming a source of trusted information
-              empowering individuals to have impact with their purchases 24/7 instead of every four years.
+              Moral Authority is as a public resource, where people can easily
+              find companies and products aligned with their values. As Moral
+              Authority grows we see it becoming a source of trusted information
+              empowering individuals to have impact with their purchases 24/7
+              instead of every four years.
             </span>
           </p>
         </div>

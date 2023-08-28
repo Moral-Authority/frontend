@@ -12,7 +12,7 @@ const Shop = () => {
       <div
         className={`${
           shopFiltersToggle ? "block" : "hidden"
-        } absolute w-full px-4 flex lg:items-center justify-center top-0 bottom-0 py-20 lg:py-4 lg:hidden`}
+        } absolute w-full px-4 flex xl:items-center justify-center top-0 bottom-0 py-20 xl:py-4 xl:hidden`}
       >
         <Filters />
       </div>
@@ -28,7 +28,7 @@ const Shop = () => {
           <section className="flex text-[#798086] items-center justify-center bg-[#FBF7EC] h-24">
             Home &gt; Shop &gt; Home Goods
           </section>
-          <section className="px-4 relative py-2 sm:px-9 sm:py-8 lg:py-12 flex flex-col lg:flex-row space-y-2 lg:space-y-0 lg:space-x-10">
+          <section className="px-4 relative py-2 sm:px-9 sm:py-8 xl:py-12 flex flex-col xl:flex-row space-y-2 xl:space-y-0 xl:space-x-10">
             {!shopFiltersToggle && <Filters />}
             <Products />
           </section>
