@@ -24,7 +24,7 @@ const MobileNav = () => {
       transition={{
         duration: 0.5,
       }}
-      className="min-h-screen bg-[#1E1E1E] flex space-y-10 justify-start flex-col px-8 py-10 text-white"
+      className="min-h-screen lg:hidden z-50 bg-[#1E1E1E] flex space-y-10 justify-start flex-col px-8 py-10 text-white"
     >
       <div className="flex justify-between">
         <div className="flex h-full">

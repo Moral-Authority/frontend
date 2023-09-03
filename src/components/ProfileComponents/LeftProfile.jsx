@@ -10,9 +10,22 @@ import {
   UserIcon,
 } from "@heroicons/react/24/outline";
 import { Link, useNavigate } from "react-router-dom";
+import { graphql, useLazyLoadQuery } from "react-relay";
+
+const fetchUserQuery = graphql`
+  query LeftProfileQuery($userId: String!) {
+    user(_id: $userId) {
+      _id
+      firstName
+      lastName
+      email
+    }
+  }
+`;
 
 const LeftProfile = () => {
   const navigate = useNavigate();
+  const data = useLazyLoadQuery(fetchUserQuery, { userId: 1 });
   location;
   return (
     <div className="sm:basis-1/4 flex flex-col space-y-5 bg-white self-start">
@@ -30,7 +43,9 @@ const LeftProfile = () => {
         </button>
       </div>
       <div className="flex flex-col space-y-2 items-center border-b-2 border-b-[#EDEFF6]/50 pb-4">
-        <p className="text-lg">Emilia Alexandra</p>
+        <p className="text-lg">
+          {data?.user.firstName} {data?.user.lastName}
+        </p>
         <p className="text-[#798086] text-sm">
           Associate with{" "}
           <span className="text-[#1B93FA] cursor-pointer">Company</span>
@@ -54,7 +69,7 @@ const LeftProfile = () => {
         <div className="flex justify-between ">
           <p className="text-sm sm:text-xs lg:text-sm text-[#798086] flex items-end">
             <EnvelopeIcon className="h-6 w-6" />
-            <span className="pl-2">mailexample@gmail.com</span>
+            <span className="pl-2">{data?.user.email}</span>
           </p>
           <button className="text-[#1B93FA] text-sm sm:text-xs lg:text-sm ">
             edit
