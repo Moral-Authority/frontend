@@ -1,28 +1,19 @@
-import {
-  ApolloProvider,
-  ApolloClient,
-  createHttpLink,
-  InMemoryCache,
-} from "@apollo/client";
+import { RelayEnvironmentProvider } from "react-relay";
 import reducer from "./utils/stateProvider/reducer";
 import state from "./utils/stateProvider/state";
 import { StateProvider } from "./utils/stateProvider/useStateValue";
-
-const httpLink = createHttpLink({
-  uri: "http://localhost:8000",
-});
-
-const client = new ApolloClient({
-  link: httpLink,
-  cache: new InMemoryCache(),
-});
+import { createEnvironment } from "./utils/relayEnvironment/environment";
+import { useMemo } from "react";
 
 export const Providers = ({ children }) => {
+  const environment = useMemo(() => {
+    return createEnvironment();
+  }, []);
   return (
-    <ApolloProvider client={client}>
+    <RelayEnvironmentProvider environment={environment}>
       <StateProvider reducer={reducer} state={state}>
         {children}
       </StateProvider>
-    </ApolloProvider>
+    </RelayEnvironmentProvider>
   );
 };

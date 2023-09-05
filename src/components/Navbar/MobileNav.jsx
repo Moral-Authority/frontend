@@ -7,10 +7,11 @@ import {
 import { useStateValue } from "@/utils/stateProvider/useStateValue";
 import navItems from "@/utils/testAPIs/navItems.json";
 import { motion } from "framer-motion";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 
 const MobileNav = () => {
   const [, dispatch] = useStateValue();
+  const navigate = useNavigate();
   return (
     <motion.div
       initial={{
@@ -23,7 +24,7 @@ const MobileNav = () => {
       transition={{
         duration: 0.5,
       }}
-      className="min-h-screen bg-[#1E1E1E] flex space-y-10 justify-start flex-col px-8 py-10 text-white"
+      className="min-h-screen lg:hidden z-50 bg-[#1E1E1E] flex space-y-10 justify-start flex-col px-8 py-10 text-white"
     >
       <div className="flex justify-between">
         <div className="flex h-full">
@@ -74,8 +75,16 @@ const MobileNav = () => {
         <p className="text-white text-xl">Categories</p>
         <ul className="text-sm flex flex-col text-white/70 space-y-4 pl-10">
           {navItems?.navItems?.map((item, index) => (
-            <p key={index}>
-              <Link to={item.navLink}>{item.title}</Link>
+            <p
+              onClick={() => {
+                dispatch({
+                  type: "CHANGE_NAV_MENU",
+                });
+                navigate(item.navLink);
+              }}
+              key={index}
+            >
+              {item.title}
             </p>
           ))}
         </ul>

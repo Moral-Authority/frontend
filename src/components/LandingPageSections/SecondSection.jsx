@@ -4,36 +4,30 @@ import { SocialIcon } from "react-social-icons";
 import ToriSav from "images/sav&tori.png";
 const SecondSection = () => {
   return (
-    <div className="h-[70vh] lg:h-screen flex items-center bg-white px-4 py-8 sm:px-8 sm:py-12 lg:py-12 lg:px-36">
+    <div className="h-auto lg:h-screen flex items-center bg-white px-4 py-8 sm:px-8 sm:py-12 lg:py-12 lg:px-36">
       <div className="hidden lg:flex items-center ">
         {/* <img className="w-[459px] h-[493px]" src={ToriSav} alt="" /> */}
         <div className="w-[356px] h-[480px] -ml-8 bg-[#F3F3F3]"></div>
       </div>
-      <div className="flex space-y-10 flex-1 w-full lg:-ml-40 flex-col items-start justify-center">
+      <div className="">
         <div className="flex items-center space-x-4">
           <div className="w-[60px] border-[2px] border-[#D6AD60]"></div>
           {/* <h1 className="text-2xl sm:text-3xl lg:text-4xl font-semibold capitalize">
             Message From the Founders
           </h1> */}
         </div>
-        <div className="text-[#5F646F] leading-[35px]">
-          <p>
-            {/* <span>
-              This project is dedicated to the disparity of our most valuable
-              resource, Time.
-            </span> */}
-            <span className="lower-income">
-              Lower income individuals and minorities are the most
-              affected and least equiped to participate in decisions made by
-              corporations and politicians.
-              The need for better resources is clear and immediate.
-            </span>
-            <span className="moral">
-              Moral Authority is as a public resource, where people can 
-              easily find companies and products aligned with their values. As
-              Moral Authority grows we see it becoming a source of trusted information
-              empowering individuals to have impact with their purchases 24/7 instead of every four years.
-            </span>
+        <div className="">
+          <p className="text-xl my-10">
+            Lower income individuals and minorities are the most affected and
+            least equiped to participate in decisions made by corporations and
+            politicians. The need for better resources is clear and immediate.
+          </p>
+          <p className="text-xl my-10">
+            Moral Authority is as a public resource, where people can easily
+            find companies and products aligned with their values. As Moral
+            Authority grows we see it becoming a source of trusted information
+            empowering individuals to have impact with their purchases 24/7
+            instead of every four years.
           </p>
         </div>
         <div className="flex items-center space-x-4">

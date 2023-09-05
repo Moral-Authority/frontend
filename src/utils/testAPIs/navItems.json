@@ -2,6 +2,7 @@
   "navItems": [
     {
       "title": "Home & Garden",
+      "navLink": "/",
       "children": {
         "items": [
           {
@@ -19,6 +20,7 @@
 
     {
       "title": "Grocery",
+      "navLink": "/shop",
       "children": {
         "items": [
           {
@@ -36,6 +38,7 @@
 
     {
       "title": "Clothing & Accessories",
+      "navLink": "/shop",
       "children": {
         "items": [
           {
@@ -57,6 +60,7 @@
 
     {
       "title": "Health, Bath & Beauty",
+      "navLink": "/shop",
       "children": {
         "items": [
           {
@@ -78,6 +82,7 @@
 
     {
       "title": "Toys, Kids & Babies",
+      "navLink": "/shop",
       "children": {
         "items": [
           {

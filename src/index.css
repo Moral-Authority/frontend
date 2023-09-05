@@ -53,8 +53,8 @@ justify-content: center;
 
 .scrolling-wrapper{
     /* background-color: aqua; */
-    height: 20vh !important;
-    border: 5px solid black !important;
+    height: 20vh ;
+    border: 5px solid black ;
     background-color: aliceblue;
 }
 
@@ -168,7 +168,7 @@ border: solid 1px lightgray;
     
     .bg-black{
         background-color: black;
-        border: 2px solid #D6AD60 !important;
+        border: 2px solid #D6AD60 ;
         color: #D6AD60;
     
     }
@@ -231,7 +231,7 @@ border: solid 1px lightgray;
     }
 
     .products-box{
-        display:block !important;
+        display:block ;
         width: 100%;
         /* background-color: lavender; */
         margin-top: 5%;
@@ -342,7 +342,7 @@ border: solid 1px lightgray;
 
 .bg-black{
     background-color: black;
-    border: 2px solid #D6AD60 !important;
+    border: 2px solid #D6AD60 ;
     color: #D6AD60;
 
 }

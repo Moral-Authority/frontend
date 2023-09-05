@@ -26,13 +26,13 @@ const Filters = () => {
 
   return (
     <div
-      className={`absolute z-30 bg-white w-11/12 opacity-100 lg:relative
+      className={`absolute z-30 bg-white w-11/12 opacity-100 xl:relative
       ${
         shopFiltersToggle ? "block" : "hidden"
-      } lg:block border border-[#EDEFF6] h-fit lg:h-full lg:w-1/4`}
+      } xl:block border border-[#EDEFF6] h-fit xl:h-full xl:w-1/4`}
     >
       <section className=" h-full px-4 py-10 flex flex-col space-y-10">
-        <div className="w-full lg:hidden flex justify-between items-center pb-4 border-b border-b-[#E7EAF5]">
+        <div className="w-full xl:hidden flex justify-between items-center pb-4 border-b border-b-[#E7EAF5]">
           <p className="font-semibold">Filters</p>
           <button
             onClick={() =>
@@ -74,7 +74,7 @@ const Filters = () => {
           <div className="flex flex-col space-y-5 pl-3 pt-5 space-x-3">
             <ChildFilterLabel label={"Colors"} />
             <div
-              className="flex lg:flex-wrap xl:flex-nowrap
+              className="flex xl:flex-nowrap
              justify-start space-x-2 items-center "
             >
               {colors.colors.map((item, index) => (
@@ -312,7 +312,7 @@ const Filters = () => {
         </FilterDiv>
 
         {/* Categories */}
-        <div className="hidden lg:block">
+        <div className="hidden xl:block">
           <FilterDiv>
             <FilterLabel label={"Categories"} />
             <div className="flex flex-col w-full text-[#798086] space-y-2 ml-6 pt-5">
@@ -328,7 +328,7 @@ const Filters = () => {
         </div>
 
         {/* Recently viewed */}
-        <div className="hidden lg:block">
+        <div className="hidden xl:block">
           <FilterDiv>
             <FilterLabel label={"Recently viewed"} />
             <div className="flex flex-col w-full text-[#798086] space-y-2 ml-6 pt-5">
@@ -354,7 +354,7 @@ const Filters = () => {
               type: "SHOP_FILTERS_TOGGLE",
             })
           }
-          className="w-full bg-[#D6AD60] text-black px-8 py-4 lg:hidden"
+          className="w-full bg-[#D6AD60] text-black px-8 py-4 xl:hidden"
         >
           Apply Filters
         </button>
