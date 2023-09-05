@@ -6,7 +6,7 @@
     "heroku-postbuild": "npm run build",
     "start": "npm run serve-heroku",
     "postinstall": "npm run build",
-    "serve-heroku": "vite preview --host 0.0.0.0 --port 5000",
+    "serve-heroku": "vite preview --host 0.0.0.0 --port $PORT",
     "relay": "relay-compiler"
   },
   "dependencies": {
