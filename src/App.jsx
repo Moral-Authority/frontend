@@ -1,6 +1,6 @@
 import React from "react";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
-import { ProtectedRoute } from "./components/ProtectedRoute";
+// import { ProtectedRoute } from "./components/ProtectedRoute";
 import LandingPage from "./pages/LandingPage";
 import MobileNav from "./components/Navbar/MobileNav";
 import { useStateValue } from "./utils/stateProvider/useStateValue";
@@ -20,7 +20,7 @@ import Product from "./pages/Product";
 export const App = () => {
   const [{ navMenu }] = useStateValue();
   return (
-    <ProtectedRoute>
+    // <ProtectedRoute>
       <Router>
         <AnimatePresence>
           {navMenu ? (
@@ -49,6 +49,6 @@ export const App = () => {
           )}
         </AnimatePresence>
       </Router>
-    </ProtectedRoute>
+    // {/* </ProtectedRoute> */}
   );
 };
