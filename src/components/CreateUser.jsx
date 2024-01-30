@@ -1,6 +1,8 @@
 import { useState } from 'react';
 import { useMutation } from '@apollo/client';
 import { CREATE_USER_MUTATION } from '../graphql/Mutations';
+import { useEffect } from 'react'; 
+
 
 const CreateUser = () => {
   const [name, setName] = useState('');
@@ -9,6 +11,17 @@ const CreateUser = () => {
 
   const [createUser, { loading, error, data }] =
     useMutation(CREATE_USER_MUTATION);
+
+
+  useEffect(() => {
+    // When the component is mounted, set overflow to hidden
+    document.body.style.overflow = 'hidden';
+
+    // When the component is unmounted, reset overflow
+    return () => {
+      document.body.style.overflow = 'unset';
+    };
+  }, []);
 
   const handleSubmit = e => {
     e.preventDefault();

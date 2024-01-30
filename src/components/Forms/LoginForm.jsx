@@ -7,8 +7,8 @@ const LoginForm = () => {
     <form className="mt-8 h-full flex flex-col space-y-5 w-full text-[#777D88]">
       <div className="flex flex-col space-y-1">
         <div className="flex justify-between">
-          <label className="text-[#777D88]">Username or Email</label>
-          <span className="text-sm text-[#D6AD60]">Forgot Username</span>
+          <label className="text-[#777D88]">Email</label>
+          <span className="text-sm text-[#D6AD60]">Forgot Email</span>
         </div>
         <input
           type="text"
