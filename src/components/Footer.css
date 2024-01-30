@@ -8,6 +8,28 @@
   text-align: center;
 }
 
+.footer-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 74px;
+  background-color: black;
+  color: white;
+}
+
+.icons-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.homepage-icon {
+  margin: 0 10px; /* Horizontal spacing */
+  /* Additional styling for icons if needed */
+}
+
 img {
   padding: .5rem;
 }

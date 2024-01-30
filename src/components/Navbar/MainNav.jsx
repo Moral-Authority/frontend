@@ -19,7 +19,6 @@ const MainNav = ({ userLoggedIn }) => {
         <Link to="/">
           <h1 className="text-2xl lg:text-3xl font-bold">
             <img className="w-[] h-[80px]" src={Logo} alt="" />
-            {/* Logo<span className="text-[#D6AD60]">.</span> */}
           </h1>
         </Link>
         <div className="hidden lg:inline-flex py-1 space-x-2 items-center border-b border-b-black">
