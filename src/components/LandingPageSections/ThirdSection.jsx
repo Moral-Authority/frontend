@@ -6,12 +6,9 @@ const ThirdSection = () => {
     <div className="min-h-screen text-white px-8 py-9 sm:px-12 sm:py-14 lg:py-14 lg:px-36 w-full bg-black">
       <section className="flex w-full items-center space-x-5">
         <h1 className="text-2xl sm:text-3xl lg:text-4xl capitalize font-semibold lg:font-bold">
-          How we achieve this
+         How It Works:
         </h1>
         <div className="w-[80px] lg:w-[60px] border-2 border-[#D6AD60]"></div>
-        <h1 className="text-1xl sm:text-3xl lg:text-4xl capitalize font-semibold lg:font-bold">
-          Mission
-        </h1>
       </section>
       <section className="flex flex-col 2xl:flex-row w-full 2xl:space-x-10">
         <div className="w-full 2xl:w-1/2 ">
@@ -19,18 +16,13 @@ const ThirdSection = () => {
             <section>
               <ul className="flex flex-col space-y-5 sm:space-y-10 text-[#E1E1E1]/90 list-disc">
                 <li className="homepage-bg-black-points">
-                  Moral Authority is an eCommerce platform that allows consumers
-                  to shop ethically with the same convenience as Amazon.
+                  Discover: Explore our curated database of companies and products that prioritize ethical standards.
                 </li>
                 <li className="homepage-bg-black-points">
-                  Consumers that are looking for services or local
-                  brick-and-mortar stores could identify and locate them through
-                  the app utilizing location services.
+                Support: Choose to buy from businesses that align with your values, promoting fair and responsible practices.
                 </li>
                 <li className="homepage-bg-black-points">
-                  Businesses will be screened and verified through our system
-                  prior to being featured. Badges will be awarded to businesses
-                  based on verified social or environmental endorsements.
+                Influence: Use your voice and purchasing power to advocate for positive change in corporate behaviors and policies.
                 </li>
               </ul>
             </section>

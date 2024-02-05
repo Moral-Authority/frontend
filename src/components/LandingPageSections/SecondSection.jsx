@@ -13,21 +13,30 @@ const SecondSection = () => {
         <div className="title-container">
           <div className="founder-message-divider"></div>
           <h1 className="founder-message-title">
-            Message From the Founder
+          About Us
           </h1>
+          <div className="founder-message-divider"></div>
         </div>
         <div>
           <p className="founder-message-paragraph">
-            Lower income individuals and minorities are the most affected and
-            least equipped to participate in decisions made by corporations and
-            politicians. The need for better resources is clear and immediate.
+
+          At Moral Authority, we believe in the power of informed choices. 
+          Our platform connects conscientious consumers with companies and 
+          products that align with their values. From environmental sustainability 
+          to fair labor practices, we're here to shine a light on those making a positive impact.
+
           </p>
+          <div className="title-container">
+          <div className="founder-message-divider"></div>
+          <h1 className="founder-message-title">
+          Our Mission
+          </h1>
+          <div className="founder-message-divider"></div>
+        </div>
           <p className="founder-message-paragraph">
-            Moral Authority is as a public resource, where people can easily
-            find companies and products aligned with their values. As Moral
-            Authority grows we see it becoming a source of trusted information
-            empowering individuals to have impact with their purchases 24/7
-            instead of every four years.
+          To create a community where ethical practices are the norm, not the exception. We're dedicated to providing the tools
+          and information needed to make choices that reflect your values, empowering you to influence change with your actions 
+          and purchases.
           </p>
         </div>
         <div className="button-container">
