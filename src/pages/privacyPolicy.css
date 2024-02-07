@@ -1,0 +1,18 @@
+/* privacy-policy.css */
+
+/* Center the content vertically and horizontally */
+body {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0rem;
+    padding: 3rem;
+  }
+  
+  /* Style headers to be bold */
+  h1, h2 {
+    font-weight: bold;
+  }
+  

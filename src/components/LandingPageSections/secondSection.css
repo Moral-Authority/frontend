@@ -1,6 +1,6 @@
 .second-section-container {
     height: auto;
-    min-height: 100vh; /* lg:h-screen */
+    min-height: 80vh; /* lg:h-screen */
     display: flex;
     align-items: center;
     background-color: white;
