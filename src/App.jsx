@@ -14,6 +14,7 @@ import AddProduct from "./components/ProfileComponents/AddProduct";
 import AddedProducts from "./components/ProfileComponents/AddedProducts";
 import ProductsReview from "./components/ProfileComponents/ProductsReview";
 import Product from "./pages/Product";
+import PrivacyPolicy from "./pages/privacyPolicy";
 
 
 
@@ -34,6 +35,7 @@ export const App = () => {
                 <Route path="/shop" element={<Shop />} />
                 <Route path="/profile" element={<Profile />} />
                 <Route path="/product" element={<Product />} />
+                <Route path="/privacy-policy" element={<PrivacyPolicy />} />
                 <Route path="/profile" element={<Profile />}>
                   <Route index path="add-product" element={<AddProduct />} />
                   <Route path="added" element={<AddedProducts />} />

@@ -1,18 +1,18 @@
-/* privacy-policy.css */
+.privacy-policy-container {
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  margin: 0rem;
+  padding: 3rem;
+  min-height: 50vh;
+  color: white;
+  padding: 7%;
+  background-color: black;
+  width: 100%;
+}
 
-/* Center the content vertically and horizontally */
-body {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    height: 100vh;
-    margin: 0rem;
-    padding: 3rem;
-  }
-  
   /* Style headers to be bold */
-  h1, h2 {
-    font-weight: bold;
-  }
+h1, h2 {
+  font-weight: bold;
+}
   

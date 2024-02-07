@@ -1,6 +1,7 @@
 import "./Footer.css";
-import { CurrencyDollarIcon } from "@heroicons/react/24/solid";
 import { SocialIcon } from "react-social-icons";
+import { Link } from "react-router-dom";
+
 
 const Footer = () => {
   return (
@@ -20,6 +21,7 @@ const Footer = () => {
           bgColor="white"
           style={{ width: "30px", height: "30px" }}
         />
+        <Link to="/privacy-policy">Privacy Policy</Link> {/* Use Link here */}
         {/* <p>info@moralauthority.co</p> */}
       </div>
     </div>

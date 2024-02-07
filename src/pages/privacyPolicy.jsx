@@ -1,9 +1,9 @@
-import React from "react";
+// import React from "react";
 import "./privacyPolicy.css";
 
 const PrivacyPolicy = () => {
   return (
-    <div>
+    <div className="privacy-policy-container">
       <h1>Privacy Policy</h1>
       <br></br>
 
@@ -17,6 +17,7 @@ const PrivacyPolicy = () => {
       <br></br>
 
       <h2>1. Information We Collect</h2>
+      <br></br>
       <p>
         We only ask for personal information when we truly need it to provide a
         service to you. We collect it by fair and lawful means, with your
@@ -27,21 +28,23 @@ const PrivacyPolicy = () => {
       <br></br>
 
       <h2>2. Usage of Your Information</h2>
+      <br></br>
       <p>
         We may use your personal information for various purposes, including but
         not limited to:
       </p>
       <ul>
-        <li>Providing, maintaining, and improving our services.</li>
-        <li>Processing transactions and sending transaction notifications.</li>
-        <li>Responding to your comments, questions, and requests.</li>
-        <li>Sending you updates, promotional materials, and newsletters.</li>
-        <li>Monitoring and analyzing website usage and trends.</li>
+        <li>1. Providing, maintaining, and improving our services.</li>
+        <li>2. Processing transactions and sending transaction notifications.</li>
+        <li>3. Responding to your comments, questions, and requests.</li>
+        <li>4. Sending you updates, promotional materials, and newsletters.</li>
+        <li>5. Monitoring and analyzing website usage and trends.</li>
       </ul>
 
       <br></br>
 
       <h2>3. Security</h2>
+      <br></br>
       <p>
         We value your trust in providing us your personal information, thus
         we are striving to use commercially acceptable means of protecting it.
@@ -53,6 +56,7 @@ const PrivacyPolicy = () => {
       <br></br>
 
       <h2>4. Changes to This Privacy Policy</h2>
+      <br></br>
       <p>
         We may update our Privacy Policy from time to time. Thus, we advise you
         to review this page periodically for any changes. We will notify you of
@@ -63,6 +67,7 @@ const PrivacyPolicy = () => {
       <br></br>
       
       <h2>5. Contact Us</h2>
+      <br></br>
       <p>
         If you have any questions or suggestions about our Privacy Policy, do
         not hesitate to contact us at <a href="mailto:info@moralauthority.co">info@moralauthority.co</a>.
@@ -70,5 +75,6 @@ const PrivacyPolicy = () => {
     </div>
   );
 };
+
 
 export default PrivacyPolicy;
