@@ -3,8 +3,8 @@
   left: 0;
   top: 0; */
   /* width: 100%; */
-  background-color:rgb(42, 41, 45);
-  color: white;
+  background-color:#043019;
+  color: #F2F2EB;
   text-align: center;
 }
 
@@ -12,8 +12,8 @@
   display: flex;
   justify-content: center;
   padding: 10px 50px;
-  background-color: #c6640ed4;
-  color: white;
+  background-color: black;
+  color: #F2F2EB;
 }
 
 .departments li {

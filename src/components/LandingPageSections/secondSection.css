@@ -3,7 +3,7 @@
     min-height: 80vh; /* lg:h-screen */
     display: flex;
     align-items: center;
-    background-color: white;
+    background-color: #F2F2EB;
     padding: 2rem 1rem; /* px-4 py-8 */
     padding: 3rem 9rem; /* lg:py-12 lg:px-36 */
   }
@@ -18,7 +18,7 @@
     height: 480px;
     margin-left: -2rem; /* -ml-8 */
     margin-right: 2rem;
-    background-color: #F3F3F3;
+    background-color: #F2F2EB;
   }
   
   .title-container {

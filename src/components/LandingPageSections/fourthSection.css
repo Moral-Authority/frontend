@@ -1,0 +1,36 @@
+/* FourthSection.css */
+.fourth-section-container {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    align-items: center;
+    justify-content: center;
+    background-color: #F2F2EB;
+    height: 50vh;
+  }
+
+  /* FourthSection.css */
+.title-container {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+  }
+  
+  .section-divider {
+    width: 60px;
+    border-width: 2px;
+    border-color: #F2F2EB;
+  }
+  
+  .section-title {
+    font-size: 2.25rem;
+    text-transform: capitalize;
+    font-weight: bold;
+  }
+  
+  .section-items {
+    display: flex;
+    justify-content: space-evenly;
+    width: 100%;
+  }

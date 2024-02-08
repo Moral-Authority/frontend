@@ -1,8 +1,8 @@
 .third-section-container {
     min-height: 50vh;
-    color: white;
+    color: #F2F2EB;
     padding: 10%;
-    background-color: black;
+    background-color: #0C0F18;
     width: 100%;
   }
   
@@ -41,7 +41,7 @@
   }
   
   .points-list {
-    color: #E1E1E1;
+    color: #F2F2EB;
     opacity: 0.9;
     list-style-type: disc;
     padding-left: 20px;
@@ -61,8 +61,8 @@
   .action-button {
     width: 158px;
     height: 46px;
-    color: black;
-    background-color: #D6AD60;
+    color: #F2F2EB5;
+    background-color: #043019;
     text-transform: capitalize;
   }
   
