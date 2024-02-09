@@ -25,7 +25,7 @@ const Shop = () => {
       >
         <Header />
         <div className="flex-1 flex flex-col h-full bg-white">
-          <section className="flex text-[#798086] items-center justify-center bg-[#FBF7EC] h-24">
+          <section className="flex text-[#798086] items-center justify-center  bg-white h-20">
             Home &gt; Shop &gt; Home Goods
           </section>
           <section className="px-4 relative py-2 sm:px-9 sm:py-8 xl:py-12 flex flex-col xl:flex-row space-y-2 xl:space-y-0 xl:space-x-10">
