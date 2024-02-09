@@ -19,6 +19,7 @@ const AddProductMutation = graphql`
   }
 `;
 
+
 const AddProduct = () => {
   const navigate = useNavigate();
   const [commitMutation, isInFlight] = useMutation(AddProductMutation);
