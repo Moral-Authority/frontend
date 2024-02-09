@@ -1,0 +1,103 @@
+/* MobileNav.css */
+.mobile-nav {
+  min-height: 100vh;
+  background-color: #1E1E1E;
+  display: flex;
+  flex-direction: column;
+  gap: 40px;
+  padding: 40px 32px;
+  color: #F2F2eb;
+}
+
+.top-icons {
+  display: flex;
+  justify-content: space-between;
+}
+
+.notification {
+  background-color: #D6AD60;
+  border-radius: 50%;
+  width: 20px;
+  height: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 12px;
+  margin-left: -16px;
+  margin-top: -8px;
+}
+
+.icon {
+  width: 32px;
+  height: 32px;
+  color: #F2F2eb;
+}
+
+.auth-buttons {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+}
+
+.signup-btn, .login-btn {
+  width: 150px;
+  height: 50px;
+  text-align: center;
+  border-radius: 8px;
+  font-size: 16px;
+}
+
+.signup-btn {
+  background-color: #D6AD60;
+  color: #0C0F18;
+}
+
+.login-btn {
+  background: transparent;
+  border: 2px solid #D6AD60;
+  color: #D6AD60;
+}
+
+.search-bar {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  border-bottom: 2px solid #F2F2eb;
+}
+
+.search-bar input {
+  background: transparent;
+  border: none;
+  outline: none;
+  color: #F2F2eb;
+  width: 75%;
+}
+
+.categories, .profile-section {
+  padding-top: 20px;
+}
+
+.section-title {
+  font-size: 20px;
+  margin-bottom: 20px;
+}
+
+.categories ul {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  padding-left: 40px;
+}
+
+.categories li {
+  cursor: pointer;
+  opacity: 0.7;
+}
+
+.categories li:hover {
+  opacity: 1;
+}
+
+.profile-section {
+  font-size: 20px;
+}

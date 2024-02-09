@@ -169,7 +169,7 @@ border: solid 1px lightgray;
     .bg-black{
         background-color: #535353;
         border: 2px solid #535353;
-        color: #fff;
+        color: #F2F2eb;
     
     }
     
@@ -180,7 +180,7 @@ border: solid 1px lightgray;
     .btn-started-special{
         position: absolute;
         left: 30%;
-        color: white;
+        color: #F2F2eb;
         background-color: transparent;
     }
     
@@ -341,8 +341,8 @@ border: solid 1px lightgray;
 
 
 .bg-black{
-    background-color: black;
-    border: 2px solid #060606;;
+    background-color: #0C0F18;
+    border: 2px solid #0C0F18;
     color: #B4B5B5;
 
 }
@@ -354,7 +354,7 @@ border: solid 1px lightgray;
 .btn-started-special{
     position: absolute;
     left: 30%;
-    color: white;
+    color: #F2F2eb;
     background-color: transparent;
 }
 

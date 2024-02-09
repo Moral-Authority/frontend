@@ -13,7 +13,7 @@ const MainNav = ({ userLoggedIn }) => {
   return (
     <div>
       <header
-        className="w-full flex h-20 #F2F2EB border justify-between text-center items-center px-10
+        className="w-full flex h-20 bg-white border justify-between text-center items-center px-10
    md:px-20 xl:px-32"
       >
         <Link to="/">
@@ -39,7 +39,7 @@ const MainNav = ({ userLoggedIn }) => {
                   <BellIcon className="h-7 w-7" />
                   <div
                     className=" -ml-4 -mt-1 rounded-full w-5 h-5 flex items-center
-          justify-center text-center bg-[#F2F2EB] text-white text-xs"
+          justify-center text-center bg-[#D6AD60] text-white text-xs"
                   >
                     3
                   </div>
@@ -101,7 +101,7 @@ const MainNav = ({ userLoggedIn }) => {
           />
         </nav>
       </header>
-      <div className="hidden lg:flex justify-center space-x-5 w-full h-14 bg-black text-#F2F2EB ">
+      <div className="hidden lg:flex justify-center space-x-5 w-full h-14 bg-black text-white ">
         <NavItems />
       </div>
     </div>

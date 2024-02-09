@@ -3,9 +3,8 @@ import React from "react";
 const MainSection = () => {
   return (
     <main
-      className="w-full bg-mainSmall lg:bg-ourMission h-[70vh]
-         bg-no-repeat bg-cover lg:h-screen lg:bg-cover"
-    >
+      className="w-full h-[70vh]
+         bg-no-repeat bg-cover lg:h-screen lg:bg-cover">
       <div
         className="w-full h-full flex flex-col items-start
         bg-gradient-to-r from-black/70 to-transparent justify-center text-left pl-6 sm:pl-16 lg:pl-28 "

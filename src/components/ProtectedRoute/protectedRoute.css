@@ -1,16 +1,16 @@
 .protectiveRoute {
-    background-color: black;
+    background-color: #0C0F18;
     color: goldenrod;
     font-size: xx-large;
 }
 
 html,body {
-    background-color: black;
+    background-color: #0C0F18;
 }
 
 .submit {
-    border-color:  black;
-    color: whitesmoke;
+    border-color:  b#0C0F18;
+    color: #F2F2eb;
     background-color: mediumpurple;
     padding: 0.25em;
     margin: 0.5em;
@@ -19,7 +19,7 @@ html,body {
 
 .submit:hover {
     background-color: goldenrod;
-    color: white;
+    color: #F2F2eb;
 }
 
 .formInput {

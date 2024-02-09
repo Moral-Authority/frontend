@@ -1,0 +1,60 @@
+.nav-item {
+    position: relative;
+    padding-top: 3rem; /* Adjust the top padding if necessary */
+    z-index: 20;
+}
+
+.nav-item-container {
+    cursor: pointer;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem; /* space-x-2 */
+    padding-bottom: 0.75rem; /* pb-3 */
+    /* The gold underline has been removed as per your request */
+}
+
+
+
+.nav-item-dropdown {
+    display: none;
+    position: absolute;
+    top: 100%; /* Aligns with the bottom of the nav item */
+    left: 0;
+    width: 100%; /* Full width to match the nav item's width */
+    background-color: black;
+    color: white;
+    flex-direction: column;
+    gap: 0; /* Remove space between items */
+    padding: 0; /* Remove padding */
+    border-radius: 0; /* Optional: Adjust if you want rounded corners */
+    box-shadow: none; /* Optional: Adjust if you want a shadow */
+    /* Ensure that there's enough space for the dropdown content */
+    overflow: visible; /* Prevents content from being cut off */
+}
+
+.group:hover .nav-item-dropdown {
+    display: block; /* Show on hover */
+}
+
+.dropdown-item {
+    padding: 0.75rem 1rem; /* Vertical and horizontal padding */
+    border-left: 4px solid transparent; /* Placeholder for the highlight effect */
+    transition: background-color 0.3s, border-left-color 0.3s; /* Smooth transition for hover */
+    /* Adjust line-height to prevent text cut-off */
+    line-height: 1.5; /* Example value, adjust as needed */
+}
+
+.dropdown-item:hover {
+    background-color: rgba(255, 255, 255, 0.1); /* Highlight effect on hover */
+    /* border-left-color: #D6AD60; Color for the highlight effect */
+}
+
+.dropdown-item:not(:last-child) {
+    border-bottom: 1px solid black; /* Separator color, adjust as needed */
+}
+
+.dropdown-item:last-child {
+    border-bottom: none; /* No border for the last item */
+}
+
+/* Additional styles may be required based on the rest of your project */
