@@ -11,8 +11,21 @@ const NavItem = ({ item }) => {
       >
         <Link to={item.navLink}>{item.title}</Link>
       </div>
-      <ul className="absolute top-10 hidden text-sm mt-5 w-[200px] text-center group-hover:flex flex-col space-y-5 p-5 bg-black text-[#f2f2eb]">
-        {item?.children?.items.map((childItem, index) => (
+      <ul className="absolute 
+                    top-10 
+                    mt-[0.6rem] 
+                    hidden 
+                    text-sm 
+                    w-[150px] 
+                    text-center 
+                    group-hover:flex 
+                    flex-col 
+                    space-y-5
+                    p-[.8rem] 
+                    bg-black 
+                    text-[#f2f2eb]
+                    rounded-md">
+                {item?.children?.items.map((childItem, index) => (
           <li
             key={index}
             className={

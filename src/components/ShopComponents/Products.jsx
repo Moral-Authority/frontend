@@ -15,7 +15,9 @@ const Products = () => {
           id=""
           className="text-[#798086] px-4 py-2 bg-white border border-[#EDEFF6]"
         >
-          <option value="Most Popular">Most Popular</option>
+          {/* <option value="Most Popular">Most Popular</option> */}
+          <option value="Price (Low to High)">Price (Low to High)</option>
+          <option value="Price (High to Low)">Price (High to Low)</option>
         </select>
       </section>
       {/* categories */}
