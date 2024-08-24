@@ -1,30 +1,18 @@
 import React from "react";
+import "./mainSection.css";
 const MainSection = () => {
   return (
     <main
-      className="w-full 
-        bg-mainSmall 
-        lg:bg-ourMission
-        h-[70vh]
-        bg-no-repeat 
-        bg-cover 
-        lg:h-screen 
-        lg:bg-cover">  
+      className="background-container">  
 
-      <div 
-        className="w-full 
-            h-full 
-            flex 
-            flex-col 
-            items-startbg-gradient-to-r 
-            from-black/70 
-            to-transparent 
-            justify-center 
-            text-left 
-            pl-6 
-            sm:pl-16 
-            lg:pl-28">
-      </div>
+      {/* <div 
+        className="landing-page-text">
+          <p>
+          YOUR VALUES 
+          <br></br>
+          OUR MISSION
+          </p>
+      </div> */}
       
     </main>
   );

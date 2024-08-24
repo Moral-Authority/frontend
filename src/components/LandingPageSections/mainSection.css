@@ -1,34 +1,32 @@
 .background-container {
-    position: relative;
-    width: 100%;
-    height: 70vh; /* Default height */
+  position: relative;
+  width: 100%;
+  height: 70vh; /* Default height */
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-image: url('/img/ourMission.jpeg');
+  opacity: 0.8; /* Adjust the opacity as needed */
+  z-index: -1;
+}
+
+@media (min-width: 1024px) {
+  .background-container {
+    height: 100vh; /* Adjust height for larger screens */
   }
-  
-  .background-container::before {
-    content: '';
+}
+
+
+
+  .landing-page-text {
+    color: green;
+    font-size: xx-large;
     position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    background-size: cover;
-    background-position: center;
-    background-repeat: no-repeat;
-    opacity: 0.3; /* Adjust the opacity as needed */
-    z-index: -1;
-  }
-  
-  .bg-mainSmall::before {
-    background-image: url('/path/to/your/image/main1x.png');
-  }
-  
-  .bg-ourMission::before {
-    background-image: url('/path/to/your/image/ourMission.png');
-  }
-  
-  @media (min-width: 1024px) {
-    .background-container {
-      height: 100vh; /* Adjust height for larger screens */
-    }
-  }
-  
+    font-weight: bolder;
+    font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center; /* This will center the text inside the div */
+    padding: 20px; /* Optional: Adjusts the padding inside the box */
+}
