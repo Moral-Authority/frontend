@@ -59,10 +59,10 @@
   }
   
   .action-button {
-    width: 158px;
-    height: 46px;
-    color: #F2F2EB5;
-    background-color: #043019;
-    text-transform: capitalize;
+      width: 158px;
+      height: 46px;
+      color: #F2F2EB;
+      background-color: #043019;
+      text-transform: capitalize;
   }
   
