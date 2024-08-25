@@ -2,13 +2,14 @@
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&display=swap');
 
 .protectiveRoute {
-    background-color: #F2F2EB;
+    /* background-color: #F2F2EB; */
     color: #1b5537;
     font-size: medium;
+    /* height: 100vh; */
 }
 
 html,body {
-    background-color:  #F2F2EB;
+    /* background-color:  #F2F2EB; */
     font-family: 'Poppins', sans-serif;
     color: #1b5537;
 }
