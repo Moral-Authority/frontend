@@ -1,49 +1,49 @@
-import { useRef } from "react";
+// import { useRef } from "react";
 
 
-const PASSWORD = 'qwerty';
+// const PASSWORD = 'qwerty';
 
-export const ProtectedRouteForm = ({ onAccessGranted }) => {
-	const passwordInputRef = useRef(null);
+// export const ProtectedRouteForm = ({ onAccessGranted }) => {
+// 	const passwordInputRef = useRef(null);
 
-	const handleSubmit = (e) => {
-		e.preventDefault();
+// 	const handleSubmit = (e) => {
+// 		e.preventDefault();
 
-		const password = passwordInputRef.current?.value;
+// 		const password = passwordInputRef.current?.value;
 
-		if (onAccessGranted && password === PASSWORD) {
-			onAccessGranted();
-		}
-		else {
-			alert("password is incorrect!!!")
-		}
-	}
+// 		if (onAccessGranted && password === PASSWORD) {
+// 			onAccessGranted();
+// 		}
+// 		else {
+// 			alert("password is incorrect!!!")
+// 		}
+// 	}
 
-	return (
-		<div className="protectiveRoute">
+// 	return (
+// 		<div className="protectiveRoute">
 	
-		<form className="form" onSubmit={handleSubmit}>
-		    <p>Impact-Site-Verification: 870ae376-312b-4b18-af52-a879c0e27bfc</p>
-			<h1 className="heading">COMING SOON</h1>
+// 		<form className="form" onSubmit={handleSubmit}>
+// 		    <p>Impact-Site-Verification: 870ae376-312b-4b18-af52-a879c0e27bfc</p>
+// 			<h1 className="heading">COMING SOON</h1>
 
-			<div className="center">
+// 			<div className="center">
 
-				<input
-					type="password"
-					className="formInput"
-					placeholder="Password"
-					ref={passwordInputRef}
-				/>
+// 				<input
+// 					type="password"
+// 					className="formInput"
+// 					placeholder="Password"
+// 					ref={passwordInputRef}
+// 				/>
 
-			</div>
+// 			</div>
 
-			<div className="center">
+// 			<div className="center">
 
-				<button className="btn submit">Hop In</button>
+// 				<button className="btn submit">Hop In</button>
 
-			</div>
+// 			</div>
 
-		</form>
-		</div>
-	)
-}
+// 		</form>
+// 		</div>
+// 	)
+// }

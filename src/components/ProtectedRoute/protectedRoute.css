@@ -1,15 +1,12 @@
-
+/* 
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&display=swap');
 
 .protectiveRoute {
-    /* background-color: #F2F2EB; */
     color: #1b5537;
     font-size: medium;
-    /* height: 100vh; */
 }
 
 html,body {
-    /* background-color:  #F2F2EB; */
     font-family: 'Poppins', sans-serif;
     color: #1b5537;
 }
@@ -46,10 +43,10 @@ html,body {
 .heading {
     color:#1b5537;
     font-size: x-large;
-    font-family: 'Poppins', sans-serif; /* Added sans-serif as fallback */
+    font-family: 'Poppins', sans-serif; 
     margin-left: .2em;
     margin-bottom: .25em;
-}
+} */
 
 
 /* #043019 */
