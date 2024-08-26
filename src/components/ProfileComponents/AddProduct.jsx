@@ -288,9 +288,6 @@ const AddProduct = () => {
                 className="border w-4/5 border-[#E3E7F4] px-4 py-2 placeholder:text-[#777D88]/30 focus:outline-none outline-none"
                 placeholder="Certification"
               />
-              <button className="bg-black w-1/5 text-white peer-first:h-full px-4 py-2">
-                Add
-              </button>
             </div>
           </div>
           <div className="flex">
