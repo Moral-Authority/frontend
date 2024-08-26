@@ -23,7 +23,7 @@ export const ProtectedRouteForm = ({ onAccessGranted }) => {
 		<div className="protectiveRoute">
 	
 		<form className="form" onSubmit={handleSubmit}>
-		    <p>Impact-Site-Verification: affa2d2f-c13f-4606-aef4-eb5c08f7e6fe</p>
+		    <p>Impact-Site-Verification: 870ae376-312b-4b18-af52-a879c0e27bfc</p>
 			<h1 className="heading">COMING SOON</h1>
 
 			<div className="center">
