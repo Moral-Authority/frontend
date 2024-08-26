@@ -1,19 +1,16 @@
-import { RelayEnvironmentProvider } from "react-relay";
+import React from 'react';
+import { ApolloProvider } from '@apollo/client';
+import client from './apolloClient'; // Adjust the path to where your Apollo Client setup is located
 import reducer from "./utils/stateProvider/reducer";
 import state from "./utils/stateProvider/state";
 import { StateProvider } from "./utils/stateProvider/useStateValue";
-import { createEnvironment } from "./utils/relayEnvironment/environment";
-import { useMemo } from "react";
 
 export const Providers = ({ children }) => {
-  const environment = useMemo(() => {
-    return createEnvironment();
-  }, []);
   return (
-    <RelayEnvironmentProvider environment={environment}>
+    <ApolloProvider client={client}>
       <StateProvider reducer={reducer} state={state}>
         {children}
       </StateProvider>
-    </RelayEnvironmentProvider>
+    </ApolloProvider>
   );
 };
