@@ -11,8 +11,6 @@
 import { ConcreteRequest, Mutation } from 'relay-runtime';
 export type NewUser = {
   email: string;
-  firstName: string;
-  lastName: string;
   password: string;
 };
 export type CreateAccountFormMutation$variables = {
@@ -22,8 +20,6 @@ export type CreateAccountFormMutation$data = {
   readonly addUser: {
     readonly _id: string;
     readonly email: string;
-    readonly firstName: string;
-    readonly lastName: string;
   };
 };
 export type CreateAccountFormMutation = {
@@ -65,20 +61,6 @@ v1 = [
         "alias": null,
         "args": null,
         "kind": "ScalarField",
-        "name": "firstName",
-        "storageKey": null
-      },
-      {
-        "alias": null,
-        "args": null,
-        "kind": "ScalarField",
-        "name": "lastName",
-        "storageKey": null
-      },
-      {
-        "alias": null,
-        "args": null,
-        "kind": "ScalarField",
         "name": "email",
         "storageKey": null
       }
@@ -109,7 +91,7 @@ return {
     "metadata": {},
     "name": "CreateAccountFormMutation",
     "operationKind": "mutation",
-    "text": "mutation CreateAccountFormMutation(\n  $input: NewUser!\n) {\n  addUser(input: $input) {\n    _id\n    firstName\n    lastName\n    email\n  }\n}\n"
+    "text": "mutation CreateAccountFormMutation(\n  $input: NewUser!\n) {\n  addUser(input: $input) {\n    _id\n    email\n  }\n}\n"
   }
 };
 })();

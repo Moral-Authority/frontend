@@ -16,8 +16,6 @@ export type LeftProfileQuery$data = {
   readonly user: {
     readonly _id: string;
     readonly email: string;
-    readonly firstName: string;
-    readonly lastName: string;
   };
 };
 export type LeftProfileQuery = {
@@ -59,20 +57,6 @@ v1 = [
         "alias": null,
         "args": null,
         "kind": "ScalarField",
-        "name": "firstName",
-        "storageKey": null
-      },
-      {
-        "alias": null,
-        "args": null,
-        "kind": "ScalarField",
-        "name": "lastName",
-        "storageKey": null
-      },
-      {
-        "alias": null,
-        "args": null,
-        "kind": "ScalarField",
         "name": "email",
         "storageKey": null
       }
@@ -103,7 +87,7 @@ return {
     "metadata": {},
     "name": "LeftProfileQuery",
     "operationKind": "query",
-    "text": "query LeftProfileQuery(\n  $userId: String!\n) {\n  user(_id: $userId) {\n    _id\n    firstName\n    lastName\n    email\n  }\n}\n"
+    "text": "query LeftProfileQuery(\n  $userId: String!\n) {\n  user(_id: $userId) {\n    _id\n    email\n  }\n}\n"
   }
 };
 })();

@@ -16,3 +16,19 @@ export default defineConfig({
     ],
   },
 });
+
+
+//  LOCAL TESTING CONFIG
+// export default defineConfig({
+//   plugins: [react(), relay],
+//   server: {
+//     port: 3000, // Local development port
+//     open: true, // Automatically open the browser on server start
+//   },
+//   resolve: {
+//     alias: [
+//       { find: "@", replacement: path.resolve(__dirname, "src") },
+//       { find: "images", replacement: path.resolve(__dirname, "img") },
+//     ],
+//   },
+// });

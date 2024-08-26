@@ -11,22 +11,16 @@ type Mutation {
 
 type User {
   _id: String!
-  firstName: String!
-  lastName: String!
   email: String!
 }
 
 input NewUser {
-  firstName: String!
-  lastName: String!
   email: String!
   password: String!
 }
 
 input UpdateUser {
   userId: String!
-  firstName: String
-  lastName: String
   email: String
   password: String
 }
