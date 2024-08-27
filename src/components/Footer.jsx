@@ -8,7 +8,7 @@ const Footer = () => {
     <div className="footer-container">
       <div className="icons-container">
         <SocialIcon
-          url="https://www.instagram.com/"
+          url="https://www.instagram.com/moralauthority/"
           target="_blank"
           rel="noopener noreferrer"
           className="homepage-icon"

@@ -1,8 +1,18 @@
-// FourthSection.jsx
 import React from "react";
+import { useQuery } from '@apollo/client';
+import { GET_ALL_PRODUCTS } from '../../graphql/Queries';
+import Product from "../ShopComponents/Product.jsx";
 import './fourthSection.css';
 
 const FourthSection = () => {
+  const { loading, error, data } = useQuery(GET_ALL_PRODUCTS);
+
+  if (loading) return <p>Loading...</p>;
+  if (error) return <p>Error: {error.message}</p>;
+
+  // Get the first 4 products to display
+  const productsToDisplay = data.getAllProducts.slice(0, 4);
+
   return (
     <div className="fourth-section-container">
       <div className="title-container">
@@ -10,9 +20,13 @@ const FourthSection = () => {
         <h6 className="section-title">Newest Products</h6>
       </div>
       <section className="section-items">
-        <a target="_blank" href="https://www.amazon.com/Meideli-Marguerite-Sunflower-Aesthetic-Skateboard/dp/B0BGNFWS59?keywords=sticker&amp;qid=1707344046&amp;sr=8-2&amp;th=1&amp;linkCode=sl1&amp;tag=moralauthor04-20&amp;linkId=4d7ee2e519cafda81c7f9aae4f21e0f8&amp;language=en_US&amp;ref_=as_li_ss_tl&_encoding=UTF8&tag=moralauthor04-20&linkCode=ur2&linkId=88ea5384b469f6fce4443ce907c94076&camp=1789&creative=9325">BUY ME</a>
-        <a target="_blank" href="https://www.amazon.com/Meideli-Marguerite-Sunflower-Aesthetic-Skateboard/dp/B0BGNFWS59?keywords=sticker&amp;qid=1707344046&amp;sr=8-2&amp;th=1&amp;linkCode=sl1&amp;tag=moralauthor04-20&amp;linkId=4d7ee2e519cafda81c7f9aae4f21e0f8&amp;language=en_US&amp;ref_=as_li_ss_tl&_encoding=UTF8&tag=moralauthor04-20&linkCode=ur2&linkId=88ea5384b469f6fce4443ce907c94076&camp=1789&creative=9325">BUY ME</a>
-        <a target="_blank" href="https://www.amazon.com/Meideli-Marguerite-Sunflower-Aesthetic-Skateboard/dp/B0BGNFWS59?keywords=sticker&amp;qid=1707344046&amp;sr=8-2&amp;th=1&amp;linkCode=sl1&amp;tag=moralauthor04-20&amp;linkId=4d7ee2e519cafda81c7f9aae4f21e0f8&amp;language=en_US&amp;ref_=as_li_ss_tl&_encoding=UTF8&tag=moralauthor04-20&linkCode=ur2&linkId=88ea5384b469f6fce4443ce907c94076&camp=1789&creative=9325">BUY ME</a>
+        {productsToDisplay.map((product) => (
+          <Product
+            key={product._id}
+            title={product.Title}
+            _id={product._id} // Pass the product ID
+          />
+        ))}
       </section>
     </div>
   );

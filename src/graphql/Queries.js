@@ -21,3 +21,24 @@ export const GET_USER_QUERY = gql`
     }
   }
 `;
+
+
+export const GET_ALL_PRODUCTS = gql`
+  query GetAllProducts {
+    getAllProducts {
+      _id
+      Title
+    }
+  }
+`;
+
+
+
+export const GET_PRODUCT_BY_ID = gql`
+  query GetProductByID($id: String!) {
+    getProductByID(id: $id) {
+      _id
+      Title
+    }
+  }
+`;

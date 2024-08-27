@@ -69,6 +69,29 @@ const CompanyProfile = () => {
         <SocialLinks url="http://www.twitterURL.com" label="www.twitterURL.com" />
       </div>
 
+      {/* <div className="flex space-x-4 px-2">
+          <SocialIcon
+            url="https://facebook.com"
+            bgColor="#697383"
+            style={{ height: "28px", width: "28px" }}
+          />
+          <SocialIcon
+            url="https://twitter.com"
+            bgColor="#697383"
+            style={{ height: "28px", width: "28px" }}
+          />
+          <SocialIcon
+            url="https://instagram.com"
+            bgColor="#697383"
+            style={{ height: "28px", width: "28px" }}
+          />
+          <SocialIcon
+            url="https://youtube.com"
+            bgColor="#697383"
+            style={{ height: "28px", width: "28px" }}
+          />
+        </div> */}
+
       {/* The divider line is retained here */}
       <div className="border-t py-5 flex flex-col space-y-4 px-4">
         <ContactInfo icon={BuildingOffice2Icon} label="Contact Name" />

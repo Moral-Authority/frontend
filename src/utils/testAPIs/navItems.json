@@ -6,33 +6,39 @@
       "children": {
         "items": [
           {
-            "title": "Home Goods & Art",
+            "title": "Cleaning Supplies",
+            "navLink": "/shop"
+          },
+          {
+            "title": "Kitchen & Dining",
+            "navLink": "/shop"
+          },
+          {
+            "title": "Furniture & Art",
             "navLink": "/shop"
           },
           {
             "title": "Garden",
             "navLink": "/shop"
-          }
-        ],
-        "length": 2
-      }
-    },
-
-    {
-      "title": "Grocery",
-      "navLink": "/shop",
-      "children": {
-        "items": [
+          },
           {
-            "title": "Household supplies",
+            "title": "Bedding & Linens",
             "navLink": "/shop"
           },
           {
-            "title": "Other",
+            "title": "Home Decor",
+            "navLink": "/shop"
+          },
+          {
+            "title": "Lighting & Lamps",
+            "navLink": "/shop"
+          },
+          {
+            "title": "Bath & Laundry",
             "navLink": "/shop"
           }
         ],
-        "length": 2
+        "length": 4
       }
     },
 
@@ -54,7 +60,7 @@
             "navLink": "/shop"
           }
         ],
-        "length": 2
+        "length": 3
       }
     },
 
@@ -68,7 +74,7 @@
             "navLink": "/shop"
           },
           {
-            "title": "Bath",
+            "title": "Bath & Body",
             "navLink": "/shop"
           },
           {
@@ -98,7 +104,7 @@
             "navLink": "/shop"
           }
         ],
-        "length": 2
+        "length": 3
       }
     }
   ]

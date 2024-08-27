@@ -7,7 +7,8 @@ import { HeartIcon as HeartFilled } from "@heroicons/react/24/solid";
 import { SocialIcon } from "react-social-icons";
 import Award from "images/award.png";
 
-const ProductInfo = () => {
+
+const ProductInfo  = ({ title }) => {
   const [quantity, setQuantity] = useState(0);
   const [liked, setliked] = useState(false);
 
@@ -15,19 +16,17 @@ const ProductInfo = () => {
     <div className="w-full md:w-1/2 flex flex-col px-5 md:px-10 items-start">
       {/* Upper Section */}
       <section className="flex flex-col pb-3">
-        <p className="text-sm text-[#D6AD60]">Home Interior Design</p>
+        <p className="text-sm text-[#D6AD60]">Company Name</p>
         <p className="text-[#4F536C] mt-1">
-          Luxurious Home Interor Design Chairs
+        {title}
         </p>
         <div className="flex flex-col-reverse md:flex-col">
           <p className="text-[#758BAE] leading-loose text-sm mt-5">
-            Lorem Ipsum is simply dummy text of the printing and typesetting
-            industry. Lorem Ipsum has been the industry's standard dummy text
-            ever.
+            Product Description Lorem ipsum dolor sit amet consectetur, adipisicing elit. Necessitatibus quae blanditiis ipsa ducimus perspiciatis pariatur, voluptatum ab, quas facere sequi quod adipisci laborum expedita eaque voluptatibus velit omnis quidem dolorem.
           </p>
           <div className="flex justify-between mt-3 items-center border-b pb-3">
             <p className="text-[#5F646F] text-xl font-semibold leading-5">
-              $350
+              $Price
             </p>
             <div className="flex space-x-1 items-center">
               <div className="rounded-full w-10 h-10 bg-[#FBF7EC]">
@@ -38,7 +37,7 @@ const ProductInfo = () => {
                 />
               </div>
               <p className="text-xs text-[#D6AD60] underline underline-offset-4">
-                <Link to="/profile">emilia_alexandra</Link>
+                <Link to="/profile">Bcorp Certified</Link>
               </p>
               <CheckBadgeIcon className="h-4 w-4 text-blue-500" />
             </div>

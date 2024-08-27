@@ -1,17 +1,32 @@
 import React, { useState } from "react";
+import { useParams } from "react-router-dom";
+import { useQuery } from "@apollo/client";
 import Header from "../components/Header";
 import MainHeading from "../components/ProductPageSections/MainHeading";
 import MainImages from "../components/ProductPageSections/MainImages";
 import ProductDescription from "../components/ProductPageSections/ProductDescription";
 import ProductInfo from "../components/ProductPageSections/ProductInfo";
 import RelatedProducts from "../components/ProductPageSections/RelatedProducts";
+import { GET_PRODUCT_BY_ID } from "../graphql/Queries"; // Import the query
 
 const Product = () => {
+  const { id } = useParams(); // Get the product ID from the URL
+
+  const { loading, error, data } = useQuery(GET_PRODUCT_BY_ID, {
+    variables: { id }, // Ensure the ID is passed as a string
+  });
+  
   const TABS = {
     DESCRIPTION: "description",
     DELIVERY: "delivery",
   };
-  const [activeTab, setactiveTab] = useState(TABS.DESCRIPTION);
+  const [activeTab, setActiveTab] = useState(TABS.DESCRIPTION);
+
+  if (loading) return <p>Loading...</p>;
+  if (error) return <p>Error: {error.message}</p>;
+
+  const product = data.getProductByID;
+
   return (
     <div className="min-h-screen w-full flex flex-col bg-white">
       <div className="hidden md:block">
@@ -20,21 +35,21 @@ const Product = () => {
 
       {/* Main */}
       <div className="hidden md:block">
-        <MainHeading />
+        <MainHeading title={product.Title} /> 
       </div>
       {/* Content Section */}
       <section className="h-full flex flex-col md:flex-row w-full space-y-10 md:space-y-0 md:px-20 lg:px-36 md:py-10">
         {/* Left Section */}
         <MainImages />
         {/* Right Section */}
-        <ProductInfo />
+        <ProductInfo title={product.Title} />
       </section>
       {/* Section for large screens */}
       <section className="h-full hidden md:flex flex-col space-y-10 w-full md:px-20 lg:px-36">
         {/* Description Nav */}
         <div className="text-[#697383]/50 flex w-full space-x-5 border-b pb-4">
           <p
-            onClick={() => setactiveTab(TABS.DESCRIPTION)}
+            onClick={() => setActiveTab(TABS.DESCRIPTION)}
             className={`cursor-pointer ${
               activeTab === TABS.DESCRIPTION
                 ? "text-black underline underline-offset-[16px]"
@@ -44,7 +59,7 @@ const Product = () => {
             Product Description
           </p>
           <p
-            onClick={() => setactiveTab(TABS.DELIVERY)}
+            onClick={() => setActiveTab(TABS.DELIVERY)}
             className={`cursor-pointer ${
               activeTab === TABS.DELIVERY
                 ? "text-black underline underline-offset-[16px]"
