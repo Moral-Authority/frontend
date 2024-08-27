@@ -3,7 +3,6 @@ import ChildFilterLabel from "./ChildFilterLabel";
 import FilterDiv from "./FilterDiv";
 import FilterLabel from "./FilterLabel";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faToggleOff, faToggleOn } from "@fortawesome/free-solid-svg-icons";
 import { StarIcon } from "@heroicons/react/24/outline";
 import { StarIcon as StarFilled } from "@heroicons/react/24/solid";
 import { useStateValue } from "@/utils/stateProvider/useStateValue";
@@ -21,7 +20,6 @@ const Filters = () => {
   const [selectedColors, setselectedColors] = useState([]);
   const [selectedSizes, setselectedSizes] = useState([]);
   const [selectedProductCerts, setselectedProductCerts] = useState([]);
-  const [toggleButton, settoggleButton] = useState(false);
   const [rating, setrating] = useState(0);
   const [selectedCompany, setselectedCompany] = useState([]);
   const [selectedCertificates, setselectedCertificates] = useState([]);
@@ -39,8 +37,7 @@ const Filters = () => {
   return (
     <div
       className={`absolute z-30 bg-white w-11/12 opacity-100 xl:relative
-      ${shopFiltersToggle ? "block" : "hidden"} xl:block border border-[#EDEFF6] h-fit xl:h-full xl:w-1/4`}
-    >
+      ${shopFiltersToggle ? "block" : "hidden"} xl:block border border-[#EDEFF6] h-fit xl:h-full xl:w-1/4`}>
       <section className="h-full px-4 py-10 flex flex-col space-y-10">
         <div className="w-full xl:hidden flex justify-between items-center pb-4 border-b border-b-[#E7EAF5]">
           <p className="font-semibold">Filters</p>
@@ -54,55 +51,48 @@ const Filters = () => {
 
         {/* Price Range */}
         <FilterDiv>
-          <div onClick={() => setExpandPriceRange(!expandPriceRange)} className="cursor-pointer flex justify-between items-center">
+          <div className="flex justify-between items-center">
             <FilterLabel label={"Price Range"} />
-            <FontAwesomeIcon icon={expandPriceRange ? faToggleOn : faToggleOff} className="text-[#D6AD60] w-5 h-5" />
           </div>
-          {expandPriceRange && (
-            <div className="flex space-x-2 px-6">
-              <div className="py-1 px-3 bg-[#EDEFF6]">
-                <label>$</label>
-                <input type="text" className="bg-[#EDEFF6] w-1/2 focus:border-none focus:outline-none" />
-              </div>
-              <span>-</span>
-              <div className="py-1 px-3 bg-[#EDEFF6]">
-                <label>$</label>
-                <input type="text" className="bg-[#EDEFF6] w-1/2 focus:border-none focus:outline-none" />
-              </div>
+          <div className="flex space-x-2 px-6">
+            <div className="py-1 px-3 bg-[#EDEFF6]">
+              <label>$</label>
+              <input type="text" className="bg-[#EDEFF6] w-1/2 focus:border-none focus:outline-none" />
             </div>
-          )}
+            <span>-</span>
+            <div className="py-1 px-3 bg-[#EDEFF6]">
+              <label>$</label>
+              <input type="text" className="bg-[#EDEFF6] w-1/2 focus:border-none focus:outline-none" />
+            </div>
+          </div>
         </FilterDiv>
 
-        {/* Product Filters */}
         <FilterDiv>
-          <div onClick={() => setExpandProductFilters(!expandProductFilters)} className="cursor-pointer flex justify-between items-center">
-            <FilterLabel label={"Product Filters"} />
-            <FontAwesomeIcon icon={expandProductFilters ? faToggleOn : faToggleOff} className="text-[#D6AD60] w-5 h-5" />
-          </div>
-          {expandProductFilters && (
-            <div>
-              {/* Colors */}
-              <div className="flex flex-col space-y-5 pl-3 pt-5 space-x-3">
-                <ChildFilterLabel label={"Colors"} />
-                <div className="flex xl:flex-nowrap justify-start space-x-2 items-center">
-                  {colors.colors.map((item, index) => (
-                    <div
-                      key={index}
-                      onClick={() =>
-                        selectedColors.includes(item.title)
-                          ? setselectedColors(selectedColors.filter((ele) => ele !== item.title))
-                          : setselectedColors([...selectedColors, item.title])
-                      }
-                      style={{ borderColor: item.value }}
-                      className={`${selectedColors.includes(item.title) ? "p-1 border" : "p-0 border-none"} w-8 h-8 rounded-full`}
-                    >
-                      <div style={{ backgroundColor: item.value }} className="w-full h-full rounded-full"></div>
-                    </div>
-                  ))}
-                </div>
+          {/* Colors */}
+          <div className="flex flex-col space-y-5 pl-3 pt-1 space-x-2">
+          <ChildFilterLabel label={"Colors"} />
+          <div className="flex xl:flex-nowrap justify-start space-x-2 items-center">
+            {colors.colors.map((item, index) => (
+              <div
+                key={index}
+                onClick={() =>
+                  selectedColors.includes(item.title)
+                    ? setselectedColors(selectedColors.filter((ele) => ele !== item.title))
+                    : setselectedColors([...selectedColors, item.title])
+                }
+                style={{ borderColor: item.value }}
+                className={`${selectedColors.includes(item.title) ? "p-1 border" : "p-0 border-none"} w-8 h-8 rounded-full`}
+              >
+                <div style={{ backgroundColor: item.value }} className="w-full h-full rounded-full"></div>
               </div>
+            ))}
+          </div>
+        </div>
+        </FilterDiv>
+
+        <FilterDiv>
               {/* Size */}
-              <div className="flex flex-col space-y-5 pl-3 pt-5 space-x-3">
+              <div className="flex flex-col space-y-2 pl-3 pt-1 space-x-2">
                 <ChildFilterLabel label={"Size"} />
                 <div className="flex w-full justify-start space-x-4 items-center">
                   <div
@@ -147,7 +137,17 @@ const Filters = () => {
                   </div>
                 </div>
               </div>
+        </FilterDiv>
 
+
+
+        {/* Product Filters */}
+        <FilterDiv>
+          <div onClick={() => setExpandProductFilters(!expandProductFilters)} className="cursor-pointer flex justify-between items-center">
+            <FilterLabel label={"Product Certifications"} />
+          </div>
+          {expandProductFilters && (
+            <div>
               {/* Product Certs */}
               <div className="flex flex-col space-y-5 pl-3 pt-5 space-x-3">
                 <ChildFilterLabel label={"Product Certs"} />
@@ -176,7 +176,6 @@ const Filters = () => {
         <FilterDiv>
           <div onClick={() => setExpandRatings(!expandRatings)} className="cursor-pointer flex justify-between items-center">
             <FilterLabel label={"Ratings"} />
-            <FontAwesomeIcon icon={expandRatings ? faToggleOn : faToggleOff} className="text-[#D6AD60] w-5 h-5" />
           </div>
           {expandRatings && (
             <div className="flex flex-col w-full space-y-5 ml-6 pt-5">
@@ -207,7 +206,6 @@ const Filters = () => {
         <FilterDiv>
           <div onClick={() => setExpandCompany(!expandCompany)} className="cursor-pointer flex justify-between items-center">
             <FilterLabel label={"Company"} />
-            <FontAwesomeIcon icon={expandCompany ? faToggleOn : faToggleOff} className="text-[#D6AD60] w-5 h-5" />
           </div>
           {expandCompany && (
             <div className="flex flex-col w-full space-y-2 ml-6 pt-5">
@@ -234,8 +232,7 @@ const Filters = () => {
         {/* Company Certificates */}
         <FilterDiv>
           <div onClick={() => setIsCertificatesExpanded(!isCertificatesExpanded)} className="cursor-pointer flex justify-between items-center">
-            <FilterLabel label={"Company Certificates"} />
-            <FontAwesomeIcon icon={isCertificatesExpanded ? faToggleOn : faToggleOff} className="text-[#D6AD60] w-5 h-5" />
+            <FilterLabel label={"Company Certifications"} />
           </div>
           {isCertificatesExpanded && (
             <div className="flex flex-col w-full text-[#798086] space-y-2 ml-6 pt-5">

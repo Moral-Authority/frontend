@@ -3,7 +3,7 @@ import { EnvelopeIcon, PhoneIcon } from "@heroicons/react/24/outline";
 import ProfilePicture from "images/profilePicture.png";
 import { useNavigate } from "react-router-dom";
 
-const LeftProfile = () => {
+const UserProfile = () => {
   const navigate = useNavigate();
 
   return (
@@ -37,4 +37,4 @@ const LeftProfile = () => {
   );
 };
 
-export default LeftProfile;
+export default UserProfile;

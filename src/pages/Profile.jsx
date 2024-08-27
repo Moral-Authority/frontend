@@ -2,7 +2,7 @@ import React from "react";
 import { Outlet } from "react-router-dom";
 import Header from "../components/Header";
 import ProductLinks from "../components/Products/ProductLinks";
-import LeftProfile from "../components/ProfileComponents/LeftProfile";
+import UserProfile from "../components/ProfileComponents/UserProfile";
 import { useStateValue } from "@/utils/stateProvider/useStateValue";
 import CompanyProfile from "../components/ProfileComponents/CompanyProfile";
 
@@ -17,7 +17,8 @@ const Profile = () => {
         className="flex relative flex-col sm:flex-row h-full space-y-0 sm:space-x-2 lg:space-x-5 lg:py-10
       items-center lg:justify-center"
       >
-        {userProfile ? <CompanyProfile /> : <LeftProfile />}
+        {/* {userProfile ? <CompanyProfile /> : <UserProfile />} */}
+        {userProfile ? <UserProfile /> : <UserProfile />}
         <div className="w-96 sm:basis-3/4 lg:basis-3/5 bg-white flex flex-col sm:space-y-4 self-start px-10 py-4">
           <ProductLinks />
           <div className="hidden sm:block">

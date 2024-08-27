@@ -1,5 +1,5 @@
 import React from "react";
-import { BellIcon, MagnifyingGlassIcon } from "@heroicons/react/24/outline";
+import { UserCircleIcon, MagnifyingGlassIcon } from "@heroicons/react/24/outline";
 import NavItems from "./NavItems";
 import { Bars3Icon } from "@heroicons/react/24/solid";
 import { useStateValue } from "@/utils/stateProvider/useStateValue";
@@ -35,27 +35,11 @@ const MainNav = ({ userLoggedIn }) => {
           <nav className="hidden lg:flex">
             <ul className="flex items-center space-x-5 ">
               <li>
-                <div className="flex h-full">
-                  <BellIcon className="h-7 w-7" />
-                  <div
-                    className=" -ml-4 -mt-1 rounded-full w-5 h-5 flex items-center
-          justify-center text-center bg-[#D6AD60] text-white text-xs"
-                  >
-                    3
-                  </div>
+              <Link to={userProfile ? "/profile" : "#"}>
+                <div className="h-14 w-14 rounded-full">
+                  <UserCircleIcon className="h-14 w-14" />
                 </div>
-              </li>
-
-              <li>
-                <Link to="/profile">
-                  <div className="h-14 w-14 rounded-full">
-                    <img
-                      src={userProfile ? ProfilePicture : Controller}
-                      className="w-full h-full object-cover rounded-full"
-                      alt="profilePicture"
-                    />
-                  </div>
-                </Link>
+              </Link>
               </li>
             </ul>
           </nav>

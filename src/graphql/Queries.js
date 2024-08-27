@@ -13,13 +13,11 @@ export const GET_USERS_QUERY = gql`
 `;
 
 export const GET_USER_QUERY = gql`
-  query User($input: Int!) {
-    user(input: $input) {
-      id
-      name
-      createdAt
-      age
-      address
+  query User($id: String!) {
+    user(_id: $id) {
+      _id
+      email
+      phone
     }
   }
 `;
