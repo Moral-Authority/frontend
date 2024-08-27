@@ -11,7 +11,6 @@ import Award from "images/award.png";
 const ProductInfo  = ({ title }) => {
   const [quantity, setQuantity] = useState(0);
   const [liked, setliked] = useState(false);
-
   return (
     <div className="w-full md:w-1/2 flex flex-col px-5 md:px-10 items-start">
       {/* Upper Section */}

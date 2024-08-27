@@ -22,7 +22,7 @@ const NavItem = ({ item }) => {
                     flex-col 
                     space-y-5
                     p-[.8rem] 
-                    bg-black 
+                    bg-[#1a1a0a]
                     text-[#f2f2eb]
                     rounded-md">
                 {item?.children?.items.map((childItem, index) => (

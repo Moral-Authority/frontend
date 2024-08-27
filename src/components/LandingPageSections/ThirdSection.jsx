@@ -29,9 +29,6 @@ const ThirdSection = () => {
           </div>
           <div className="buttons-container">
             <button className="action-button">
-              Sign Up
-            </button>
-            <button className="action-button">
               Learn More
             </button>
           </div>

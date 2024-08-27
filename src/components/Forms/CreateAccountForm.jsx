@@ -80,7 +80,7 @@ const CreateAccountForm = () => {
         <div>
           <button
             type="submit"
-            className="w-full h-[51px] bg-[#D6AD60] text-white mt-5 shadow-xl"
+            className="w-full h-[51px] bg-[#75744e] text-white mt-5 shadow-xl"
             disabled={loading} // Disable the button while the mutation is in progress
           >
             {loading ? "Creating account..." : "Create an account"}
@@ -89,7 +89,7 @@ const CreateAccountForm = () => {
 
         <p>
           Already have an account?{" "}
-          <span className="text-[#D6AD60] cursor-pointer">
+          <span className="text-[#75744e] cursor-pointer">
             <Link to="/login">Sign in</Link>
           </span>
         </p>

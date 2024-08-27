@@ -48,7 +48,7 @@ const MainNav = ({ userLoggedIn }) => {
             <ul className="flex space-x-5 ">
               <li>
                 <Link to="/create-account">
-                  <button className="h-[46px] text-base w-[128px] bg-black text-white text-center rounded-sm">
+                  <button className="h-[46px] text-base w-[128px] bg-[#1a1a0a] text-white text-center rounded-sm">
                     Signup
                   </button>
                 </Link>
@@ -78,7 +78,7 @@ const MainNav = ({ userLoggedIn }) => {
           />
         </nav>
       </header>
-      <div className="hidden lg:flex justify-center space-x-5 w-full h-14 bg-black text-white ">
+      <div className="hidden lg:flex justify-center space-x-5 w-full h-14 bg-[#1a1a0a] text-white ">
         <NavItems />
       </div>
     </div>
