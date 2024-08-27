@@ -1,55 +1,97 @@
 .second-section-container {
-    height: auto;
-    min-height: 80vh; /* lg:h-screen */
-    display: flex;
-    align-items: center;
-    background-color: #F2F2EB;
-    padding: 2rem 1rem; /* px-4 py-8 */
-    padding: 3rem 9rem; /* lg:py-12 lg:px-36 */
-  }
-  .image-container {
-    display: flex; /* Adjusted to flex */
-    align-items: center;
-  }
-  
-  .placeholder-image {
-    width: 356px;
-    height: 480px;
-    margin-left: -2rem; /* -ml-8 */
-    margin-right: 2rem;
-    background-color: #F2F2EB;
-  }
-  
-  .title-container {
-    display: flex;
-    align-items: center;
-    gap: 1rem; /* space-x-4 */
-  }
-  
-  .founder-message-divider {
-    width: 60px;
-    border: 2px solid #75744e;
-  }
-  
-  .founder-message-title {
-    font-size: 1.5rem; /* text-2xl */
-    font-size: 1.875rem; /* sm:text-3xl */
-    font-size: 2.25rem; /* lg:text-4xl */
-    font-weight: 600; /* font-semibold */
-    text-transform: capitalize;
-  }
-  
-  .founder-message-paragraph {
-    font-size: 1.25rem; /* text-xl */
-    margin: 2.5rem 0; /* my-10 */
-  }
-  
-  .button-container {
-    display: flex;
-    gap: 1.25rem; /* space-x-5 */
-  }
-  
-  /* Add more classes as needed */
-  
+  height: auto;
+  min-height: 50vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #F2F2EB;
+  padding: 2rem 1rem;
+  flex-direction: column; /* Stack items vertically on small screens */
+}
 
-  
+@media (min-width: 768px) {
+  .second-section-container {
+    flex-direction: row; /* Row direction for larger screens */
+    padding: 3rem 2rem;
+  }
+}
+
+.image-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 2rem; /* Add space below image on small screens */
+}
+
+@media (min-width: 768px) {
+  .image-container {
+    margin-bottom: 0; /* Remove space below image on larger screens */
+    margin-right: 2rem;
+  }
+}
+
+.placeholder-image {
+  width: 100%;
+  max-width: 300px; /* Adjust max-width to be more flexible */
+  height: auto;
+  background-color: #F2F2EB;
+}
+
+@media (min-width: 768px) {
+  .placeholder-image {
+    width: 356px; /* Original width for larger screens */
+    height: 480px; /* Original height for larger screens */
+  }
+}
+
+.title-container {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  justify-content: center;
+  margin-bottom: 1rem;
+}
+
+.founder-message-divider {
+  width: 40px;
+  border: 2px solid #8f8e63;
+}
+
+.founder-message-title {
+  font-size: 1.5rem;
+  font-weight: 600;
+  text-transform: capitalize;
+  text-align: center; /* Center text on small screens */
+}
+
+@media (min-width: 768px) {
+  .founder-message-title {
+    font-size: 2rem;
+  }
+}
+
+.founder-message-paragraph {
+  font-size: 1rem;
+  margin: 1.5rem 0;
+  text-align: center; /* Center text on small screens */
+}
+
+@media (min-width: 768px) {
+  .founder-message-paragraph {
+    font-size: 1.25rem;
+    margin: 2.5rem 0;
+    text-align: left; /* Align text to left on larger screens */
+  }
+}
+
+.button-container {
+  display: flex;
+  gap: 1.25rem;
+  justify-content: center;
+}
+
+@media (min-width: 768px) {
+  .button-container {
+    justify-content: flex-start; /* Align buttons to the left on larger screens */
+  }
+}

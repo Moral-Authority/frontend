@@ -1,4 +1,3 @@
-// MobileNav.js
 import React from "react";
 import { BellIcon, Bars3Icon, MagnifyingGlassIcon } from "@heroicons/react/24/outline";
 import { useStateValue } from "@/utils/stateProvider/useStateValue";
@@ -10,6 +9,13 @@ import "./mobileNav.css"; // Ensure this path is correct
 const MobileNav = () => {
   const [, dispatch] = useStateValue();
   const navigate = useNavigate();
+
+  // Function to handle navigation and collapsing the menu
+  const handleNavigation = (path) => {
+    navigate(path);
+    dispatch({ type: "CHANGE_NAV_MENU" }); // Collapse the menu after navigation
+  };
+
   return (
     <motion.div className="mobile-nav">
       <div className="top-icons">
@@ -19,12 +25,12 @@ const MobileNav = () => {
       </div>
 
       <div className="auth-buttons">
-        <Link to="/create-account">
-          <button className="signup-btn">Sign up</button>
-        </Link>
-        <Link to="/login">
-          <button className="login-btn">Login</button>
-        </Link>
+        <button onClick={() => handleNavigation('/create-account')} className="signup-btn">
+          Sign up
+        </button>
+        <button onClick={() => handleNavigation('/login')} className="login-btn">
+          Login
+        </button>
       </div>
 
       <div className="search-bar">
@@ -37,10 +43,7 @@ const MobileNav = () => {
         <ul>
           {navItems?.navItems?.map((item, index) => (
             <li
-              onClick={() => {
-                dispatch({ type: "CHANGE_NAV_MENU" });
-                navigate(item.navLink);
-              }}
+              onClick={() => handleNavigation(item.navLink)}
               key={index}
             >
               {item.title}

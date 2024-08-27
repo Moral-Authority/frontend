@@ -16,13 +16,15 @@ const ThirdSection = () => {
             <section>
               <ul className="points-list">
                 <li className="list-point">
-                Discover: Explore our curated database of companies and products that prioritize ethical standards.
+                Discover: Browse our curated selection of ethical products, all carefully vetted to meet our high standards. Use our filters to narrow down your search by certifications, ownership, and more.
                 </li>
+                <br></br>
                 <li className="list-point">
-                Support:  Choose to buy from businesses that align with your values, promoting fair and responsible practices.
+                Support:  Choose to buy from businesses that align with your values. Whether it's fair labor practices, environmental sustainability, or minority ownership, your purchases support causes you care about.
                 </li>
+                <br></br>
                 <li className="list-point">
-                Influence: Use your voice and purchasing power to advocate for positive change in corporate behaviors and policies.
+                Influence: Use your purchasing power to advocate for positive change. Join our community to connect with like-minded individuals and share your impact.
                 </li>
               </ul>
             </section>
