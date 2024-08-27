@@ -1,7 +1,8 @@
-const state = {
+// utils/stateProvider/state.js
+const initialState = {
     navMenu: false,
     shopFiltersToggle: false,
-    userProfile: true
+    userProfile: false, // Assuming it should be false initially
 }
 
-export default state;
+export default initialState;

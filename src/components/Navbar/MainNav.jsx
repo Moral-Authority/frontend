@@ -47,14 +47,7 @@ const MainNav = ({ userLoggedIn }) => {
               </li>
 
               <li>
-                <Link
-                  to="/profile"
-                  onClick={() =>
-                    dispatch({
-                      type: "CHANGE_USER_PROFILE",
-                    })
-                  }
-                >
+                <Link to="/profile">
                   <div className="h-14 w-14 rounded-full">
                     <img
                       src={userProfile ? ProfilePicture : Controller}

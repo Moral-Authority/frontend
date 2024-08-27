@@ -1,13 +1,17 @@
+// utils/stateProvider/useStateValue.js
 import { useContext, createContext, useReducer } from "react";
 
-const State = createContext()
+// Create the context
+const StateContext = createContext();
 
+// Create the StateProvider component
 const StateProvider = ({ reducer, state, children }) => (
-    <State.Provider value={useReducer(reducer, state)}>
+    <StateContext.Provider value={useReducer(reducer, state)}>
         {children}
-    </State.Provider>
-)
+    </StateContext.Provider>
+);
 
-const useStateValue = () => useContext(State);
+// Custom hook to use the StateContext
+const useStateValue = () => useContext(StateContext);
 
-export { StateProvider, useStateValue }
+export { StateProvider, useStateValue };
