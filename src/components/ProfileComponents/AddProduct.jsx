@@ -5,23 +5,9 @@ import {
 } from "@heroicons/react/24/outline";
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
-import { graphql, useMutation } from "react-relay";
-
-const AddProductMutation = graphql`
-  mutation AddProductMutation($request: AddProductRequest!) {
-    addProduct(request: $request) {
-      _id
-      Title
-      Description
-      Section
-      Subsection
-    }
-  }
-`;
 
 const AddProduct = () => {
   const navigate = useNavigate();
-  const [commitMutation, isInFlight] = useMutation(AddProductMutation);
   const [state, setState] = useState({
     Title: "",
     Description: "",
@@ -41,10 +27,11 @@ const AddProduct = () => {
     },
   });
 
-  const submitHandler = () =>
-    commitMutation({
-      variables: state,
-    });
+  const submitHandler = (e) => {
+    e.preventDefault();
+    // Here you can add logic to handle form submission, e.g., sending data to an API
+    console.log("Product data submitted", state);
+  };
 
   const changeHandler = (e) => {
     setState({ ...state, [e.target.name]: e.target.value });
@@ -67,7 +54,7 @@ const AddProduct = () => {
           <div className="flex flex-col space-y-1">
             <label className="text-[#777D88]">Product Photos</label>
 
-            <div className="flex items-center  h-36 justify-center space-x-20 border border-[#E3E7F4] px-4 py-2 ">
+            <div className="flex items-center h-36 justify-center space-x-20 border border-[#E3E7F4] px-4 py-2">
               <div className="flex space-x-2">
                 <CameraIcon className="h-6 w-6 text-[#798086]" />
                 <label htmlFor="proofOfMembership" className="text-[#798086]">
@@ -89,7 +76,7 @@ const AddProduct = () => {
           <div className="flex flex-col space-y-1">
             <label className="text-[#777D88]">Product name</label>
             <input
-              type="url"
+              type="text"
               name="Title"
               value={state.Title}
               onChange={changeHandler}
@@ -102,7 +89,6 @@ const AddProduct = () => {
             <textarea
               rows={5}
               name="Description"
-              type="url"
               onChange={changeHandler}
               value={state.Description}
               className="border border-[#E3E7F4] px-4 py-2 placeholder:text-[#777D88]/30 focus:outline-none outline-none"
@@ -114,8 +100,7 @@ const AddProduct = () => {
             <div className="flex flex-col sm:w-1/2 space-y-1">
               <label className="text-[#777D88]">Department</label>
               <select
-                className="border focus:outline-none border-[#E3E7F4] px-4 py-2 bg-white text-[#798086]
-        "
+                className="border focus:outline-none border-[#E3E7F4] px-4 py-2 bg-white text-[#798086]"
                 value={state.Categorization.Department}
                 onChange={(e) => {
                   setState({
@@ -146,12 +131,9 @@ const AddProduct = () => {
                     },
                   });
                 }}
-                className="border focus:outline-none border-[#E3E7F4] px-4 py-2 bg-white text-[#798086]
-        "
+                className="border focus:outline-none border-[#E3E7F4] px-4 py-2 bg-white text-[#798086]"
               >
-                <option value="Select a sub category">
-                  Select a sub category
-                </option>
+                <option value="Select a sub category">Select a sub category</option>
                 <option value="Mobile">Mobile</option>
                 <option value="Gaming">Gaming</option>
               </select>
@@ -163,8 +145,7 @@ const AddProduct = () => {
               <label className="text-[#777D88]">Type</label>
               <select
                 value={state.Categorization.Type}
-                className="border focus:outline-none border-[#E3E7F4] px-4 py-2 bg-white text-[#798086]
-        "
+                className="border focus:outline-none border-[#E3E7F4] px-4 py-2 bg-white text-[#798086]"
                 onChange={(e) => {
                   setState({
                     ...state,
@@ -185,8 +166,7 @@ const AddProduct = () => {
               <label className="text-[#777D88]">Style</label>
               <select
                 value={state.Categorization.Style}
-                className="border focus:outline-none border-[#E3E7F4] px-4 py-2 bg-white text-[#798086]
-        "
+                className="border focus:outline-none border-[#E3E7F4] px-4 py-2 bg-white text-[#798086]"
                 onChange={(e) => {
                   setState({
                     ...state,
@@ -209,7 +189,7 @@ const AddProduct = () => {
               <label className="text-[#777D88]">Price</label>
               <input
                 value={state.PurchaseInfo.Price}
-                type="url"
+                type="text"
                 onChange={(e) => {
                   setState({
                     ...state,
@@ -253,46 +233,27 @@ const AddProduct = () => {
           </div>
 
           <div className="flex flex-col space-y-1">
-            <label className="text-[#777D88]">Product company</label>
+            <label className="text-[#777D88]">Country of origin</label>
             <input
-              value={state.PurchaseInfo.Company}
-              type="url"
-              onChange={(e) => {
-                setState({
-                  ...state,
-                  PurchaseInfo: {
-                    ...state.PurchaseInfo,
-                    Company: e.target.value,
-                  },
-                });
-              }}
+              type="text"
               className="border border-[#E3E7F4] px-4 py-2 placeholder:text-[#777D88]/30 focus:outline-none outline-none"
-              placeholder="Enter product company name"
+              placeholder="Enter country of origin"
             />
           </div>
-          <div className="flex flex-col space-y-1">
-            <label className="text-[#777D88]">Certifications</label>
-            <div className="flex">
-              <input
-                type="url"
-                onChange={(e) => {
-                  setState({
-                    ...state,
-                    Certifications: {
-                      ...state.Certifications,
-                      ProductCertifications: e.target.value,
-                    },
-                  });
-                }}
-                value={state.Certifications.ProductCertifications}
-                className="border w-4/5 border-[#E3E7F4] px-4 py-2 placeholder:text-[#777D88]/30 focus:outline-none outline-none"
-                placeholder="Certification"
-              />
-            </div>
-          </div>
-          <div className="flex">
-            <button className="bg-[#D6AD60] w-1/2 text-white px-8 py-2">
-              Add Product
+
+          <div className="flex flex-col sm:flex-row justify-center space-y-5 sm:space-y-0 sm:space-x-5">
+            <button
+              type="submit"
+              className="w-[150px] py-4 text-white bg-[#D6AD60] text-center text-base sm:text-sm rounded-sm"
+            >
+              Save
+            </button>
+            <button
+              type="button"
+              className="w-[150px] py-4 border border-black text-black text-center text-base sm:text-sm rounded-sm"
+              onClick={() => navigate(-1)}
+            >
+              Cancel
             </button>
           </div>
         </form>
