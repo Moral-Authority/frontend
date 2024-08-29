@@ -9,6 +9,22 @@ const reducer = (state, action) => {
             return { ...state, userProfile: !state.userProfile };
         case "SET_USER":
             return { ...state, user: action.user, userProfile: true };
+        case 'SET_FAVORITES':
+            return {
+            ...state,
+            favorites: new Set(action.favorites),
+            };
+        case 'TOGGLE_FAVORITE':
+            const updatedFavorites = new Set(state.favorites);
+            if (updatedFavorites.has(action.productId)) {
+                updatedFavorites.delete(action.productId);
+            } else {
+                updatedFavorites.add(action.productId);
+            }
+            return {
+            ...state,
+            favorites: updatedFavorites,
+            };
         default:
             return state;
     }

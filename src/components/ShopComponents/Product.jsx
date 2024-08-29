@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React from "react";
 import { HeartIcon } from "@heroicons/react/24/outline";
 import { HeartIcon as HeartFilled } from "@heroicons/react/24/solid";
 import { motion } from "framer-motion";
@@ -9,45 +9,37 @@ import { TOGGLE_USER_FAV } from '../../graphql/Mutations';
 import { useStateValue } from "../../utils/stateProvider/useStateValue"; // Adjust the path as needed
 
 const Product = ({ title, _id }) => {
-  const [{ user }] = useStateValue(); // Get the user state
-  const [liked, setLiked] = useState(false);
+  const [{ user, favorites }, dispatch] = useStateValue(); // Get the user and favorites state
+
+  // Check if this product is a favorite
+  const isFavorite = favorites.has(_id);
 
   const [toggleUserFav] = useMutation(TOGGLE_USER_FAV, {
     variables: {
-      request: {  // Make sure this matches the mutation structure
+      request: {
         userId: user?.id,
         productId: _id,
       },
     },
-    onCompleted: (data) => {
-      setLiked(!liked);
+    onCompleted: () => {
+      // Toggle favorite status in the global state
+      dispatch({
+        type: "TOGGLE_FAVORITE",
+        productId: _id,
+      });
     },
     onError: (error) => {
       console.error("Error toggling favorite:", error);
     },
   });
-  
 
   const handleToggleFavorite = () => {
     if (user) {
-      console.log("Toggling favorite for product ID:", _id); 
-      toggleUserFav({
-        variables: {
-          request: {
-            userId: user.id,
-            productId: _id,
-          },
-        },
-      }).then((response) => {
-        console.log("Mutation response:", response); 
-      }).catch((error) => {
-        console.error("Mutation error:", error); 
-      });
+      toggleUserFav();
     } else {
       console.log("User is not logged in");
     }
   };
-  
 
   return (
     <div className="w-44 lg:w-56 xl:w-64 h-64 lg:h-80 xl:h-96 p-1 lg:p-2 relative flex flex-col border-2 border-[#EDEFF6]">
@@ -55,8 +47,8 @@ const Product = ({ title, _id }) => {
         <div className="!text-white text-sm bg-black !border-none py-1 px-4">
           New
         </div>
-        {user && ( // Only render the heart icon if the user is logged in
-          liked ? (
+        {user && (
+          isFavorite ? (
             <HeartFilled
               onClick={handleToggleFavorite}
               className="h-6 text-red-500 w-6 cursor-pointer"
