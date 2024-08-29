@@ -32,6 +32,16 @@ const MobileNav = () => {
     dispatch({ type: "CHANGE_NAV_MENU" }); // Collapse the menu after navigation
   };
 
+  const logoutHandler = () => {
+    localStorage.removeItem('authToken');
+    localStorage.removeItem('user');
+    dispatch({
+      type: "SET_USER",
+      user: null,
+    });
+    handleNavigation('/'); // Navigate to the home page or login page after logout
+  };
+
   return (
     <motion.div
       style={{
@@ -129,7 +139,13 @@ const MobileNav = () => {
         </ul>
       </div>
 
-      <p style={{ fontSize: "20px", paddingTop: "20px" }}>Sign Out</p>
+      {userLoggedIn ? (
+        <p onClick={logoutHandler} style={{ fontSize: "20px", paddingTop: "20px" }}>
+          Sign Out
+        </p>
+      ) : null}
+      
+
     </motion.div>
   );
 };
