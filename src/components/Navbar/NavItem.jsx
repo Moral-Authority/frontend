@@ -4,10 +4,10 @@ import { Link } from "react-router-dom";
 
 const NavItem = ({ item }) => {
   return (
-    <div className="relative h-20 pt-3 group z-20 ">
+    <div className="relative h-20 pt-3 group z-50 ">
       <div
         className={`cursor-pointer inline-flex items-center group-hover:border-b-4 space-x-2 pb-3
-      border-transparent text-[#f2f2eb]`}
+      border-transparent z-50 text-[#f2f2eb]`}
       >
         <Link to={item.navLink}>{item.title}</Link>
       </div>
@@ -24,7 +24,8 @@ const NavItem = ({ item }) => {
                     p-[.8rem] 
                     bg-[#1a1a0a]
                     text-[#f2f2eb]
-                    rounded-md">
+                    rounded-md
+                    z-50 !important">
                 {item?.children?.items.map((childItem, index) => (
           <li
             key={index}

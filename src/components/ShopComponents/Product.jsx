@@ -44,9 +44,9 @@ const Product = ({ title, _id }) => {
   return (
     <div className="w-44 lg:w-56 xl:w-64 h-64 lg:h-80 xl:h-96 p-1 lg:p-2 relative flex flex-col border-2 border-[#EDEFF6]">
       <div className="flex z-20 justify-between absolute top-5 lg:top-8 w-11/12 -ml-1 lg:-ml-2">
-        <div className="!text-white text-sm bg-black !border-none py-1 px-4">
-          New
-        </div>
+      <div className="!text-white text-sm bg-black !border-none py-1 px-4 z-10">
+        New
+      </div>
         {user && (
           isFavorite ? (
             <HeartFilled
