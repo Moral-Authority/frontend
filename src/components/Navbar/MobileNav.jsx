@@ -55,7 +55,7 @@ const MobileNav = () => {
       }}
     >
       <div style={{ display: "flex", justifyContent: "right" }}>
-        {/* <div
+        <div
           style={{
             display: "flex",
             alignItems: "center",
@@ -66,7 +66,7 @@ const MobileNav = () => {
         >
           <MagnifyingGlassIcon style={{ width: "32px", height: "32px", color: "#F2F2eb" }} />
           <input type="search" placeholder="Search Coming Soon!" id="site-search" name="q" style={{ background: "transparent", border: "none", outline: "none", color: "#F2F2eb", width: "100%" }} />
-        </div> */}
+        </div>
         <Bars3Icon
           style={{ width: "32px", height: "32px", color: "#F2F2eb" }}
           onClick={() => dispatch({ type: "CHANGE_NAV_MENU" })}

@@ -72,16 +72,23 @@ const MainNav = ({ userLoggedIn }) => {
             </ul>
           </nav>
         )}
-        <nav className="flex lg:hidden">
-          <Bars3Icon
-            className="h-8 w-8"
-            onClick={() =>
-              dispatch({
-                type: "CHANGE_NAV_MENU",
-              })
-            }
-          />
-        </nav>
+        
+        <nav className="flex lg:hidden space-x-3">
+        <Link to={userProfile ? "/profile" : "#"}>
+          <div className="h-8 w-8 space-x-3 rounded-full">
+            <HeartIcon className="h-8 w-8 text-[#1a1a0a]" />
+          </div>
+        </Link>
+        <Bars3Icon
+          className="h-8 w-8"
+          onClick={() =>
+            dispatch({
+              type: "CHANGE_NAV_MENU",
+            })
+          }
+        />
+      </nav>
+
       </header>
       <div className="hidden lg:flex justify-center space-x-5 w-full h-14 bg-[#1a1a0a] text-white ">
         <NavItems />
