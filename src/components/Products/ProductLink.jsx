@@ -1,4 +1,3 @@
-import { ChevronRightIcon } from "@heroicons/react/24/outline";
 import React from "react";
 import { NavLink } from "react-router-dom";
 
@@ -14,9 +13,6 @@ const ProductLink = ({ title, link, className }) => {
       to={link}
     >
       <span>{title}</span>
-      <span>
-        <ChevronRightIcon className="h-6 w-6 sm:hidden" />
-      </span>
     </NavLink>
   );
 };

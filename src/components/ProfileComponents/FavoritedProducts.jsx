@@ -28,7 +28,6 @@ const FavoritedProducts = ({ userId }) => {
 
   return (
     <div>
-      <h2>Your Favorite Products</h2>
       {favorites.length > 0 ? (
         favorites.map((fav) => (
           <div key={fav.id}>

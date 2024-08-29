@@ -9,24 +9,68 @@ import CompanyProfile from "../components/ProfileComponents/CompanyProfile";
 const Profile = () => {
   const [{ userProfile }] = useStateValue();
   return (
-    <div className="min-h-screen flex flex-col bg-white sm:bg-[#F6FBFF] w-full">
-      <div className="sm:block">
+    <div
+      className="min-h-screen flex flex-col w-full"
+      style={{ backgroundColor: "#f2f2eb" }}
+    >
+      <div style={{ display: "block" }}>
         <Header userLoggedIn={true} />
       </div>
       <div
-        className="flex relative flex-col sm:flex-row h-full space-y-0 sm:space-x-2 lg:space-x-5 lg:py-10
-      items-center lg:justify-center"
+        className="flex flex-col items-center lg:justify-center h-full space-y-4"
+        style={{
+          padding: "20px 20px 20px 20px",
+        }}
       >
-        {/* {userProfile ? <CompanyProfile /> : <UserProfile />} */}
-        {userProfile ? <UserProfile /> : <UserProfile />}
-        <div className="w-96 sm:basis-3/4 lg:basis-3/5 bg-white flex flex-col sm:space-y-4 self-start px-10 py-4">
-          <ProductLinks />
-          <div className="hidden sm:block">
-            <Outlet />
+        {/* Profile and Product Links Section */}
+        <div
+          className="flex flex-col w-full lg:max-w-screen-lg space-y-4"
+          style={{
+            display: "flex",
+            flexDirection: "column",
+            margin: "0 auto",
+            alignItems: "center",
+          }}
+        >
+          {/* Profile Section */}
+          <div
+            className="flex flex-col items-start p-4"
+            style={{
+              backgroundColor: "#ffffff",
+              boxShadow: "0 4px 8px rgba(0, 0, 0, 0.1)",
+              minWidth: "350px",
+              width: "100%",
+              ...(window.innerWidth >= 720 && {
+                width: "66%",
+                padding: "16px", // Preserving some padding even at wider widths
+                backgroundColor: "#ffffff", // Preserving background color
+                boxShadow: "0 4px 8px rgba(0, 0, 0, 0.1)", // Preserving shadow
+              }),
+            }}
+          >
+            {userProfile ? <UserProfile /> : <UserProfile />}
           </div>
-        </div>
-        <div className="sm:hidden absolute bg-white min-h-full">
-          <Outlet />
+          {/* Product Links and Outlet Section */}
+          <div
+            className="flex flex-col p-4"
+            style={{
+              backgroundColor: "#ffffff",
+              boxShadow: "0 4px 8px rgba(0, 0, 0, 0.1)",
+              minWidth: "350px",
+              width: "100%",
+              ...(window.innerWidth >= 720 && {
+                width: "66%",
+                padding: "16px", // Preserving some padding even at wider widths
+                backgroundColor: "#ffffff", // Preserving background color
+                boxShadow: "0 4px 8px rgba(0, 0, 0, 0.1)", // Preserving shadow
+              }),
+            }}
+          >
+            <ProductLinks />
+            <div style={{ display: "block" }}>
+              <Outlet />
+            </div>
+          </div>
         </div>
       </div>
     </div>

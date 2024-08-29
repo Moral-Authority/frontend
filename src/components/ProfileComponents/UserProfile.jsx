@@ -48,42 +48,44 @@ const UserProfile = () => {
   };
 
   return (
-    <div className="sm:basis-1/4 flex flex-col space-y-5 bg-white self-start">
-      <div className="bg-[#D6AD60]/20 relative flex justify-center"></div>
+      <div className="sm:basis-1/4 flex flex-col space-y-5 bg-white self-start w-full">
+        <div className="bg-[#D6AD60]/20 w-100 relative flex justify-center"></div>
 
-      <div className="py-5 flex flex-col space-y-4 px-4">
-        <div className="flex justify-between">
-          <p className="text-sm sm:text-xs lg:text-sm text-[#798086] flex items-end">
-            <EnvelopeIcon className="h-6 w-6" />
-            <span className="pl-2">{email}</span>
-          </p>
-          <button className="text-[#1B93FA] text-sm sm:text-xs lg:text-sm">
-            Update
-          </button>
-        </div>
+        <div className="py-5 flex flex-col space-y-4 px-4">
+          <div className="flex justify-between items-center">
+            <p className="text-sm sm:text-xs lg:text-sm text-[#798086] flex items-center">
+              <EnvelopeIcon className="h-6 w-6" />
+              <span className="pl-2">{email}</span>
+            </p>
+            <button className="text-[#1B93FA] text-sm sm:text-xs lg:text-sm ml-auto">
+              Update
+            </button>
+          </div>
 
-        <div className="flex justify-between">
-          <p className="text-sm sm:text-xs lg:text-sm text-[#798086] flex items-end">
-            <PhoneIcon className="h-6 w-6" />
-            <span className="pl-2">{phone}</span>
-          </p>
-          <button className="text-[#1B93FA] text-sm sm:text-xs lg:text-sm">
-            Update
-          </button>
-        </div>
-        <div className="flex justify-between">
-          <button 
-            onClick={logoutHandler} 
-            className="text-[#1B93FA] text-sm sm:text-xs lg:text-sm flex items-end"
-          >
-            Sign Out
-          </button>
-          <button className="text-[#1B93FA] text-sm sm:text-xs lg:text-sm">
-            Update Password
-          </button>
+          <div className="flex justify-between items-center">
+            <p className="text-sm sm:text-xs lg:text-sm text-[#798086] flex items-center">
+              <PhoneIcon className="h-6 w-6" />  ---.---.----
+              <span className="pl-2">{phone}</span>
+            </p>
+            <button className="text-[#1B93FA] text-sm sm:text-xs lg:text-sm ml-auto">
+              Update
+            </button>
+          </div>
+
+          <div className="flex justify-between items-center">
+            <button 
+              onClick={logoutHandler} 
+              className="text-[#1B93FA] text-sm sm:text-xs lg:text-sm"
+            >
+              Sign Out
+            </button>
+            <button className="text-[#1B93FA] text-sm sm:text-xs lg:text-sm ml-auto">
+              Update Password
+            </button>
+          </div>
         </div>
       </div>
-    </div>
+
   );
 };
 

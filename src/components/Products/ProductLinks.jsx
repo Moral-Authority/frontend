@@ -2,6 +2,7 @@ import React from "react";
 import ProductLink from "./ProductLink";
 import { useStateValue } from "@/utils/stateProvider/useStateValue";
 
+
 const ProductLinks = () => {
   const [{ userProfile, user }] = useStateValue();
 
@@ -10,8 +11,16 @@ const ProductLinks = () => {
 
   return (
     <div
-      className="flex flex-col sm:flex-row space-y-8 sm:space-y-0 justify-evenly pb-1 text-black
-     sm:text-[#798086] sm:border-b-2 border-b-[#EDEFF6]/50"
+      className="flex flex-row justify-around pb-1"
+      style={{
+        color: "#000",
+        borderBottom: "2px solid #EDEFF6",
+        justifyContent: "space-between",
+        padding: "0 10px",
+        ...(window.innerWidth >= 720 && {
+          color: "#798086",
+        }),
+      }}
     >
       {userProfile && (
         <>
