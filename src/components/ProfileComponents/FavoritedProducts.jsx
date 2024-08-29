@@ -1,36 +1,41 @@
 import { ChevronLeftIcon } from "@heroicons/react/24/outline";
 import React from "react";
 import { useNavigate } from "react-router-dom";
+import { useQuery } from "@apollo/client";
+import { GET_FAVORITES_QUERY } from '../../graphql/Queries.js';
 import ProductCard from "../Products/Product";
 
-const FavoritedProducts = () => {
-  const navigate = useNavigate();
+const FavoritedProducts = ({ userId }) => {
+  const { loading, error, data } = useQuery(GET_FAVORITES_QUERY, {
+    variables: { id: userId }, // Ensure it matches the query variable
+  });
+
+  if (loading) return <p>Loading favorites...</p>;
+  if (error) {
+    console.error("GraphQL query error:", error);
+    console.error("Network error:", error.networkError?.result?.errors);
+    return <p>Error loading favorites: {error.message}</p>;
+  }
+
+  console.log("DATA:", data); // This should now log the correct data
+
   return (
-    <div className="flex flex-col space-y-5 py-10 sm:py-0 w-screen px-4 sm:px-0 sm:w-full">
-      <div className="sm:hidden relative flex pb-4 border-b justify-center">
-        <div
-          onClick={() => navigate(-1)}
-          className="absolute sm:hidden justify-self-start left-1"
-        >
-          <ChevronLeftIcon className="h-8 w-8" />
-        </div>
-        <p className="text-center">Favorited Products</p>
-      </div>
-      <ProductCard approved={true} favorite={true} />
-      <ProductCard approved={false} favorite={true} />
-      <ProductCard approved={false} favorite={true} />
-      <ProductCard approved={false} favorite={true} />
-      <ProductCard approved={false} favorite={true} />
-      <ProductCard approved={false} favorite={true} />
-      <ProductCard approved={false} favorite={true} />
-      <ProductCard approved={false} favorite={true} />
-      <ProductCard approved={false} favorite={true} />
-      <ProductCard approved={false} favorite={true} />
-      <ProductCard approved={false} favorite={true} />
-      <ProductCard approved={false} favorite={true} />
-      <ProductCard approved={false} favorite={true} />
-      <ProductCard approved={false} favorite={true} />
-      <ProductCard approved={false} favorite={true} />
+    <div>
+      <h2>Your Favorite Products</h2>
+      {data.getAllUserFavs.length > 0 ? (
+        data.getAllUserFavs.map((fav) => (
+          <div key={fav.id}>
+            <ProductCard 
+              productId={fav.product._id} 
+              title={fav.product.Title} 
+              favorite={true} 
+              userId={userId} 
+            />
+          </div>
+        ))
+      ) : (
+        <p>No favorite products yet.</p>
+      )}
     </div>
   );
 };

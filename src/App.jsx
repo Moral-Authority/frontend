@@ -20,6 +20,7 @@ import PrivacyPolicy from "./pages/privacyPolicy";
 
 export const App = () => {
   const [{ navMenu }] = useStateValue();
+  const [{ user }] = useStateValue(); 
   return (
     // <ProtectedRoute>
       <Router>
@@ -39,7 +40,7 @@ export const App = () => {
                 <Route path="/profile" element={<Profile />}>
                   {/* <Route index path="add-product" element={<AddProduct />} /> */}
                   {/* <Route path="added" element={<AddedProducts />} /> */}
-                  <Route path="favorited" element={<FavoritedProducts />} />
+                  <Route path="favorited" element={<FavoritedProducts userId={user?.id} />} />
                   <Route
                     index
                     path="products-reviews"

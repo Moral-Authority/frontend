@@ -4,11 +4,50 @@ import { HeartIcon as HeartFilled } from "@heroicons/react/24/solid";
 import { motion } from "framer-motion";
 import { Link } from "react-router-dom";
 import Chair from "images/chair.png"; // Assuming the image stays the same for now
+import { useMutation } from '@apollo/client';
+import { TOGGLE_USER_FAV } from '../../graphql/Mutations';
 import { useStateValue } from "../../utils/stateProvider/useStateValue"; // Adjust the path as needed
 
 const Product = ({ title, _id }) => {
   const [{ user }] = useStateValue(); // Get the user state
   const [liked, setLiked] = useState(false);
+
+  const [toggleUserFav] = useMutation(TOGGLE_USER_FAV, {
+    variables: {
+      request: {  // Make sure this matches the mutation structure
+        userId: user?.id,
+        productId: _id,
+      },
+    },
+    onCompleted: (data) => {
+      setLiked(!liked);
+    },
+    onError: (error) => {
+      console.error("Error toggling favorite:", error);
+    },
+  });
+  
+
+  const handleToggleFavorite = () => {
+    if (user) {
+      console.log("Toggling favorite for product ID:", _id); 
+      toggleUserFav({
+        variables: {
+          request: {
+            userId: user.id,
+            productId: _id,
+          },
+        },
+      }).then((response) => {
+        console.log("Mutation response:", response); 
+      }).catch((error) => {
+        console.error("Mutation error:", error); 
+      });
+    } else {
+      console.log("User is not logged in");
+    }
+  };
+  
 
   return (
     <div className="w-44 lg:w-56 xl:w-64 h-64 lg:h-80 xl:h-96 p-1 lg:p-2 relative flex flex-col border-2 border-[#EDEFF6]">
@@ -19,12 +58,12 @@ const Product = ({ title, _id }) => {
         {user && ( // Only render the heart icon if the user is logged in
           liked ? (
             <HeartFilled
-              onClick={() => setLiked(!liked)}
+              onClick={handleToggleFavorite}
               className="h-6 text-red-500 w-6 cursor-pointer"
             />
           ) : (
             <HeartIcon
-              onClick={() => setLiked(!liked)}
+              onClick={handleToggleFavorite}
               className="h-6 w-6 cursor-pointer"
             />
           )
