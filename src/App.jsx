@@ -40,15 +40,9 @@ export const App = () => {
                 <Route path="/profile" element={<Profile />}>
                   {/* <Route index path="add-product" element={<AddProduct />} /> */}
                   {/* <Route path="added" element={<AddedProducts />} /> */}
-                  <Route
-                  index
-                  element={<FavoritedProducts userId={user?.id} />} // Default to Favorited Products
-                />
-                  <Route
-                    index
-                    path="products-reviews"
-                    element={<ProductsReview />}
-                  />
+                  <Route index element={<FavoritedProducts userId={user?.id} />} />
+                  <Route path="favorited" element={<FavoritedProducts userId={user?.id} />} />
+                  <Route path="products-reviews" element={<ProductsReview />}/>
                 </Route>
               </Routes>
             </>
