@@ -1,22 +1,31 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { BellIcon, Bars3Icon, UserCircleIcon, MagnifyingGlassIcon } from "@heroicons/react/24/outline";
 import { useStateValue } from "@/utils/stateProvider/useStateValue";
 import navItems from "@/utils/testAPIs/navItems.json";
 import { motion } from "framer-motion";
 import { Link, useNavigate } from "react-router-dom";
 
-const MobileNav = ({ userLoggedIn }) =>  {
-  const [{ userProfile }, dispatch] = useStateValue();
+const MobileNav = () => {
+  const [{ user, userProfile }, dispatch] = useStateValue();
   const navigate = useNavigate();
 
-  // Check localStorage for user if userLoggedIn is false
-  if (!userLoggedIn) {
-    const storedUser = localStorage.getItem('user');
-    if (storedUser) {
-      userLoggedIn = true;
+  useEffect(() => {
+    // Check localStorage for user if not already logged in
+    if (!user) {
+      const storedUser = localStorage.getItem('user');
+      if (storedUser) {
+        const parsedUser = JSON.parse(storedUser);
+        console.log("parsedUser:", parsedUser);
+        dispatch({
+          type: "SET_USER",
+          user: parsedUser,
+        });
+      }
     }
-  }
-  
+  }, [user, dispatch]);
+
+  const userLoggedIn = !!user;
+
   // Function to handle navigation and collapsing the menu
   const handleNavigation = (path) => {
     navigate(path);
@@ -45,18 +54,18 @@ const MobileNav = ({ userLoggedIn }) =>  {
             borderBottom: "1px solid #F2F2eb",
           }}
         >
-        <MagnifyingGlassIcon style={{ width: "32px", height: "32px", color: "#F2F2eb" }} />
-        <input type="search" placeholder="Search Coming Soon!" id="site-search" name="q" style={{ background: "transparent", border: "none", outline: "none", color: "#F2F2eb",width: "100%" }}/>
+          <MagnifyingGlassIcon style={{ width: "32px", height: "32px", color: "#F2F2eb" }} />
+          <input type="search" placeholder="Search Coming Soon!" id="site-search" name="q" style={{ background: "transparent", border: "none", outline: "none", color: "#F2F2eb", width: "100%" }} />
         </div>
         <Bars3Icon
           style={{ width: "32px", height: "32px", color: "#F2F2eb" }}
           onClick={() => dispatch({ type: "CHANGE_NAV_MENU" })}
         />
-        </div>
+      </div>
 
       {userLoggedIn ? (
         <div style={{ display: "flex", justifyContent: "center", gap: "20px" }}>
-          <Link to="/profile">
+           <Link to="/profile" onClick={() => handleNavigation("/profile")}>
             <div className="h-14 w-14 rounded-full">
               <UserCircleIcon style={{ width: "56px", height: "56px", color: "#F2F2eb" }} />
             </div>
@@ -97,7 +106,7 @@ const MobileNav = ({ userLoggedIn }) =>  {
       )}
 
       <div style={{ paddingTop: "2px" }}>
-        <p style={{ marginBottom: "20px",  fontSize: "20px" }}>Categories</p>
+        <p style={{ marginBottom: "20px", fontSize: "20px" }}>Categories</p>
         <ul
           style={{
             display: "flex",

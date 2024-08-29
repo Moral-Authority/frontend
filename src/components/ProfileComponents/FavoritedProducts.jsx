@@ -23,11 +23,14 @@ const FavoritedProducts = ({ userId }) => {
     return <p>Error loading favorites: {error.message}</p>;
   }
 
+  // Add a null check for data.getAllUserFavs
+  const favorites = data?.getAllUserFavs || [];
+
   return (
     <div>
       <h2>Your Favorite Products</h2>
-      {data.getAllUserFavs.length > 0 ? (
-        data.getAllUserFavs.map((fav) => (
+      {favorites.length > 0 ? (
+        favorites.map((fav) => (
           <div key={fav.id}>
             <ProductCard 
               productId={fav.product._id} 

@@ -4,7 +4,6 @@ import NavItems from "./NavItems";
 import { Bars3Icon } from "@heroicons/react/24/solid";
 import { useStateValue } from "@/utils/stateProvider/useStateValue";
 import { Link } from "react-router-dom";
-import Controller from "images/controller.png";
 import Logo from "images/MoralAuthorityLogo.png";
 
 const MainNav = ({ userLoggedIn }) => {
@@ -14,7 +13,11 @@ const MainNav = ({ userLoggedIn }) => {
       <header className="w-full flex h-20 bg-white border justify-between text-center items-center px-2.5 md:px-5 xl:px-5">
         <Link to="/">
           <h1 className="text-2xl lg:text-3xl font-bold">
-            <img className="h-[80px]" src={Logo} alt="" />
+          <img
+            className="h-[80px] xs:max-h-[30px] sm:max-h-[40px] md:max-h-[60px] lg:max-h-[80px] w-auto"
+            src={Logo}
+            alt=""
+          />
           </h1>
         </Link>
         <div className="hidden lg:flex py-1 items-center border-b border-b-black w-1/3 xl:w-1/3">
