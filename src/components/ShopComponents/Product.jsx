@@ -4,8 +4,10 @@ import { HeartIcon as HeartFilled } from "@heroicons/react/24/solid";
 import { motion } from "framer-motion";
 import { Link } from "react-router-dom";
 import Chair from "images/chair.png"; // Assuming the image stays the same for now
+import { useStateValue } from "../../utils/stateProvider/useStateValue"; // Adjust the path as needed
 
 const Product = ({ title, _id }) => {
+  const [{ user }] = useStateValue(); // Get the user state
   const [liked, setLiked] = useState(false);
 
   return (
@@ -14,16 +16,18 @@ const Product = ({ title, _id }) => {
         <div className="!text-white text-sm bg-black !border-none py-1 px-4">
           New
         </div>
-        {liked ? (
-          <HeartFilled
-            onClick={() => setLiked(!liked)}
-            className="h-6 text-red-500 w-6 cursor-pointer"
-          />
-        ) : (
-          <HeartIcon
-            onClick={() => setLiked(!liked)}
-            className="h-6 w-6 cursor-pointer"
-          />
+        {user && ( // Only render the heart icon if the user is logged in
+          liked ? (
+            <HeartFilled
+              onClick={() => setLiked(!liked)}
+              className="h-6 text-red-500 w-6 cursor-pointer"
+            />
+          ) : (
+            <HeartIcon
+              onClick={() => setLiked(!liked)}
+              className="h-6 w-6 cursor-pointer"
+            />
+          )
         )}
       </div>
       <div className="w-full z-0 relative h-3/4 group bg-[#F6FBFF] items-center flex justify-center">
@@ -40,7 +44,6 @@ const Product = ({ title, _id }) => {
             View Product
           </motion.button>
         </Link>
-
       </div>
       <div className="flex flex-col pb-5">
         <p className="text-xs text-[#D6AD60]">Home and Goods</p>

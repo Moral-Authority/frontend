@@ -42,3 +42,18 @@ export const GET_PRODUCT_BY_ID = gql`
     }
   }
 `;
+
+
+export const GET_FAVORITES_QUERY = gql`
+  query GetFavorites($userId: String!) {
+    getFavorites(userId: $userId) {
+      id
+      product {
+        id
+        title
+        price
+        imageUrl
+      }
+    }
+  }
+`;

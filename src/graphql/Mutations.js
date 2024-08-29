@@ -21,6 +21,17 @@ export const LOGIN_MUTATION = gql`
   }
 `;
 
+export const TOGGLE_USER_FAV = gql`
+  mutation ToggleUserFav($userId: String!, $productId: String!) {
+    toggleUserFav(request: { userId: $userId, productId: $productId }) {
+      id
+      product {
+        id
+        title
+      }
+    }
+  }
+`;
 
 const UPDATE_USER_MUTATION = gql`
   mutation UpdateUser(

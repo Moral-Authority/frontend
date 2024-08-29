@@ -1,7 +1,7 @@
 import React from "react";
 import { useQuery } from '@apollo/client';
 import { GET_ALL_PRODUCTS } from '../../graphql/Queries';
-import Product from "../ShopComponents/Product.jsx";
+import Product from "../ShopComponents/Product";
 import './fourthSection.css';
 
 const FourthSection = () => {
