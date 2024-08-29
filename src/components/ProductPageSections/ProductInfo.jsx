@@ -6,19 +6,50 @@ import { HeartIcon } from "@heroicons/react/24/outline";
 import { HeartIcon as HeartFilled } from "@heroicons/react/24/solid";
 import { SocialIcon } from "react-social-icons";
 import Award from "images/award.png";
+import { useMutation } from "@apollo/client";
+import { TOGGLE_USER_FAV } from "../../graphql/Mutations";
+import { useStateValue } from "@/utils/stateProvider/useStateValue";
 
+const ProductInfo = ({ title, _id }) => {
+  const [{ user, favorites }, dispatch] = useStateValue();
+  
+  // Check if this product is a favorite
+  const isFavorite = favorites.has(_id);
 
-const ProductInfo  = ({ title }) => {
-  const [quantity, setQuantity] = useState(0);
-  const [liked, setliked] = useState(false);
+  const [toggleUserFav] = useMutation(TOGGLE_USER_FAV, {
+    variables: {
+      request: {
+        userId: user?.id,
+        productId: _id,
+      },
+    },
+    onCompleted: () => {
+      // Toggle favorite status in the global state
+      dispatch({
+        type: "TOGGLE_FAVORITE",
+        productId: _id,
+      });
+    },
+    onError: (error) => {
+      console.error("Error toggling favorite:", error);
+    },
+  });
+
+  const handleToggleFavorite = () => {
+    if (user) {
+      console.log("Toggling favorite with userId:", user.id, "and productId:", _id);
+      toggleUserFav();
+    } else {
+      console.log("User is not logged in");
+    }
+  };  
+
   return (
     <div className="w-full md:w-1/2 flex flex-col px-5 md:px-10 items-start">
       {/* Upper Section */}
       <section className="flex flex-col pb-3">
         <p className="text-sm text-[#D6AD60]">Company Name</p>
-        <p className="text-[#4F536C] mt-1">
-        {title}
-        </p>
+        <p className="text-[#4F536C] mt-1">{title}</p>
         <div className="flex flex-col-reverse md:flex-col">
           <p className="text-[#758BAE] leading-loose text-sm mt-5">
             Product Description Lorem ipsum dolor sit amet consectetur, adipisicing elit. Necessitatibus quae blanditiis ipsa ducimus perspiciatis pariatur, voluptatum ab, quas facere sequi quod adipisci laborum expedita eaque voluptatibus velit omnis quidem dolorem.
@@ -53,21 +84,17 @@ const ProductInfo  = ({ title }) => {
             <div className="py-3 md:py-1 px-2 border w-20 flex justify-between items-center">
               <button
                 className="text-[#DBE1EA] text-xl"
-                onClick={() => setQuantity(quantity === 0 ? 0 : quantity - 1)}
               >
                 -
               </button>
               <input
                 min={0}
-                value={quantity}
-                onChange={(e) => setQuantity(Number(e.target.value))}
                 type="number"
                 className="outline-none focus:border-none focus:outline-none border-none w-1/6
                   flex-1 text-center appearance-none text-[#697383]"
               />
               <button
                 className="text-[#DBE1EA] text-xl"
-                onClick={() => setQuantity(quantity + 1)}
               >
                 +
               </button>
@@ -75,16 +102,18 @@ const ProductInfo  = ({ title }) => {
           </div>
           <div className="flex space-x-4">
             <button className="px-12 py-3 bg-[#D6AD60]">Buy Now</button>
-            <button
-              onClick={() => setliked(!liked)}
-              className="px-4 py-2 hidden md:block border"
-            >
-              {liked ? (
-                <HeartFilled className="h-6 w-6 text-red-500" />
-              ) : (
-                <HeartIcon className="h-6 w-6 text-[#DBE1EA]" />
-              )}
-            </button>
+            {user && (
+              <button
+                onClick={handleToggleFavorite}
+                className="px-4 py-2 hidden md:block border"
+              >
+                {isFavorite ? (
+                  <HeartFilled className="h-6 w-6 text-red-500" />
+                ) : (
+                  <HeartIcon className="h-6 w-6 text-[#DBE1EA]" />
+                )}
+              </button>
+            )}
           </div>
         </div>
         <p className="md:hidden pt-5 underline underline-offset-4 text-[#000000]/80">

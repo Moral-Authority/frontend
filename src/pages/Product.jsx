@@ -42,7 +42,7 @@ const Product = () => {
         {/* Left Section */}
         <MainImages />
         {/* Right Section */}
-        <ProductInfo title={product.Title} />
+        <ProductInfo title={product.Title} _id={id}/>
       </section>
       {/* Section for large screens */}
       <section className="h-full hidden md:flex flex-col space-y-10 w-full md:px-20 lg:px-36">
