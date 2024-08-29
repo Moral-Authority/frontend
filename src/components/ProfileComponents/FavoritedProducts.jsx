@@ -1,14 +1,20 @@
-import { ChevronLeftIcon } from "@heroicons/react/24/outline";
-import React from "react";
-import { useNavigate } from "react-router-dom";
+import React, { useEffect } from "react";
 import { useQuery } from "@apollo/client";
+import { useLocation } from "react-router-dom"; // Import useLocation
 import { GET_FAVORITES_QUERY } from '../../graphql/Queries.js';
 import ProductCard from "../Products/Product";
 
 const FavoritedProducts = ({ userId }) => {
-  const { loading, error, data } = useQuery(GET_FAVORITES_QUERY, {
-    variables: { id: userId }, // Ensure it matches the query variable
+  const { loading, error, data, refetch } = useQuery(GET_FAVORITES_QUERY, {
+    variables: { id: userId },
   });
+
+  const location = useLocation();
+
+  useEffect(() => {
+    // Refetch the query when the route changes
+    refetch();
+  }, [location, refetch]);
 
   if (loading) return <p>Loading favorites...</p>;
   if (error) {
@@ -16,8 +22,6 @@ const FavoritedProducts = ({ userId }) => {
     console.error("Network error:", error.networkError?.result?.errors);
     return <p>Error loading favorites: {error.message}</p>;
   }
-
-  console.log("DATA:", data); // This should now log the correct data
 
   return (
     <div>
