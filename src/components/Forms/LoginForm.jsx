@@ -35,17 +35,22 @@ const LoginForm = () => {
       if (response.data) {
         console.log("Login successful", response);
         setShowPopup(true);
-
+  
+        const userData = {
+          id: response.data.login.user._id,
+          email: response.data.login.user.email,
+        };
+  
         // Dispatch the login state and user ID to the global state
         dispatch({
           type: "SET_USER",
-          user: {
-            id: response.data.login.user._id,
-            email: response.data.login.user.email,
-          },
+          user: userData,
         });
-
+  
+        // Save the user data and token in localStorage
         localStorage.setItem('authToken', response.data.login.token);
+        localStorage.setItem('user', JSON.stringify(userData));
+  
         setTimeout(() => {
           setShowPopup(false);
           navigate("/");
@@ -63,7 +68,7 @@ const LoginForm = () => {
       }
     }
   };
-
+  
   return (
     <div>
       <form className="mt-8 h-full flex flex-col space-y-5 w-full text-[#777D88]" onSubmit={submitHandler}>

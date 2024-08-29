@@ -18,6 +18,17 @@ import PrivacyPolicy from "./pages/privacyPolicy";
 export const App = () => {
   const [{ navMenu, user }, dispatch] = useStateValue();
 
+  // Retrieve user from localStorage on app load
+  useEffect(() => {
+    const storedUser = localStorage.getItem('user');
+    if (storedUser) {
+      dispatch({
+        type: "SET_USER",
+        user: JSON.parse(storedUser),
+      });
+    }
+  }, [dispatch]);
+
   const { data, error, loading } = useQuery(GET_FAVORITES_QUERY, {
     variables: { id: user?.id },
     skip: !user?.id,

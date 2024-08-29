@@ -1,15 +1,22 @@
 import React from "react";
-import { BellIcon, Bars3Icon, MagnifyingGlassIcon } from "@heroicons/react/24/outline";
+import { BellIcon, Bars3Icon, UserCircleIcon, MagnifyingGlassIcon } from "@heroicons/react/24/outline";
 import { useStateValue } from "@/utils/stateProvider/useStateValue";
 import navItems from "@/utils/testAPIs/navItems.json";
 import { motion } from "framer-motion";
 import { Link, useNavigate } from "react-router-dom";
-import "./mobileNav.css"; // Ensure this path is correct
 
-const MobileNav = () => {
-  const [, dispatch] = useStateValue();
+const MobileNav = ({ userLoggedIn }) =>  {
+  const [{ userProfile }, dispatch] = useStateValue();
   const navigate = useNavigate();
 
+  // Check localStorage for user if userLoggedIn is false
+  if (!userLoggedIn) {
+    const storedUser = localStorage.getItem('user');
+    if (storedUser) {
+      userLoggedIn = true;
+    }
+  }
+  
   // Function to handle navigation and collapsing the menu
   const handleNavigation = (path) => {
     navigate(path);
@@ -17,34 +24,95 @@ const MobileNav = () => {
   };
 
   return (
-    <motion.div className="mobile-nav">
-      <div className="top-icons">
-        <BellIcon className="icon" />
-        <div className="notification">3</div>
-        <Bars3Icon className="icon" onClick={() => dispatch({ type: "CHANGE_NAV_MENU" })} />
-      </div>
+    <motion.div
+      style={{
+        minHeight: "100vh",
+        backgroundColor: "#1a1a0a",
+        display: "flex",
+        flexDirection: "column",
+        gap: "40px",
+        padding: "40px 32px",
+        color: "#F2F2eb",
+      }}
+    >
+      <div style={{ display: "flex", justifyContent: "space-between" }}>
+        <div
+          style={{
+            display: "flex",
+            alignItems: "center",
+            gap: "10px",
+            width: "15rem",
+            borderBottom: "1px solid #F2F2eb",
+          }}
+        >
+        <MagnifyingGlassIcon style={{ width: "32px", height: "32px", color: "#F2F2eb" }} />
+        <input type="search" placeholder="Search Coming Soon!" id="site-search" name="q" style={{ background: "transparent", border: "none", outline: "none", color: "#F2F2eb",width: "100%" }}/>
+        </div>
+        <Bars3Icon
+          style={{ width: "32px", height: "32px", color: "#F2F2eb" }}
+          onClick={() => dispatch({ type: "CHANGE_NAV_MENU" })}
+        />
+        </div>
 
-      <div className="auth-buttons">
-        <button onClick={() => handleNavigation('/create-account')} className="signup-btn">
-          Sign up
-        </button>
-        <button onClick={() => handleNavigation('/login')} className="login-btn">
-          Login
-        </button>
-      </div>
+      {userLoggedIn ? (
+        <div style={{ display: "flex", justifyContent: "center", gap: "20px" }}>
+          <Link to="/profile">
+            <div className="h-14 w-14 rounded-full">
+              <UserCircleIcon style={{ width: "56px", height: "56px", color: "#F2F2eb" }} />
+            </div>
+          </Link>
+        </div>
+      ) : (
+        <div style={{ display: "flex", justifyContent: "center", gap: "20px" }}>
+          <button
+            onClick={() => handleNavigation('/create-account')}
+            style={{
+              width: "150px",
+              height: "50px",
+              textAlign: "center",
+              borderRadius: "8px",
+              fontSize: "16px",
+              backgroundColor: "#F2F2EB",
+              color: "#0C0F18",
+            }}
+          >
+            Sign up
+          </button>
+          <button
+            onClick={() => handleNavigation('/login')}
+            style={{
+              width: "150px",
+              height: "50px",
+              textAlign: "center",
+              borderRadius: "8px",
+              fontSize: "16px",
+              backgroundColor: "transparent",
+              border: "2px solid #F2F2EB",
+              color: "#F2F2EB",
+            }}
+          >
+            Login
+          </button>
+        </div>
+      )}
 
-      <div className="search-bar">
-        <MagnifyingGlassIcon className="icon" />
-        <input type="search" placeholder="Search" id="site-search" name="q" />
-      </div>
-
-      <div className="categories">
-        <p className="section-title">Categories</p>
-        <ul>
+      <div style={{ paddingTop: "2px" }}>
+        <p style={{ marginBottom: "20px",  fontSize: "20px" }}>Categories</p>
+        <ul
+          style={{
+            display: "flex",
+            flexDirection: "column",
+            gap: "16px",
+            paddingLeft: "1%",
+          }}
+        >
           {navItems?.navItems?.map((item, index) => (
             <li
-              onClick={() => handleNavigation(item.navLink)}
               key={index}
+              onClick={() => handleNavigation(item.navLink)}
+              style={{ cursor: "pointer", opacity: 0.7 }}
+              onMouseOver={(e) => (e.target.style.opacity = "1")}
+              onMouseOut={(e) => (e.target.style.opacity = "0.7")}
             >
               {item.title}
             </li>
@@ -52,7 +120,7 @@ const MobileNav = () => {
         </ul>
       </div>
 
-      <p className="profile-section">My Profile</p>
+      <p style={{ fontSize: "20px", paddingTop: "20px" }}>Sign Out</p>
     </motion.div>
   );
 };
