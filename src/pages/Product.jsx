@@ -29,7 +29,7 @@ const Product = () => {
 
   return (
     <div className="min-h-screen w-full flex flex-col bg-white">
-      <div className="hidden md:block">
+      <div className="md:block">
         <Header />
       </div>
 

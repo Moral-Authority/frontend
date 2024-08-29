@@ -10,7 +10,7 @@ const Profile = () => {
   const [{ userProfile }] = useStateValue();
   return (
     <div className="min-h-screen flex flex-col bg-white sm:bg-[#F6FBFF] w-full">
-      <div className="hidden sm:block">
+      <div className="sm:block">
         <Header userLoggedIn={true} />
       </div>
       <div

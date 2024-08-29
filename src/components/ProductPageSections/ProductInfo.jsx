@@ -12,7 +12,8 @@ import { useStateValue } from "@/utils/stateProvider/useStateValue";
 
 const ProductInfo = ({ title, _id }) => {
   const [{ user, favorites }, dispatch] = useStateValue();
-  
+    // const [{ userProfile }] = useStateValue();
+
   // Check if this product is a favorite
   const isFavorite = favorites.has(_id);
 
@@ -45,6 +46,7 @@ const ProductInfo = ({ title, _id }) => {
   };  
 
   return (
+    
     <div className="w-full md:w-1/2 flex flex-col px-5 md:px-10 items-start">
       {/* Upper Section */}
       <section className="flex flex-col pb-3">

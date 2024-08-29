@@ -1,5 +1,5 @@
 import React, { useEffect } from "react";
-import { BellIcon, Bars3Icon, UserCircleIcon, MagnifyingGlassIcon } from "@heroicons/react/24/outline";
+import { HeartIcon, Bars3Icon, UserCircleIcon, MagnifyingGlassIcon } from "@heroicons/react/24/outline";
 import { useStateValue } from "@/utils/stateProvider/useStateValue";
 import navItems from "@/utils/testAPIs/navItems.json";
 import { motion } from "framer-motion";
@@ -39,7 +39,7 @@ const MobileNav = () => {
       type: "SET_USER",
       user: null,
     });
-    handleNavigation('/'); // Navigate to the home page or login page after logout
+    handleNavigation('/'); 
   };
 
   return (
@@ -50,12 +50,12 @@ const MobileNav = () => {
         display: "flex",
         flexDirection: "column",
         gap: "40px",
-        padding: "40px 32px",
+        padding: "32px 32px 0px 32px",
         color: "#F2F2eb",
       }}
     >
-      <div style={{ display: "flex", justifyContent: "space-between" }}>
-        <div
+      <div style={{ display: "flex", justifyContent: "right" }}>
+        {/* <div
           style={{
             display: "flex",
             alignItems: "center",
@@ -66,20 +66,30 @@ const MobileNav = () => {
         >
           <MagnifyingGlassIcon style={{ width: "32px", height: "32px", color: "#F2F2eb" }} />
           <input type="search" placeholder="Search Coming Soon!" id="site-search" name="q" style={{ background: "transparent", border: "none", outline: "none", color: "#F2F2eb", width: "100%" }} />
-        </div>
+        </div> */}
         <Bars3Icon
           style={{ width: "32px", height: "32px", color: "#F2F2eb" }}
           onClick={() => dispatch({ type: "CHANGE_NAV_MENU" })}
         />
+
       </div>
 
       {userLoggedIn ? (
         <div style={{ display: "flex", justifyContent: "center", gap: "20px" }}>
-           <Link to="/profile" onClick={() => handleNavigation("/profile")}>
-            <div className="h-14 w-14 rounded-full">
-              <UserCircleIcon style={{ width: "56px", height: "56px", color: "#F2F2eb" }} />
-            </div>
-          </Link>
+
+          <div
+            style={{
+              display: "flex",
+              alignItems: "center",
+              gap: "10px",
+              width: "15rem",
+              borderBottom: "1px solid #F2F2eb",
+            }}
+          >
+          <MagnifyingGlassIcon style={{ width: "32px", height: "32px", color: "#F2F2eb" }} />
+          <input type="search" placeholder="Search Coming Soon!" id="site-search" name="q" style={{ background: "transparent", border: "none", outline: "none", color: "#F2F2eb", width: "100%" }} />
+        </div>
+
         </div>
       ) : (
         <div style={{ display: "flex", justifyContent: "center", gap: "20px" }}>
@@ -116,7 +126,7 @@ const MobileNav = () => {
       )}
 
       <div style={{ paddingTop: "2px" }}>
-        <p style={{ marginBottom: "20px", fontSize: "20px" }}>Categories</p>
+        <p style={{ marginBottom: "20px", fontSize: "20px" }}>Shop</p>
         <ul
           style={{
             display: "flex",
@@ -140,9 +150,23 @@ const MobileNav = () => {
       </div>
 
       {userLoggedIn ? (
+        <div style={{
+          position: "absolute",  // Position the div at the bottom
+          bottom: 15,             // Stick to the bottom
+          left: 0,               // Stick to the left
+          width: "100%",         // Full width
+          borderTop: "1px solid #F2F2eb",
+          display: "flex",
+          justifyContent: "space-between", // Distribute space between the items
+          padding: "10px 20px" // Add some padding for spacing
+        }}>
         <p onClick={logoutHandler} style={{ fontSize: "20px", paddingTop: "20px" }}>
           Sign Out
         </p>
+        <p to="/profile" onClick={() => handleNavigation("/profile")} style={{ fontSize: "20px", paddingTop: "20px" }}>
+          Edit Profile
+        </p>
+      </div>
       ) : null}
       
 

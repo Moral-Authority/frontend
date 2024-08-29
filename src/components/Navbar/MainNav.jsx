@@ -1,5 +1,5 @@
 import React from "react";
-import { UserCircleIcon, MagnifyingGlassIcon } from "@heroicons/react/24/outline";
+import { HeartIcon, UserCircleIcon, MagnifyingGlassIcon } from "@heroicons/react/24/outline";
 import NavItems from "./NavItems";
 import { Bars3Icon } from "@heroicons/react/24/solid";
 import { useStateValue } from "@/utils/stateProvider/useStateValue";
@@ -25,7 +25,7 @@ const MainNav = ({ userLoggedIn }) => {
           <input
             type="search"
             className="placeholder:text-black focus:border-none focus:outline-none w-full ml-2"
-            placeholder="Search"
+            placeholder="Search Coming Soon!"
             id="site-search"
             name="q"
           />
@@ -33,6 +33,13 @@ const MainNav = ({ userLoggedIn }) => {
         {userLoggedIn ? (
           <nav className="hidden lg:flex">
             <ul className="flex items-center space-x-5 ">
+            <li>
+                <Link to={userProfile ? "/profile" : "#"}>
+                  <div className="h-14 w-14 rounded-full">
+                  <HeartIcon className="h-14 w-14 text-[#1a1a0a]" />
+                  </div>
+                </Link>
+              </li>
               <li>
                 <Link to={userProfile ? "/profile" : "#"}>
                   <div className="h-14 w-14 rounded-full">
