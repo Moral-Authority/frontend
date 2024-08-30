@@ -29,6 +29,9 @@ const FourthSection = () => {
             _id={product._id} // Pass the product ID
             user={user} // Pass user state
             isFavorite={favorites.has(product._id)} // Check if the product is in favorites
+            company={product.company} 
+            purchaseInfo={product.PurchaseInfo}
+            imageLinks={product.ImageLinks}
           />
         ))}
       </section>
