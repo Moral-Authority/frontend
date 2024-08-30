@@ -1,6 +1,6 @@
 import React from "react";
 import { useQuery } from '@apollo/client';
-import { GET_ALL_PRODUCTS } from '../../graphql/Queries';
+import { GET_ALL_PRODUCTS } from '../../graphql/Queries.js';
 import Product from "./Product";
 import { AdjustmentsHorizontalIcon } from "@heroicons/react/24/outline";
 import { Link } from "react-router-dom";

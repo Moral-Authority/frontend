@@ -1,6 +1,6 @@
 import React from "react";
 import { useQuery } from '@apollo/client';
-import { GET_ALL_PRODUCTS } from '../../graphql/Queries';
+import { GET_ALL_PRODUCTS } from '../../graphql/Queries.js';
 import Product from "../ShopComponents/Product";
 import { useStateValue } from "../../utils/stateProvider/useStateValue"; // Import your state provider
 import './fourthSection.css';

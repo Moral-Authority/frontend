@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react';
 import { useQuery } from '@apollo/client';
-import { GET_USERS_QUERY } from '../graphql/Queries';
+import { GET_USERS_QUERY } from '../graphql/Queries.js';
 
 const GetUsers = () => {
   const [users, setUsers] = useState([]);

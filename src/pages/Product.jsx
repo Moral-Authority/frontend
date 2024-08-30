@@ -7,7 +7,7 @@ import MainImages from "../components/ProductPageSections/MainImages";
 import ProductDescription from "../components/ProductPageSections/ProductDescription";
 import ProductInfo from "../components/ProductPageSections/ProductInfo";
 import RelatedProducts from "../components/ProductPageSections/RelatedProducts";
-import { GET_PRODUCT_BY_ID } from "../graphql/Queries"; // Import the query
+import { GET_PRODUCT_BY_ID } from "../graphql/Queries.js"; // Import the query
 
 const Product = () => {
   const { id } = useParams(); // Get the product ID from the URL
