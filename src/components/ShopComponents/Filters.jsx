@@ -1,21 +1,19 @@
 import React, { useState } from "react";
-import ChildFilterLabel from "./ChildFilterLabel";
+import { useQuery } from "@apollo/client";
+import { GET_SUB_DEPARTMENT_FILTERS } from "@/graphql/queries";
 import FilterDiv from "./FilterDiv";
 import FilterLabel from "./FilterLabel";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import ChildFilterLabel from "./ChildFilterLabel";
 import { StarIcon } from "@heroicons/react/24/outline";
 import { StarIcon as StarFilled } from "@heroicons/react/24/solid";
 import { useStateValue } from "@/utils/stateProvider/useStateValue";
 
-// Assuming these imports work based on your project setup
-import colors from "@/utils/testAPIs/colorsAPI.json";
-import navItems from "@/utils/testAPIs/navItems.json";
-import companyCertificates from "@/utils/testAPIs/companyCertificates.json";
-import recentlyViewed from "@/utils/testAPIs/recentlyViewed.json";
-import companyAPI from "@/utils/testAPIs/companyAPI.json";
-import productCerts from "@/utils/testAPIs/productCerts.json";
+const Filters = ({ input }) => {
+  const { loading, error, data } = useQuery(GET_SUB_DEPARTMENT_FILTERS, {
+    variables: { input },
+  });
 
-const Filters = () => {
+  // Make sure hooks are called at the top level
   const [{ shopFiltersToggle }, dispatch] = useStateValue();
   const [selectedColors, setselectedColors] = useState([]);
   const [selectedSizes, setselectedSizes] = useState([]);
@@ -34,10 +32,19 @@ const Filters = () => {
   const [expandCompany, setExpandCompany] = useState(false);
   const [isCertificatesExpanded, setIsCertificatesExpanded] = useState(false);
 
+  if (loading) return <p>Loading...</p>;
+  if (error) {
+    console.error("GraphQL Error:", error);
+    return <p>Error: {error.message}</p>;
+  }
+
+  console.log("Data:", data);
+
   return (
     <div
       className={`absolute z-30 bg-white w-11/12 opacity-100 xl:relative
-      ${shopFiltersToggle ? "block" : "hidden"} xl:block border border-[#EDEFF6] h-fit xl:h-full xl:w-1/4`}>
+      ${shopFiltersToggle ? "block" : "hidden"} xl:block border border-[#EDEFF6] h-fit xl:h-full xl:w-1/4`}
+    >
       <section className="h-full px-4 py-10 flex flex-col space-y-10">
         <div className="w-full xl:hidden flex justify-between items-center pb-4 border-b border-b-[#E7EAF5]">
           <p className="font-semibold">Filters</p>
@@ -67,79 +74,52 @@ const Filters = () => {
           </div>
         </FilterDiv>
 
+        {/* Colors */}
         <FilterDiv>
-          {/* Colors */}
-          <div className="flex flex-col space-y-5 pl-3 pt-1 space-x-2">
-          <ChildFilterLabel label={"Colors"} />
-          <div className="flex xl:flex-nowrap justify-start space-x-2 items-center">
-            {colors.colors.map((item, index) => (
-              <div
-                key={index}
-                onClick={() =>
-                  selectedColors.includes(item.title)
-                    ? setselectedColors(selectedColors.filter((ele) => ele !== item.title))
-                    : setselectedColors([...selectedColors, item.title])
-                }
-                style={{ borderColor: item.value }}
-                className={`${selectedColors.includes(item.title) ? "p-1 border" : "p-0 border-none"} w-8 h-8 rounded-full`}
-              >
-                <div style={{ backgroundColor: item.value }} className="w-full h-full rounded-full"></div>
-              </div>
-            ))}
-          </div>
-        </div>
-        </FilterDiv>
-
-        <FilterDiv>
-              {/* Size */}
-              <div className="flex flex-col space-y-2 pl-3 pt-1 space-x-2">
-                <ChildFilterLabel label={"Size"} />
-                <div className="flex w-full justify-start space-x-4 items-center">
-                  <div
-                    className={`border ${selectedSizes.includes("S") ? "bg-black text-white" : "text-black bg-transparent"} border-[#E3E7F4] select-none w-8 h-8 flex items-center justify-center`}
-                    onClick={() =>
-                      selectedSizes.includes("S")
-                        ? setselectedSizes(selectedSizes.filter((item) => item !== "S"))
-                        : setselectedSizes([...selectedSizes, "S"])
-                    }
-                  >
-                    <span className="cursor-default">S</span>
-                  </div>
-                  <div
-                    className={`border ${selectedSizes.includes("M") ? "bg-black text-white" : "text-black bg-transparent"} border-[#E3E7F4] select-none w-8 h-8 flex items-center justify-center`}
-                    onClick={() =>
-                      selectedSizes.includes("M")
-                        ? setselectedSizes(selectedSizes.filter((item) => item !== "M"))
-                        : setselectedSizes([...selectedSizes, "M"])
-                    }
-                  >
-                    <span className="cursor-default">M</span>
-                  </div>
-                  <div
-                    className={`border ${selectedSizes.includes("L") ? "bg-black text-white" : "text-black bg-transparent"} border-[#E3E7F4] select-none w-8 h-8 flex items-center justify-center`}
-                    onClick={() =>
-                      selectedSizes.includes("L")
-                        ? setselectedSizes(selectedSizes.filter((item) => item !== "L"))
-                        : setselectedSizes([...selectedSizes, "L"])
-                    }
-                  >
-                    <span className="cursor-default">L</span>
-                  </div>
-                  <div
-                    className={`border ${selectedSizes.includes("XL") ? "bg-black text-white" : "text-black bg-transparent"} border-[#E3E7F4] select-none w-8 h-8 flex items-center justify-center`}
-                    onClick={() =>
-                      selectedSizes.includes("XL")
-                        ? setselectedSizes(selectedSizes.filter((item) => item !== "XL"))
-                        : setselectedSizes([...selectedSizes, "XL"])
-                    }
-                  >
-                    <span className="cursor-default">XL</span>
-                  </div>
+          <div className="flex flex-col space-y-4 pl-3 pt-0 ">
+            <ChildFilterLabel label={"Colors"} />
+            <div className="flex xl:flex-wrap justify-start space-x-2 space-y-4 items-center">
+              {data.getSubDepartmentFilters.Colors.map((item, index) => (
+                <div
+                  key={index}
+                  onClick={() =>
+                    selectedColors.includes(item.Title)
+                      ? setselectedColors(selectedColors.filter((ele) => ele !== item.Title))
+                      : setselectedColors([...selectedColors, item.Title])
+                  }
+                  style={{ borderColor: item.Value }}
+                  className={`${selectedColors.includes(item.Title) ? "p-1 border" : "p-0 border-none"} w-8 h-8 rounded-full`}
+                >
+                  <div style={{ backgroundColor: item.Value }} className="w-full h-full rounded-full"></div>
                 </div>
-              </div>
+              ))}
+            </div>
+          </div>
         </FilterDiv>
 
-
+        {/* Size */}
+        {data.getSubDepartmentFilters.Sizes.length > 0 && (
+          <FilterDiv>
+            <div className="flex flex-col space-y-2 pl-3 pt-1 space-x-2">
+              <ChildFilterLabel label={"Size"} />
+              <div className="flex w-full justify-start space-x-4 items-center">
+                {data.getSubDepartmentFilters.Sizes.map((size, index) => (
+                  <div
+                    key={index}
+                    className={`border ${selectedSizes.includes(size) ? "bg-black text-white" : "text-black bg-transparent"} border-[#E3E7F4] select-none w-8 h-8 flex items-center justify-center`}
+                    onClick={() =>
+                      selectedSizes.includes(size)
+                        ? setselectedSizes(selectedSizes.filter((item) => item !== size))
+                        : setselectedSizes([...selectedSizes, size])
+                    }
+                  >
+                    <span className="cursor-default">{size}</span>
+                  </div>
+                ))}
+              </div>
+            </div>
+          </FilterDiv>
+        )}
 
         {/* Product Filters */}
         <FilterDiv>
@@ -148,11 +128,10 @@ const Filters = () => {
           </div>
           {expandProductFilters && (
             <div>
-              {/* Product Certs */}
               <div className="flex flex-col space-y-5 pl-3 pt-5 space-x-3">
                 <ChildFilterLabel label={"Product Certs"} />
                 <div className="flex flex-col text-[#798086] space-y-2 w-full justify-start">
-                  {productCerts.productCerts.map((item, index) => (
+                  {data.getSubDepartmentFilters.ProductCertifications.map((item, index) => (
                     <div className="flex space-x-2" key={index}>
                       <input
                         type="checkbox"
@@ -209,7 +188,7 @@ const Filters = () => {
           </div>
           {expandCompany && (
             <div className="flex flex-col w-full space-y-2 ml-6 pt-5">
-              {companyAPI.company.map((item, index) => (
+              {data.getSubDepartmentFilters.Companies.map((item, index) => (
                 <div className="flex space-x-2" key={index}>
                   <input
                     type="checkbox"
@@ -236,7 +215,7 @@ const Filters = () => {
           </div>
           {isCertificatesExpanded && (
             <div className="flex flex-col w-full text-[#798086] space-y-2 ml-6 pt-5">
-              {companyCertificates.companyCertificates.map((item, index) => (
+              {data.getSubDepartmentFilters.CompanyCertifications.map((item, index) => (
                 <div className="flex space-x-2" key={index}>
                   <input
                     type="checkbox"

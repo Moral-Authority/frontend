@@ -1,14 +1,20 @@
 import React from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 
 const NavItem = ({ item }) => {
+  const navigate = useNavigate();
+
+  const handleNavigation = (navLink, title) => {
+    navigate(navLink, { state: { departmentTitle: title } });
+  };
+
   return (
     <div className="relative h-20 pt-3 group z-50 ">
       <div
         className={`cursor-pointer inline-flex items-center group-hover:border-b-4 space-x-2 pb-3
       border-transparent z-50 text-[#f2f2eb]`}
       >
-        <Link to={item.navLink}>{item.title}</Link>
+        <span onClick={() => handleNavigation(item.navLink, item.title)}>{item.title}</span>
       </div>
       <ul className="absolute 
                     top-10 
@@ -25,14 +31,16 @@ const NavItem = ({ item }) => {
                     text-[#f2f2eb]
                     rounded-md
                     z-50 !important">
-                {item?.children?.items.map((childItem, index) => (
+        {item?.children?.items.map((childItem, index) => (
           <li
             key={index}
             className={
               "border-b cursor-pointer last:border-none border-transparent pb-4"
             }
           >
-            <Link to={childItem.navLink}>{childItem.title}</Link>
+            <span onClick={() => handleNavigation(childItem.navLink, childItem.title)}>
+              {childItem.title}
+            </span>
           </li>
         ))}
       </ul>

@@ -56,3 +56,17 @@ export const GET_FAVORITES_QUERY = gql`
   }
 `;
 
+export const GET_SUB_DEPARTMENT_FILTERS = gql`
+  query GetSubDepartmentFilters($input: String!) {
+    getSubDepartmentFilters(input: $input) {
+      Colors {
+        Title
+        Value
+      }
+      Sizes
+      Companies
+      CompanyCertifications
+      ProductCertifications
+    }
+  }
+`;
