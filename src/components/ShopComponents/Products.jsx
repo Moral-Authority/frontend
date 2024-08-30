@@ -29,7 +29,6 @@ const Products = () => {
         </div>
       </section>
       <section className="flex items-center justify-between pt-0 border-[#E7EAF5] xl:border-[#EDEFF6]/60">
-        {/* <h1 className="text-xl sm:text-2xl">Home Goods</h1> */}
         <div
           className="flex space-x-2 space-y-0 text-[#798086] px-4 cursor-pointer"
           onClick={() =>
@@ -40,7 +39,6 @@ const Products = () => {
         >
           <AdjustmentsHorizontalIcon className="h-10 w-10" />
           <p className="select-none text-xl py-2">Filters</p>
-
         </div>
         <select
           id=""
@@ -50,13 +48,16 @@ const Products = () => {
           <option value="Price (High to Low)">Price (High to Low)</option>
         </select>
       </section>
-
+        
       <section className="grid grid-cols-2 md:grid-cols-3 gap-2 xl:gap-x-2 xl:gap-y-8 place-items-center">
         {data.getAllProducts.map((product) => (
           <Product
             key={product._id}
             title={product.Title}
-            _id={product._id} // Pass the product ID
+            _id={product._id} 
+            company={product.company} 
+            purchaseInfo={product.PurchaseInfo}
+            imageLinks={product.ImageLinks}
           />
         ))}
       </section>

@@ -157,11 +157,8 @@ const ProductInfo = ({ title, _id }) => {
             bgColor="#697383"
             style={{ height: "28px", width: "28px" }}
           />
-          <SocialIcon
-            url="https://youtube.com"
-            bgColor="#697383"
-            style={{ height: "28px", width: "28px" }}
-          />
+          <img src="https://res.cloudinary.com/dxm6doeqd/image/upload/e_background_removal/c_crop,w_90,h_90,ar_1:1,f_png,e_improve,e_sharpen/v1675104249/logos-certifications/r6ynnwqatym7h6gmjjp6.png" 
+          alt="certified gluten free" className="h-20 w-20 object-cover" />
         </div>
       </section>
     </div>

@@ -24,12 +24,22 @@ export const GET_USER_QUERY = gql`
 
 
 export const GET_ALL_PRODUCTS = gql`
-  query GetAllProducts {
-    getAllProducts {
-      _id
-      Title
+{
+  getAllProducts {
+    _id
+    Title
+    Description
+    PurchaseInfo {
+      Price
+      Link
     }
+    company{
+      _id
+      name
+    }
+    ImageLinks
   }
+}
 `;
 
 
