@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { useQuery } from "@apollo/client";
-import { GET_SUB_DEPARTMENT_FILTERS } from "@/graphql/queries";
+import { GET_SUB_DEPARTMENT_FILTERS } from '../../graphql/Queries.js';
 import FilterDiv from "./FilterDiv";
 import FilterLabel from "./FilterLabel";
 import ChildFilterLabel from "./ChildFilterLabel";
