@@ -64,7 +64,7 @@ const Product = ({ title, _id, company, imageLinks, purchaseInfo }) => {
         )}
       </div>
       <div className="w-full z-0 relative h-3/4 group bg-[#F6FBFF] items-center flex justify-center">
-        <img src={imageLinks[0]} className="w-full h-full object-contain" alt={title} />
+        <img src={Chair} className="w-full h-full object-contain" alt={title} />
         <Link
           className="text-black absolute w-11/12 hidden group-hover:block bottom-5 bg-[#D6AD60] h-12"
           to={`/product/${_id}`} // Use the product ID in the URL
