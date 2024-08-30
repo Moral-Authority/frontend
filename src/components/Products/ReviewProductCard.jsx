@@ -16,7 +16,7 @@ const ReviewProductCard = ({ approved }) => {
             <p className="text-xs lg:text-sm text-[#D6AD60]">Home and Goods</p>
             <p className="text-sm lg:text-base">Luxary Modern Chair</p>
             <p className="text-[#5F646F] text-sm lg:text-base">$350</p>
-            <p className="text-[#798086] flex-col lg:flex-row flex w-full text-xs lg:text-sm">
+            {/* <p className="text-[#798086] flex-col lg:flex-row flex w-full text-xs lg:text-sm">
               Approved Status:{" "}
               <span
                 className={`px-2 lg:ml-1 py-1 mt-1 lg:mt-0 text-center ${
@@ -27,7 +27,7 @@ const ReviewProductCard = ({ approved }) => {
               >
                 {approved ? "Approved" : "Not approved"}
               </span>
-            </p>
+            </p> */}
           </div>
         </div>
       </div>

@@ -3,14 +3,13 @@ import { HeartIcon, Bars3Icon, UserCircleIcon, MagnifyingGlassIcon } from "@hero
 import { useStateValue } from "@/utils/stateProvider/useStateValue";
 import navItems from "@/utils/testAPIs/navItems.json";
 import { motion } from "framer-motion";
-import { Link, useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 
 const MobileNav = () => {
-  const [{ user, userProfile }, dispatch] = useStateValue();
+  const [{ user }, dispatch] = useStateValue();
   const navigate = useNavigate();
 
   useEffect(() => {
-    // Check localStorage for user if not already logged in
     if (!user) {
       const storedUser = localStorage.getItem('user');
       if (storedUser) {
@@ -26,9 +25,13 @@ const MobileNav = () => {
 
   const userLoggedIn = !!user;
 
-  // Function to handle navigation and collapsing the menu
-  const handleNavigation = (path) => {
-    navigate(path);
+  const handleNavigation = (path, departmentTitle) => {
+    if (path === "/shop") {
+      navigate(path, { state: { departmentTitle } });
+      // dispatch({ type: "SHOP_FILTERS_TOGGLE" }); // Toggle the filter menu
+    } else {
+      navigate(path); // For non-shop links, just navigate directly
+    }
     dispatch({ type: "CHANGE_NAV_MENU" }); // Collapse the menu after navigation
   };
 
@@ -39,7 +42,7 @@ const MobileNav = () => {
       type: "SET_USER",
       user: null,
     });
-    handleNavigation('/'); 
+    handleNavigation('/');
   };
 
   return (
@@ -59,12 +62,10 @@ const MobileNav = () => {
           style={{ width: "32px", height: "32px", color: "#F2F2eb" }}
           onClick={() => dispatch({ type: "CHANGE_NAV_MENU" })}
         />
-
       </div>
 
       {userLoggedIn ? (
         <div style={{ display: "flex", justifyContent: "center", gap: "20px" }}>
-
           <div
             style={{
               display: "flex",
@@ -74,10 +75,9 @@ const MobileNav = () => {
               borderBottom: "1px solid #F2F2eb",
             }}
           >
-          <MagnifyingGlassIcon style={{ width: "32px", height: "32px", color: "#F2F2eb" }} />
-          <input type="search" placeholder="Search Coming Soon!" id="site-search" name="q" style={{ background: "transparent", border: "none", outline: "none", color: "#F2F2eb", width: "100%" }} />
-        </div>
-
+            <MagnifyingGlassIcon style={{ width: "32px", height: "32px", color: "#F2F2eb" }} />
+            <input type="search" placeholder="Search Coming Soon!" id="site-search" name="q" style={{ background: "transparent", border: "none", outline: "none", color: "#F2F2eb", width: "100%" }} />
+          </div>
         </div>
       ) : (
         <div style={{ display: "flex", justifyContent: "center", gap: "20px" }}>
@@ -126,7 +126,7 @@ const MobileNav = () => {
           {navItems?.navItems?.map((item, index) => (
             <li
               key={index}
-              onClick={() => handleNavigation(item.navLink)}
+              onClick={() => handleNavigation(item.navLink, item.title)}
               style={{ cursor: "pointer", opacity: 0.7 }}
               onMouseOver={(e) => (e.target.style.opacity = "1")}
               onMouseOut={(e) => (e.target.style.opacity = "0.7")}
@@ -139,25 +139,23 @@ const MobileNav = () => {
 
       {userLoggedIn ? (
         <div style={{
-          position: "absolute",  // Position the div at the bottom
-          bottom: 15,             // Stick to the bottom
-          left: 0,               // Stick to the left
-          width: "100%",         // Full width
+          position: "absolute",  
+          bottom: 15,            
+          left: 0,               
+          width: "100%",         
           borderTop: "1px solid #F2F2eb",
           display: "flex",
-          justifyContent: "space-between", // Distribute space between the items
-          padding: "10px 20px" // Add some padding for spacing
+          justifyContent: "space-between", 
+          padding: "10px 20px" 
         }}>
-        <p onClick={logoutHandler} style={{ fontSize: "20px", paddingTop: "20px" }}>
-          Sign Out
-        </p>
-        <p to="/profile" onClick={() => handleNavigation("/profile")} style={{ fontSize: "20px", paddingTop: "20px" }}>
-          Edit Profile
-        </p>
-      </div>
+          <p onClick={logoutHandler} style={{ fontSize: "20px", paddingTop: "20px" }}>
+            Sign Out
+          </p>
+          <p onClick={() => handleNavigation("/profile")} style={{ fontSize: "20px", paddingTop: "20px" }}>
+            Edit Profile
+          </p>
+        </div>
       ) : null}
-      
-
     </motion.div>
   );
 };

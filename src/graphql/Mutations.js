@@ -34,19 +34,17 @@ export const TOGGLE_USER_FAV = gql`
 `;
 
 
-const UPDATE_USER_MUTATION = gql`
+export const UPDATE_USER_MUTATION = gql`
   mutation UpdateUser(
-    $id: Int!
-    $name: String!
-    $age: Int!
-    $address: String!
+    $userId: String!
+    $email: String
+    $phone: String
+    $password: String
   ) {
-    updateUser(id: $id, input: { name: $name, age: $age, address: $address }) {
-      id
-      name
-      createdAt
-      age
-      address
+    updateUser(input: { userId: $userId, email: $email, phone: $phone, password: $password }) {
+      _id
+      email
+      phone
     }
   }
 `;
