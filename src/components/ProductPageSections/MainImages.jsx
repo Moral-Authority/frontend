@@ -15,7 +15,7 @@ const MainImages = ({ imageLinks }) => {
         )}
 
       </section>
-      <section className="flex justify-evenly space-x-2">
+      {/* <section className="flex justify-evenly space-x-2">
         <div className="w-1/3 bg-[#F6FBFF]">
           <img src={Chair} alt="product" className="w-full" />
         </div>
@@ -25,7 +25,7 @@ const MainImages = ({ imageLinks }) => {
         <div className="w-1/3 bg-[#F6FBFF]">
           <img src={ChairSide} alt="product" className="w-full" />
         </div>
-      </section>
+      </section> */}
     </div>
   );
 };
