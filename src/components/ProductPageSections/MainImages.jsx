@@ -1,7 +1,4 @@
 import React from "react";
-import Chair from "images/chair.png";
-import ChairFront from "images/chairFront.png";
-import ChairSide from "images/chairSide.png";
 
 const MainImages = ({ imageLinks }) => {
   console.log("IMAGE LINKS",imageLinks);
