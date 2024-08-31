@@ -8,6 +8,7 @@ import CompanyProfile from "../components/ProfileComponents/CompanyProfile";
 
 const Profile = () => {
   const [{ userProfile }] = useStateValue();
+
   return (
     <div
       className="min-h-screen flex flex-col w-full"

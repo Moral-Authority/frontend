@@ -49,6 +49,16 @@ export const GET_PRODUCT_BY_ID = gql`
     getProductByID(id: $id) {
       _id
       Title
+      Description
+      PurchaseInfo {
+        Price
+        Link
+      }
+      company{
+        _id
+        name
+      }
+      ImageLinks
     }
   }
 `;

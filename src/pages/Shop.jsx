@@ -16,7 +16,7 @@ const Shop = () => {
       <div
         className={`${
           shopFiltersToggle ? "block" : "hidden"
-        } absolute w-full px-4 flex xl:items-center justify-center top-0 bottom-0 py-20 xl:py-4 xl:hidden`}
+        } absolute w-full px-4 flex xl:items-center justify-center top-0 bottom-0 py-20 xl:py-4 m:hidden xl:hidden`}
       >
         <Filters input={departmentTitle} />
       </div>

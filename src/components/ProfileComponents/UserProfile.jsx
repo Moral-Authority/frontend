@@ -26,8 +26,18 @@ const UserProfile = () => {
     variables: { id: userId },
   });
 
+  if (data == null && !loading && !error) {  
+    localStorage.removeItem('authToken');
+    localStorage.removeItem('user');
+    dispatch({
+      type: "SET_USER",
+      user: null,
+    });
+    navigate('/');
+  };
   if (loading) return <p>Loading profile...</p>;
   if (error) return <p>Error loading profile: {error.message}</p>;
+
 
   const { email, phone } = data.user;
 

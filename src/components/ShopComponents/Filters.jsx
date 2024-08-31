@@ -38,8 +38,6 @@ const Filters = ({ input }) => {
     return <p>Error: {error.message}</p>;
   }
 
-  console.log("Data:", data);
-
   return (
     <div
       className={`absolute z-30 bg-white w-11/12 opacity-100 xl:relative

@@ -12,10 +12,7 @@ const Product = ({ title, _id, company, imageLinks, purchaseInfo }) => {
   const [{ user, favorites }, dispatch] = useStateValue(); // Get the user and favorites state
   // Check if this product is a favorite
   const isFavorite = favorites.has(_id);
-  console.log("imageLinks:", imageLinks);
-  console.log("purchaseInfo:", purchaseInfo);
-  console.log("imagelink", imageLinks[0]);
-  console.log("purchase", purchaseInfo[0].Price);
+
   const [toggleUserFav] = useMutation(TOGGLE_USER_FAV, {
     variables: {
       request: {

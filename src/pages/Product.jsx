@@ -7,19 +7,20 @@ import MainImages from "../components/ProductPageSections/MainImages";
 import ProductDescription from "../components/ProductPageSections/ProductDescription";
 import ProductInfo from "../components/ProductPageSections/ProductInfo";
 import RelatedProducts from "../components/ProductPageSections/RelatedProducts";
-import { GET_PRODUCT_BY_ID } from "../graphql/Queries.js"; // Import the query
+import { GET_PRODUCT_BY_ID } from "../graphql/Queries.js"; 
 
 const Product = () => {
-  const { id } = useParams(); // Get the product ID from the URL
+  const { id } = useParams(); 
 
   const { loading, error, data } = useQuery(GET_PRODUCT_BY_ID, {
-    variables: { id }, // Ensure the ID is passed as a string
+    variables: { id }, 
   });
   
   const TABS = {
     DESCRIPTION: "description",
     DELIVERY: "delivery",
   };
+ 
   const [activeTab, setActiveTab] = useState(TABS.DESCRIPTION);
 
   if (loading) return <p>Loading...</p>;
@@ -40,9 +41,10 @@ const Product = () => {
       {/* Content Section */}
       <section className="h-full flex flex-col md:flex-row w-full space-y-10 md:space-y-0 md:px-20 lg:px-36 md:py-10">
         {/* Left Section */}
-        <MainImages />
+        <MainImages imageLinks={product.ImageLinks} />
         {/* Right Section */}
-        <ProductInfo title={product.Title} _id={id}/>
+        <ProductInfo  _id={id} 
+            product={product}/>
       </section>
       {/* Section for large screens */}
       <section className="h-full hidden md:flex flex-col space-y-10 w-full md:px-20 lg:px-36">
@@ -56,7 +58,7 @@ const Product = () => {
                 : ""
             }`}
           >
-            Product Description
+            Product Details
           </p>
           <p
             onClick={() => setActiveTab(TABS.DELIVERY)}
@@ -102,7 +104,7 @@ const Product = () => {
         className="h-full flex flex-col space-y-10 w-full px-5 overflow-x-scroll
       md:overflow-x-hidden md:px-20 lg:px-36 py-16"
       >
-        <RelatedProducts />
+        {/* <RelatedProducts /> */}
       </section>
     </div>
   );

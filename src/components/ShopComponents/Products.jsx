@@ -17,7 +17,7 @@ const Products = () => {
   return (
     <div className="flex space-y-5 flex-col border-b h-full w-full xl:w-3/4">
       
-      <section className="flex flex-col w-full space-y-5 xl:hidden">
+      <section className="flex flex-col w-full space-y-5 sm:hidden md:hidden lg:hidden xl:hidden">
         <div className="flex space-x-2 w-full overflow-x-scroll items-center justify-between overflow-y-hidden">
           {navItems.navItems.map((item, index) => (
             <Link key={index} to={item.navLink} className="">
@@ -28,7 +28,7 @@ const Products = () => {
           ))}
         </div>
       </section>
-      <section className="flex items-center justify-between pt-0 border-[#E7EAF5] xl:border-[#EDEFF6]/60">
+      <section className="flex xl:hidden items-center justify-between pt-0 border-[#E7EAF5] xl:border-[#EDEFF6]/60">
         <div
           className="flex space-x-2 space-y-0 text-[#798086] px-4 cursor-pointer"
           onClick={() =>
