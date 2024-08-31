@@ -41,7 +41,7 @@ const Product = () => {
       {/* Content Section */}
       <section className="h-full flex flex-col md:flex-row w-full space-y-10 md:space-y-0 md:px-20 lg:px-36 md:py-10">
         {/* Left Section */}
-        <MainImages />
+        <MainImages imageLinks={product.ImageLinks} />
         {/* Right Section */}
         <ProductInfo  _id={id} 
             product={product}
