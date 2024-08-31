@@ -41,10 +41,11 @@ const Product = () => {
       {/* Content Section */}
       <section className="h-full flex flex-col md:flex-row w-full space-y-10 md:space-y-0 md:px-20 lg:px-36 md:py-10">
         {/* Left Section */}
-        <MainImages imageLinks={product.ImageLinks} />
+        <MainImages />
         {/* Right Section */}
         <ProductInfo  _id={id} 
-            product={product}/>
+            product={product}
+            purchaseInfo={product.PurchaseInfo}/>
       </section>
       {/* Section for large screens */}
       <section className="h-full hidden md:flex flex-col space-y-10 w-full md:px-20 lg:px-36">
