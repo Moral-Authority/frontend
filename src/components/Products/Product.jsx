@@ -1,20 +1,20 @@
 import React from "react";
-import Chair from "images/chair.png";
 import { HeartIcon } from "@heroicons/react/24/solid";
 import { HeartIcon as HeartEmpty } from "@heroicons/react/24/outline";
 import { useMutation } from "@apollo/client";
 import { TOGGLE_USER_FAV } from "../../graphql/Mutations";
 import { useStateValue } from "../../utils/stateProvider/useStateValue";
 
-const ProductCard = ({ productId, title, approved }) => {
+const ProductCard = ({ productId, title, productDepartment }) => {
   const [{ user, favorites }, dispatch] = useStateValue();
   const isFavorite = favorites.has(productId);
 
   const [toggleUserFav] = useMutation(TOGGLE_USER_FAV, {
     variables: {
-      request: {  // Structure must match your mutation
+      input: {
         userId: user?.id,
         productId: productId,
+        ProductDepartment: productDepartment,  // Pass the department here
       },
     },
     onCompleted: () => {
@@ -46,7 +46,7 @@ const ProductCard = ({ productId, title, approved }) => {
           <p className="text-xs lg:text-sm text-[#D6AD60]">Home and Goods</p>
           <p className="text-sm lg:text-base">{title}</p>
           <p className="text-[#5F646F] text-sm lg:text-base">$350</p>
-          {/* <p className="text-[#798086] flex-col lg:flex-row flex w-full text-xs lg:text-sm">
+                    {/* <p className="text-[#798086] flex-col lg:flex-row flex w-full text-xs lg:text-sm">
             Approved Status:{" "}
             <span
               className={`px-2 lg:ml-1 py-1 mt-1 lg:mt-0 text-center ${
@@ -59,6 +59,7 @@ const ProductCard = ({ productId, title, approved }) => {
             </span>
           </p> */}
         </div>
+        
         <div>
           <p className="text-[#798086] sm:text-xs lg:text-sm flex lg:space-x-2">
             <span className="hidden lg:block">

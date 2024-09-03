@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React from "react";
 import ProfilePicture from "images/profilePicture.png";
 import { CheckBadgeIcon } from "@heroicons/react/24/solid";
 import { Link } from "react-router-dom";
@@ -8,22 +8,19 @@ import { useMutation } from "@apollo/client";
 import { TOGGLE_USER_FAV } from "../../graphql/Mutations";
 import { useStateValue } from "@/utils/stateProvider/useStateValue";
 
-const ProductInfo = ({ _id, product }) => {
+const ProductInfo = ({ _id, product, productDepartment }) => {
   const [{ user, favorites }, dispatch] = useStateValue();
-    // const [{ userProfile }] = useStateValue();
-
-  // Check if this product is a favorite
   const isFavorite = favorites.has(_id);
 
   const [toggleUserFav] = useMutation(TOGGLE_USER_FAV, {
     variables: {
-      request: {
+      input: {
         userId: user?.id,
         productId: _id,
+        ProductDepartment: productDepartment,  // Pass the department here
       },
     },
     onCompleted: () => {
-      // Toggle favorite status in the global state
       dispatch({
         type: "TOGGLE_FAVORITE",
         productId: _id,
@@ -36,17 +33,14 @@ const ProductInfo = ({ _id, product }) => {
 
   const handleToggleFavorite = () => {
     if (user) {
-      console.log("Toggling favorite with userId:", user.id, "and productId:", _id);
       toggleUserFav();
     } else {
       console.log("User is not logged in");
     }
-  };  
+  };
 
   return (
-    
     <div className="w-full md:w-1/2 flex flex-col px-5 md:px-10 items-start">
-      {/* Upper Section */}
       <section className="flex flex-col pb-3">
         <p className="text-lg text-[#D6AD60]">{product.company.name}</p>
         <p className="text-[#4F536C] mt-1">{product.Title}</p>
@@ -66,22 +60,18 @@ const ProductInfo = ({ _id, product }) => {
                 <Link to="/profile">Bcorp Certified</Link>
               </p>
               <CheckBadgeIcon className="h-4 w-4 text-blue-500" />
-              
             </div>
           </div>
         </div>
       </section>
-      {/* Lower Section */}
       <section className="flex flex-col py-4 space-y-5">
         <div className="flex md:flex-col space-x-0 space-y-0">
-          <div className="flex md:space-x-5 items-center"> 
-          </div>
           <div className="flex space-x-4">
-          <a href={product.PurchaseInfo[0].Link} target="_blank" rel="noopener noreferrer">
-            <button className="px-6 py-3 bg-[#D6AD60]">
-              Buy From Brand
-            </button>
-          </a>
+            <a href={product.PurchaseInfo[0].Link} target="_blank" rel="noopener noreferrer">
+              <button className="px-6 py-3 bg-[#D6AD60]">
+                Buy From Brand
+              </button>
+            </a>
             {user && (
               <button
                 onClick={handleToggleFavorite}
@@ -96,18 +86,15 @@ const ProductInfo = ({ _id, product }) => {
             )}
           </div>
         </div>
-        {/* <p className="md:hidden pt-5 underline underline-offset-4 text-[#000000]/80">
-          Certificates
-        </p> */}
         <div className="flex space-x-2 items-center text-[#697383] text-sm">
           <p className="text-xs text-[#D6AD60] underline underline-offset-4">
-              <Link to="/profile">Black Owned</Link>
+            <Link to="/profile">Black Owned</Link>
           </p>
           <CheckBadgeIcon className="h-4 w-4 text-blue-500" />  
         </div>
         <div className="flex space-x-2 items-center text-[#697383] text-sm">
           <p className="text-xs text-[#D6AD60] underline underline-offset-4">
-              <Link to="/profile">Women Owned</Link>
+            <Link to="/profile">Women Owned</Link>
           </p>
           <CheckBadgeIcon className="h-4 w-4 text-blue-500" />  
         </div>

@@ -1,22 +1,39 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { useQuery } from '@apollo/client';
-import { GET_ALL_PRODUCTS } from '../../graphql/Queries.js';
-import Product from "./Product";
-import { AdjustmentsHorizontalIcon } from "@heroicons/react/24/outline";
-import { Link } from "react-router-dom";
+import { GET_ALL_PRODUCTS_BY_DEPARTMENT } from '@/graphql/Queries';
+import Product from './Product';
 import { useStateValue } from "@/utils/stateProvider/useStateValue";
-import navItems from "@/utils/testAPIs/navItems.json";
+import { useLocation } from "react-router-dom";
+import navItems from "@/utils/testAPIs/navItems.json"; 
+import { Link } from "react-router-dom";
+import { AdjustmentsHorizontalIcon } from "@heroicons/react/24/outline";
 
 const Products = () => {
-  const { loading, error, data } = useQuery(GET_ALL_PRODUCTS);
+  const location = useLocation();
+  const departmentTitle = location.state?.departmentTitle || "Home & Garden";
+
+  // Log the departmentTitle to verify it's correct
+  useEffect(() => {
+    console.log("Department Title sent to query:", departmentTitle);
+  }, [departmentTitle]);
+
+  const { data, loading, error } = useQuery(GET_ALL_PRODUCTS_BY_DEPARTMENT, {
+    variables: { department: departmentTitle },
+  });
+
+  const products = data?.getAllProductsByDepartment || [];
+  console.log("data", products[0]?.Company);
   const [, dispatch] = useStateValue();
 
   if (loading) return <p>Loading...</p>;
   if (error) return <p>Error: {error.message}</p>;
 
+  if (products.length === 0) {
+    return <p>Coming soon!</p>;
+  }
+
   return (
     <div className="flex space-y-5 flex-col border-b h-full w-full xl:w-3/4">
-      
       <section className="flex flex-col w-full space-y-5 sm:hidden md:hidden lg:hidden xl:hidden">
         <div className="flex space-x-2 w-full overflow-x-scroll items-center justify-between overflow-y-hidden">
           {navItems.navItems.map((item, index) => (
@@ -48,14 +65,13 @@ const Products = () => {
           <option value="Price (High to Low)">Price (High to Low)</option>
         </select>
       </section>
-        
       <section className="grid grid-cols-2 md:grid-cols-3 gap-2 xl:gap-x-2 xl:gap-y-8 place-items-center">
-        {data.getAllProducts.map((product) => (
+        {products.map((product) => (
           <Product
             key={product._id}
             title={product.Title}
             _id={product._id} 
-            company={product.company} 
+            company={product.Company} 
             purchaseInfo={product.PurchaseInfo}
             imageLinks={product.ImageLinks}
           />
