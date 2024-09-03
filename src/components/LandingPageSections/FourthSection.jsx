@@ -36,6 +36,7 @@ const FourthSection = () => {
               company={product.Company} 
               purchaseInfo={product.PurchaseInfo}
               imageLinks={product.ImageLinks}
+              productDepartment={"Home & Garden"} // Pass the department
             />
           ))
         ) : (
