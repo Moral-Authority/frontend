@@ -14,7 +14,7 @@ const Products = () => {
 
   // Log the departmentTitle to verify it's correct
   useEffect(() => {
-    console.log("Department Title sent to query:", departmentTitle);
+    // console.log("Department Title sent to query:", departmentTitle);
   }, [departmentTitle]);
 
   const { data, loading, error } = useQuery(GET_ALL_PRODUCTS_BY_DEPARTMENT, {
@@ -22,7 +22,7 @@ const Products = () => {
   });
 
   const products = data?.getAllProductsByDepartment || [];
-  console.log("data", products[0]?.Company);
+
   const [, dispatch] = useStateValue();
 
   if (loading) return <p>Loading...</p>;
@@ -74,6 +74,7 @@ const Products = () => {
             company={product.Company} 
             purchaseInfo={product.PurchaseInfo}
             imageLinks={product.ImageLinks}
+            productDepartment = {departmentTitle}
           />
         ))}
       </section>

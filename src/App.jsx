@@ -12,7 +12,7 @@ import Shop from "./pages/Shop";
 import Profile from "./pages/Profile";
 import FavoritedProducts from "./components/ProfileComponents/FavoritedProducts";
 import ProductsReview from "./components/ProfileComponents/ProductsReview";
-import Product from "./pages/Product";
+import ProductPage from "./pages/ProductPage.jsx";
 import PrivacyPolicy from "./pages/privacyPolicy";
 
 export const App = () => {
@@ -64,7 +64,7 @@ export const App = () => {
               <Route path="/login" element={<Login />} />
               <Route path="/shop" element={<Shop />} />
               <Route path="/profile" element={<Profile />} />
-              <Route path="/product/:id" element={<Product />} /> 
+              <Route path="/product/:department/:id" element={<ProductPage />} />
               <Route path="/privacy-policy" element={<PrivacyPolicy />} />
               {user && (
                 <Route path="/profile" element={<Profile />}>

@@ -42,7 +42,7 @@ const ProductInfo = ({ _id, product, productDepartment }) => {
   return (
     <div className="w-full md:w-1/2 flex flex-col px-5 md:px-10 items-start">
       <section className="flex flex-col pb-3">
-        <p className="text-lg text-[#D6AD60]">{product.company.name}</p>
+        <p className="text-lg text-[#D6AD60]">{product.Company.name}</p>
         <p className="text-[#4F536C] mt-1">{product.Title}</p>
         <div className="flex flex-col-reverse md:flex-col">
           <p className="text-[#758BAE] leading-loose text-sm mt-5">

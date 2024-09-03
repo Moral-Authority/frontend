@@ -10,7 +10,7 @@ import { useStateValue } from "../../utils/stateProvider/useStateValue";
 const Product = ({ title, _id, company, imageLinks, purchaseInfo, productDepartment }) => {
   const [{ user, favorites }, dispatch] = useStateValue();
   const isFavorite = favorites.has(_id);
-
+  console.log("Product department: ", productDepartment);
   const [toggleUserFav] = useMutation(TOGGLE_USER_FAV, {
     variables: {
       input: {
@@ -62,7 +62,7 @@ const Product = ({ title, _id, company, imageLinks, purchaseInfo, productDepartm
         <img src={imageLinks[0]} className="w-full h-full object-contain" alt={title} />
         <Link
           className="text-black absolute w-11/12 hidden group-hover:block bottom-5 bg-[#D6AD60] h-12"
-          to={`/product/${_id}`}
+          to={`/product/${productDepartment}/${_id}`}  // Include department in URL
         >
           <motion.button
             initial={{ opacity: 0 }}

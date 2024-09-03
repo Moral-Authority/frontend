@@ -2,7 +2,7 @@ import React, { useEffect } from "react";
 import { useQuery } from "@apollo/client";
 import { useLocation } from "react-router-dom"; // Import useLocation
 import { GET_FAVORITES_QUERY } from '../../graphql/Queries.js';
-import ProductCard from "../Products/Product";
+import ProductCard from "../Products/ProductCard.jsx";
 
 const FavoritedProducts = ({ userId }) => {
   const { loading, error, data, refetch } = useQuery(GET_FAVORITES_QUERY, {

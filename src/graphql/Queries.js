@@ -53,7 +53,7 @@ export const GET_PRODUCT_BY_ID = gql`
         Price
         Link
       }
-      company {
+      Company {
         _id
         name
       }

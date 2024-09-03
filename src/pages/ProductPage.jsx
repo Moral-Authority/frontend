@@ -1,20 +1,22 @@
 import React, { useState } from "react";
 import { useParams } from "react-router-dom";
 import { useQuery } from "@apollo/client";
-import Header from "../components/Header";
-import MainHeading from "../components/ProductPageSections/MainHeading";
-import MainImages from "../components/ProductPageSections/MainImages";
-import ProductDescription from "../components/ProductPageSections/ProductDescription";
-import ProductInfo from "../components/ProductPageSections/ProductInfo";
-import RelatedProducts from "../components/ProductPageSections/RelatedProducts";
+import Header from "../components/Header.jsx";
+import MainHeading from "../components/ProductPageSections/MainHeading.jsx";
+import MainImages from "../components/ProductPageSections/MainImages.jsx";
+import ProductDescription from "../components/ProductPageSections/ProductDescription.jsx";
+import ProductInfo from "../components/ProductPageSections/ProductInfo.jsx";
+import RelatedProducts from "../components/ProductPageSections/RelatedProducts.jsx";
 import { GET_PRODUCT_BY_ID } from "../graphql/Queries.js"; 
 
-const Product = () => {
-  const { id } = useParams(); 
-
+const ProductPage = () => {
+  const { id, department } = useParams();  // Extract department from the URL
+  console.log("department in product page", department);
   const { loading, error, data } = useQuery(GET_PRODUCT_BY_ID, {
-    variables: { id }, 
+    variables: { id, department },  // Pass both id and department to the query
   });
+
+  console.log("product data", data);
   
   const TABS = {
     DESCRIPTION: "description",
@@ -111,4 +113,4 @@ const Product = () => {
   );
 };
 
-export default Product;
+export default ProductPage;
