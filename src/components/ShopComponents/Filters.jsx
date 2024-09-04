@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { useQuery } from "@apollo/client";
 import { GET_SUB_DEPARTMENT_FILTERS } from '../../graphql/Queries.js';
 import FilterDiv from "./FilterDiv";
+import FilterToggle from "./FilterToggle";
 import FilterLabel from "./FilterLabel";
 import ChildFilterLabel from "./ChildFilterLabel";
 import { StarIcon } from "@heroicons/react/24/outline";
@@ -71,10 +72,39 @@ const Filters = ({ department, subDepartment }) => {
           </div>
         </FilterDiv>
 
+        
+        {/* Ratings */}
+        <FilterDiv>
+          <div onClick={() => setExpandRatings(!expandRatings)} className="cursor-pointer flex justify-between items-center">
+            <FilterLabel label={"Ratings"} />
+          </div>
+            <div className="flex flex-col w-full space-y-5 ml-6 pt-1">
+              <div className="flex space-x-2">
+                {Array(5)
+                  .fill(0)
+                  .map((item, index) =>
+                    index + 1 <= rating ? (
+                      <StarFilled
+                        key={index}
+                        onClick={() => setrating(index + 1)}
+                        className="h-6 w-6 text-[#FFB33E]"
+                      />
+                    ) : (
+                      <StarIcon
+                        key={index}
+                        onClick={() => setrating(index + 1)}
+                        className="h-6 w-6"
+                      />
+                    )
+                  )}
+              </div>
+            </div>
+        </FilterDiv>
+
         {/* Product Filters */}
         <FilterDiv>
           <div onClick={() => setExpandProductFilters(!expandProductFilters)} className="cursor-pointer flex justify-between items-center">
-            <FilterLabel label={"Product Certifications"} />
+            <FilterToggle label={"Product Certifications"} />
           </div>
           {expandProductFilters && (
             <div>
@@ -101,40 +131,10 @@ const Filters = ({ department, subDepartment }) => {
           )}
         </FilterDiv>
 
-        {/* Ratings */}
-        <FilterDiv>
-          <div onClick={() => setExpandRatings(!expandRatings)} className="cursor-pointer flex justify-between items-center">
-            <FilterLabel label={"Ratings"} />
-          </div>
-          {expandRatings && (
-            <div className="flex flex-col w-full space-y-5 ml-6 pt-5">
-              <div className="flex space-x-2">
-                {Array(5)
-                  .fill(0)
-                  .map((item, index) =>
-                    index + 1 <= rating ? (
-                      <StarFilled
-                        key={index}
-                        onClick={() => setrating(index + 1)}
-                        className="h-6 w-6 text-[#FFB33E]"
-                      />
-                    ) : (
-                      <StarIcon
-                        key={index}
-                        onClick={() => setrating(index + 1)}
-                        className="h-6 w-6"
-                      />
-                    )
-                  )}
-              </div>
-            </div>
-          )}
-        </FilterDiv>
-
         {/* Company */}
         <FilterDiv>
           <div onClick={() => setExpandCompany(!expandCompany)} className="cursor-pointer flex justify-between items-center">
-            <FilterLabel label={"Company"} />
+            <FilterToggle label={"Company"} />
           </div>
           {expandCompany && (
             <div className="flex flex-col w-full space-y-2 ml-6 pt-5">
@@ -161,7 +161,7 @@ const Filters = ({ department, subDepartment }) => {
         {/* Company Certificates */}
         <FilterDiv>
           <div onClick={() => setIsCertificatesExpanded(!isCertificatesExpanded)} className="cursor-pointer flex justify-between items-center">
-            <FilterLabel label={"Company Certifications"} />
+            <FilterToggle label={"Company Certifications"} />
           </div>
           {isCertificatesExpanded && (
             <div className="flex flex-col w-full text-[#798086] space-y-2 ml-6 pt-5">
