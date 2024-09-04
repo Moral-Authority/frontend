@@ -14,6 +14,7 @@ import FavoritedProducts from "./components/ProfileComponents/FavoritedProducts"
 import ProductsReview from "./components/ProfileComponents/ProductsReview";
 import ProductPage from "./pages/ProductPage.jsx";
 import PrivacyPolicy from "./pages/privacyPolicy";
+import Footer from "./components/Footer";
 
 export const App = () => {
   const [{ navMenu, user }, dispatch] = useStateValue();
@@ -75,8 +76,10 @@ export const App = () => {
               )}
             </Routes>
           </>
+          
         )}
       </AnimatePresence>
+      <Footer />
     </Router>
   );
 };

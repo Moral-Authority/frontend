@@ -13,7 +13,7 @@ const LandingPage = () => {
       <SecondSection />
       <ThirdSection />
       <FourthSection />
-      <Footer />
+      {/* <Footer /> */}
     </div>
   );
 };

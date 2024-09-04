@@ -44,7 +44,7 @@ const Shop = () => {
             <Products department={departmentTitle} subDepartment={subDepartmentTitle} />
           </section>
         </div>
-        <Footer />
+        {/* <Footer /> */}
       </div>
     </div>
   );
