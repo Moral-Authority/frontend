@@ -18,8 +18,6 @@ const Filters = ({ department, subDepartment }) => {
 
   // Make sure hooks are called at the top level
   const [{ shopFiltersToggle }, dispatch] = useStateValue();
-  const [selectedColors, setselectedColors] = useState([]);
-  const [selectedSizes, setselectedSizes] = useState([]);
   const [selectedProductCerts, setselectedProductCerts] = useState([]);
   const [rating, setrating] = useState(0);
   const [selectedCompany, setselectedCompany] = useState([]);
@@ -28,8 +26,6 @@ const Filters = ({ department, subDepartment }) => {
   // States to manage expansion for each section
   const [expandPriceRange, setExpandPriceRange] = useState(false);
   const [expandProductFilters, setExpandProductFilters] = useState(false);
-  const [expandColors, setExpandColors] = useState(false);
-  const [expandSize, setExpandSize] = useState(false);
   const [expandProductCerts, setExpandProductCerts] = useState(false);
   const [expandRatings, setExpandRatings] = useState(false);
   const [expandCompany, setExpandCompany] = useState(false);
@@ -74,53 +70,6 @@ const Filters = ({ department, subDepartment }) => {
             </div>
           </div>
         </FilterDiv>
-
-        {/* Colors */}
-        <FilterDiv>
-          <div className="flex flex-col space-y-4 pl-3 pt-0 ">
-            <ChildFilterLabel label={"Colors"} />
-            <div className="flex xl:flex-wrap justify-start space-x-2 space-y-4 items-center">
-              {data.getSubDepartmentFilters.Colors.map((item, index) => (
-                <div
-                  key={index}
-                  onClick={() =>
-                    selectedColors.includes(item.Title)
-                      ? setselectedColors(selectedColors.filter((ele) => ele !== item.Title))
-                      : setselectedColors([...selectedColors, item.Title])
-                  }
-                  style={{ borderColor: item.Value }}
-                  className={`${selectedColors.includes(item.Title) ? "p-1 border" : "p-0 border-none"} w-8 h-8 rounded-full`}
-                >
-                  <div style={{ backgroundColor: item.Value }} className="w-full h-full rounded-full"></div>
-                </div>
-              ))}
-            </div>
-          </div>
-        </FilterDiv>
-
-        {/* Size */}
-        {data.getSubDepartmentFilters.Sizes.length > 0 && (
-          <FilterDiv>
-            <div className="flex flex-col space-y-2 pl-3 pt-1 space-x-2">
-              <ChildFilterLabel label={"Size"} />
-              <div className="flex w-full justify-start space-x-4 items-center">
-                {data.getSubDepartmentFilters.Sizes.map((size, index) => (
-                  <div
-                    key={index}
-                    className={`border ${selectedSizes.includes(size) ? "bg-black text-white" : "text-black bg-transparent"} border-[#E3E7F4] select-none w-8 h-8 flex items-center justify-center`}
-                    onClick={() =>
-                      selectedSizes.includes(size)
-                        ? setselectedSizes(selectedSizes.filter((item) => item !== size))
-                        : setselectedSizes([...selectedSizes, size])
-                    }
-                  >
-                    <span className="cursor-default">{size}</span>
-                  </div>
-                ))}
-              </div>
-            </div>
-          </FilterDiv>
-        )}
 
         {/* Product Filters */}
         <FilterDiv>
