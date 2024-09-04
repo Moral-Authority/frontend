@@ -6,10 +6,11 @@ const NavItem = ({ item }) => {
   const navigate = useNavigate();
   const [, dispatch] = useStateValue();
 
-  const handleNavigation = (navLink, title) => {
+  const handleNavigation = (navLink, departmentTitle, subDepartmentTitle = null) => {
     if (navLink === "/shop") {
-      navigate(navLink, { state: { departmentTitle: title } });
-      // dispatch({ type: "SHOP_FILTERS_TOGGLE" }); // Toggle the filter menu
+      // Navigate to the shop page with both department and subDepartment titles
+      navigate(navLink, { state: { departmentTitle, subDepartmentTitle } });
+      // dispatch({ type: "SHOP_FILTERS_TOGGLE" }); // Toggle the filter menu if needed
     } else {
       navigate(navLink); // For non-shop links, just navigate directly
     }
@@ -46,7 +47,9 @@ const NavItem = ({ item }) => {
                 "border-b cursor-pointer last:border-none border-transparent pb-4"
               }
             >
-              <span onClick={() => handleNavigation(childItem.navLink, childItem.title)}>
+              <span
+                onClick={() => handleNavigation(childItem.navLink, item.title, childItem.title)}
+              >
                 {childItem.title}
               </span>
             </li>

@@ -10,6 +10,11 @@ const Shop = () => {
   const [{ shopFiltersToggle }] = useStateValue();
   const location = useLocation();
   const departmentTitle = location.state?.departmentTitle || "Home & Garden";
+  const subDepartmentTitle = location.state?.subDepartmentTitle || "Cleaning Supplies";
+
+  // Debug logs
+  console.log("Department Title:", departmentTitle);
+  console.log("SubDepartment Title:", subDepartmentTitle);
 
   return (
     <div className="min-h-screen relative">
@@ -18,7 +23,7 @@ const Shop = () => {
           shopFiltersToggle ? "block" : "hidden"
         } absolute w-full px-4 flex xl:items-center justify-center top-0 bottom-0 py-20 xl:py-4 m:hidden xl:hidden`}
       >
-        <Filters input={departmentTitle} />
+        <Filters department={departmentTitle} subDepartment={subDepartmentTitle} />
       </div>
       <div
         className={`w-full ${
@@ -30,11 +35,13 @@ const Shop = () => {
         <Header />
         <div className="flex-1 flex flex-col h-full bg-white">
           <section className="flex text-[#798086] items-center justify-center bg-white h-20">
-            Home &gt; Shop &gt; {departmentTitle}
+             {departmentTitle} &gt; {subDepartmentTitle}
           </section>
           <section className="px-4 relative py-2 sm:px-9 sm:py-8 xl:py-12 flex flex-col xl:flex-row space-y-2 xl:space-y-0 xl:space-x-10">
-            {!shopFiltersToggle && <Filters input={departmentTitle} />}
-            <Products input={departmentTitle} />
+            {!shopFiltersToggle && (
+              <Filters department={departmentTitle} subDepartment={subDepartmentTitle} />
+            )}
+            <Products department={departmentTitle} subDepartment={subDepartmentTitle} />
           </section>
         </div>
         <Footer />

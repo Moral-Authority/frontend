@@ -10,7 +10,7 @@ import { useStateValue } from "../../utils/stateProvider/useStateValue";
 const Product = ({ title, _id, company, imageLinks, purchaseInfo, productDepartment }) => {
   const [{ user, favorites }, dispatch] = useStateValue();
   const isFavorite = favorites.has(_id);
-  console.log("Product department: ", productDepartment);
+
   const [toggleUserFav] = useMutation(TOGGLE_USER_FAV, {
     variables: {
       input: {

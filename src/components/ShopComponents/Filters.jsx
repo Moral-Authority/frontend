@@ -8,9 +8,12 @@ import { StarIcon } from "@heroicons/react/24/outline";
 import { StarIcon as StarFilled } from "@heroicons/react/24/solid";
 import { useStateValue } from "@/utils/stateProvider/useStateValue";
 
-const Filters = ({ input }) => {
+const Filters = ({ department, subDepartment }) => {
+  // Log the received subDepartment value
+  console.log("Received SubDepartment:", subDepartment);
+
   const { loading, error, data } = useQuery(GET_SUB_DEPARTMENT_FILTERS, {
-    variables: { input },
+    variables: { input: department },  // Only pass department to the query
   });
 
   // Make sure hooks are called at the top level

@@ -25,7 +25,6 @@ const FavoritedProducts = ({ userId }) => {
 
   // Add a null check for data.getAllUserFavs
   const favorites = data?.getAllUserFavs || [];
-
   return (
     <div>
       {favorites.length > 0 ? (
@@ -34,8 +33,11 @@ const FavoritedProducts = ({ userId }) => {
             <ProductCard 
               productId={fav.product._id} 
               title={fav.product.Title} 
+              imageLinks={fav.product.ImageLinks}
+              price={fav.product.PurchaseInfo[0].Price}
               favorite={true} 
               userId={userId} 
+              productDepartment={fav.product.Department}
             />
           </div>
         ))

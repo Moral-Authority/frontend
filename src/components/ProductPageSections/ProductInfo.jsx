@@ -11,13 +11,13 @@ import { useStateValue } from "@/utils/stateProvider/useStateValue";
 const ProductInfo = ({ _id, product, productDepartment }) => {
   const [{ user, favorites }, dispatch] = useStateValue();
   const isFavorite = favorites.has(_id);
-
+  console.log("PRODUCT INFO Product Department: ", productDepartment);
   const [toggleUserFav] = useMutation(TOGGLE_USER_FAV, {
     variables: {
       input: {
         userId: user?.id,
         productId: _id,
-        ProductDepartment: productDepartment,  // Pass the department here
+        ProductDepartment: productDepartment, 
       },
     },
     onCompleted: () => {

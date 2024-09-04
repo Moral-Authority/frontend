@@ -1,13 +1,13 @@
 import React from "react";
 import { useQuery } from '@apollo/client';
-import { GET_ALL_PRODUCTS_BY_DEPARTMENT } from '../../graphql/Queries.js';
+import { GET_ALL_PRODUCTS_BY_SUB_DEPARTMENT } from '../../graphql/Queries.js';
 import Product from "../ShopComponents/Product";
 import { useStateValue } from "../../utils/stateProvider/useStateValue"; // Import your state provider
 import './fourthSection.css';
 
 const FourthSection = () => {
-  const { data, loading, error } = useQuery(GET_ALL_PRODUCTS_BY_DEPARTMENT, {
-    variables: { department: "Home & Garden" },
+  const { data, loading, error } = useQuery(GET_ALL_PRODUCTS_BY_SUB_DEPARTMENT, {
+    variables: { department: "Home & Garden", subDepartment: "Cleaning Supplies" },
   });
   
   const [{ user, favorites }] = useStateValue(); // Access user and favorites from the global state
@@ -16,8 +16,8 @@ const FourthSection = () => {
   if (error) return <p>Error: {error.message}</p>;
 
   // Check if there are any products
-  const productsToDisplay = data?.getAllProductsByDepartment?.slice(0, 4) || [];
-
+  const productsToDisplay = data?.getAllProductsBySubDepartment?.slice(0, 4) || [];
+  console.log("productsToDisplay:",productsToDisplay);
   return (
     <div className="fourth-section-container">
       <div className="title-container">

@@ -22,9 +22,9 @@ export const GET_USER_QUERY = gql`
   }
 `;
 
-export const GET_ALL_PRODUCTS_BY_DEPARTMENT = gql`
-  query GetAllProductsByDepartment($department: String!) {
-    getAllProductsByDepartment(department: $department) {
+export const GET_ALL_PRODUCTS_BY_SUB_DEPARTMENT = gql`
+  query GetAllProductsBySubDepartment($department: String!, $subDepartment: String!) {
+    getAllProductsBySubDepartment(department: $department, subDepartment: $subDepartment) {
       _id
       Title
       Description
@@ -32,7 +32,7 @@ export const GET_ALL_PRODUCTS_BY_DEPARTMENT = gql`
         Price
         Link
       }
-      Company{
+      Company {
         _id
         name
       }
@@ -71,6 +71,11 @@ export const GET_FAVORITES_QUERY = gql`
       product {
         _id
         Title
+        Department
+      PurchaseInfo{
+        Price
+      }
+      ImageLinks
       }
     }
   }

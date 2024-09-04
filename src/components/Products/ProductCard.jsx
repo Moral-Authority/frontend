@@ -5,16 +5,16 @@ import { useMutation } from "@apollo/client";
 import { TOGGLE_USER_FAV } from "../../graphql/Mutations";
 import { useStateValue } from "../../utils/stateProvider/useStateValue";
 
-const ProductCard = ({ productId, title, productDepartment }) => {
+const ProductCard = ({ productId, title, productDepartment, price, imageLinks }) => {
   const [{ user, favorites }, dispatch] = useStateValue();
   const isFavorite = favorites.has(productId);
-
+  
   const [toggleUserFav] = useMutation(TOGGLE_USER_FAV, {
     variables: {
       input: {
         userId: user?.id,
         productId: productId,
-        ProductDepartment: productDepartment,  // Pass the department here
+        ProductDepartment: productDepartment,  
       },
     },
     onCompleted: () => {
@@ -39,13 +39,13 @@ const ProductCard = ({ productId, title, productDepartment }) => {
   return (
     <div className="w-full h-[170px] flex border-2 p-2 space-x-2 border-[#EDEFF6]">
       <div className="bg-[#F6FBFF] flex w-3/4 lg:w-1/2 justify-center items-center">
-        <img className="lg:w-full lg:h-full" src={Chair} alt={title} />
+        <img className="lg:w-full lg:h-full" src={imageLinks[0]} alt={title} />
       </div>
       <div className="flex pr-4 w-full pt-4 justify-between">
         <div className="flex flex-col space-y-2">
           <p className="text-xs lg:text-sm text-[#D6AD60]">Home and Goods</p>
           <p className="text-sm lg:text-base">{title}</p>
-          <p className="text-[#5F646F] text-sm lg:text-base">$350</p>
+          <p className="text-[#5F646F] text-sm lg:text-base">{price}</p>
                     {/* <p className="text-[#798086] flex-col lg:flex-row flex w-full text-xs lg:text-sm">
             Approved Status:{" "}
             <span

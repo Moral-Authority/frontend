@@ -1,7 +1,5 @@
 import React from "react";
-import Chair from "images/chair.png";
-import ChairFront from "images/chairFront.png";
-import ChairSide from "images/chairSide.png";
+
 
 const MainImages = ({ imageLinks }) => {
   return (
@@ -11,7 +9,7 @@ const MainImages = ({ imageLinks }) => {
       {imageLinks && imageLinks[0] ? (
           <img src={imageLinks[0]} className="w-full h-full object-cover" alt="product" />
         ) : (
-          <img src={Chair} alt="product" className="w-full" />
+          <img src={"https://hatrabbits.com/wp-content/uploads/2017/01/random.jpg"} alt="product" className="w-full" />
         )}
 
       </section>

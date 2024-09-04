@@ -1,8 +1,5 @@
 import React from "react";
-import Chair from "images/chair.png";
 import CommentCard from "./CommentCard";
-import Brendan from "images/brendan.png";
-import Bella from "images/bella.png";
 
 const ReviewProductCard = ({ approved }) => {
   return (
@@ -34,7 +31,7 @@ const ReviewProductCard = ({ approved }) => {
       <div className="border-t m-4 py-5 flex flex-col space-y-10">
         <CommentCard
           rating={5}
-          profilePicture={Brendan}
+          profilePicture={"https://hatrabbits.com/wp-content/uploads/2017/01/random.jpg"}
           name={"Brandon Tailor"}
           comment={"I love this product. Highly recommended!"}
           country={"United States"}
@@ -42,7 +39,7 @@ const ReviewProductCard = ({ approved }) => {
         />
         <CommentCard
           rating={5}
-          profilePicture={Bella}
+          profilePicture={"https://hatrabbits.com/wp-content/uploads/2017/01/random.jpg"}
           name={"Bella Nappi"}
           comment={"I love this product. Highly recommended!"}
           country={"United States"}

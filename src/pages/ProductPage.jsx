@@ -10,14 +10,13 @@ import RelatedProducts from "../components/ProductPageSections/RelatedProducts.j
 import { GET_PRODUCT_BY_ID } from "../graphql/Queries.js"; 
 
 const ProductPage = () => {
-  const { id, department } = useParams();  // Extract department from the URL
+  const { id, department } = useParams();
   console.log("department in product page", department);
   const { loading, error, data } = useQuery(GET_PRODUCT_BY_ID, {
-    variables: { id, department },  // Pass both id and department to the query
+    variables: { id, department }, 
   });
 
-  console.log("product data", data);
-  
+
   const TABS = {
     DESCRIPTION: "description",
     DELIVERY: "delivery",
@@ -47,7 +46,8 @@ const ProductPage = () => {
         {/* Right Section */}
         <ProductInfo  _id={id} 
             product={product}
-            purchaseInfo={product.PurchaseInfo}/>
+            purchaseInfo={product.PurchaseInfo}
+            productDepartment={department}/>
       </section>
       {/* Section for large screens */}
       <section className="h-full hidden md:flex flex-col space-y-10 w-full md:px-20 lg:px-36">

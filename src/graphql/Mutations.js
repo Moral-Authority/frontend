@@ -23,7 +23,7 @@ export const LOGIN_MUTATION = gql`
 
 export const TOGGLE_USER_FAV = gql`
   mutation ToggleUserFav($input: ToggleUserFav!) {
-    toggleUserFav(input: $request) {
+    toggleUserFav(input: $input) {
       id
       product {
         _id

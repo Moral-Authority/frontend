@@ -1,14 +1,10 @@
 import { ApolloClient, InMemoryCache, createHttpLink } from '@apollo/client';
 import { setContext } from '@apollo/client/link/context';
 
-// const httpLink = createHttpLink({
-//   uri: 'https://api.moralauthority.co/graphql', 
-// });
-
-//  LOCAL TESTING CONFIG
 const httpLink = createHttpLink({
-  uri: 'http://localhost:8080/graphql', // Change to local backend for testing
+  uri: 'https://api.moralauthority.co/graphql', 
 });
+
 
 const authLink = setContext((_, { headers }) => {
   // Get the authentication token from local storage if it exists
@@ -29,3 +25,7 @@ const client = new ApolloClient({
 export default client;
 
 
+//  LOCAL TESTING CONFIG
+// const httpLink = createHttpLink({
+//   uri: 'http://localhost:8080/graphql', // Change to local backend for testing
+// });

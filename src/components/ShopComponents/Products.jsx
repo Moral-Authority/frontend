@@ -1,6 +1,6 @@
 import React, { useEffect } from "react";
 import { useQuery } from '@apollo/client';
-import { GET_ALL_PRODUCTS_BY_DEPARTMENT } from '@/graphql/Queries';
+import { GET_ALL_PRODUCTS_BY_SUB_DEPARTMENT } from '@/graphql/Queries';
 import Product from './Product';
 import { useStateValue } from "@/utils/stateProvider/useStateValue";
 import { useLocation } from "react-router-dom";
@@ -11,17 +11,19 @@ import { AdjustmentsHorizontalIcon } from "@heroicons/react/24/outline";
 const Products = () => {
   const location = useLocation();
   const departmentTitle = location.state?.departmentTitle || "Home & Garden";
+  const subDepartmentTitle = location.state?.subDepartmentTitle || "Cleaning Supplies"; // Default value if none is provided
 
   // Log the departmentTitle to verify it's correct
   useEffect(() => {
-    // console.log("Department Title sent to query:", departmentTitle);
-  }, [departmentTitle]);
+    console.log("Department Title sent to query:", departmentTitle);
+    console.log("Sub-Department Title sent to query:", subDepartmentTitle);
+  }, [departmentTitle, subDepartmentTitle]);
 
-  const { data, loading, error } = useQuery(GET_ALL_PRODUCTS_BY_DEPARTMENT, {
-    variables: { department: departmentTitle },
+  const { data, loading, error } = useQuery(GET_ALL_PRODUCTS_BY_SUB_DEPARTMENT, {
+    variables: { department: departmentTitle, subDepartment: subDepartmentTitle },  // Pass both department and sub-department
   });
 
-  const products = data?.getAllProductsByDepartment || [];
+  const products = data?.getAllProductsBySubDepartment || [];
 
   const [, dispatch] = useStateValue();
 
@@ -74,7 +76,8 @@ const Products = () => {
             company={product.Company} 
             purchaseInfo={product.PurchaseInfo}
             imageLinks={product.ImageLinks}
-            productDepartment = {departmentTitle}
+            productDepartment={departmentTitle}
+            productSubDepartment={subDepartmentTitle}  // Pass sub-department to the Product component
           />
         ))}
       </section>
