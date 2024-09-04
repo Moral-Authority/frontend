@@ -12,7 +12,12 @@ const MainSection = () => {
           <br></br>
           OUR MISSION
           </p>
-      </div> */}
+      </div>
+      <p>
+          One platform
+          One Resource
+          Be part of a growing movement towards ethical consumerism. Sign up today to start making more informed choices that contribute to a better world.  </p> */}
+
       
     </main>
   );
@@ -22,6 +27,4 @@ export default MainSection;
 
 
 
-          {/* One platform */}
-          {/* One Resource */}
-          {/* Be part of a growing movement towards ethical consumerism. Sign up today to start making more informed choices that contribute to a better world.  </p> */}
+      

@@ -1,4 +1,4 @@
-.second-section-container {
+/* .second-section-container {
   height: auto;
   min-height: 50vh;
   display: flex;
@@ -6,12 +6,12 @@
   justify-content: center;
   background-color: #F2F2EB;
   padding: 2rem 1rem;
-  flex-direction: column; /* Stack items vertically on small screens */
+  flex-direction: column; 
 }
 
 @media (min-width: 768px) {
   .second-section-container {
-    flex-direction: row; /* Row direction for larger screens */
+    flex-direction: row;
     padding: 3rem 2rem;
   }
 }
@@ -20,27 +20,27 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  margin-bottom: 2rem; /* Add space below image on small screens */
+  margin-bottom: 2rem; 
 }
 
 @media (min-width: 768px) {
   .image-container {
-    margin-bottom: 0; /* Remove space below image on larger screens */
+    margin-bottom: 0;
     margin-right: 2rem;
   }
 }
 
 .placeholder-image {
   width: 100%;
-  max-width: 300px; /* Adjust max-width to be more flexible */
+  max-width: 300px; 
   height: auto;
   background-color: #F2F2EB;
 }
 
 @media (min-width: 768px) {
   .placeholder-image {
-    width: 356px; /* Original width for larger screens */
-    height: 480px; /* Original height for larger screens */
+    width: 356px; 
+    height: 480px; 
   }
 }
 
@@ -61,7 +61,7 @@
   font-size: 1.5rem;
   font-weight: 600;
   text-transform: capitalize;
-  text-align: center; /* Center text on small screens */
+  text-align: center;
 }
 
 @media (min-width: 768px) {
@@ -73,14 +73,14 @@
 .founder-message-paragraph {
   font-size: 1rem;
   margin: 1.5rem 0;
-  text-align: center; /* Center text on small screens */
+  text-align: center;
 }
 
 @media (min-width: 768px) {
   .founder-message-paragraph {
     font-size: 1.25rem;
     margin: 2.5rem 0;
-    text-align: left; /* Align text to left on larger screens */
+    text-align: left;
   }
 }
 
@@ -92,6 +92,6 @@
 
 @media (min-width: 768px) {
   .button-container {
-    justify-content: flex-start; /* Align buttons to the left on larger screens */
+    justify-content: flex-start;
   }
-}
+} */

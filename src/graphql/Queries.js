@@ -82,13 +82,8 @@ export const GET_FAVORITES_QUERY = gql`
 `;
 
 export const GET_SUB_DEPARTMENT_FILTERS = gql`
-  query GetSubDepartmentFilters($input: String!) {
-    getSubDepartmentFilters(input: $input) {
-      Colors {
-        Title
-        Value
-      }
-      Sizes
+  query GetSubDepartmentFilters($department: String!, $subDepartment: String!) {
+    getSubDepartmentFilters(department: $department, subDepartment: $subDepartment) {
       Companies
       CompanyCertifications
       ProductCertifications
