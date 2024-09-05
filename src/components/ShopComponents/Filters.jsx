@@ -10,14 +10,11 @@ import { StarIcon as StarFilled } from "@heroicons/react/24/solid";
 import { useStateValue } from "@/utils/stateProvider/useStateValue";
 
 const Filters = ({ department, subDepartment }) => {
-  // Log the received subDepartment value
-  console.log("Received SubDepartment:", subDepartment);
-
+  // Hooks must be at the top level, outside of any conditionals
   const { loading, error, data } = useQuery(GET_SUB_DEPARTMENT_FILTERS, {
-    variables: { input: department },  // Only pass department to the query
+    variables: { department, subDepartment },
   });
-
-  // Make sure hooks are called at the top level
+  
   const [{ shopFiltersToggle }, dispatch] = useStateValue();
   const [selectedProductCerts, setselectedProductCerts] = useState([]);
   const [rating, setrating] = useState(0);
@@ -32,11 +29,11 @@ const Filters = ({ department, subDepartment }) => {
   const [expandCompany, setExpandCompany] = useState(false);
   const [isCertificatesExpanded, setIsCertificatesExpanded] = useState(false);
 
+  // Now handle loading or error after hooks are initialized
   if (loading) return <p>Loading...</p>;
-  if (error) {
-    console.error("GraphQL Error:", error);
-    return <p>Error: {error.message}</p>;
-  }
+  if (error) return <p>Error: {error.message}</p>;
+
+  console.log("Data from Filters:", data);
 
   return (
     <div

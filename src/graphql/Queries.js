@@ -84,9 +84,14 @@ export const GET_FAVORITES_QUERY = gql`
 export const GET_SUB_DEPARTMENT_FILTERS = gql`
   query GetSubDepartmentFilters($department: String!, $subDepartment: String!) {
     getSubDepartmentFilters(department: $department, subDepartment: $subDepartment) {
+      Price {
+        min
+        max
+      }
       Companies
       CompanyCertifications
       ProductCertifications
     }
   }
 `;
+

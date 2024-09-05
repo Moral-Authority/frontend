@@ -42,10 +42,10 @@ const PieChartComponent = ({ title, data, colors, offset }) => {
 
 const ProductTimelinePage = () => {
   // Data for each pie chart
-  const sourcingData = [20, 20, 30, 20, 10];
+  const sourcingData = [30, 20, 20, 20, 10];
   const manufacturingData = [30, 20, 20, 20, 10];
-  const packagingData = [15, 20, 30, 25, 10];
-  const transportData = [25, 15, 20, 25, 15];
+  const packagingData = [30, 20, 20, 20, 10];
+  const transportData = [30, 20, 20, 20, 10];
 
   // Natural color tones for each category
   const naturalColors = [
@@ -58,7 +58,12 @@ const ProductTimelinePage = () => {
 
   return (
     <div style={{ padding: '50px', backgroundColor: '#f0f8f7', fontFamily: "'Your Site Font'" }}>
-      <h2 style={{ textAlign: 'center', marginBottom: '20px' }}>Know Your Impact at Every Step</h2>
+
+ 
+      <h1 style={{ textAlign: 'center', marginBottom: '20px',         fontWeight: 600,
+              textTransform: "capitalize",
+              }}>Know Your Impact at Every Step</h1>
+
 
       {/* Color Legend */}
       <div style={{ display: 'flex', justifyContent: 'center', marginBottom: '30px', flexWrap: 'wrap' }}>
