@@ -76,7 +76,7 @@ const Product = ({ title, _id, company, imageLinks, purchaseInfo, productDepartm
       <div className="flex flex-col pb-5">
         <p className="text-xs text-[#D6AD60]">{company.name}</p>
         <p className="text-sm sm:text-base">{title}</p>
-        <p className="text-gray-600 font-medium">{purchaseInfo[0].Price}</p>
+        <p className="text-gray-600 font-medium">${purchaseInfo[0].Price}</p>
       </div>
     </div>
   );

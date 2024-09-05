@@ -95,3 +95,21 @@ export const GET_SUB_DEPARTMENT_FILTERS = gql`
   }
 `;
 
+export const FILTER_PRODUCTS = gql`
+query GetProductsByFilter($filter: ProductFilterInput, $department: String!, $subDepartment: String!) {
+  getProductsByFilter(filter: $filter, department: $department, subDepartment: $subDepartment) {
+    _id
+    Title
+    Description
+    PurchaseInfo {
+      Price
+      Link
+    }
+    Company {
+      _id
+      name
+    }
+    ImageLinks
+  }
+}
+`;

@@ -79,7 +79,7 @@ const ProductInfo = ({ _id, product, productDepartment }) => {
           <div className="flex justify-between mt-3 items-center border-b pb-3">
             <p className="text-[#5F646F] leading-5">
             <p className="text-[#5F646F] text-xl font-semibold leading-5">
-              {product.PurchaseInfo[0].Price}
+              ${product.PurchaseInfo[0].Price}
             </p>
             </p>
             <div className="flex space-x-1 items-center">

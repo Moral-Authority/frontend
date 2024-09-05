@@ -60,19 +60,3 @@ const DELETE_USER_MUTATION = gql`
     }
   }
 `;
-
-
-const FILTER_PRODUCTS = gql`
-query GetSubDepartmentFilters($input: String!) {
-  getSubDepartmentFilters(input: $input) {
-    Colors {
-      Title
-      Value
-    }
-    Sizes
-    Companies
-    CompanyCertifications
-    ProductCertifications
-  }
-}
-`;

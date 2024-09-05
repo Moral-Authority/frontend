@@ -19,13 +19,64 @@ const PieChartComponent = ({ title, data, colors, offset }) => {
     ],
   };
 
+  const certificationsInfo = {
+    Energy: ['Energy Star', 'ISO 50001'],
+    Labor: ['Fair Trade Certified', 'SA8000'],
+    'Ingredients / Materials': ['USDA Organic', 'Cradle to Cradle Certified'],
+    Water: ['Water Stewardship', 'Alliance for Water Stewardship'],
+    Waste: ['Zero Waste Certified', 'Recycling Certification'],
+  };
+  
   const options = {
     plugins: {
       legend: {
-        display: false, // Hide individual legends for each chart
+        display: false,
       },
       tooltip: {
         enabled: true,
+        usePointStyle: true,
+        callbacks: {
+          label: function (context) {
+            const label = context.label || '';
+            const certifications = certificationsInfo[label] || [];
+            const certificationList = certifications.join(', ') || 'No certifications';
+            return `\nCertifications: ${certificationList}`;
+          },
+        },
+        backgroundColor: 'rgba(0, 0, 0, 0.7)',
+        bodySpacing: 4,
+        padding: 10,
+        cornerRadius: 4,
+        titleAlign: 'left',
+        bodyFont: {
+          size: 12,
+          weight: 'normal',
+        },
+        bodyColor: '#fff',
+        multiKeyBackground: '#000',
+        boxPadding: 10,
+        displayColors: true,
+        xAlign: 'center',
+        yAlign: 'center',
+        caretPadding: 10,
+        titleFont: {
+          weight: 'bold',
+          size: 14,
+        },
+        footerFont: {
+          size: 10,
+          style: 'italic',
+        },
+        // Tooltip custom styling to handle text wrapping
+        custom: function (tooltipModel) {
+          const tooltipEl = tooltipModel.tooltipEl;
+          if (tooltipEl) {
+            tooltipEl.style.zIndex = '9999'; // Ensure it is on top
+            tooltipEl.style.maxWidth = '250px'; // Set max width
+            tooltipEl.style.whiteSpace = 'pre-wrap'; // Ensure text wrapping
+            tooltipEl.style.wordWrap = 'break-word'; // Break words if necessary
+          }
+        },
       },
     },
     responsive: true,
@@ -33,10 +84,11 @@ const PieChartComponent = ({ title, data, colors, offset }) => {
   };
 
   return (
-    <div style={{ width: '250px', height: '250px', margin: `20px ${offset}px`, position: 'relative' }}>
-      <h3 style={{ textAlign: 'center' }}>{title}</h3>
-      <Pie data={chartData} options={options} />
-    </div>
+      <div style={{ maxWidth: '250px', height: '250px', margin: `20px ${offset}px`, position: 'relative', overflow: 'visible' }}>
+        <h3 style={{ textAlign: 'center' }}>{title}</h3>
+        <Pie data={chartData} options={options} />
+      </div>
+
   );
 };
 
@@ -58,12 +110,9 @@ const ProductTimelinePage = () => {
 
   return (
     <div style={{ padding: '50px', backgroundColor: '#f0f8f7', fontFamily: "'Your Site Font'" }}>
-
- 
-      <h1 style={{ textAlign: 'center', marginBottom: '20px',         fontWeight: 600,
-              textTransform: "capitalize",
-              }}>Know Your Impact at Every Step</h1>
-
+      <h1 style={{ textAlign: 'center', marginBottom: '20px', fontWeight: 600, textTransform: 'capitalize' }}>
+        Know Your Impact at Every Step
+      </h1>
 
       {/* Color Legend */}
       <div style={{ display: 'flex', justifyContent: 'center', marginBottom: '30px', flexWrap: 'wrap' }}>
@@ -101,7 +150,7 @@ const ProductTimelinePage = () => {
         {/* Timeline Line */}
         <div style={{
           position: 'absolute',
-          top: '50%', // Adjust the top position
+          top: '50%',
           left: '50px',
           right: '50px',
           height: '8px',
@@ -138,19 +187,19 @@ const ProductTimelinePage = () => {
               top: 0 !important;
               left: 50% !important;
               right: auto !important;
-              height: calc(100% - 60px) !important; /* Adjust the height */
+              height: calc(100% - 60px) !important;
               width: 8px !important;
               transform: translateX(-50%);
             }
 
             .fa-seedling {
               margin-bottom: -8px !important;
-              z-index: 1 !important; /* Ensure the seedling is above the line */
+              z-index: 1 !important;
             }
 
             .fa-heart {
               margin-top: -8px !important;
-              z-index: 1 !important; /* Ensure the heart is above the line */
+              z-index: 1 !important;
             }
 
             div[style*="margin: 20px"] {
