@@ -2,7 +2,7 @@
 
 const initialState = {
     navMenu: false,
-    shopFiltersToggle: false,
+    shopFiltersToggle: true,
     filters: null, // Holds the selected filters
     filteredProducts: [], // Holds the filtered products
     userProfile: false, // Assuming it should be false initially
