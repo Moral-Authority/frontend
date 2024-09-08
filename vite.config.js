@@ -19,7 +19,7 @@ export default defineConfig({
 
 
 //  LOCAL TESTING CONFIG
-export default defineConfig({
+// export default defineConfig({
 //   plugins: [react(), relay],
 //   server: {
 //     port: 3000, // Local development port
