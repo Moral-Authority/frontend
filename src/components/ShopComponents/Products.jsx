@@ -23,18 +23,33 @@ const Products = () => {
   variables: { department: departmentTitle, subDepartment: subDepartmentTitle },
  });
 
- // Use filtered products if available; otherwise, fall back to default products
- const products =
-  filteredProducts?.length > 0
-   ? filteredProducts
-   : data?.getAllProductsBySubDepartment || [];
-
  const [, dispatch] = useStateValue();
 
  if (loading) return <p>Loading...</p>;
 
- if (products?.length === 0) {
-  return <p>Coming soon!</p>;
+ // Handle error case
+ if (error) {
+  return <p>Error loading products. Please try again later.</p>;
+ }
+
+ // Determine which products to display
+ let products;
+
+ if (filteredProducts?.length > 0) {
+  products = filteredProducts;
+ } else if (data?.getAllProductsBySubDepartment?.length > 0) {
+  products = data.getAllProductsBySubDepartment;
+ } else {
+  products = [];
+ }
+
+ // Handle no products found case
+ if (products.length === 0) {
+  if (filteredProducts?.length === 0) {
+   return <p>No products found.</p>;
+  } else {
+   return <p>Coming soon!</p>;
+  }
  }
 
  return (
