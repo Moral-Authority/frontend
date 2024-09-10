@@ -106,7 +106,7 @@ const Filters = ({ department, subDepartment }) => {
       Cancel
      </button>
     </div>
-
+{filteredProductsData?.getProductsByFilter === null && <p className="text-red-500 font-semibold">No Products found by filter</p>}
     {/* Price Range */}
     <FilterDiv>
      <div className='flex justify-between items-center'>
