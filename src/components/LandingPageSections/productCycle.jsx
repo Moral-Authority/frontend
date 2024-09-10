@@ -7,7 +7,7 @@ Chart.register(ArcElement, Tooltip, Legend);
 
 const PieChartComponent = ({ title, data, colors, offset }) => {
   const chartData = {
-    labels: ['Energy', 'Labor', 'Ingredients / Materials', 'Water', 'Waste'],
+    labels: ['Energy', 'Labor', 'Ingredients / Materials', 'Water', 'Waste', 'OwnershipAndIdentity','CorporateSocialResponsibility'],
     datasets: [
       {
         label: title,
@@ -25,6 +25,8 @@ const PieChartComponent = ({ title, data, colors, offset }) => {
     'Ingredients / Materials': ['USDA Organic', 'Cradle to Cradle Certified'],
     Water: ['Water Stewardship', 'Alliance for Water Stewardship'],
     Waste: ['Zero Waste Certified', 'Recycling Certification'],
+    OwnershipAndIdentity: ['Women-Owned','Black-Owned', 'Worker-Owned Cooperative'],
+    CorporateSocialResponsibility: ['charitable donations','give back programs', 'political donations'],
   };
   
   const options = {
@@ -94,18 +96,20 @@ const PieChartComponent = ({ title, data, colors, offset }) => {
 
 const ProductTimelinePage = () => {
   // Data for each pie chart
-  const sourcingData = [30, 20, 20, 20, 10];
-  const manufacturingData = [30, 20, 20, 20, 10];
-  const packagingData = [30, 20, 20, 20, 10];
-  const transportData = [30, 20, 20, 20, 10];
+  const sourcingData = [15, 15, 15, 15, 15, 15, 10];
+  const manufacturingData = [15, 15, 15, 15, 15, 15, 10];
+  const packagingData = [15, 15, 15, 15, 15, 15, 10];
+  const transportData = [15, 15, 15, 15, 15, 15, 10];
 
   // Natural color tones for each category
   const naturalColors = [
     '#A8D5BA', // Energy - Soft green
     '#F0A868', // Labor - Earthy orange
+    '#A78BBF', // OwnershipAndIdentity - muted Purple
     '#9FD3C7', // Ingredients / Materials - Soft blue
     '#F3EED9', // Water - Light beige
     '#D1A65A', // Waste - Brown
+    '#E9967A', // CorporateSocialResponsibility - Warm coral
   ];
 
   return (
