@@ -95,7 +95,7 @@ const ProductCycleFilter = () => {
   return (
     <div style={{ padding: '50px', backgroundColor: '#f0f8f7', fontFamily: "'Your Site Font'" }}>
       <h1 style={{ textAlign: 'center', marginBottom: '20px', fontWeight: 600 }}>
-        Filter Products to See How They Perform!
+        Filter Products to See How They Perform! ( THIS FEATURE IS IN PROGRESS )
       </h1>
 
       {/* Filter button to simulate selection */}
