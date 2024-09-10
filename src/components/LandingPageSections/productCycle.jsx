@@ -7,7 +7,7 @@ Chart.register(ArcElement, Tooltip, Legend);
 
 const PieChartComponent = ({ title, data, colors, offset }) => {
   const chartData = {
-    labels: ['Energy', 'Labor', 'Ingredients / Materials', 'Water', 'Waste', 'OwnershipAndIdentity','CorporateSocialResponsibility'],
+    labels: ['Energy', 'Labor', 'Ingredients / Materials', 'Water', 'Waste', 'Ownership & Identity','Corporate Social Responsibility (CSR)'],
     datasets: [
       {
         label: title,
@@ -140,6 +140,14 @@ const ProductTimelinePage = () => {
           <div style={{ width: '15px', height: '15px', marginRight: '8px', backgroundColor: '#D1A65A' }}></div>
           <span>Waste</span>
         </div>
+        <div style={{ display: 'flex', alignItems: 'center', marginRight: '20px', marginBottom: '10px' }}>
+          <div style={{ width: '15px', height: '15px', marginRight: '8px', backgroundColor: '#A78BBF' }}></div>
+          <span>Ownership & Identity</span>
+        </div>
+        <div style={{ display: 'flex', alignItems: 'center', marginRight: '20px', marginBottom: '10px' }}>
+          <div style={{ width: '15px', height: '15px', marginRight: '8px', backgroundColor: '#E9967A' }}></div>
+          <span> Corporate Social Responsibility (CSR)</span>
+        </div>
       </div>
 
       {/* Timeline with Icons and Pie Charts */}
@@ -172,6 +180,7 @@ const ProductTimelinePage = () => {
         <PieChartComponent title="Manufacturing & Assembly" data={manufacturingData} colors={naturalColors} offset={-20} />
         <PieChartComponent title="Packaging" data={packagingData} colors={naturalColors} offset={20} />
         <PieChartComponent title="Transport" data={transportData} colors={naturalColors} offset={-20} />
+        
 
         {/* Heart Icon for User Sentiment */}
         <FaHeart style={{ fontSize: '50px', color: '#ff6f61', marginTop: '-8px', zIndex: '1' }} />
