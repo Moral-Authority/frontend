@@ -2,6 +2,7 @@ import React, { useEffect } from "react";
 import Header from "../components/Header";
 import Filters from "../components/ShopComponents/Filters";
 import Products from "../components/ShopComponents/Products";
+import ProductCycleFilter from "../components/ShopComponents/FilterProductCycle"; 
 import {
  useStateValue,
  actionTypes,
@@ -35,9 +36,7 @@ const Shop = () => {
 
     {/* Breadcrumb and Filter/Product Sections */}
     <div className='flex-1 flex flex-col h-full bg-white'>
-     <section className='flex text-[#798086] items-center justify-center bg-white h-20'>
-      {departmentTitle} &gt; {subDepartmentTitle}
-     </section>
+    <ProductCycleFilter /> 
      <section className='px-4 relative py-2 sm:px-9 sm:py-8 xl:py-12 flex flex-col xl:flex-row space-y-2 xl:space-y-0 xl:space-x-10'>
       {/* Desktop Filters (Visible when not toggled on mobile) */}
       {/* {!shopFiltersToggle && (

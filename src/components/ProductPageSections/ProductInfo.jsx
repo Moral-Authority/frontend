@@ -46,7 +46,7 @@ const ProductInfo = ({ _id, product, productDepartment }) => {
   return (
     <div className="w-full md:w-1/2 flex flex-col px-5 md:px-10 items-start">
       <section className="flex flex-col min-w-full">
-        <p className="text-lg text-[#D6AD60]">{product.Company.name}</p>
+        <p className="text-lg text-[#8F8E63]">{product.Company.name}</p>
         <p className="text-[#4F536C] mt-1 pb-3 mt-3">{product.Title}</p>
         <div className="flex space-x-2 border-b  pb-3">
                 {Array(5)
@@ -84,7 +84,7 @@ const ProductInfo = ({ _id, product, productDepartment }) => {
             </p>
             <div className="flex space-x-1 items-center">
             <a href={product.PurchaseInfo[0].Link} target="_blank" rel="noopener noreferrer">
-              <button className="px-6 py-3 bg-[#D6AD60]">
+              <button className="text-white px-6 py-3 bg-[#8F8E63]">
                 Buy From Brand
               </button>
             </a>

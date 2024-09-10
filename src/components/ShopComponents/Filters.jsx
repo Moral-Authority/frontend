@@ -260,7 +260,7 @@ const Filters = ({ department, subDepartment }) => {
     {/* Apply Filters Button */}
     <button
      onClick={applyFilters}
-     className='w-full bg-[#8F8E63] text-[#D6DDEB] px-8 py-4 rounded-md'>
+     className='w-full bg-[#8F8E63] text-white px-8 py-4 rounded-md'>
      Apply Filters
     </button>
    </section>

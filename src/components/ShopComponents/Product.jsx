@@ -61,7 +61,7 @@ const Product = ({ title, _id, company, imageLinks, purchaseInfo, productDepartm
       <div className="w-full z-0 relative h-3/4 group bg-[#F6FBFF] items-center flex justify-center">
         <img src={imageLinks[0]} className="w-full h-full object-contain" alt={title} />
         <Link
-          className="text-black absolute w-11/12 hidden group-hover:block bottom-5 bg-[#D6AD60] h-12"
+          className="text-white absolute w-11/12 hidden group-hover:block bottom-5 bg-[#8F8E63] h-12"
           to={`/product/${productDepartment}/${_id}`}  // Include department in URL
         >
           <motion.button
@@ -74,7 +74,7 @@ const Product = ({ title, _id, company, imageLinks, purchaseInfo, productDepartm
         </Link>
       </div>
       <div className="flex flex-col pb-5">
-        <p className="text-xs text-[#D6AD60]">{company.name}</p>
+        <p className="text-xs text-[#8F8E63]">{company.name}</p>
         <p className="text-sm sm:text-base">{title}</p>
         <p className="text-gray-600 font-medium">${purchaseInfo[0].Price}</p>
       </div>
