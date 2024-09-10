@@ -126,3 +126,19 @@ export const FILTER_PRODUCTS = gql`
   }
  }
 `;
+
+
+export const SEARCH_PRODUCTS = gql`
+  query SearchProducts($input: String!) {
+    search(input: $input) {
+        _id
+        Title
+        Company{
+        name
+        }
+        PurchaseInfo{
+        Price
+        }
+    }
+  }
+`;
