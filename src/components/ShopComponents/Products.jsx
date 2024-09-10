@@ -12,7 +12,7 @@ import { Link } from "react-router-dom";
 import { AdjustmentsHorizontalIcon } from "@heroicons/react/24/outline";
 
 const Products = () => {
- const [{ filteredProducts }] = useStateValue();
+ const [{ filteredProducts, filtered }] = useStateValue();
  const location = useLocation();
  const departmentTitle = location.state?.departmentTitle || "Home & Garden";
  const subDepartmentTitle =
@@ -35,17 +35,18 @@ const Products = () => {
  // Determine which products to display
  let products;
 
- if (filteredProducts?.length > 0) {
-  products = filteredProducts;
+ if (filtered) {
+  products = filteredProducts || [];
  } else if (data?.getAllProductsBySubDepartment?.length > 0) {
   products = data.getAllProductsBySubDepartment;
  } else {
   products = [];
  }
+ 
 
  // Handle no products found case
  if (products.length === 0) {
-  if (filteredProducts?.length === 0) {
+  if (filtered) {
    return <p>No products found.</p>;
   } else {
    return <p>Coming soon!</p>;
