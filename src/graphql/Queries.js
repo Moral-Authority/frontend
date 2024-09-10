@@ -136,6 +136,7 @@ export const SEARCH_PRODUCTS = gql`
         Company{
         name
         }
+        ImageLinks
         PurchaseInfo{
         Price
         }
