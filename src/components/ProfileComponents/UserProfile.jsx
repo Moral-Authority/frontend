@@ -35,9 +35,17 @@ const UserProfile = () => {
     });
     navigate('/');
   };
-  if (loading) return <p>Loading profile...</p>;
-  if (error) return <p>Error loading profile: {error.message}</p>;
 
+  if (error)  {  
+    localStorage.removeItem('authToken');
+    localStorage.removeItem('user');
+    dispatch({
+      type: "SET_USER",
+      user: null,
+    });
+    navigate('/');
+  };
+  if (loading) return <p>Loading profile...</p>;
 
   const { email, phone } = data.user;
 
