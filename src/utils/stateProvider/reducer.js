@@ -6,11 +6,13 @@ const reducer = (state, action) => {
             return {
               ...state,
               filters: action.filters,
+                filtered: false,
             };
         case actionTypes.SET_FILTERED_PRODUCTS:
             return {
               ...state,
               filteredProducts: action.filteredProducts,
+                filtered: true,
             };
         case actionTypes.TOGGLE_SHOP_FILTERS:
             return { ...state, shopFiltersToggle: !state.shopFiltersToggle };

@@ -5,6 +5,7 @@ const initialState = {
     shopFiltersToggle: true,
     filters: null, // Holds the selected filters
     filteredProducts: [], // Holds the filtered products
+    filtered: false, // Assuming it should be false initially
     userProfile: false, // Assuming it should be false initially
     user: null,
     favorites: new Set(), // Initialize favorites as an empty Set
