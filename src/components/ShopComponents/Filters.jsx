@@ -57,9 +57,13 @@ const Filters = ({ department, subDepartment }) => {
  // Dispatch the filtered products to global state when they are fetched
  useEffect(() => {
   if (filteredProductsData) {
+    // filter data by price range before dispatching in client side
+    const filteredProducts = filteredProductsData?.getProductsByFilter.filter( product => {
+      return product?.PurchaseInfo[0]?.Price >=parseFloat(minPrice) && product?.PurchaseInfo[0]?.Price <= parseFloat(maxPrice);
+    });
    dispatch({
     type: actionTypes.SET_FILTERED_PRODUCTS,
-    filteredProducts: filteredProductsData?.getProductsByFilter,
+    filteredProducts: filteredProducts,
    });
   }
  }, [filteredProductsData, dispatch]);
@@ -73,12 +77,20 @@ const Filters = ({ department, subDepartment }) => {
 
  // Handle applying the filters
  const applyFilters = () => {
+  const min = parseFloat(minPrice);
+  const max = parseFloat(maxPrice);
+
+  if (isNaN(min) || isNaN(max)) {
+    return;
+  }
+
   const filterInput = {
-   priceRange: { min: parseFloat(minPrice), max: parseFloat(maxPrice) },
-   productCertifications: selectedProductCerts,
-   companyCertifications: selectedCertificates,
-   companies: selectedCompany,
+    priceRange: { min, max },
+    productCertifications: selectedProductCerts,
+    companyCertifications: selectedCertificates,
+    companies: selectedCompany,
   };
+
 
   getProductsByFilter({
    variables: {
