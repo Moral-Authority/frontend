@@ -57,20 +57,41 @@ const Filters = ({ department, subDepartment }) => {
  // Dispatch the filtered products to global state when they are fetched
  useEffect(() => {
   if (filteredProductsData) {
-    // filter data by price range before dispatching in client side
-    const filteredProducts = filteredProductsData?.getProductsByFilter.filter( product => {
-      return product?.PurchaseInfo[0]?.Price >=parseFloat(minPrice) && product?.PurchaseInfo[0]?.Price <= parseFloat(maxPrice);
+    // Only filter if `filteredProductsData.getProductsByFilter` exists and is an array
+    const filteredProducts = filteredProductsData?.getProductsByFilter?.filter(product => {
+      return product?.PurchaseInfo?.[0]?.Price >= parseFloat(minPrice) && 
+             product?.PurchaseInfo?.[0]?.Price <= parseFloat(maxPrice);
+    }) || [];
+
+    // Dispatch the filtered products to global state
+    dispatch({
+      type: actionTypes.SET_FILTERED_PRODUCTS,
+      filteredProducts: filteredProducts,
     });
-   dispatch({
-    type: actionTypes.SET_FILTERED_PRODUCTS,
-    filteredProducts: filteredProducts,
-   });
   }
- }, [filteredProductsData, dispatch]);
+}, [filteredProductsData, minPrice, maxPrice, dispatch]);
+
 
  if (loading) return <p>Loading...</p>;
 
  //  if (error) return <p>Error: {error.message}</p>;
+ const handleMinPriceChange = (e) => {
+  const value = e.target.value;
+  if (value === '') {
+    setMinPrice(data?.getSubDepartmentFilters?.Price?.min || ''); // reset to default if empty
+  } else {
+    setMinPrice(value);
+  }
+};
+
+const handleMaxPriceChange = (e) => {
+  const value = e.target.value;
+  if (value === '') {
+    setMaxPrice(data?.getSubDepartmentFilters?.Price?.max || ''); // reset to default if empty
+  } else {
+    setMaxPrice(value);
+  }
+};
 
  // Safely check if data is available before attempting to render filters
  const subDepartmentFilters = data?.getSubDepartmentFilters || {};
@@ -121,31 +142,41 @@ const Filters = ({ department, subDepartment }) => {
 {/* {filteredProductsData?.getProductsByFilter === null && <p className="text-red-500 font-semibold">No Products found by filter</p>} */}
     {/* Price Range */}
     <FilterDiv>
-     <div className='flex justify-between items-center'>
+    <div className='flex justify-between items-center'>
       <FilterLabel label={"Price Range"} />
-     </div>
-     <div className='flex space-x-2 px-6'>
+    </div>
+    <div className='flex space-x-2 px-6'>
       <div className='py-1 px-3 bg-[#EDEFF6]'>
-       <label>$</label>
-       <input
-        type='text'
-        className='bg-[#EDEFF6] w-1/2 focus:border-none focus:outline-none'
-        value={minPrice}
-        onChange={(e) => setMinPrice(e.target.value)}
-       />
+        <label>$</label>
+        <input
+          type='text'
+          className='bg-[#EDEFF6] w-1/2 focus:border-none focus:outline-none'
+          value={minPrice}
+          onChange={handleMinPriceChange}
+          onBlur={() => {
+            if (minPrice === '') {
+              setMinPrice(data?.getSubDepartmentFilters?.Price?.min || ''); // reset on blur
+            }
+          }}
+        />
       </div>
       <span>-</span>
       <div className='py-1 px-3 bg-[#EDEFF6]'>
-       <label>$</label>
-       <input
-        type='text'
-        className='bg-[#EDEFF6] w-1/2 focus:border-none focus:outline-none'
-        value={maxPrice}
-        onChange={(e) => setMaxPrice(e.target.value)}
-       />
+        <label>$</label>
+        <input
+          type='text'
+          className='bg-[#EDEFF6] w-1/2 focus:border-none focus:outline-none'
+          value={maxPrice}
+          onChange={handleMaxPriceChange}
+          onBlur={() => {
+            if (maxPrice === '') {
+              setMaxPrice(data?.getSubDepartmentFilters?.Price?.max || ''); // reset on blur
+            }
+          }}
+        />
       </div>
-     </div>
-    </FilterDiv>
+    </div>
+  </FilterDiv>
 
     {/* Ratings */}
     <FilterDiv>

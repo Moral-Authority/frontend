@@ -31,18 +31,19 @@ const Products = () => {
  if (error) {
   return <p>Error loading products. Please try again later.</p>;
  }
+ 
 
  // Determine which products to display
  let products;
 
  if (filtered) {
-  products = filteredProducts || [];
- } else if (data?.getAllProductsBySubDepartment?.length > 0) {
-  products = data.getAllProductsBySubDepartment;
- } else {
-  products = [];
- }
- 
+    products = filteredProducts && filteredProducts.length > 0 ? filteredProducts : [];
+  } else if (data?.getAllProductsBySubDepartment?.length > 0) {
+    products = data.getAllProductsBySubDepartment;
+  } else {
+    products = [];
+  }
+  
 
  // Handle no products found case
  if (products.length === 0) {
