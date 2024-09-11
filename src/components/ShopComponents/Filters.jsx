@@ -58,7 +58,7 @@ const Filters = ({ department, subDepartment }) => {
  useEffect(() => {
   if (filteredProductsData) {
     // filter data by price range before dispatching in client side
-    const filteredProducts = filteredProductsData?.getProductsByFilter.filter( product => {
+    const filteredProducts = filteredProductsData?.getProductsByFilter?.filter( product => {
       return product?.PurchaseInfo[0]?.Price >=parseFloat(minPrice) && product?.PurchaseInfo[0]?.Price <= parseFloat(maxPrice);
     });
    dispatch({
