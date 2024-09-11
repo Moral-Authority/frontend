@@ -179,35 +179,30 @@ const handleMaxPriceChange = (e) => {
   </FilterDiv>
 
     {/* Ratings */}
-    <FilterDiv>
-     <div
-      onClick={() => setExpandRatings(!expandRatings)}
-      className='cursor-pointer flex justify-between items-center'>
-      <FilterLabel label={"Ratings"} />
-     </div>
-     {expandRatings && (
-      <div className='flex flex-col w-full space-y-5 ml-6 pt-1'>
-       <div className='flex space-x-2'>
-        {Array(5)
-         .fill(0)
-         .map((item, index) =>
-          index + 1 <= rating ? (
-           <StarFilled
-            key={index}
-            onClick={() => setRating(index + 1)}
-            className='h-6 w-6 text-[#FFB33E]'
-           />
-          ) : (
-           <StarIcon
-            key={index}
-            onClick={() => setRating(index + 1)}
-            className='h-6 w-6'
-           />
-          ),
-         )}
-       </div>
-      </div>
-     )}
+        <FilterDiv>
+        <FilterLabel label={"Ratings ( Feature In Progress )"} />
+        <div className="flex flex-col w-full space-y-5 ml-6 pt-1">
+          <div className="flex space-x-2">
+            {Array(5)
+              .fill(0)
+              .map((_, index) => (
+                index + 1 <= rating ? (
+                  <StarFilled
+                    key={index}
+                    onClick={() => setRating(index + 1)}
+                    className="h-6 w-6 text-[#FFB33E] cursor-pointer" // filled star (yellow)
+                  />
+                ) : (
+                  <StarIcon
+                    key={index}
+                    onClick={() => setRating(index + 1)}
+                    className="h-6 w-6 text-gray-400 cursor-pointer" // outline star (gray)
+                  />
+                )
+              ))}
+          </div>
+        </div>
+
     </FilterDiv>
 
     {/* Product Filters */}
