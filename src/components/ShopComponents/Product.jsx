@@ -39,7 +39,7 @@ const Product = ({ title, _id, company, imageLinks, purchaseInfo, productDepartm
   };
 
   return (
-    <div className="w-44 lg:w-56 xl:w-64 h-64 lg:h-80 xl:h-96 p-1 lg:p-2 relative flex flex-col border-2 border-[#EDEFF6]">
+    <div className="bg-[#F1F1F3] w-44 lg:w-56 xl:w-64 h-64 lg:h-80 xl:h-96 p-1 lg:p-2 relative flex flex-col border-2 border-[#EDEFF6]">
       <div className="flex z-20 justify-between absolute top-5 lg:top-8 w-11/12 -ml-1 lg:-ml-2">
         <div className="!text-white text-sm bg-black !border-none py-1 px-4 z-10">
           New
@@ -74,9 +74,9 @@ const Product = ({ title, _id, company, imageLinks, purchaseInfo, productDepartm
         </Link>
       </div>
       <div className="flex flex-col pb-5">
-        <p className="text-xs text-[#8F8E63]">{company.name}</p>
-        <p className="text-sm sm:text-base">{title}</p>
-        <p className="text-gray-600 font-medium">${purchaseInfo[0].Price}</p>
+        <p className="text-s pt-5 text-[#4E99A9]">{company.name}</p>
+        <p className="text-sm text-[#2C3A46] sm:text-base">{title}</p>
+        <p className="text-[#2C3A46] font-medium">${purchaseInfo[0].Price}</p>
       </div>
     </div>
   );

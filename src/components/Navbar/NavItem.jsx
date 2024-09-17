@@ -36,7 +36,7 @@ const NavItem = ({ item }) => {
                       flex-col 
                       space-y-5
                       p-[.8rem] 
-                      bg-[#1a1a0a]
+                      bg-[#2C3A46]
                       text-[#f2f2eb]
                       rounded-md
                       z-50 !important">

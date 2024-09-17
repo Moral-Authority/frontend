@@ -45,7 +45,7 @@ const PieChartComponent = ({ title, data, colors, offset }) => {
             return `\nCertifications: ${certificationList}`;
           },
         },
-        backgroundColor: 'rgba(0, 0, 0, 0.7)',
+        backgroundColor: 'rgba(NaN, 229, 223, 0.86)',
         bodySpacing: 4,
         padding: 10,
         cornerRadius: 4,
@@ -113,8 +113,8 @@ const ProductTimelinePage = () => {
   ];
 
   return (
-    <div style={{ padding: '50px', backgroundColor: '#f0f8f7', fontFamily: "'Your Site Font'" }}>
-      <h1 style={{ textAlign: 'center', marginBottom: '20px', fontWeight: 600, textTransform: 'capitalize' }}>
+    <div style={{ padding: '50px', backgroundColor: '#4E99A9', fontFamily: "'Your Site Font'" }}>
+      <h1 style={{ textAlign: 'center', marginBottom: '20px', fontWeight: 600, fontSize: '2rem',  textTransform: 'capitalize' }}>
         Know Your Impact at Every Step
       </h1>
 
@@ -166,14 +166,14 @@ const ProductTimelinePage = () => {
           left: '50px',
           right: '50px',
           height: '8px',
-          backgroundColor: '#888',
+          backgroundColor: '#2C3A46',
           zIndex: '0',
           display: 'block',
           width: 'calc(100% - 100px)',
         }} />
 
         {/* Seed Icon for Conceptualization */}
-        <FaSeedling style={{ fontSize: '50px', color: '#66bb6a', marginBottom: '-8px', zIndex: '1' }} />
+        <FaSeedling style={{ fontSize: '50px', color: '#6FC8B2', marginBottom: '-8px', zIndex: '1' }} />
 
         {/* Pie Charts along the line */}
         <PieChartComponent title="Sourcing" data={sourcingData} colors={naturalColors} offset={20} />

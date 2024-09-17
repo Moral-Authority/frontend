@@ -20,28 +20,33 @@
     "@heroicons/react": "^2.1.5",
     "@mui/material": "^5.14.5",
     "@vitejs/plugin-react": "^4.0.4",
+    "autoprefixer": "^10.4.20",
     "bootstrap": "^5.3.1",
     "chart.js": "^4.4.4",
     "framer-motion": "^10.16.0",
     "graphql": "^16.8.0",
+    "primeicons": "^7.0.0",
+    "primereact": "^10.8.3",
     "react": "^18.2.0",
     "react-chartjs-2": "^5.2.0",
     "react-dom": "^18.2.0",
     "react-icons": "^5.3.0",
+    "react-multi-carousel": "^2.8.5",
     "react-router-dom": "^6.15.0",
+    "react-slick": "^0.30.2",
     "react-social-icons": "^5.15.0",
+    "relay-runtime": "^18.0.0",
+    "swiper": "^7.4.1",
     "tailwindcss": "^3.3.3",
     "vite": "^4.4.9"
   },
   "devDependencies": {
-    "autoprefixer": "^10.4.15",
     "babel-plugin-relay": "^15.0.0",
-    "postcss": "^8.4.28",
     "relay-compiler": "^15.0.0",
     "vite-plugin-relay": "^2.0.0"
   },
   "engines": {
-    "node": "19.8.1",
-    "npm": "9.8.1"
+    "node": ">=19.8.1",
+    "npm": ">=9.8.1"
   }
 }

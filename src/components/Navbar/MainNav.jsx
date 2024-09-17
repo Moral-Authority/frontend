@@ -158,7 +158,7 @@ const MainNav = ({ userLoggedIn }) => {
       </div>
 
       {/* NavItems for Categories, Visible on Larger, medium and small screens */}
-      <div className="hidden justify-center space-x-5 w-full h-14 bg-[#1a1a0a] text-white 
+      <div className="hidden justify-center space-x-5 w-full h-14 bg-[#2C3A46] text-white 
       m:flex lg:flex xs:flex sm:flex text-sm sm:text-base md:text-lg lg:text-xl">
         <NavItems />
       </div>

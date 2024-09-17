@@ -1,6 +1,9 @@
 import React, { useState, useEffect } from "react";
+import "./HowItWorks.css";
 
-const SecondSection = () => {
+
+
+const HowItWorks = () => {
   const [isMobile, setIsMobile] = useState(window.innerWidth < 768);
 
   const handleResize = () => {
@@ -60,7 +63,7 @@ const SecondSection = () => {
               textAlign: "center",
             }}
           >
-            About Us
+            How It Works
           </h1>
           <div
             style={{
@@ -76,68 +79,30 @@ const SecondSection = () => {
             textAlign: isMobile ? "center" : "left",
           }}
         >
-          At Moral Authority, we believe in the power of informed choices. Our
-          platform connects conscientious consumers with companies and products
-          that align with their values. From environmental sustainability to
-          fair labor practices, we're here to shine a light on those making a
-          positive impact.
+            <div className="list-container">
+            <section>
+              <ul className="points-list">
+                <li className="list-point">
+                Discover: Browse our curated selection of ethical products, all carefully vetted to meet our high standards. Use our filters to narrow down your search by certifications, ownership, and more.
+                </li>
+                <br></br>
+                <li className="list-point">
+                Support:  Choose to buy from businesses that align with your values. Whether it's fair labor practices, environmental sustainability, or minority ownership, your purchases support causes you care about.
+                </li>
+                <br></br>
+                <li className="list-point">
+                Influence: Use your purchasing power to advocate for positive change. Join our community to connect with like-minded individuals and share your impact.
+                </li>
+              </ul>
+            </section>
+          </div>
         </p>
-        <div
-          style={{
-            display: "flex",
-            alignItems: "center",
-            gap: "1rem",
-            justifyContent: "center",
-            marginBottom: "1rem",
-          }}
-        >
-          <div
-            style={{
-              width: "40px",
-              border: "2px solid #8f8e63",
-            }}
-          />
-          <h1
-            style={{
-              fontSize: isMobile ? "1.5rem" : "2rem",
-              fontWeight: 600,
-              textTransform: "capitalize",
-              textAlign: "center",
-            }}
-          >
-            Our Mission
-          </h1>
-          <div
-            style={{
-              width: "40px",
-              border: "2px solid #8f8e63",
-            }}
-          />
-        </div>
-        <p
-          style={{
-            fontSize: isMobile ? "1rem" : "1.25rem",
-            margin: isMobile ? "1.5rem 0" : "2.5rem 0",
-            textAlign: isMobile ? "center" : "left",
-          }}
-        >
-          To create a community where ethical practices are the norm, not the
-          exception. We're dedicated to providing the tools and information
-          needed to make choices that reflect your values, empowering you to
-          influence change with your actions and purchases.
-        </p>
-      </div>
-      <div
-        style={{
-          display: "flex",
-          gap: "1.25rem",
-          justifyContent: isMobile ? "center" : "flex-start",
-        }}
-      >
-        {/* Placeholder for future buttons */}
+        <button className="action-button">
+              Learn More
+            </button>
       </div>
     </div>
   );
 };
 
-export default SecondSection;
+export default HowItWorks;
