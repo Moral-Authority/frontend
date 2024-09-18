@@ -12,13 +12,13 @@ return (
           url="https://www.instagram.com/moralauthority/"
           target="_blank"
           rel="noopener noreferrer"
-          className="homepage-icon"
-          bgColor="white"
+          className="social-icon"
+          bgColor="black"
           style={{ maxWidth: "30px", maxHeight: "30px" }}
         />
       </div>
-      <div className="column-social">
-      <Link to="/privacy-policy">Privacy Policy</Link> {/* Use Link here */}
+      <div className="privacy-policy">
+      <Link className="column-social" to="/privacy-policy">Privacy Policy</Link> {/* Use Link here */}
       </div>
 
       <div className="column-social">
