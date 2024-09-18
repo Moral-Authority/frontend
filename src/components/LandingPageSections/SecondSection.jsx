@@ -20,7 +20,7 @@ const SecondSection = () => {
         display: "flex",
         alignItems: "center",
         justifyContent: "center",
-        backgroundColor: "#E5DFDC",
+        backgroundColor: "#fffFff",
         padding: isMobile ? "2rem 1rem" : "3rem 2rem",
         flexDirection: isMobile ? "column" : "row", // Stack vertically on small screens
       }}

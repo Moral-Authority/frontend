@@ -20,7 +20,7 @@ const NavItem = ({ item }) => {
     <div className="relative h-20 pt-3 group z-50 ">
       <div
         className={`cursor-pointer inline-flex items-center group-hover:border-b-4 space-x-2 pb-3
-      border-transparent z-50 text-[#f2f2eb]`}
+      border-transparent z-50 text-[#black]`}
       >
         <span onClick={() => handleNavigation(item.navLink, item.title)}>{item.title}</span>
       </div>
@@ -36,8 +36,8 @@ const NavItem = ({ item }) => {
                       flex-col 
                       space-y-5
                       p-[.8rem] 
-                      bg-[#2C3A46]
-                      text-[#f2f2eb]
+                      bg-white
+                      text-black
                       rounded-md
                       z-50 !important">
           {item.children.items.map((childItem, index) => (

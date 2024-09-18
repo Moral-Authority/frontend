@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import "./HowItWorks.css";
+import "./../../../img/clothing.png";
 
 
 
@@ -23,7 +24,7 @@ const HowItWorks = () => {
         display: "flex",
         alignItems: "center",
         justifyContent: "center",
-        backgroundColor: "#E5DFDC",
+        backgroundColor: "#fffFff",
         padding: isMobile ? "2rem 1rem" : "3rem 2rem",
         flexDirection: isMobile ? "column" : "row", // Stack vertically on small screens
       }}
@@ -37,7 +38,7 @@ const HowItWorks = () => {
           marginRight: !isMobile ? "2rem" : "0",
         }}
       >
-        {/* Placeholder for the image */}
+          <img src="../../../img/clothing.png" alt="clothing" style={{ maxWidth: "100%", height: "auto" }} />
       </div>
       <div>
         <div
@@ -63,7 +64,7 @@ const HowItWorks = () => {
               textAlign: "center",
             }}
           >
-            How It Works
+            Unleash Your Power
           </h1>
           <div
             style={{
@@ -83,23 +84,27 @@ const HowItWorks = () => {
             <section>
               <ul className="points-list">
                 <li className="list-point">
-                Discover: Browse our curated selection of ethical products, all carefully vetted to meet our high standards. Use our filters to narrow down your search by certifications, ownership, and more.
+
+
+                Discover:
+                        Browse our selection of carefully vetted ethical products, filter
+                        by certifications, ownership, and more.
                 </li>
                 <br></br>
                 <li className="list-point">
-                Support:  Choose to buy from businesses that align with your values. Whether it's fair labor practices, environmental sustainability, or minority ownership, your purchases support causes you care about.
-                </li>
+                Support:
+                        Whether it's fair labor practices, environmental sustainability, or minority
+                        ownership, your purchases support causes you care about.                
+                        </li>
                 <br></br>
                 <li className="list-point">
-                Influence: Use your purchasing power to advocate for positive change. Join our community to connect with like-minded individuals and share your impact.
+                Influence:
+                Use your purchasing power to advocate for positive change with every purchase.                
                 </li>
               </ul>
             </section>
           </div>
         </p>
-        <button className="action-button">
-              Learn More
-            </button>
       </div>
     </div>
   );

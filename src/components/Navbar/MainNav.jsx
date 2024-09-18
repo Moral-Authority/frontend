@@ -52,7 +52,7 @@ const MainNav = ({ userLoggedIn }) => {
 
   return (
     <div>
-      <header className="w-full flex h-20 bg-white border justify-between text-center items-center px-2.5 md:px-5 xl:px-5">
+      <header className="w-full flex h-20 bg-red border justify-between text-center items-center px-2.5 md:px-5 xl:px-5">
         <Link to="/">
           <h1 className="text-2xl lg:text-3xl font-bold">
             <img
@@ -104,7 +104,7 @@ const MainNav = ({ userLoggedIn }) => {
             <ul className="flex space-x-5">
               <li>
                 <Link to="/create-account">
-                  <button className="h-[46px] text-base w-[128px] bg-[#1a1a0a] text-white text-center rounded-sm">
+                  <button className="h-[46px] text-base w-[128px] bg-[#1a1a0a] text-white text-center rounded-lg">
                     Signup
                   </button>
                 </Link>
@@ -112,7 +112,7 @@ const MainNav = ({ userLoggedIn }) => {
               <li>
                 <Link to="/login">
                   <button
-                    className="h-[46px] w-[128px] text-base bg-white text-black border border-black text-center rounded-sm"
+                    className="h-[46px] w-[128px] text-base bg-white text-black border border-black text-center rounded-lg"
                   >
                     Login
                   </button>
@@ -158,8 +158,8 @@ const MainNav = ({ userLoggedIn }) => {
       </div>
 
       {/* NavItems for Categories, Visible on Larger, medium and small screens */}
-      <div className="hidden justify-center space-x-5 w-full h-14 bg-[#2C3A46] text-white 
-      m:flex lg:flex xs:flex sm:flex text-sm sm:text-base md:text-lg lg:text-xl">
+      <div className="hidden justify-center space-x-5 w-full h-14 bg-[#ffffff] text-black 
+      m:flex lg:flex xs:flex sm:flex text-sm sm:text-base md:text-lg lg:text-xl border border-gray-300">
         <NavItems />
       </div>
     </div>
