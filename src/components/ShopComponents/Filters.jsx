@@ -126,7 +126,7 @@ const handleMaxPriceChange = (e) => {
 
  return (
   <div
-   className={`absolute z-30 bg-white w-11/12 opacity-100 xl:relative
+   className={`absolute z-30 bg-white w-11/12 xl:relative
       ${
        shopFiltersToggle ? "block" : "hidden"
       } xl:block border border-[#EDEFF6] h-fit xl:h-full xl:w-1/4`}>
@@ -179,7 +179,7 @@ const handleMaxPriceChange = (e) => {
   </FilterDiv>
 
     {/* Ratings */}
-        <FilterDiv>
+        {/* <FilterDiv>
         <FilterLabel label={"Ratings ( Feature In Progress )"} />
         <div className="flex flex-col w-full space-y-5 ml-6 pt-1">
           <div className="flex space-x-2">
@@ -203,7 +203,7 @@ const handleMaxPriceChange = (e) => {
           </div>
         </div>
 
-    </FilterDiv>
+    </FilterDiv> */}
 
     {/* Product Filters */}
     <FilterDiv>

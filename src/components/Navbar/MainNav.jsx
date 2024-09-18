@@ -78,8 +78,6 @@ const MainNav = ({ userLoggedIn }) => {
           />
         </div>
 
-
-
         {userLoggedIn ? (
           <nav className="hidden lg:flex m:flex sm:flex">
             <ul className="flex items-center space-x-5">
@@ -124,11 +122,13 @@ const MainNav = ({ userLoggedIn }) => {
 
         {/* Bars Icon Menu for Smaller Screens */}
         <nav className="flex sm:hidden m:hidden lg:hidden space-x-3">
-          <Link to={userProfile ? "/profile" : "#"}>
-            <div className="h-8 w-8 space-x-3 rounded-full">
-              <HeartIcon className="h-8 w-8 text-[#1a1a0a]" />
-            </div>
-          </Link>
+          {userLoggedIn && (
+            <Link to="/profile">
+              <div className="h-8 w-8 space-x-3 rounded-full">
+                <HeartIcon className="h-8 w-8 text-[#1a1a0a]" />
+              </div>
+            </Link>
+          )}
           <Bars3Icon
             className="h-8 w-8"
             onClick={() =>
