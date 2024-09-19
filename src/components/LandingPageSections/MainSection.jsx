@@ -8,12 +8,14 @@ const MainSection = () => {
       <div 
         className="landing-page-text">
           <p>
-          YOUR VALUES 
+          Your Values, Our Purpose
           <br></br>
-          OUR MISSION
           </p>
           <p>
-          100% Impact,  0% Compromise </p>
+          100% Impact. Zero Compromise.
+          </p>
+          <p>
+          Shop Ethically. Drive Change. </p>
       </div>
 
     </main>

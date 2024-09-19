@@ -1,13 +1,14 @@
 import React, { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
-import { useMutation } from '@apollo/client';
-import { CREATE_ACCOUNT_MUTATION } from '../../graphql/Mutations.js'; // Adjust the path to where you store your mutations
+import { useMutation } from "@apollo/client";
+import { CREATE_ACCOUNT_MUTATION } from "../../graphql/Mutations.js"; // Adjust the path to where you store your mutations
 
 const CreateAccountForm = () => {
   const [state, setState] = useState({
     email: "",
     password: "",
   });
+  const [errors, setErrors] = useState({}); // State for form validation errors
   const [showPopup, setShowPopup] = useState(false); // State for popup visibility
   const navigate = useNavigate();
 
@@ -18,9 +19,40 @@ const CreateAccountForm = () => {
     setState({ ...state, [e.target.name]: e.target.value });
   };
 
+  const validateEmail = (email) => {
+    const emailPattern = /^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+\.[a-zA-Z0-9-.]+$/;
+    return emailPattern.test(email);
+  };
+
+  const validatePassword = (password) => {
+    // Check if the password is at least 8 characters long and contains at least one number and one special character
+    const passwordPattern = /^(?=.*[0-9])(?=.*[!@#$%^&*])[a-zA-Z0-9!@#$%^&*]{8,}$/;
+    return passwordPattern.test(password);
+  };
+
   const submitHandler = async (e) => {
     e.preventDefault(); // Prevent default form submission
 
+    let validationErrors = {};
+
+    // Validate email
+    if (!validateEmail(state.email)) {
+      validationErrors.email = "Please enter a valid email address.";
+    }
+
+    // Validate password
+    if (!validatePassword(state.password)) {
+      validationErrors.password =
+        "Password must be at least 8 characters long, contain at least one number, and one special character.";
+    }
+
+    // If there are validation errors, do not proceed
+    if (Object.keys(validationErrors).length > 0) {
+      setErrors(validationErrors);
+      return;
+    }
+
+    // Proceed with form submission if no errors
     try {
       const response = await createAccount({
         variables: {
@@ -30,7 +62,7 @@ const CreateAccountForm = () => {
           },
         },
       });
-      
+
       console.log("Account created successfully", response);
       setShowPopup(true); // Show popup on success
 
@@ -39,7 +71,6 @@ const CreateAccountForm = () => {
         setShowPopup(false);
         navigate("/login");
       }, 2000); // 2 seconds delay
-
     } catch (err) {
       console.error("Mutation error:", err);
     }
@@ -62,6 +93,7 @@ const CreateAccountForm = () => {
             className="border border-[#E3E7F4] px-4 py-2 placeholder:text-[#777D88]/30 focus:outline-none outline-none"
             placeholder="Enter your email"
           />
+          {errors.email && <p className="text-red-500">{errors.email}</p>}
         </div>
 
         <div className="flex flex-col space-y-1">
@@ -75,6 +107,7 @@ const CreateAccountForm = () => {
             className="border border-[#E3E7F4] px-4 py-2 placeholder:text-[#777D88]/30 focus:outline-none outline-none"
             placeholder="Enter your password"
           />
+          {errors.password && <p className="text-red-500">{errors.password}</p>}
         </div>
 
         <div>

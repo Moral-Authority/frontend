@@ -35,16 +35,18 @@ const HowItWorks = () => {
               fontWeight: 600,
               textTransform: "capitalize",
               textAlign: "left",
+              paddingTop: "2rem",
             }}
           >
-            Shop with Purpose, Drive Lasting Change
+            Lasting Change With Every Purchase
           </h1>
         </div>
         <div
           style={{
             fontSize: isMobile ? "1rem" : "1.25rem",
-            margin: isMobile ? "1.5rem 0" : "1.5rem",
-            padding: "1rem",
+            margin: isMobile ? "1.5rem 0" : ".5rem",
+            paddingLeft: "1rem",
+            paddingRight: "1rem",
             textAlign: isMobile ? "center" : "left",
             width: "100%",
             justifyContent: "center",
@@ -61,21 +63,21 @@ const HowItWorks = () => {
                 style={{
                   justifyContent: "center",
                 }}>
-                Explore: Dive into our curated collection of ethical products. Easily browse by certifications, sustainable practices, minority ownership, and more.
+                <span style={{ fontWeight: "bold" }}>Explore :</span> Dive into our curated collection of ethical products. Easily browse by certifications, sustainable practices, minority ownership, and more.
               </li>
               <br></br>
               <li
                 style={{
                   justifyContent: "center",
                 }}>
-                Support: Every purchase champions the values that matter to you—whether it’s fair labor, environmental sustainability, or supporting diverse businesses.
+                <span style={{ fontWeight: "bold" }}>Support :</span> Every purchase champions the values that matter to you—whether it’s fair labor, environmental sustainability, or supporting diverse businesses.
               </li>
               <br></br>
               <li
                 style={{
                   justifyContent: "center",
                 }}>
-                Impact: Turn your shopping into advocacy. Let your purchasing power drive meaningful change with every choice you make.
+                <span style={{ fontWeight: "bold" }}>Impact :</span>  Turn your shopping into advocacy. Let your purchasing power drive meaningful change with every choice you make.
               </li>
             </ul>
           </section>
