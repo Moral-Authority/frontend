@@ -8,42 +8,66 @@
   background-repeat: no-repeat;
   background-image: url('/img/MA-landingImage.jpg');
   opacity: 0.8; /* Adjust the opacity as needed */
-  z-index: -1;
+  z-index: -9999999;
+}
+
+.landing-page-text {
+  position: absolute;
+  font-family: 'Montserrat', 'Helvetica Neue', Arial, sans-serif;
+  text-align: center;
+  padding: 20px;
+  color: rgb(6, 6, 6);
+  background: rgba(255, 255, 255, 0.8); /* Background for readability */
+  border-radius: 10px;
 }
 
 
-@media (min-width: 1024px) {
-  .background-container {
-    height: 50vh; /* Adjust height for larger screens */
+@media (max-width: 800px) {
+  .landing-page-text {
+    top: 25%;
+    left: 10%; /* Adjusted to move text further left */
+    line-height: 1;
+    width: 80%;
   }
 }
 
 
-
-.landing-page-text {
-  color: rgb(6, 6, 6);
-  position: absolute;
-  font-family: 'Montserrat', 'Helvetica Neue', Arial, sans-serif;
-  top: 50%;
-  left: 15%; /* Adjusted to move text further left */
-  transform: translate(-20%, -50%);
-  text-align: left;
-  line-height: 1.6;
-  padding: 20px;
-  background: rgba(255, 255, 255, 0.8); /* Background for readability */
-  border-radius: 10px;
-  width: 40%;
+@media (min-width: 800px) {
+  .landing-page-text {
+    top: 30%;
+    left: 30%; /* Adjusted to move text further left */
+    /* transform: translate(-20%, -50%); */
+    line-height: 1.6;
+    width: 40%;
+    min-width: 40%;
+  }
 }
 
-.landing-page-text p:first-of-type {
-  font-size: 2.5rem; /* Larger font size for the first heading */
-  font-weight: 700; /* Bolder */
-  margin-bottom: 20px; /* Add some spacing between the two blocks */
+@media (min-width: 800px) {
+  .landing-page-text p:first-of-type {
+    font-size: 2.5rem; /* Larger font size for the first heading */
+    font-weight: 700; /* Bolder */
+    margin-bottom: 20px; /* Add some spacing between the two blocks */
+  }
+  .landing-page-text p:last-of-type {
+    font-size: 1.5rem; /* Smaller font size for the paragraph */
+    font-weight: 400;
+    margin-top: 0; /* Reduce margin on the top to balance spacing */
+  }
 }
 
-.landing-page-text p:last-of-type {
-  font-size: 1.5rem; /* Smaller font size for the paragraph */
-  font-weight: 400;
-  margin-top: 0; /* Reduce margin on the top to balance spacing */
+
+@media (max-width: 800px) {
+  .landing-page-text p:first-of-type {
+    font-size: 2.5rem; /* Larger font size for the first heading */
+    font-weight: 600; /* Bolder */
+    margin-bottom: 20px; /* Add some spacing between the two blocks */
+  }
+  .landing-page-text p:last-of-type {
+    font-size: 1.5rem; /* Smaller font size for the paragraph */
+    font-weight: 400;
+    margin-top: 0; /* Reduce margin on the top to balance spacing */
+  }
 }
+
 

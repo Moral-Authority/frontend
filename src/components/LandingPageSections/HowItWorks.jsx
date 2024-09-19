@@ -34,7 +34,7 @@ const HowItWorks = () => {
               fontSize: isMobile ? "1.5rem" : "2rem",
               fontWeight: 600,
               textTransform: "capitalize",
-              textAlign: "left",
+              textAlign: "center",
               paddingTop: "2rem",
             }}
           >
