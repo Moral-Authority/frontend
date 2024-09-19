@@ -1,5 +1,4 @@
 import React, { useState } from "react"; // Add useState here
-import ProfilePicture from "images/profilePicture.png";
 import { CheckBadgeIcon } from "@heroicons/react/24/solid";
 import { Link } from "react-router-dom";
 import { HeartIcon } from "@heroicons/react/24/outline";
