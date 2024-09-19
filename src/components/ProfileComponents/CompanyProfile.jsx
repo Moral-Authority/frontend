@@ -1,6 +1,6 @@
 import React from "react";
 import Controller from "images/chair.png";
-import Award from "images/award.png";
+import Award from "images/chair.png";
 import {
   CameraIcon,
   EnvelopeIcon,

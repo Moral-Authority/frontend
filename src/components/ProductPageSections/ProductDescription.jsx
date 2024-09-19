@@ -1,6 +1,5 @@
 import React from "react";
 import { SocialIcon } from "react-social-icons";
-import Award from "images/award.png";
 
 
 const ProductDescription = () => {
