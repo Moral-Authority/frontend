@@ -31,20 +31,12 @@ const Shop = () => {
     className={`w-full ${
      shopFiltersToggle ? "" : "opacity-100 blur-none"
     } h-full flex flex-col`}>
-    {/* opacity-20 blur-sm pointer-events-none */}
     <Header />
 
     {/* Breadcrumb and Filter/Product Sections */}
     <div className='flex-1 flex flex-col h-full bg-white'>
     {/* <ProductCycleFilter />  */}
      <section className='px-4 relative py-2 sm:px-9 sm:py-8 xl:py-12 flex flex-col xl:flex-row space-y-2 xl:space-y-0 xl:space-x-10'>
-      {/* Desktop Filters (Visible when not toggled on mobile) */}
-      {/* {!shopFiltersToggle && (
-       <Filters
-        department={departmentTitle}
-        subDepartment={subDepartmentTitle}
-       />
-      )} */}
       <Filters
        department={departmentTitle}
        subDepartment={subDepartmentTitle}
