@@ -39,26 +39,26 @@ const Product = ({ title, _id, company, imageLinks, purchaseInfo, productDepartm
   };
 
   return (
-    <div className="bg-[#F1F1F3] w-44 lg:w-56 xl:w-64 h-64 lg:h-80 xl:h-96 p-1 lg:p-2 relative flex flex-col border-2 border-[#EDEFF6]">
+    <div className="w-44 lg:w-56 xl:w-64 h-64 lg:h-80 xl:h-96 p-1 pb-5 lg:p-1 relative flex flex-col border-2 border-white">
       <div className="flex z-20 justify-between absolute top-5 lg:top-8 w-11/12 -ml-1 lg:-ml-2">
-        <div className="!text-white text-sm bg-black !border-none py-1 px-4 z-10">
-          New
-        </div>
-        {user && (
-          isFavorite ? (
-            <HeartFilled
-              onClick={handleToggleFavorite}
-              className="h-6 text-red-500 w-6 cursor-pointer"
-            />
-          ) : (
-            <HeartIcon
-              onClick={handleToggleFavorite}
-              className="h-6 w-6 cursor-pointer"
-            />
-          )
-        )}
+          <div className="!text-white text-sm bg-black !border-none py-1 px-4 z-10">
+            New
+          </div>
+          {user && (
+            isFavorite ? (
+              <HeartFilled
+                onClick={handleToggleFavorite}
+                className="h-6 text-red-500 w-6 cursor-pointer"
+              />
+            ) : (
+              <HeartIcon
+                onClick={handleToggleFavorite}
+                className="h-6 w-6 cursor-pointer"
+              />
+            )
+          )}
       </div>
-      <div className="w-full z-0 relative h-3/4 group bg-[#F6FBFF] items-center flex justify-center">
+      <div className="w-full z-0 relative h-full group bg-[#F6FBFF] items-center flex justify-center">
         <img src={imageLinks[0]} className="w-full h-full object-contain" alt={title} />
         <Link
           className="text-white absolute w-11/12 hidden group-hover:block bottom-5 bg-[#8F8E63] h-12"
@@ -73,11 +73,12 @@ const Product = ({ title, _id, company, imageLinks, purchaseInfo, productDepartm
           </motion.button>
         </Link>
       </div>
-      <div className="flex flex-col pb-5">
-        <p className="text-s pt-5 text-[#4E99A9]">{company.name}</p>
-        <p className="text-sm text-[#2C3A46] sm:text-base">{title}</p>
-        <p className="text-[#2C3A46] font-medium">${purchaseInfo[0].Price}</p>
+      <div className="flex flex-col m-0 p-0 bg-[#F6FBFF]">
+        <p className="text-sm pb-1 pt-2 sm:text-base truncate">{title}</p>
+        <p className="text-xs pb-1 text-[#8F8E63]">{company.name}</p>
+        <p className="text-gray-600 pb-5 font-medium">${purchaseInfo[0].Price}</p>
       </div>
+
     </div>
   );
 };

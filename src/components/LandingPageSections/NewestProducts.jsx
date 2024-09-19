@@ -29,16 +29,16 @@ const NewestProducts = () => {
   if (loading) return <p>Loading...</p>;
   if (error) return <p>Error: {error.message}</p>;
 
-  const productsToDisplay = data?.getAllProductsBySubDepartment?.slice(0, 4) || [];
+  const productsToDisplay = data?.getAllProductsBySubDepartment?.slice(0, 10) || [];
 
   const responsiveOptions = [
-    { breakpoint: '1024px', numVisible: 3, numScroll: 3 },
+    { breakpoint: '1024px', numVisible: 4, numScroll: 1 },
     { breakpoint: '768px', numVisible: 2, numScroll: 2 },
     { breakpoint: '560px', numVisible: 1, numScroll: 1 }
   ];
 
   const productTemplate = (product) => (
-    <div className="product-item" style={{ display: 'flex', justifyContent: 'center' }}>
+    <div style={{ display: 'flex', justifyContent: 'center' }}>
       <Product
         key={product._id}
         title={product.Title}
@@ -49,65 +49,37 @@ const NewestProducts = () => {
         purchaseInfo={product.PurchaseInfo}
         imageLinks={product.ImageLinks}
         productDepartment={"Home & Garden"}
-        style={{
-          width:  '100%',
-          height:'auto',
-          margin: '0 auto',
-        }}
       />
     </div>
   );
 
   return (
-    <div className="newest-products-container"
+    <div 
          style={{
+          contentAlign: 'center',
            textAlign: 'center',
            backgroundColor: '#798C74', // Reapply background color
            padding: '2rem', 
-           minHeight: '20vh',
+           minHeight: '30vh',
            maxHeight: 'auto', // Adjust height for flexibility
          }}
     >
-      {isMobile ? (
         <Carousel
           value={productsToDisplay}
           itemTemplate={productTemplate}
           responsiveOptions={responsiveOptions}
-          numVisible={1}
+          numVisible={3}
           numScroll={1}
           circular
-          autoplayInterval={3000}
+          autoplayInterval={5000}
           className="w-full"
           style={{
+            minHeight: '30vh',
             maxWidth: '100%',
             margin: '0 auto',
           }}
         />
-      ) : (
-        <div
-          className="grid-layout"
-          style={{
-            display: 'flex',
-            justifyContent: 'space-evenly',
-            flexWrap: 'wrap',
-            gap: '20px',
-          }}
-        >
-          {productsToDisplay.map((product) => (
-            <Product
-              key={product._id}
-              title={product.Title}
-              _id={product._id}
-              user={user}
-              isFavorite={favorites.has(product._id)}
-              company={product.Company}
-              purchaseInfo={product.PurchaseInfo}
-              imageLinks={product.ImageLinks}
-              productDepartment={"Home & Garden"}
-            />
-          ))}
-        </div>
-      )}
+
     </div>
   );
 };

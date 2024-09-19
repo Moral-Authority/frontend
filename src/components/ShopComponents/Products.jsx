@@ -55,7 +55,7 @@ const Products = () => {
  }
 
  return (
-  <div className='flex space-y-5 flex-col border-b h-full w-full xl:w-3/4'>
+  <div className='flex space-y-5 flex-col border-b pb-10 h-full w-full xl:w-3/4'>
    {/* Mobile Navigation */}
    <section className='flex flex-col w-full space-y-5 sm:hidden md:hidden lg:hidden xl:hidden'>
     <div className='flex space-x-2 w-full overflow-x-scroll items-center justify-between overflow-y-hidden'>
@@ -86,7 +86,7 @@ const Products = () => {
    </section>
 
    {/* Products Grid */}
-   <section className='grid grid-cols-2 md:grid-cols-3 gap-2 xl:gap-x-2 xl:gap-y-8 place-items-center'>
+   <section className='grid grid-cols-2 md:grid-cols-3 gap-5 xl:gap-x-2 xl:gap-y-8 place-items-center'>
     {products.map((product) => (
      <Product
       key={product._id}
