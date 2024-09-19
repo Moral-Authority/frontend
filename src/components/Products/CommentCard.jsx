@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { StarIcon } from "@heroicons/react/24/outline";
 import { StarIcon as StarFilled } from "@heroicons/react/24/solid";
-import UsFlag from "images/us-flag.png";
+import UsFlag from "images/chair.png";
 
 const CommentCard = ({
   rating,
