@@ -12,7 +12,8 @@ const Products = () => {
   const [{ filteredProducts, filtered }, dispatch] = useStateValue();
   const location = useLocation();
   const departmentTitle = location.state?.departmentTitle || "Home & Garden";
-  const subDepartmentTitle = location.state?.subDepartmentTitle || "Cleaning Supplies";
+  const subDepartmentTitle =
+    location.state?.subDepartmentTitle || "Cleaning Supplies";
 
   const [sortOption, setSortOption] = useState("Price (Low to High)");
   const [currentPage, setCurrentPage] = useState(1);
@@ -67,7 +68,15 @@ const Products = () => {
     setCurrentPage(pageNumber);
   };
 
-  // Render pagination buttons
+  const handleNextPage = () => {
+    if (currentPage < totalPages) setCurrentPage(currentPage + 1);
+  };
+
+  const handlePrevPage = () => {
+    if (currentPage > 1) setCurrentPage(currentPage - 1);
+  };
+
+  // Render pagination buttons with arrow navigation
   const renderPagination = () => {
     const pages = [];
     for (let i = 1; i <= totalPages; i++) {
@@ -81,7 +90,26 @@ const Products = () => {
         </button>
       );
     }
-    return pages;
+
+    return (
+      <div className="flex space-x-2">
+        <button
+          onClick={handlePrevPage}
+          disabled={currentPage === 1}
+          className="px-3 py-1 border bg-white text-black"
+        >
+          &lt; Prev
+        </button>
+        {pages}
+        <button
+          onClick={handleNextPage}
+          disabled={currentPage === totalPages}
+          className="px-3 py-1 border bg-white text-black"
+        >
+          Next &gt;
+        </button>
+      </div>
+    );
   };
 
   return (
