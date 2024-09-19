@@ -60,7 +60,7 @@ const SecondSection = () => {
               textAlign: "center",
             }}
           >
-            About Us
+            Behind the Brand
           </h1>
           <div
             style={{
@@ -76,11 +76,7 @@ const SecondSection = () => {
             textAlign: isMobile ? "center" : "left",
           }}
         >
-          At Moral Authority, we believe in the power of informed choices. Our
-          platform connects conscientious consumers with companies and products
-          that align with their values. From environmental sustainability to
-          fair labor practices, we're here to shine a light on those making a
-          positive impact.
+         At Moral Authority, we believe informed choices have the power to change the world. Our platform connects conscious consumers with brands and products that reflect their values. Whether it's environmental sustainability, fair labor practices, or supporting minority-owned businesses, we’re here to spotlight those creating positive change.
         </p>
         <div
           style={{
@@ -105,7 +101,7 @@ const SecondSection = () => {
               textAlign: "center",
             }}
           >
-            Our Mission
+            Driven by Purpose
           </h1>
           <div
             style={{
@@ -121,10 +117,7 @@ const SecondSection = () => {
             textAlign: isMobile ? "center" : "left",
           }}
         >
-          To create a community where ethical practices are the norm, not the
-          exception. We're dedicated to providing the tools and information
-          needed to make choices that reflect your values, empowering you to
-          influence change with your actions and purchases.
+          Our mission is simple: to build a community where ethical practices become the standard, not the exception. We're committed to equipping you with the knowledge and resources to make value-driven decisions—empowering you to drive meaningful change through your actions and purchases.
         </p>
       </div>
       <div
