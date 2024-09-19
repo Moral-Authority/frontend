@@ -1,5 +1,5 @@
-import React, { useEffect } from "react";
-import { HeartIcon, Bars3Icon, UserCircleIcon, MagnifyingGlassIcon } from "@heroicons/react/24/outline";
+import React, { useEffect, useState } from "react";
+import { HeartIcon, Bars3Icon, MagnifyingGlassIcon } from "@heroicons/react/24/outline";
 import { useStateValue } from "@/utils/stateProvider/useStateValue";
 import navItems from "@/utils/testAPIs/navItems.json";
 import { motion } from "framer-motion";
@@ -8,6 +8,7 @@ import { useNavigate } from "react-router-dom";
 const MobileNav = () => {
   const [{ user }, dispatch] = useStateValue();
   const navigate = useNavigate();
+  const [expandedMenu, setExpandedMenu] = useState(null); // Track the expanded menu
 
   useEffect(() => {
     if (!user) {
@@ -27,11 +28,14 @@ const MobileNav = () => {
   const handleNavigation = (path, departmentTitle) => {
     if (path === "/shop") {
       navigate(path, { state: { departmentTitle } });
-      // dispatch({ type: "SHOP_FILTERS_TOGGLE" }); // Toggle the filter menu
     } else {
-      navigate(path); // For non-shop links, just navigate directly
+      navigate(path);
     }
-    dispatch({ type: "CHANGE_NAV_MENU" }); // Collapse the menu after navigation
+    dispatch({ type: "CHANGE_NAV_MENU" });
+  };
+
+  const toggleMenu = (menu) => {
+    setExpandedMenu(expandedMenu === menu ? null : menu); // Toggle the expanded menu
   };
 
   const logoutHandler = () => {
@@ -75,7 +79,19 @@ const MobileNav = () => {
             }}
           >
             <MagnifyingGlassIcon style={{ width: "32px", height: "32px", color: "#F2F2eb" }} />
-            <input type="search" placeholder="Search Coming Soon!" id="site-search" name="q" style={{ background: "transparent", border: "none", outline: "none", color: "#F2F2eb", width: "100%" }} />
+            <input
+              type="search"
+              placeholder="Search Coming Soon!"
+              id="site-search"
+              name="q"
+              style={{
+                background: "transparent",
+                border: "none",
+                outline: "none",
+                color: "#F2F2eb",
+                width: "100%",
+              }}
+            />
           </div>
         </div>
       ) : (
@@ -114,23 +130,31 @@ const MobileNav = () => {
 
       <div style={{ paddingTop: "2px" }}>
         <p style={{ marginBottom: "20px", fontSize: "20px" }}>Shop</p>
-        <ul
-          style={{
-            display: "flex",
-            flexDirection: "column",
-            gap: "16px",
-            paddingLeft: "1%",
-          }}
-        >
+        <ul style={{ display: "flex", flexDirection: "column", gap: "16px", paddingLeft: "1%" }}>
           {navItems?.navItems?.map((item, index) => (
             <li
               key={index}
-              onClick={() => handleNavigation(item.navLink, item.title)}
+              onClick={() => toggleMenu(item.title)}
               style={{ cursor: "pointer", opacity: 0.7 }}
               onMouseOver={(e) => (e.target.style.opacity = "1")}
               onMouseOut={(e) => (e.target.style.opacity = "0.7")}
             >
               {item.title}
+
+              {/* Show subheadings if the current menu is expanded */}
+              {expandedMenu === item.title && (
+                <ul style={{ marginTop: "10px", paddingLeft: "10px", color: "#ddd" }}>
+                  {item?.children?.items?.map((subItem, subIndex) => (
+                    <li
+                      key={subIndex}
+                      style={{ cursor: "pointer", opacity: 0.9 }}
+                      onClick={() => handleNavigation(subItem.navLink, subItem.title)}
+                    >
+                      {subItem.title}
+                    </li>
+                  ))}
+                </ul>
+              )}
             </li>
           ))}
         </ul>
