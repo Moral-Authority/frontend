@@ -37,7 +37,7 @@ const HowItWorks = () => {
               textAlign: "left",
             }}
           >
-            Unleash Your Power
+            Shop with Purpose, Drive Lasting Change
           </h1>
         </div>
         <div
@@ -61,26 +61,21 @@ const HowItWorks = () => {
                 style={{
                   justifyContent: "center",
                 }}>
-                Discover:
-                Browse our selection of carefully vetted ethical products, filter
-                by certifications, ownership, and more.
+                Explore: Dive into our curated collection of ethical products. Easily browse by certifications, sustainable practices, minority ownership, and more.
               </li>
               <br></br>
               <li
                 style={{
                   justifyContent: "center",
                 }}>
-                Support:
-                Whether it's fair labor practices, environmental sustainability, or minority
-                ownership, your purchases support causes you care about.
+                Support: Every purchase champions the values that matter to you—whether it’s fair labor, environmental sustainability, or supporting diverse businesses.
               </li>
               <br></br>
               <li
                 style={{
                   justifyContent: "center",
                 }}>
-                Influence:
-                Use your purchasing power to advocate for positive change with every purchase.
+                Impact: Turn your shopping into advocacy. Let your purchasing power drive meaningful change with every choice you make.
               </li>
             </ul>
           </section>
