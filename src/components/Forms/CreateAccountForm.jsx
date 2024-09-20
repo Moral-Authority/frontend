@@ -1,16 +1,20 @@
 import React, { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { useMutation } from "@apollo/client";
-import { CREATE_ACCOUNT_MUTATION } from "../../graphql/Mutations.js"; // Adjust the path to where you store your mutations
+import { CREATE_ACCOUNT_MUTATION } from "../../graphql/Mutations.js";
+import { GoogleLogin } from '@react-oauth/google'; // Import GoogleLogin
+import * as jwt_decode from "jwt-decode";
+import { useStateValue } from "@/utils/stateProvider/useStateValue"; // Import your context
 
 const CreateAccountForm = () => {
   const [state, setState] = useState({
     email: "",
     password: "",
   });
-  const [errors, setErrors] = useState({}); // State for form validation errors
-  const [showPopup, setShowPopup] = useState(false); // State for popup visibility
+  const [errors, setErrors] = useState({});
+  const [showPopup, setShowPopup] = useState(false);
   const navigate = useNavigate();
+  const [, dispatch] = useStateValue(); // Use the dispatch function
 
   // Use Apollo's useMutation hook
   const [createAccount, { loading, error }] = useMutation(CREATE_ACCOUNT_MUTATION);
@@ -25,34 +29,29 @@ const CreateAccountForm = () => {
   };
 
   const validatePassword = (password) => {
-    // Check if the password is at least 8 characters long and contains at least one number and one special character
     const passwordPattern = /^(?=.*[0-9])(?=.*[!@#$%^&*])[a-zA-Z0-9!@#$%^&*]{8,}$/;
     return passwordPattern.test(password);
   };
 
   const submitHandler = async (e) => {
-    e.preventDefault(); // Prevent default form submission
+    e.preventDefault();
 
     let validationErrors = {};
 
-    // Validate email
     if (!validateEmail(state.email)) {
       validationErrors.email = "Please enter a valid email address.";
     }
 
-    // Validate password
     if (!validatePassword(state.password)) {
       validationErrors.password =
         "Password must be at least 8 characters long, contain at least one number, and one special character.";
     }
 
-    // If there are validation errors, do not proceed
     if (Object.keys(validationErrors).length > 0) {
       setErrors(validationErrors);
       return;
     }
 
-    // Proceed with form submission if no errors
     try {
       const response = await createAccount({
         variables: {
@@ -64,16 +63,39 @@ const CreateAccountForm = () => {
       });
 
       console.log("Account created successfully", response);
-      setShowPopup(true); // Show popup on success
+      setShowPopup(true);
 
-      // Redirect after a delay to allow the user to see the popup
       setTimeout(() => {
         setShowPopup(false);
         navigate("/login");
-      }, 2000); // 2 seconds delay
+      }, 2000);
     } catch (err) {
       console.error("Mutation error:", err);
     }
+  };
+
+  // Google Sign-In Success Handler
+  const handleGoogleSuccess = (response) => {
+    const decoded = jwt_decode(response.credential); // Decode the JWT token from Google
+    const googleUserData = {
+      email: decoded.email,
+      name: decoded.name,
+      picture: decoded.picture,
+      sub: decoded.sub,
+    };
+
+    // Dispatch Google user data to global state or send it to your backend for further processing
+    dispatch({
+      type: "SET_USER",
+      user: googleUserData,
+    });
+
+    console.log("Google user registered:", googleUserData);
+    navigate("/"); // Redirect after Google registration
+  };
+
+  const handleGoogleFailure = (error) => {
+    console.error("Google sign-up failed:", error);
   };
 
   return (
@@ -114,11 +136,19 @@ const CreateAccountForm = () => {
           <button
             type="submit"
             className="w-full h-[51px] bg-[#75744e] text-white mt-5 shadow-xl"
-            disabled={loading} // Disable the button while the mutation is in progress
+            disabled={loading}
           >
             {loading ? "Creating account..." : "Create an account"}
           </button>
         </div>
+
+          {/* Google Sign-Up Button */}
+          {/* <div className="mt-5">
+          <GoogleLogin
+            onSuccess={handleGoogleSuccess}
+            onError={handleGoogleFailure}
+          />
+        </div> */}
 
         <p>
           Already have an account?{" "}
@@ -126,6 +156,7 @@ const CreateAccountForm = () => {
             <Link to="/login">Sign in</Link>
           </span>
         </p>
+
       </form>
 
       {showPopup && (

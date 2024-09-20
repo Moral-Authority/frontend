@@ -1,74 +1,84 @@
 import React, { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { useMutation } from '@apollo/client';
-import { LOGIN_MUTATION } from '../../graphql/Mutations.js'; // Adjust the path to where you store your mutations
-import { useStateValue } from "@/utils/stateProvider/useStateValue"; // Import your context
+import { LOGIN_MUTATION } from '../../graphql/Mutations.js';
+import { useStateValue } from "@/utils/stateProvider/useStateValue";
+import { GoogleLogin } from '@react-oauth/google'; // Import GoogleLogin
+import * as jwt_decode from "jwt-decode";
 
 const LoginForm = () => {
   const [state, setState] = useState({
     email: "",
     password: "",
   });
-  const [showPopup, setShowPopup] = useState(false);
+  const [showPopup, setShowPopup] = useState(false); 
   const navigate = useNavigate();
-  const [, dispatch] = useStateValue(); // Use the dispatch function
+  const [, dispatch] = useStateValue();
 
   const [login, { loading, error }] = useMutation(LOGIN_MUTATION);
 
   const changeHandler = (e) => {
     setState({ ...state, [e.target.name]: e.target.value });
   };
-  
+
   const submitHandler = async (e) => {
     e.preventDefault();
-  
     try {
       const response = await login({
         variables: {
-          input: {  // Ensure this matches the backend's expected input
+          input: { 
             email: state.email,
             password: state.password,
           },
         },
       });
-  
       if (response.data) {
-        console.log("Login successful", response);
         setShowPopup(true);
-  
         const userData = {
           id: response.data.login.user._id,
           email: response.data.login.user.email,
         };
-  
-        // Dispatch the login state and user ID to the global state
         dispatch({
           type: "SET_USER",
           user: userData,
         });
-  
-        // Save the user data and token in localStorage
         localStorage.setItem('authToken', response.data.login.token);
         localStorage.setItem('user', JSON.stringify(userData));
-  
         setTimeout(() => {
           setShowPopup(false);
           navigate("/");
         }, 2000);
       }
-  
     } catch (err) {
       console.error("Login error:", err);
-      if (err.networkError) {
-        console.error("Network error:", err.networkError.result.errors);
-      } else if (err.graphQLErrors) {
-        err.graphQLErrors.forEach(({ message, locations, path }) => {
-          console.error(`[GraphQL error]: Message: ${message}, Location: ${locations}, Path: ${path}`);
-        });
-      }
     }
   };
-  
+
+  // Google Login Success Handler
+  const handleGoogleSuccess = (response) => {
+    const decoded = jwt_decode(response.credential); // Decode the JWT token from Google
+    const googleUserData = {
+      email: decoded.email,
+      name: decoded.name,
+      picture: decoded.picture,
+      sub: decoded.sub,
+    };
+
+    // Dispatch Google user data to global state or send it to your backend for further processing
+    dispatch({
+      type: "SET_USER",
+      user: googleUserData,
+    });
+
+    // Optionally, send the token to the backend for authentication and user creation.
+    console.log("Google user logged in:", googleUserData);
+    navigate("/"); // Redirect after Google login
+  };
+
+  const handleGoogleFailure = (error) => {
+    console.error("Google login failed:", error);
+  };
+
   return (
     <div>
       <form className="mt-8 h-full flex flex-col space-y-5 w-full text-[#777D88]" onSubmit={submitHandler}>
@@ -97,7 +107,7 @@ const LoginForm = () => {
             placeholder="Enter your password"
           />
         </div>
-  
+
         <div>
           <button
             type="submit"
@@ -108,12 +118,21 @@ const LoginForm = () => {
           </button>
         </div>
 
+        {/* Google Sign-In Button */}
+        {/* <div className="mt-5">
+          <GoogleLogin
+            onSuccess={handleGoogleSuccess}
+            onError={handleGoogleFailure}
+          />
+        </div> */}
+
         <p>
           Don't have an account?{" "}
           <span className="text-[#D6AD60] cursor-pointer">
             <Link to="/create-account">Sign up</Link>
           </span>
         </p>
+
       </form>
 
       {showPopup && (

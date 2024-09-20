@@ -60,3 +60,15 @@ const DELETE_USER_MUTATION = gql`
     }
   }
 `;
+
+
+export const RESET_PASSWORD_MUTATION = gql`
+  mutation DeleteUser($id: Int!) {
+    deleteUser(id: $id) {
+      id
+      name
+      createdAt
+      age
+      address
+    }
+  }`;
