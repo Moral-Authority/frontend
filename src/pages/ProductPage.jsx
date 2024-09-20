@@ -10,7 +10,7 @@ import RelatedProducts from "../components/ProductPageSections/RelatedProducts.j
 import { GET_PRODUCT_BY_ID } from "../graphql/Queries.js"; 
 
 const ProductPage = () => {
-  const { id, department } = useParams();
+  const { id, department, subDepartment } = useParams();
   console.log("department in product page", department);
   const { loading, error, data } = useQuery(GET_PRODUCT_BY_ID, {
     variables: { id, department }, 
@@ -71,7 +71,7 @@ const ProductPage = () => {
                 : ""
             }`}
           >
-            Delivery Information
+            Reviews
           </p>
         </div>
         {activeTab === TABS.DESCRIPTION && <ProductDescription />}
@@ -94,10 +94,8 @@ const ProductPage = () => {
           <p className="text-[#000000]/80">Delivery Information</p>
           <div className="text-[#697383]">
             <p className="text-sm leading-loose pt-5">
-              Lorem Ipsum is simply dummy text of the printing and typesetting
-              industry. Lorem Ipsum has been the industry's standard dummy text
-              ever since the 1500...
-              <span className="text-black cursor-pointer">See more</span>
+              No Reviews Yet!
+              {/* <span className="text-black cursor-pointer">See more</span> */}
             </p>
           </div>
         </div>
@@ -107,7 +105,7 @@ const ProductPage = () => {
         className="h-full flex flex-col space-y-10 w-full px-5 overflow-x-scroll
       md:overflow-x-hidden md:px-20 lg:px-36 py-16"
       >
-        {/* <RelatedProducts /> */}
+        <RelatedProducts title={product.Title} department={department}  subDepartment={subDepartment}/>
       </section>
     </div>
   );

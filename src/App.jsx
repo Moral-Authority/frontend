@@ -65,7 +65,7 @@ export const App = () => {
               <Route path="/login" element={<Login />} />
               <Route path="/shop/:department/:subDepartment" element={<Shop />} /> {/* Updated */}
               <Route path="/profile" element={<Profile />} />
-              <Route path="/product/:department/:id" element={<ProductPage />} />
+              <Route path="/product/:department/:subDepartment/:id" element={<ProductPage />} />
               <Route path="/privacy-policy" element={<PrivacyPolicy />} />
               {user && (
                 <Route path="/profile" element={<Profile />}>

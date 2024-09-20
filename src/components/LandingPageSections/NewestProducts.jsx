@@ -10,7 +10,7 @@ import 'primeicons/primeicons.css';
 
 const NewestProducts = () => {
   const { data, loading, error } = useQuery(GET_ALL_PRODUCTS_BY_SUB_DEPARTMENT, {
-    variables: { department: "Home & Garden", subDepartment: "Cleaning Supplies" },
+    variables: { department: "home-and-garden", subDepartment: "cleaning-supplies" },
   });
 
   const [{ user, favorites }] = useStateValue();
