@@ -25,14 +25,16 @@ const MobileNav = () => {
 
   const userLoggedIn = !!user;
 
-  const handleNavigation = (path, departmentTitle) => {
-    if (path === "/shop") {
-      navigate(path, { state: { departmentTitle } });
-    } else {
-      navigate(path);
-    }
+  const handleNavigation = (departmentTitle, subDepartmentTitle ) => {
+    departmentTitle = departmentTitle.toLowerCase().replace(/ /g, "-").replace("&", "and").replace(",", "-");
+    subDepartmentTitle = subDepartmentTitle.toLowerCase().replace(/ /g, "-").replace("&", "and").replace(",", "-");
+    let url = `/shop/${departmentTitle}/${subDepartmentTitle}`;
+    navigate(url);
+    // Close the menu after navigation
+    setExpandedMenu(null);
     dispatch({ type: "CHANGE_NAV_MENU" });
   };
+
 
   const toggleMenu = (menu) => {
     setExpandedMenu(expandedMenu === menu ? null : menu); // Toggle the expanded menu
@@ -97,7 +99,7 @@ const MobileNav = () => {
       ) : (
         <div style={{ display: "flex", justifyContent: "center", gap: "20px" }}>
           <button
-            onClick={() => handleNavigation('/create-account')}
+            onClick={() =>  navigate('/create-account')}
             style={{
               width: "150px",
               height: "50px",
@@ -111,7 +113,7 @@ const MobileNav = () => {
             Sign up
           </button>
           <button
-            onClick={() => handleNavigation('/login')}
+            onClick={() => navigate('/login')}
             style={{
               width: "150px",
               height: "50px",
@@ -148,7 +150,7 @@ const MobileNav = () => {
                     <li
                       key={subIndex}
                       style={{ cursor: "pointer", opacity: 0.9 }}
-                      onClick={() => handleNavigation(subItem.navLink, subItem.title)}
+                      onClick={() => handleNavigation(item.title, subItem.title)}
                     >
                       {subItem.title}
                     </li>
@@ -174,7 +176,7 @@ const MobileNav = () => {
           <p onClick={logoutHandler} style={{ fontSize: "20px", paddingTop: "20px" }}>
             Sign Out
           </p>
-          <p onClick={() => handleNavigation("/profile")} style={{ fontSize: "20px", paddingTop: "20px" }}>
+          <p onClick={() => navigate("/profile")} style={{ fontSize: "20px", paddingTop: "20px" }}>
             Edit Profile
           </p>
         </div>

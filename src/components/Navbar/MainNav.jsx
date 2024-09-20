@@ -20,19 +20,14 @@ const MainNav = ({ userLoggedIn }) => {
     if (searchTerm.trim()) {
       searchProducts({ variables: { input: searchTerm } }).then((res) => {
         if (res.data && res.data.search.length > 0) {
-          const products = res.data.search; // Declare products
-          const product = products[0]; // Declare product
-          const departmentTitle = product.Department; // Declare departmentTitle
   
-          console.log("Search results:", departmentTitle);
-          console.log("Search results:", departmentTitle);
           // Dispatch search results to global state as filtered products
           dispatch({
             type: actionTypes.SET_FILTERED_PRODUCTS,
             filteredProducts: res.data.search,
           });
           // Redirect to Shop page
-          navigate("/shop", { state: { departmentTitle: departmentTitle } });
+          navigate(`/shop/${department}/${subDepartment}`);
         } else {
           console.log("No products found.");
         }

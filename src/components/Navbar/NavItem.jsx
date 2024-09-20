@@ -6,14 +6,12 @@ const NavItem = ({ item }) => {
   const navigate = useNavigate();
   const [, dispatch] = useStateValue();
 
-  const handleNavigation = (navLink, departmentTitle, subDepartmentTitle = null) => {
-    if (navLink === "/shop") {
-      // Navigate to the shop page with both department and subDepartment titles
-      navigate(navLink, { state: { departmentTitle, subDepartmentTitle } });
-      // dispatch({ type: "SHOP_FILTERS_TOGGLE" }); // Toggle the filter menu if needed
-    } else {
-      navigate(navLink); // For non-shop links, just navigate directly
-    }
+  const handleNavigation = (departmentTitle, subDepartmentTitle = null) => {
+    // Construct URL based on department and subDepartment
+    departmentTitle = departmentTitle.toLowerCase().replace(/ /g, "-").replace("&", "and").replace(",", "-");
+    subDepartmentTitle = subDepartmentTitle.toLowerCase().replace(/ /g, "-").replace("&", "and").replace(",", "-");
+    let url = `/shop/${departmentTitle}/${subDepartmentTitle}`;
+    navigate(url);
   };
 
   return (
@@ -22,7 +20,7 @@ const NavItem = ({ item }) => {
         className={`cursor-pointer inline-flex items-center group-hover:border-b-4 space-x-2 pb-3
       border-transparent z-50 text-[#black]`}
       >
-        <span onClick={() => handleNavigation(item.navLink, item.title)}>{item.title}</span>
+        <span onClick={() => handleNavigation(item.title)}>{item.title}</span>
       </div>
       {item.children && (
         <ul className="absolute 
@@ -48,7 +46,7 @@ const NavItem = ({ item }) => {
               }
             >
               <span
-                onClick={() => handleNavigation(childItem.navLink, item.title, childItem.title)}
+                onClick={() => handleNavigation(item.title, childItem.title)}
               >
                 {childItem.title}
               </span>
