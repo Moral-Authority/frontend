@@ -15,10 +15,10 @@ const NavItem = ({ item }) => {
   };
 
   return (
-    <div className="relative h-20 pt-3 group z-50 ">
+    <div className="relative h-20 pt-3 group z-49 ">
       <div
         className={`cursor-pointer inline-flex items-center group-hover:border-b-4 space-x-2 pb-3
-      border-transparent z-50 text-[#black]`}
+      border-transparent z-49 text-[#black]`}
       >
         <span onClick={() => handleNavigation(item.title)}>{item.title}</span>
       </div>
@@ -37,7 +37,7 @@ const NavItem = ({ item }) => {
                       bg-white
                       text-black
                       rounded-md
-                      z-50 !important">
+                      z-49 !important">
           {item.children.items.map((childItem, index) => (
             <li
               key={index}

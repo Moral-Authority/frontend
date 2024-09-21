@@ -29,7 +29,6 @@ const Filters = ({ department, subDepartment }) => {
   const [selectedCertificates, setSelectedCertificates] = useState([]);
 
   // Expansion states for various filter sections
-  const [expandPriceRange, setExpandPriceRange] = useState(false);
   const [expandProductFilters, setExpandProductFilters] = useState(false);
   const [expandRatings, setExpandRatings] = useState(false);
   const [expandCompany, setExpandCompany] = useState(false);

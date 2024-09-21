@@ -63,8 +63,7 @@ export const App = () => {
               <Route path="/" element={<LandingPage />} />
               <Route path="/create-account" element={<Signup />} />
               <Route path="/login" element={<Login />} />
-              <Route path="/shop/search/:searchTerm" element={<Shop />} />
-              <Route path="/shop/:department/:subDepartment" element={<Shop />} />
+              <Route path="/shop/:department/:subDepartment/:sort?" element={<Shop />} />
               <Route path="/profile" element={<Profile />} />
               <Route path="/product/:department/:id" element={<ProductPage />} />
               <Route path="/privacy-policy" element={<PrivacyPolicy />} />

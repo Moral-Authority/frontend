@@ -2,23 +2,27 @@ import React, { useEffect, useState } from "react";
 import { useQuery } from "@apollo/client";
 import { GET_ALL_PRODUCTS_BY_SUB_DEPARTMENT } from "@/graphql/Queries";
 import Product from "./Product";
+import Pagination from "./Pagination";
+import SortProducts from "./SortProducts";
 import { useStateValue } from "@/utils/stateProvider/useStateValue";
-import { useParams } from "react-router-dom"; 
-import Pagination from "./Pagination"; // Import Pagination component
+import { useParams } from "react-router-dom";
 
 const Products = () => {
-  const [{ filteredProducts, filtered }, dispatch] = useStateValue();
+  const [{ filteredProducts, filtered }] = useStateValue();
   const { department, subDepartment, searchTerm } = useParams(); 
   const [sortOption, setSortOption] = useState("Price (Low to High)");
+  const [sortedProducts, setSortedProducts] = useState([]);
   const [currentPage, setCurrentPage] = useState(1);
   const [productsPerPage] = useState(10);
 
   let products = [];
 
   // Fetch products based on search term or department/subDepartment
-  if (searchTerm) {
-    products = filteredProducts && filteredProducts.length > 0 ? filteredProducts : [];
+  if (searchTerm && filteredProducts.length > 0) {
+    // Use filtered products if the search term is present
+    products = filteredProducts;
   } else {
+    // Otherwise, fetch products by department/sub-department
     const { data, loading, error } = useQuery(GET_ALL_PRODUCTS_BY_SUB_DEPARTMENT, {
       variables: { department, subDepartment },
     });
@@ -31,26 +35,26 @@ const Products = () => {
     }
   }
 
+  // If no products are found
   if (products.length === 0) {
-    return filtered ? <p>No products found.</p> : <p>Coming soon!</p>;
+    return searchTerm ? <p>No products found.</p> : <p>Coming soon!</p>;
   }
 
-  // Sorting logic
-  const sortProducts = (option) => {
-    const sortedProducts = [...products];
-    if (option === "Price (Low to High)") {
-      sortedProducts.sort((a, b) => a.PurchaseInfo[0].Price - b.PurchaseInfo[0].Price);
-    } else if (option === "Price (High to Low)") {
-      sortedProducts.sort((a, b) => b.PurchaseInfo[0].Price - a.PurchaseInfo[0].Price);
-    }
-    return sortedProducts;
-  };
+  // Update sorted products when products or sort option change
+  useEffect(() => {
+    const sortProducts = (option, productsToSort) => {
+      const sorted = [...productsToSort];
+      if (option === "Price (Low to High)") {
+        sorted.sort((a, b) => a.PurchaseInfo[0].Price - b.PurchaseInfo[0].Price);
+      } else if (option === "Price (High to Low)") {
+        sorted.sort((a, b) => b.PurchaseInfo[0].Price - a.PurchaseInfo[0].Price);
+      }
+      return sorted;
+    };
 
-  const handleSortChange = (e) => {
-    setSortOption(e.target.value);
-  };
-
-  const sortedProducts = sortProducts(sortOption);
+    const sorted = sortProducts(sortOption, products);
+    setSortedProducts(sorted);
+  }, [sortOption, products]);
 
   // Pagination logic
   const indexOfLastProduct = currentPage * productsPerPage;
@@ -72,16 +76,12 @@ const Products = () => {
 
   return (
     <div className="flex space-y-5 flex-col border-b pb-10 h-full w-full xl:w-3/4">
-      {/* Filter and Sort Options for Desktop */}
+      {/* Sort Options */}
       <section className="flex xl:flex items-center justify-between pt-0 border-[#E7EAF5] xl:border-[#EDEFF6]/60">
-        <select
-          className="text-[#798086] px-4 py-2 bg-white border border-[#EDEFF6]"
-          value={sortOption}
-          onChange={handleSortChange}
-        >
-          <option value="Price (Low to High)">Price (Low to High)</option>
-          <option value="Price (High to Low)">Price (High to Low)</option>
-        </select>
+        <SortProducts
+          sortOption={sortOption}
+          setSortOption={setSortOption}
+        />
       </section>
 
       {/* Products Grid */}

@@ -115,7 +115,7 @@ const ProductPage = () => {
 
       {/* Related Products */}
       <section className="h-full flex flex-col space-y-10 w-full px-5 overflow-x-scroll md:overflow-x-hidden md:px-20 lg:px-36 py-16">
-        <RelatedProducts title={product.Title} department={department}  subDepartment={subDepartment}/>
+        <RelatedProducts title={product.Title} department={department} subDepartment={subDepartment}/>
       </section>
     </div>
   );

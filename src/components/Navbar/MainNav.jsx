@@ -8,49 +8,11 @@ import { useNavigate } from "react-router-dom";
 import { Link } from "react-router-dom";
 import Logo from "images/MoralAuthorityLogo.png";
 import { SEARCH_PRODUCTS } from "../../graphql/Queries.js"; 
-
-
+import Search from './Search';  // Import the new SearchComponent
+ 
 const MainNav = ({ userLoggedIn }) => {
   const [{ userProfile }, dispatch] = useStateValue();
-  const [searchTerm, setSearchTerm] = useState("");
-  const [searchProducts, { data, loading, error }] = useLazyQuery(SEARCH_PRODUCTS);
   const navigate = useNavigate();
-
-const handleSearch = () => {
-  if (searchTerm.trim()) {
-    searchProducts({ variables: { input: searchTerm } }).then((res) => {
-      // Always navigate to the shop page with the search term
-      navigate(`/shop/search/${searchTerm}`);
-      
-      if (res.data && res.data.search.length > 0) {
-        // Dispatch search results to global state as filtered products
-        dispatch({
-          type: actionTypes.SET_FILTERED_PRODUCTS,
-          filteredProducts: res.data.search,
-        });
-      } else {
-        // Set an empty array to indicate no products found
-        dispatch({
-          type: actionTypes.SET_FILTERED_PRODUCTS,
-          filteredProducts: [],
-        });
-        console.log("No products found.");
-      }
-    });
-  }
-};
-
-  
-
-  const handleInputChange = (e) => {
-    setSearchTerm(e.target.value);
-  };
-
-  const handleKeyDown = (e) => {
-    if (e.key === 'Enter') {
-      handleSearch();
-    }
-  };
 
   return (
     <div>
@@ -66,32 +28,25 @@ const handleSearch = () => {
         </Link>
 
         {/* Search Bar */}
-        <div className="hidden lg:flex m:flex sm:flex xs:flex py-1 items-center border-b border-b-black w-1/3 xl:w-1/3 space-x-2">
-          <MagnifyingGlassIcon className="h-6 w-6" onClick={handleSearch} />
-          <input
-            type="search"
-            className="placeholder:text-black focus:border-none focus:outline-none w-full"
-            placeholder="Search for products..."
-            id="site-search"
-            name="q"
-            value={searchTerm}
-            onChange={handleInputChange}
-            onKeyDown={handleKeyDown}
-          />
+        <div className="hidden lg:flex sm:flex xs:flex w-full  z-50">
+          <Search />  {/* Use the Search component here */}
         </div>
 
-        {userLoggedIn ? (
+        {/* User Profile Checks */}
+        {userProfile ? (
           <nav className="hidden lg:flex m:flex sm:flex">
             <ul className="flex items-center space-x-5">
+              {/* Show favorites if user is logged in */}
               <li>
-                <Link to={userProfile ? "/profile" : "#"}>
+                <Link to="/favorites">
                   <div className="h-10 w-10 rounded-full">
                     <HeartIcon className="h-10 w-10 text-[#1a1a0a]" />
                   </div>
                 </Link>
               </li>
               <li>
-                <Link to={userProfile ? "/profile" : "#"}>
+                {/* Profile icon navigates to profile if logged in */}
+                <Link to="/profile">
                   <div className="h-10 w-10 rounded-full">
                     <UserCircleIcon className="h-10 w-10" />
                   </div>
@@ -101,6 +56,7 @@ const handleSearch = () => {
           </nav>
         ) : (
           <nav className="hidden lg:flex">
+            {/* If not logged in, show Signup and Login buttons */}
             <ul className="flex space-x-5">
               <li>
                 <Link to="/create-account">
@@ -111,9 +67,7 @@ const handleSearch = () => {
               </li>
               <li>
                 <Link to="/login">
-                  <button
-                    className="h-[46px] w-[128px] text-base bg-white text-black border border-black text-center rounded-lg"
-                  >
+                  <button className="h-[46px] w-[128px] text-base bg-white text-black border border-black text-center rounded-lg">
                     Login
                   </button>
                 </Link>
@@ -124,7 +78,7 @@ const handleSearch = () => {
 
         {/* Bars Icon Menu for Smaller Screens */}
         <nav className="flex sm:hidden m:hidden lg:hidden space-x-3">
-          {userLoggedIn && (
+          {userProfile && (
             <Link to="/profile">
               <div className="h-8 w-8 space-x-3 rounded-full">
                 <HeartIcon className="h-8 w-8 text-[#1a1a0a]" />
@@ -133,33 +87,12 @@ const handleSearch = () => {
           )}
           <Bars3Icon
             className="h-8 w-8"
-            onClick={() =>
-              dispatch({
-                type: "CHANGE_NAV_MENU",
-              })
-            }
+            onClick={() => console.log('Menu clicked')}
           />
         </nav>
       </header>
 
-      {/* Search Results */}
-      <div className="search-results">
-        {loading && <p>Loading...</p>}
-        {error && <p>Error: {error.message}</p>}
-        {data && (
-          <ul>
-            {data.search.map((product) => (
-              <li key={product._id}>
-                <h3>{product.Title}</h3>
-                <p>Company: {product.Company.name}</p>
-                <p>Price: ${product.PurchaseInfo.Price}</p>
-              </li>
-            ))}
-          </ul>
-        )}
-      </div>
-
-      {/* NavItems for Categories, Visible on Larger, medium and small screens */}
+      {/* NavItems for Categories */}
       <div className="hidden justify-center space-x-5 w-full h-14 bg-[#ffffff] text-black 
       m:flex lg:flex xs:flex sm:flex text-sm sm:text-base md:text-lg lg:text-xl border border-gray-300">
         <NavItems />

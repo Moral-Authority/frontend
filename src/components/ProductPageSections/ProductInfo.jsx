@@ -69,10 +69,7 @@ const ProductInfo = ({ _id, product, productDepartment }) => {
         <div className="flex flex-col w-full space-y-5 ml-6 pt-5">
         </div>
           <p className="text-[#758BAE] leading-loose text-sm mt-5 min-w-full">
-            {product.Description} DESCRIPTION LOREM IPSUM  DESCRIPTION LOREM IPSUM  DESCRIPTION LOREM IPSUM  
-            DESCRIPTION LOREM IPSUM  DESCRIPTION LOREM IPSUM  
-            DESCRIPTION LOREM IPSUM  DESCRIPTION LOREM IPSUM  
-            DESCRIPTION LOREM IPSUM  DESCRIPTION LOREM IPSUM  
+            {product.Description} 
           </p>
           <div className="flex justify-between mt-3 items-center border-b pb-3">
             <p className="text-[#5F646F] leading-5">
