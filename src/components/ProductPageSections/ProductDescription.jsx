@@ -1,5 +1,4 @@
 import React from "react";
-import { SocialIcon } from "react-social-icons";
 
 
 const ProductDescription = () => {
@@ -27,15 +26,15 @@ const ProductDescription = () => {
           <ul className="flex flex-col space-y-2 text-sm">
             <li className="flex space-x-3 items-center">
               <div className="h-2 w-2 bg-[#D6DDEB]"></div>
-              <span>Lorem Ipsum is simply dummy text of the printing </span>
+              <span>Dye Free </span>
             </li>
             <li className="flex space-x-2 items-center">
               <div className="h-2 w-2 bg-[#D6DDEB]"></div>
-              <span>Industry's standard dummy text ever since the 1500s, </span>
+              <span>Recycled </span>
             </li>
             <li className="flex space-x-2 items-center">
               <div className="h-2 w-2 bg-[#D6DDEB]"></div>
-              <span>the printing and typesetting industry. Lorem Ipsum </span>
+              <span> Organic </span>
             </li>
           </ul>
         </div>

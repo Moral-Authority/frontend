@@ -2,32 +2,33 @@ import React, { useEffect, useState } from "react";
 import { useQuery } from "@apollo/client";
 import { GET_ALL_PRODUCTS_BY_SUB_DEPARTMENT } from "@/graphql/Queries";
 import Product from "./Product";
-import { useStateValue, actionTypes } from "@/utils/stateProvider/useStateValue";
-import { useParams } from "react-router-dom";  // <- Updated
+import { useStateValue } from "@/utils/stateProvider/useStateValue";
+import { useParams } from "react-router-dom"; 
+import Pagination from "./Pagination"; // Import Pagination component
 
 const Products = () => {
   const [{ filteredProducts, filtered }, dispatch] = useStateValue();
-  const { department, subDepartment } = useParams();  // <- Extracting params from URL
-
+  const { department, subDepartment, searchTerm } = useParams(); 
   const [sortOption, setSortOption] = useState("Price (Low to High)");
   const [currentPage, setCurrentPage] = useState(1);
-  const [productsPerPage] = useState(10); // Define how many products per page
+  const [productsPerPage] = useState(10);
 
-  // Fetch products by sub-department from the API
-  const { data, loading, error } = useQuery(GET_ALL_PRODUCTS_BY_SUB_DEPARTMENT, {
-    variables: { department, subDepartment },
-  });
-
-  if (loading) return <p>Loading...</p>;
-
-  if (error) return <p>Error loading products. Please try again later.</p>;
-
-  // Determine which products to display (filtered or fetched)
   let products = [];
-  if (filtered) {
+
+  // Fetch products based on search term or department/subDepartment
+  if (searchTerm) {
     products = filteredProducts && filteredProducts.length > 0 ? filteredProducts : [];
-  } else if (data?.getAllProductsBySubDepartment?.length > 0) {
-    products = data.getAllProductsBySubDepartment;
+  } else {
+    const { data, loading, error } = useQuery(GET_ALL_PRODUCTS_BY_SUB_DEPARTMENT, {
+      variables: { department, subDepartment },
+    });
+
+    if (loading) return <p>Loading...</p>;
+    if (error) return <p>Error loading products. Please try again later.</p>;
+
+    if (data && data.getAllProductsBySubDepartment.length > 0) {
+      products = data.getAllProductsBySubDepartment;
+    }
   }
 
   if (products.length === 0) {
@@ -55,7 +56,6 @@ const Products = () => {
   const indexOfLastProduct = currentPage * productsPerPage;
   const indexOfFirstProduct = indexOfLastProduct - productsPerPage;
   const currentProducts = sortedProducts.slice(indexOfFirstProduct, indexOfLastProduct);
-
   const totalPages = Math.ceil(sortedProducts.length / productsPerPage);
 
   const handlePageChange = (pageNumber) => {
@@ -70,48 +70,11 @@ const Products = () => {
     if (currentPage > 1) setCurrentPage(currentPage - 1);
   };
 
-  // Render pagination buttons with arrow navigation
-  const renderPagination = () => {
-    const pages = [];
-    for (let i = 1; i <= totalPages; i++) {
-      pages.push(
-        <button
-          key={i}
-          onClick={() => handlePageChange(i)}
-          className={`px-3 py-1 border ${i === currentPage ? "bg-black text-white" : "bg-white text-black"}`}
-        >
-          {i}
-        </button>
-      );
-    }
-
-    return (
-      <div className="flex space-x-2">
-        <button
-          onClick={handlePrevPage}
-          disabled={currentPage === 1}
-          className="px-3 py-1 border bg-white text-black"
-        >
-          &lt; Prev
-        </button>
-        {pages}
-        <button
-          onClick={handleNextPage}
-          disabled={currentPage === totalPages}
-          className="px-3 py-1 border bg-white text-black"
-        >
-          Next &gt;
-        </button>
-      </div>
-    );
-  };
-
   return (
     <div className="flex space-y-5 flex-col border-b pb-10 h-full w-full xl:w-3/4">
       {/* Filter and Sort Options for Desktop */}
       <section className="flex xl:flex items-center justify-between pt-0 border-[#E7EAF5] xl:border-[#EDEFF6]/60">
         <select
-          id=""
           className="text-[#798086] px-4 py-2 bg-white border border-[#EDEFF6]"
           value={sortOption}
           onChange={handleSortChange}
@@ -139,7 +102,13 @@ const Products = () => {
 
       {/* Pagination Controls */}
       <section className="flex justify-center space-x-2 mt-5">
-        {renderPagination()}
+        <Pagination
+          totalPages={totalPages}
+          currentPage={currentPage}
+          handlePageChange={handlePageChange}
+          handlePrevPage={handlePrevPage}
+          handleNextPage={handleNextPage}
+        />
       </section>
     </div>
   );

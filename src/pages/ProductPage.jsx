@@ -11,15 +11,13 @@ import { GET_PRODUCT_BY_ID } from "../graphql/Queries.js";
 
 const ProductPage = () => {
   const { id, department, subDepartment } = useParams();
-  console.log("department in product page", department);
   const { loading, error, data } = useQuery(GET_PRODUCT_BY_ID, {
     variables: { id, department }, 
   });
 
-
   const TABS = {
     DESCRIPTION: "description",
-    DELIVERY: "delivery",
+    REVIEWS: "reviews",
   };
  
   const [activeTab, setActiveTab] = useState(TABS.DESCRIPTION);
@@ -28,6 +26,9 @@ const ProductPage = () => {
   if (error) return <p>Error: {error.message}</p>;
 
   const product = data.getProductByID;
+
+  // Assuming we would have product.reviews or a similar field
+  const hasReviews = product.reviews && product.reviews.length > 0;
 
   return (
     <div className="min-h-screen w-full flex flex-col bg-white">
@@ -49,7 +50,8 @@ const ProductPage = () => {
             purchaseInfo={product.PurchaseInfo}
             productDepartment={department}/>
       </section>
-      {/* Section for large screens */}
+
+      {/* Section for large screens (Desktop) */}
       <section className="h-full hidden md:flex flex-col space-y-10 w-full md:px-20 lg:px-36">
         {/* Description Nav */}
         <div className="text-[#697383]/50 flex w-full space-x-5 border-b pb-4">
@@ -64,9 +66,9 @@ const ProductPage = () => {
             Product Details
           </p>
           <p
-            onClick={() => setActiveTab(TABS.DELIVERY)}
+            onClick={() => setActiveTab(TABS.REVIEWS)}
             className={`cursor-pointer ${
-              activeTab === TABS.DELIVERY
+              activeTab === TABS.REVIEWS
                 ? "text-black underline underline-offset-[16px]"
                 : ""
             }`}
@@ -75,8 +77,18 @@ const ProductPage = () => {
           </p>
         </div>
         {activeTab === TABS.DESCRIPTION && <ProductDescription />}
+        {activeTab === TABS.REVIEWS && (
+          <div className="text-[#697383]">
+            {hasReviews ? (
+              <p>Reviews will be displayed here...</p>
+            ) : (
+              <p>No Reviews Yet!</p>
+            )}
+          </div>
+        )}
       </section>
-      {/* Section for small screens */}
+
+      {/* Section for small screens (Mobile) */}
       <section className="w-full pt-5 flex md:hidden flex-col space-y-5 px-5">
         <div className="flex flex-col space-y-5">
           <p className="text-[#000000]/80">Product Description</p>
@@ -91,7 +103,7 @@ const ProductPage = () => {
           </div>
         </div>
         <div className="flex flex-col space-y-5">
-          <p className="text-[#000000]/80">Delivery Information</p>
+          <p className="text-[#000000]/80">Reviews</p>
           <div className="text-[#697383]">
             <p className="text-sm leading-loose pt-5">
               No Reviews Yet!
@@ -100,11 +112,9 @@ const ProductPage = () => {
           </div>
         </div>
       </section>
+
       {/* Related Products */}
-      <section
-        className="h-full flex flex-col space-y-10 w-full px-5 overflow-x-scroll
-      md:overflow-x-hidden md:px-20 lg:px-36 py-16"
-      >
+      <section className="h-full flex flex-col space-y-10 w-full px-5 overflow-x-scroll md:overflow-x-hidden md:px-20 lg:px-36 py-16">
         <RelatedProducts title={product.Title} department={department}  subDepartment={subDepartment}/>
       </section>
     </div>

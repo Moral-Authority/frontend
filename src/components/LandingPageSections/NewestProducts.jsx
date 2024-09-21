@@ -50,7 +50,7 @@ const NewestProducts = () => {
         company={product.Company}
         purchaseInfo={product.PurchaseInfo}
         imageLinks={product.ImageLinks}
-        productDepartment={"home-and-garden"}
+        productDepartment={product.Department}
       />
     </div>
   );

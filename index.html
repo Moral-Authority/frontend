@@ -2,18 +2,28 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
-    <link rel="icon" type="image/svg+xml" href="/vite.svg" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta name='impact-site-verification' value='870ae376-312b-4b18-af52-a879c0e27bfc'>
+    <meta name="impact-site-verification" value="870ae376-312b-4b18-af52-a879c0e27bfc">
+    <link rel="icon" type="image/svg+xml" href="/vite.svg" />
     <title>Moral Authority</title>
+
+    <!-- Preload critical styles -->
+    <link rel="preload" href="./index.css" as="style" />
+    <link rel="stylesheet" href="./index.css" />
+
+    <!-- Google Ads Script -->
     <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-5520374988487945"
      crossorigin="anonymous"></script>
   </head>
   <body>
     <div id="root"></div>
+    
+    <!-- Optional globalThis declaration -->
     <script>
       let global = globalThis;
     </script>
+
+    <!-- Main JavaScript file -->
     <script type="module" src="/src/index.jsx"></script>
   </body>
 </html>

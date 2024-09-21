@@ -16,24 +16,31 @@ const MainNav = ({ userLoggedIn }) => {
   const [searchProducts, { data, loading, error }] = useLazyQuery(SEARCH_PRODUCTS);
   const navigate = useNavigate();
 
-  const handleSearch = () => {
-    if (searchTerm.trim()) {
-      searchProducts({ variables: { input: searchTerm } }).then((res) => {
-        if (res.data && res.data.search.length > 0) {
+const handleSearch = () => {
+  if (searchTerm.trim()) {
+    searchProducts({ variables: { input: searchTerm } }).then((res) => {
+      // Always navigate to the shop page with the search term
+      navigate(`/shop/search/${searchTerm}`);
+      
+      if (res.data && res.data.search.length > 0) {
+        // Dispatch search results to global state as filtered products
+        dispatch({
+          type: actionTypes.SET_FILTERED_PRODUCTS,
+          filteredProducts: res.data.search,
+        });
+      } else {
+        // Set an empty array to indicate no products found
+        dispatch({
+          type: actionTypes.SET_FILTERED_PRODUCTS,
+          filteredProducts: [],
+        });
+        console.log("No products found.");
+      }
+    });
+  }
+};
+
   
-          // Dispatch search results to global state as filtered products
-          dispatch({
-            type: actionTypes.SET_FILTERED_PRODUCTS,
-            filteredProducts: res.data.search,
-          });
-          // Redirect to Shop page
-          navigate(`/shop/${department}/${subDepartment}`);
-        } else {
-          console.log("No products found.");
-        }
-      });
-    }
-  };
 
   const handleInputChange = (e) => {
     setSearchTerm(e.target.value);

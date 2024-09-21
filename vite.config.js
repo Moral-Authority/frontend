@@ -15,9 +15,9 @@ export default defineConfig({
       { find: "images", replacement: path.resolve(__dirname, "img") },
     ],
   },
-  optimizeDeps: {
-    include: ['jwt-decode']
-  }
+  // optimizeDeps: {
+  //   include: ['jwt-decode']
+  // }
 });
 
 

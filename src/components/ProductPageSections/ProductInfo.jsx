@@ -12,7 +12,6 @@ import { StarIcon as StarFilled } from "@heroicons/react/24/solid";
 const ProductInfo = ({ _id, product, productDepartment }) => {
   const [{ user, favorites }, dispatch] = useStateValue();
   const isFavorite = favorites.has(_id);
-  console.log("PRODUCT INFO Product Department: ", productDepartment);
   const [toggleUserFav] = useMutation(TOGGLE_USER_FAV, {
     variables: {
       input: {
@@ -112,7 +111,7 @@ const ProductInfo = ({ _id, product, productDepartment }) => {
         <div className="flex space-x-4 items-center">
           <div className="flex space-x-1 items-center">
             <div className="rounded-full w-10 h-10 bg-[#FBF7EC]">
-              {/* <img src={ProfilePicture} alt="emilia" className="w-full h-full" /> */}
+              {/* <img IMAGE PLACE HOLDER" /> */}
             </div>
             <p className="text-xs text-[#D6AD60] underline underline-offset-4">
               <Link to="/profile">Black Owned</Link>
@@ -121,7 +120,7 @@ const ProductInfo = ({ _id, product, productDepartment }) => {
           </div>
           <div className="flex space-x-1 items-center">
             <div className="rounded-full w-10 h-10 bg-[#FBF7EC]">
-              {/* <img src={ProfilePicture} alt="emilia" className="w-full h-full" /> */}
+              {/* <img IMAGE PLACE HOLDER" /> */}
             </div>
             <p className="text-xs text-[#D6AD60] underline underline-offset-4">
               <Link to="/profile">Women Owned</Link>
@@ -130,7 +129,7 @@ const ProductInfo = ({ _id, product, productDepartment }) => {
           </div>
           <div className="flex space-x-1 items-center">
             <div className="rounded-full w-10 h-10 bg-[#FBF7EC]">
-              {/* <img src={ProfilePicture} alt="emilia" className="w-full h-full" /> */}
+              {/* <img IMAGE PLACE HOLDER" /> */}
             </div>
             <p className="text-xs text-[#D6AD60] underline underline-offset-4">
               <Link to="/profile">Bcorp Certified</Link>
