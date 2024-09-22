@@ -2,11 +2,10 @@ import React, { useState } from 'react';
 import { useLazyQuery } from '@apollo/client';
 import { MagnifyingGlassIcon } from '@heroicons/react/24/outline';
 import { SEARCH_PRODUCTS } from '../../graphql/Queries';
-import ProductCard from "../Products/ProductCard.jsx";
 
 const Search = () => {
   const [searchTerm, setSearchTerm] = useState('');
-  const [searchProducts, { loading, error, data }] = useLazyQuery(SEARCH_PRODUCTS);  // Added `data` here
+  const [searchProducts, { loading, error, data }] = useLazyQuery(SEARCH_PRODUCTS);
 
   const handleSearch = () => {
     if (searchTerm.trim()) {
@@ -25,9 +24,9 @@ const Search = () => {
   };
 
   return (
-    <div className="relative w-full">
+    <div className="w-full flex justify-center">
       {/* Search Input */}
-      <div className="flex items-center border-b border-gray-300 py-1 w-full space-x-2">
+      <div className="flex items-center rounded-xl border border-gray-300 py-1 w-1/2 space-x-2">
         <MagnifyingGlassIcon className="h-6 w-6" onClick={handleSearch} />
         <input
           type="search"
@@ -39,32 +38,36 @@ const Search = () => {
         />
       </div>
 
-      {/* Search Results Dropdown */}
-      {searchTerm && (
-        <div className="absolute left-0 top-10 bg-white shadow-lg w-screen z-50 max-h-[500px] overflow-y-auto">
-          {loading && <p className="p-2">Loading...</p>}
-          {error && <p className="p-2">Error: {error.message}</p>}
-          {data && data.search.length > 0 ? (
-            <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 p-4">
-              {data.search.map((product) => (
-                <ProductCard 
-                  key={product._id}
-                  productId={product._id} 
-                  title={product.Title} 
-                  imageLinks={product.ImageLinks}
-                  price={product.PurchaseInfo[0].Price}
-                  favorite={false} 
-                  userId={0} 
-                  productDepartment={product.Department}
+  {/* Search Results Dropdown */}
+  {searchTerm && (
+    <div className="absolute left-0 top-20 bg-white shadow-lg w-full z-50 max-h-[500px] overflow-y-auto">
+      {loading && <p className="p-2">Loading...</p>}
+      {error && <p className="p-2">Error: {error.message}</p>}
+      {data && data.search.length > 0 ? (
+        <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-3 gap-2 p-4 w-full max-w-3xl mx-auto">
+          {data.search.map((product) => (
+            <div className="flex w-full max-w-[220px] border-2 p-1 space-x-2 border-[#EDEFF6]">
+              <div className="bg-[#F6FBFF] w-1/3 flex justify-center items-center">
+                <img
+                  className="w-full h-full object-contain"
+                  src={product.ImageLinks[0]}
+                  alt={product.Title}
                 />
-              ))}
+              </div>
+              <div className="flex flex-col justify-between w-2/3">
+                <p className="text-sm font-bold text-[#D6AD60]">{product.Title}</p>
+                <p className="text-[#5F646F] text-base">${product.PurchaseInfo.Price}</p>
+              </div>
             </div>
-          ) : (
-            <p className="p-2">No products found.</p>
-          )}
+          ))}
         </div>
+      ) : (
+        <p className="p-2">No products found.</p>
       )}
     </div>
+  )}
+</div>
+
   );
 };
 

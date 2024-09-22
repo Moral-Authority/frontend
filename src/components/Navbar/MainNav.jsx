@@ -28,7 +28,7 @@ const MainNav = ({ userLoggedIn }) => {
         </Link>
 
         {/* Search Bar */}
-        <div className="hidden lg:flex sm:flex xs:flex w-full  z-50">
+        <div className="hidden lg:flex sm:flex xs:flex w-full z-50">
           <Search />  {/* Use the Search component here */}
         </div>
 
