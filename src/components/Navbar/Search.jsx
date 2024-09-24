@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { useLazyQuery } from '@apollo/client';
 import { MagnifyingGlassIcon } from '@heroicons/react/24/outline';
 import { SEARCH_PRODUCTS } from '../../graphql/Queries';
+import { Link } from 'react-router-dom';
 
 const Search = () => {
   const [searchTerm, setSearchTerm] = useState('');
