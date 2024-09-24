@@ -2,9 +2,9 @@ import React, { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { useMutation } from "@apollo/client";
 import { CREATE_ACCOUNT_MUTATION } from "../../graphql/Mutations.js";
-import { GoogleLogin } from '@react-oauth/google'; // Import GoogleLogin
-import * as jwt_decode from "jwt-decode";
-import { useStateValue } from "@/utils/stateProvider/useStateValue"; // Import your context
+// import { GoogleLogin } from '@react-oauth/google'; // Commenting this out
+// import jwt_decode from "jwt-decode"; // Commenting this out
+import { useStateValue } from "@/utils/stateProvider/useStateValue";
 
 const CreateAccountForm = () => {
   const [state, setState] = useState({
@@ -14,7 +14,7 @@ const CreateAccountForm = () => {
   const [errors, setErrors] = useState({});
   const [showPopup, setShowPopup] = useState(false);
   const navigate = useNavigate();
-  const [, dispatch] = useStateValue(); // Use the dispatch function
+  const [, dispatch] = useStateValue();
 
   // Use Apollo's useMutation hook
   const [createAccount, { loading, error }] = useMutation(CREATE_ACCOUNT_MUTATION);
@@ -65,6 +65,9 @@ const CreateAccountForm = () => {
       console.log("Account created successfully", response);
       setShowPopup(true);
 
+      // Notify user to check email for verification link
+      alert("Account created! Please check your email for a verification link.");
+
       setTimeout(() => {
         setShowPopup(false);
         navigate("/login");
@@ -74,9 +77,10 @@ const CreateAccountForm = () => {
     }
   };
 
-  // Google Sign-In Success Handler
+  // Commenting out Google Sign-In functionality
+  /*
   const handleGoogleSuccess = (response) => {
-    const decoded = jwt_decode(response.credential); // Decode the JWT token from Google
+    const decoded = jwt_decode(response.credential);
     const googleUserData = {
       email: decoded.email,
       name: decoded.name,
@@ -84,19 +88,19 @@ const CreateAccountForm = () => {
       sub: decoded.sub,
     };
 
-    // Dispatch Google user data to global state or send it to your backend for further processing
     dispatch({
       type: "SET_USER",
       user: googleUserData,
     });
 
     console.log("Google user registered:", googleUserData);
-    navigate("/"); // Redirect after Google registration
+    navigate("/"); 
   };
 
   const handleGoogleFailure = (error) => {
     console.error("Google sign-up failed:", error);
   };
+  */
 
   return (
     <div>
@@ -142,13 +146,15 @@ const CreateAccountForm = () => {
           </button>
         </div>
 
-          {/* Google Sign-Up Button */}
-          {/* <div className="mt-5">
+        {/* Google Sign-Up Button (Commented out) */}
+        {/*
+        <div className="mt-5">
           <GoogleLogin
             onSuccess={handleGoogleSuccess}
             onError={handleGoogleFailure}
           />
-        </div> */}
+        </div>
+        */}
 
         <p>
           Already have an account?{" "}
@@ -156,13 +162,12 @@ const CreateAccountForm = () => {
             <Link to="/login">Sign in</Link>
           </span>
         </p>
-
       </form>
 
       {showPopup && (
         <div className="fixed top-4 left-1/2 transform -translate-x-1/2 z-50">
           <div className="bg-green-500 text-white p-3 rounded shadow-lg">
-            <p>Account created successfully! Please login to continue. You will be re-directed in just a moment.</p>
+            <p>Account created successfully! Please login to continue. You will be redirected shortly.</p>
           </div>
         </div>
       )}

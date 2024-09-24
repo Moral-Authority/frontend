@@ -45,21 +45,27 @@ const Search = () => {
       {error && <p className="p-2">Error: {error.message}</p>}
       {data && data.search.length > 0 ? (
         <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-3 gap-2 p-4 w-full max-w-3xl mx-auto">
-          {data.search.map((product) => (
-            <div className="flex w-full max-w-[220px] border-2 p-1 space-x-2 border-[#EDEFF6]">
-              <div className="bg-[#F6FBFF] w-1/3 flex justify-center items-center">
-                <img
-                  className="w-full h-full object-contain"
-                  src={product.ImageLinks[0]}
-                  alt={product.Title}
-                />
-              </div>
-              <div className="flex flex-col justify-between w-2/3">
-                <p className="text-sm font-bold text-[#D6AD60]">{product.Title}</p>
-                <p className="text-[#5F646F] text-base">${product.PurchaseInfo.Price}</p>
-              </div>
-            </div>
-          ))}
+            {data.search.map((product) => (
+            <Link
+                key={product._id}
+                className="w-full"
+                to={`/product/${product.Department}/${product.subDepartment}/${product._id}`}
+            >
+                <div className="flex w-full max-w-[220px] border-2 p-1 space-x-2 border-[#EDEFF6]">
+                <div className="bg-[#F6FBFF] w-1/3 flex justify-center items-center">
+                    <img
+                    className="w-full h-full object-contain"
+                    src={product.ImageLinks[0]}  // Add fallback for missing images
+                    alt={product.Title}
+                    />
+                </div>
+                <div className="flex flex-col justify-between w-2/3">
+                    <p className="text-sm font-bold text-[#D6AD60]">{product.Title}</p>
+                    <p className="text-[#5F646F] text-base">${product.PurchaseInfo?.Price || 'N/A'}</p>  // Optional chaining
+                </div>
+                </div>
+            </Link>
+            ))}
         </div>
       ) : (
         <p className="p-2">No products found.</p>

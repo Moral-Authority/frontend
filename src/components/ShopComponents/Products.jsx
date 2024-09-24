@@ -30,7 +30,7 @@ const Products = () => {
     if (loading) return <p>Loading...</p>;
     if (error) return <p>Error loading products. Please try again later.</p>;
 
-    if (data && data.getAllProductsBySubDepartment.length > 0) {
+    if (data && data.getAllProductsBySubDepartment && data.getAllProductsBySubDepartment.length > 0) {
       products = data.getAllProductsBySubDepartment;
     }
   }

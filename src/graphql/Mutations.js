@@ -62,13 +62,29 @@ const DELETE_USER_MUTATION = gql`
 `;
 
 
+export const VERIFY_EMAIL = gql`
+  mutation verifyEmail($token: String!) {
+    verifyEmail(token: $token)
+  }
+`;
+
+
+export const REQUEST_PASSWORD_RESET_MUTATION = gql`
+  mutation requestPasswordReset($email: String!) {
+    requestPasswordReset(email: $email)
+  }
+`;
+
+
 export const RESET_PASSWORD_MUTATION = gql`
-  mutation DeleteUser($id: Int!) {
-    deleteUser(id: $id) {
-      id
-      name
-      createdAt
-      age
-      address
-    }
-  }`;
+  mutation resetPassword($token: String!, $newPassword: String!) {
+    resetPassword(token: $token, newPassword: $newPassword)
+  }
+`;
+
+
+export const VERIFY_EMAIL_MUTATION = gql`
+  mutation VerifyEmail($token: String!) {
+    VerifyEmail(token: $token)
+  }
+`;

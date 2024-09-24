@@ -12,6 +12,8 @@ import Shop from "./pages/Shop";
 import Profile from "./pages/Profile";
 import FavoritedProducts from "./components/ProfileComponents/FavoritedProducts";
 import ProductsReview from "./components/ProfileComponents/ProductsReview";
+import PasswordReset from "./components/ProfileComponents/PasswordReset";
+import VerifyEmail from "./components/ProfileComponents/VerifyEmail";
 import ProductPage from "./pages/ProductPage.jsx";
 import PrivacyPolicy from "./pages/privacyPolicy";
 import Footer from "./components/Footer";
@@ -65,8 +67,10 @@ export const App = () => {
               <Route path="/login" element={<Login />} />
               <Route path="/shop/:department/:subDepartment/:sort?" element={<Shop />} />
               <Route path="/profile" element={<Profile />} />
-              <Route path="/product/:department/:id" element={<ProductPage />} />
+              <Route path="/product/:department/:subDepartment/:id" element={<ProductPage />} />
               <Route path="/privacy-policy" element={<PrivacyPolicy />} />
+              <Route path="/reset-password" element={<PasswordReset />} />
+              <Route path="/verify-email" element={<VerifyEmail />} />
               {user && (
                 <Route path="/profile" element={<Profile />}>
                   <Route index element={<FavoritedProducts userId={user?.id} />} />

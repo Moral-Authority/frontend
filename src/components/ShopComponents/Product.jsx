@@ -7,7 +7,7 @@ import { useMutation } from '@apollo/client';
 import { TOGGLE_USER_FAV } from '../../graphql/Mutations';
 import { useStateValue } from "../../utils/stateProvider/useStateValue";
 
-const Product = ({ title, _id, company, imageLinks, purchaseInfo, productDepartment }) => {
+const Product = ({ title, _id, company, imageLinks, purchaseInfo, productDepartment, productSubDepartment }) => {
   const [{ user, favorites }, dispatch] = useStateValue();
   const isFavorite = favorites.has(_id);
 
@@ -16,7 +16,8 @@ const Product = ({ title, _id, company, imageLinks, purchaseInfo, productDepartm
       input: {
         userId: user?.id,
         productId: _id,
-        ProductDepartment: productDepartment,  // Pass the department here
+        ProductDepartment: productDepartment,
+          // Pass the department here
       },
     },
     onCompleted: () => {
@@ -62,7 +63,7 @@ const Product = ({ title, _id, company, imageLinks, purchaseInfo, productDepartm
         <img src={imageLinks[0]} className="w-full h-full object-contain" alt={title} />
         <Link
           className="text-white absolute w-11/12 hidden group-hover:block bottom-5 bg-[#8F8E63] h-12"
-          to={`/product/${productDepartment}/${_id}`}  // Include department in URL
+          to={`/product/${productDepartment}/${productSubDepartment}/${_id}`}  // Include department in URL
         >
           <motion.button
             initial={{ opacity: 0 }}

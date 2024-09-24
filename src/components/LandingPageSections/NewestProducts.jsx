@@ -51,6 +51,7 @@ const NewestProducts = () => {
         purchaseInfo={product.PurchaseInfo}
         imageLinks={product.ImageLinks}
         productDepartment={product.Department}
+        productSubDepartment={product.subDepartment}
       />
     </div>
   );

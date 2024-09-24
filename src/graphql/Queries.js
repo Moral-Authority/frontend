@@ -34,6 +34,8 @@ export const GET_ALL_PRODUCTS_BY_SUB_DEPARTMENT = gql`
    _id
    Title
    Description
+   Department
+   subDepartment
    PurchaseInfo {
     Price
     Link
@@ -69,6 +71,8 @@ export const GET_PRODUCT_BY_ID = gql`
    _id
    Title
    Description
+   Department
+   subDepartment
    PurchaseInfo {
     Price
     Link
@@ -130,6 +134,8 @@ export const FILTER_PRODUCTS = gql`
    _id
    Title
    Description
+   Department
+   subDepartment
    PurchaseInfo {
     Price
     Link
@@ -153,6 +159,8 @@ export const SEARCH_PRODUCTS = gql`
         name
         }
         ImageLinks
+        Department
+        subDepartment
         PurchaseInfo{
         Price
         }
