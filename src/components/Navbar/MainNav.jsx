@@ -85,10 +85,11 @@ const MainNav = ({ userLoggedIn }) => {
               </div>
             </Link>
           )}
-          <Bars3Icon
-            className="h-8 w-8"
-            onClick={() => console.log('Menu clicked')}
-          />
+        <Bars3Icon
+          className="h-8 w-8"
+          onClick={() => dispatch({ type: 'CHANGE_NAV_MENU' })}
+        />
+
         </nav>
       </header>
 
