@@ -42,7 +42,7 @@ const Product = ({ title, _id, company, imageLinks, purchaseInfo, productDepartm
   return (
     <div className="w-44 lg:w-56 xl:w-64 h-64 lg:h-80 xl:h-96 p-1 pb-5 lg:p-1 relative flex flex-col border-2 border-white">
       <div className="flex z-20 justify-between absolute top-5 lg:top-8 w-11/12 -ml-1 lg:-ml-2">
-          <div className="!text-white text-sm bg-black !border-none py-1 px-4 z-10">
+          <div className="!text-white text-sm !border-none py-1 px-4 z-10" style={{ backgroundColor: '#0C0F18', border: '2px solid #0C0F18', color: '#B4B5B5' }}>
             New
           </div>
           {user && (

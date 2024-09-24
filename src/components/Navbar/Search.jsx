@@ -60,7 +60,7 @@ const Search = () => {
                     />
                 </div>
                 <div className="flex flex-col justify-between w-2/3">
-                    <p className="text-sm font-bold text-[#D6AD60]">{product.Title}</p>
+                    <p className="text-sm text-[#D6AD60]"style={{ fontSize: '130%' }}>{product.Title}</p>
                     <p className="text-[#5F646F] text-base">${product.PurchaseInfo?.Price || 'N/A'}</p>  // Optional chaining
                 </div>
                 </div>

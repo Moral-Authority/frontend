@@ -18,7 +18,7 @@ const MainNav = ({ userLoggedIn }) => {
     <div>
       <header className="w-full flex h-20 bg-red border justify-between text-center items-center px-2.5 md:px-5 xl:px-5">
         <Link to="/">
-          <h1 className="text-2xl lg:text-3xl font-bold">
+          <h1 className="text-2xl lg:text-3xl" style={{ fontSize: '130%' }}>
             <img
               className="h-auto max-h-[60px] sm:max-h-[60px] md:max-h-[60px] lg:max-h-[80px] w-auto"
               src={Logo}

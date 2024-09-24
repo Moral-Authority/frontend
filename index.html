@@ -4,16 +4,62 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta name="impact-site-verification" value="870ae376-312b-4b18-af52-a879c0e27bfc">
-    <link rel="icon" type="image/svg+xml" href="/vite.svg" />
+    <link rel="icon" type="image/png" href="./img/MoralAuthorityLogo.png" />
+
     <title>Moral Authority</title>
 
-    <!-- Preload critical styles -->
-    <link rel="preload" href="./index.css" as="style" />
-    <link rel="stylesheet" href="./index.css" />
+    <!-- Inline critical styles -->
+    <style>
+      @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;700;800&display=swap');
+
+      * {
+        margin: 0;
+        padding: 0;
+        font-family: 'Poppins', sans-serif;
+      }
+
+      @tailwind base;
+      @tailwind components;
+      @tailwind utilities;
+
+      input::-webkit-outer-spin-button,
+      input::-webkit-inner-spin-button {
+        -webkit-appearance: none;
+        margin: 0;
+      }
+
+      input[type=number] {
+        -moz-appearance: textfield;
+      }
+
+      /* Main content should take up the remaining space */
+      #root > section {
+        flex: 1;
+        padding: 20px;
+      }
+
+      /* Ensure the height of html and body is 100% */
+      html, body {
+        margin: 0;
+        padding: 0;
+        height: 100%;
+        overflow-x: hidden; /* Disable horizontal scrolling */
+        scroll-behavior: smooth; /* Optional: Enable smooth scrolling */
+        overscroll-behavior-y: none; /* Prevent over-scroll on mobile */
+      }
+
+      /* Ensure the root takes the full viewport height */
+      #root {
+        min-height: 100vh;
+        display: flex;
+        flex-direction: column;
+      }
+    </style>
+
 
     <!-- Google Ads Script -->
-    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-5520374988487945"
-     crossorigin="anonymous"></script>
+    <!-- <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-5520374988487945"
+     crossorigin="anonymous"></script> -->
   </head>
   <body>
     <div id="root"></div>

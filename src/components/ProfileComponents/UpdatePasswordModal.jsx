@@ -40,7 +40,7 @@ const UpdatePasswordModal = ({ onClose }) => {
           value={confirmPassword}
           onChange={(e) => setConfirmPassword(e.target.value)}
         />
-        <div className="flex space-x-4">
+        <div className="flex" style={{ marginTop: '50%' }}>
           <button
             onClick={handleSubmit}
             className="bg-[#8f8e63] text-white px-4 py-2 rounded-md"

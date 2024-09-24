@@ -4,7 +4,7 @@ const UpdatePhoneModal = ({ onClose, newPhone, setNewPhone, handleSubmit }) => {
   return (
     <div className="modal bg-gray space-y-5 space-x-0">
       <div className="modal-content bg-[#f2f2eb] space-y-5 space-x-0 p-6 rounded-md">
-        <h2 className="text-lg font-semibold"></h2>
+        <h2 className="text-lg font-sm"></h2>
 
         <input
           type="tel"
@@ -14,7 +14,7 @@ const UpdatePhoneModal = ({ onClose, newPhone, setNewPhone, handleSubmit }) => {
           onChange={(e) => setNewPhone(e.target.value)}
         />
 
-        <div className="flex space-x-4">
+        <div className="flex" style={{ marginTop: '50%' }}>
           <button
             onClick={handleSubmit}
             className="bg-[#8f8e63] text-white px-4 py-2 rounded-md"

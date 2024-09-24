@@ -8,7 +8,8 @@ const Pagination = ({ totalPages, currentPage, handlePageChange, handlePrevPage,
         <button
           key={i}
           onClick={() => handlePageChange(i)}
-          className={`px-3 py-1 border ${i === currentPage ? "bg-black text-white" : "bg-white text-black"}`}
+          className={`px-3 py-1 border ${i === currentPage ? "text-white" : "bg-white text-black"}`}
+          style={{ backgroundColor: '#0C0F18', border: '2px solid #0C0F18', color: '#B4B5B5' }}
         >
           {i}
         </button>

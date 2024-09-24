@@ -115,7 +115,7 @@ const Filters = ({ department, subDepartment }) => {
     >
       <section className="h-full px-4 py-10 flex flex-col space-y-10">
         <div className="w-full xl:hidden flex justify-between items-center pb-4 border-b border-b-[#E7EAF5]">
-          <p className="font-semibold">Filter</p>
+          <p className="font-sm">Filter</p>
           <button
             onClick={() => dispatch({ type: actionTypes.TOGGLE_SHOP_FILTERS })}
             className="text-sm text-red-500"

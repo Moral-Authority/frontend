@@ -69,7 +69,7 @@ const CompanyProfile = () => {
         <SocialLinks url="http://www.twitterURL.com" label="www.twitterURL.com" />
       </div>
 
-      {/* <div className="flex space-x-4 px-2">
+      {/* <div className="flex px-2" style={{ marginTop: '50%' }}>
           <SocialIcon
             url="https://facebook.com"
             bgColor="#697383"

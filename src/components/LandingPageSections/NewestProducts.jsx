@@ -13,8 +13,6 @@ const NewestProducts = () => {
     variables: { department: "home-and-garden", subDepartment: "cleaning-supplies" },
   });
 
-  console.log("Data:", data);
-
   const [{ user, favorites }] = useStateValue();
   const [isMobile, setIsMobile] = useState(window.innerWidth < 768);
 

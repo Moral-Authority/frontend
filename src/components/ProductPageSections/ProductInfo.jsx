@@ -73,7 +73,7 @@ const ProductInfo = ({ _id, product, productDepartment }) => {
           </p>
           <div className="flex justify-between mt-3 items-center border-b pb-3">
             <p className="text-[#5F646F] leading-5">
-            <p className="text-[#5F646F] text-xl font-semibold leading-5">
+            <p className="text-[#5F646F] text-xl font-sm leading-5">
               ${product.PurchaseInfo[0].Price}
             </p>
             </p>
@@ -89,7 +89,7 @@ const ProductInfo = ({ _id, product, productDepartment }) => {
       </section>
       <section className="flex flex-col py-4 space-y-5">
         <div className="flex md:flex-col space-x-0 space-y-0">
-          <div className="flex space-x-4">
+          <div className="flex" style={{ marginTop: '50%' }}>
             {user && (
               <button
                 onClick={handleToggleFavorite}
@@ -105,7 +105,7 @@ const ProductInfo = ({ _id, product, productDepartment }) => {
           </div>
         </div>
 
-        <div className="flex space-x-4 items-center">
+        <div className="flex items-center" style={{ marginTop: '50%' }}>
           <div className="flex space-x-1 items-center">
             <div className="rounded-full w-10 h-10 bg-[#FBF7EC]">
               {/* <img IMAGE PLACE HOLDER" /> */}
