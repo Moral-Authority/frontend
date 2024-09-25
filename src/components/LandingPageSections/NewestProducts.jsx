@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { useQuery } from '@apollo/client';
-import { GET_ALL_PRODUCTS_BY_SUB_DEPARTMENT } from '../../graphql/Queries.js';
+import { GET_RECENTLY_ADDED_PRODUCTS } from '../../graphql/Queries.js';
 import Product from "../ShopComponents/Product.jsx";
 import { useStateValue } from "../../utils/stateProvider/useStateValue.jsx";
 import { Carousel } from 'primereact/carousel';
@@ -9,9 +9,9 @@ import 'primereact/resources/primereact.min.css';
 import 'primeicons/primeicons.css'; 
 
 const NewestProducts = () => {
-  const { data, loading, error } = useQuery(GET_ALL_PRODUCTS_BY_SUB_DEPARTMENT, {
-    variables: { department: "home-and-garden", subDepartment: "cleaning-supplies" },
-  });
+  const { data, loading, error } = useQuery(GET_RECENTLY_ADDED_PRODUCTS);
+
+  // console.log(data);
 
   const [{ user, favorites }] = useStateValue();
   const [isMobile, setIsMobile] = useState(window.innerWidth < 768);
@@ -29,8 +29,8 @@ const NewestProducts = () => {
   if (loading) return <p>Loading...</p>;
   if (error) return <p>Error: {error.message}</p>;
 
-  const productsToDisplay = data?.getAllProductsBySubDepartment?.slice(0, 10) || [];
-
+  const productsToDisplay = data?.GetRecentlyAddedProducts || [];
+  console.log(productsToDisplay);
   const responsiveOptions = [
     { breakpoint: '1024px', numVisible: 4, numScroll: 1 },
     { breakpoint: '768px', numVisible: 2, numScroll: 2 },

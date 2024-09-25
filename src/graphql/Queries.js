@@ -50,6 +50,25 @@ export const GET_ALL_PRODUCTS_BY_SUB_DEPARTMENT = gql`
 `;
 
 
+export const GET_RECENTLY_ADDED_PRODUCTS = gql`
+{
+  GetRecentlyAddedProducts {
+    _id
+    Title
+    Department
+    subDepartment
+    PurchaseInfo {
+      Price
+    }
+    Company {
+      name
+    }
+    ImageLinks
+  }
+}
+`;
+
+
 // query GetAllProductsBySubDepartment($department: String!, $subDepartment: String!, $limit: Int, $offset: Int) {
 //   getAllProductsBySubDepartment(department: $department, subDepartment: $subDepartment, limit: $limit, offset: $offset) {
 //     _id
