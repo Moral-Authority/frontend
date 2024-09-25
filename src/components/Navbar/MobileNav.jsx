@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { Bars3Icon, MagnifyingGlassIcon } from "@heroicons/react/24/outline";
+import { HeartIcon, Bars3Icon, MagnifyingGlassIcon } from "@heroicons/react/24/outline";
 import { useStateValue } from "@/utils/stateProvider/useStateValue";
 import navItems from "@/utils/testAPIs/navItems.json";
 import { motion } from "framer-motion";
@@ -62,44 +62,69 @@ const MobileNav = () => {
         color: "#F2F2eb",
       }}
     >
-      <div style={{ display: "flex", justifyContent: "right" }}>
-        <Bars3Icon
-          style={{ width: "32px", height: "32px", color: "#F2F2eb" }}
-          onClick={() => dispatch({ type: "CHANGE_NAV_MENU" })}
-        />
-      </div>
 
-      {userLoggedIn ? (
-        <div style={{ display: "flex", justifyContent: "center", gap: "20px" }}>
-          <div
-            style={{
-              display: "flex",
+      <div style={{ display: "flex", justifyContent: "center", background: "transparent", gap: "30px" }}>
+        
+        <div
+            style={{ display: "flex",
               alignItems: "center",
               gap: "10px",
               width: "15rem",
               borderBottom: "1px solid #F2F2eb",
+              justifyContent: "left",
             }}
           >
-            <MagnifyingGlassIcon style={{ width: "32px", height: "32px", color: "#F2F2eb" }} />
-            <input
-              type="search"
-              placeholder="Search Coming Soon!"
-              id="site-search"
-              name="q"
-              style={{
-                background: "transparent",
-                border: "none",
-                outline: "none",
-                color: "#F2F2eb",
-                width: "100%",
-              }}
-            />
-          </div>
+          <MagnifyingGlassIcon style={{ width: "32px", height: "32px", color: "#F2F2eb", justifyContent: "left" }} />
+              <input
+                  type="search"
+                  placeholder="Find Products" id="site-search" name="q" style={{ background: "transparent", border: "none",outline: "none", color: "#F2F2eb", width: "100%", }}
+              />
         </div>
+        
+        
+        <Bars3Icon
+          style={{ width: "32px", height: "32px", color: "#F2F2eb",  justifyContent: "right" }}
+          onClick={() => dispatch({ type: "CHANGE_NAV_MENU" })}
+        />
+      </div>
+      
+
+      {userLoggedIn ? (
+        <div style={{ display: "flex", justifyContent: "center", gap: "20px" }}>
+        <button
+          onClick={() =>  navigate('/create-account')}
+          style={{
+            width: "150px",
+            height: "50px",
+            textAlign: "center",
+            borderRadius: "8px",
+            fontSize: "16px",
+            backgroundColor: "#F2F2EB",
+            color: "#0C0F18",
+          }}
+        >
+          Favorites
+        </button>
+        <button
+          onClick={() => navigate('/login')}
+          style={{
+            width: "150px",
+            height: "50px",
+            textAlign: "center",
+            borderRadius: "8px",
+            fontSize: "16px",
+            backgroundColor: "transparent",
+            border: "2px solid #F2F2EB",
+            color: "#F2F2EB",
+          }}
+        >
+          Profile
+        </button>
+      </div>
       ) : (
         <div style={{ display: "flex", justifyContent: "center", gap: "20px" }}>
           <button
-            onClick={() =>  navigate('/create-account')}
+            onClick={() =>  navigate('/profile')}
             style={{
               width: "150px",
               height: "50px",
@@ -113,7 +138,7 @@ const MobileNav = () => {
             Sign up
           </button>
           <button
-            onClick={() => navigate('/login')}
+            onClick={() => navigate('/profile')}
             style={{
               width: "150px",
               height: "50px",
