@@ -76,8 +76,9 @@ const Products = () => {
 
   return (
     <div className="flex space-y-5 flex-col border-b pb-10 h-full w-full xl:w-3/4">
+      
       {/* Sort Options */}
-      <section className="flex xl:flex items-center justify-between pt-0 border-[#E7EAF5] xl:border-[#EDEFF6]/60">
+      <section className="flex xl:flex items-center justify-between pt-0 border-[#E7EAF5] xl:border-[#EDEFF6]/60 xl:pr-10 lg:pr-10 md:pr-10">
         <SortProducts
           sortOption={sortOption}
           setSortOption={setSortOption}
