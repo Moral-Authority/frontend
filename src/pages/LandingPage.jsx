@@ -13,7 +13,7 @@ const LandingPage = () => {
       <MainSection />
       <NewestProducts />
       <HowItWorks />
-      <PieChartComponent />
+      {/* <PieChartComponent /> */}
       {/* <CertificationSection /> */}
       <SecondSection />
     </div>
