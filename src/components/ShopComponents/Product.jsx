@@ -62,7 +62,7 @@ const Product = ({ title, _id, company, imageLinks, purchaseInfo, productDepartm
 
   {/* Image Section */}
   <div className="w-full z-0 relative h-full group bg-white items-center flex justify-center rounded-lg">
-    <img src={imageLinks[0]} className="w-full h-full object-contain rounded-lg" alt={title} />
+    <img src={imageLinks[0]} className="w-full h-full object-contain" alt={title} />
     <Link
       className="text-white absolute w-11/12 hidden group-hover:block bottom-5 bg-[#8F8E63] h-12"
       to={`/product/${productDepartment}/${productSubDepartment}/${_id}`}
@@ -78,7 +78,7 @@ const Product = ({ title, _id, company, imageLinks, purchaseInfo, productDepartm
   </div>
 
   {/* Info Section */}
-  <div className="flex flex-col bg-white px-2 sm:px-5 rounded-lg">
+  <div className="flex flex-col bg-white px-2 sm:px-5">
     <p className="text-xs sm:text-sm py-2 sm:py-2 px-3 sm:px-5 truncate">{title}</p>
 
     {/* Company Name and Price in the Same Row */}
