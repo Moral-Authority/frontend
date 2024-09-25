@@ -7,7 +7,7 @@ import { Link } from 'react-router-dom';
 const Search = () => {
   const [searchTerm, setSearchTerm] = useState('');
   const [searchProducts, { loading, error, data }] = useLazyQuery(SEARCH_PRODUCTS);
-
+ 
   const handleSearch = () => {
     if (searchTerm.trim()) {
       searchProducts({ variables: { input: searchTerm } });
@@ -24,6 +24,7 @@ const Search = () => {
     }
   };
 
+console.log(data)
   return (
     <div className="w-full flex justify-center">
       {/* Search Input */}
@@ -61,8 +62,8 @@ const Search = () => {
                     />
                 </div>
                 <div className="flex flex-col justify-between w-2/3">
-                    <p className="text-sm text-[#D6AD60]"style={{ fontSize: '130%' }}>{product.Title}</p>
-                    <p className="text-[#5F646F] text-base">${product.PurchaseInfo?.Price || 'N/A'}</p>  
+                    <p className="text-sm text-[#D6AD60]"style={{ fontSize: '90%' }}>{product.Title}</p>
+                    <p className="text-[#5F646F] text-base">${product.PurchaseInfo[0].Price}</p>  
                 </div>
                 </div>
             </Link>

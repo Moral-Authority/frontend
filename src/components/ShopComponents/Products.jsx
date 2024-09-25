@@ -8,7 +8,7 @@ import { useStateValue } from "@/utils/stateProvider/useStateValue";
 import { useParams } from "react-router-dom";
 
 const Products = () => {
-  const [{ filteredProducts, filtered }] = useStateValue();
+  const [{ filteredProducts}] = useStateValue();
   const { department, subDepartment, searchTerm } = useParams(); 
   const [sortOption, setSortOption] = useState("Price (Low to High)");
   const [sortedProducts, setSortedProducts] = useState([]);
@@ -17,22 +17,27 @@ const Products = () => {
 
   let products = [];
 
-  // Fetch products based on search term or department/subDepartment
-  if (searchTerm && filteredProducts.length > 0) {
-    // Use filtered products if the search term is present
-    products = filteredProducts;
-  } else {
-    // Otherwise, fetch products by department/sub-department
+    // Always call useQuery, but only use its data if no search term
     const { data, loading, error } = useQuery(GET_ALL_PRODUCTS_BY_SUB_DEPARTMENT, {
       variables: { department, subDepartment },
+      skip: !!searchTerm && filteredProducts.length > 0,  // Skip if using search results
     });
+  
 
-    if (loading) return <p>Loading...</p>;
-    if (error) return <p>Error loading products. Please try again later.</p>;
+  // Use filtered products if the search term is present, otherwise use query data
+  if (searchTerm && filteredProducts.length > 0) {
+    products = filteredProducts;
+  } else if (data && data.getAllProductsBySubDepartment && data.getAllProductsBySubDepartment.length > 0) {
+    products = data.getAllProductsBySubDepartment;
+  }
 
-    if (data && data.getAllProductsBySubDepartment && data.getAllProductsBySubDepartment.length > 0) {
-      products = data.getAllProductsBySubDepartment;
-    }
+  // Handle loading and error states
+  if (loading) return <p>Loading...</p>;
+  if (error) return <p>Error loading products. Please try again later.</p>;
+
+  // If no products are found
+  if (products.length === 0) {
+    return searchTerm ? <p>No products found.</p> : <p>Coming soon!</p>;
   }
 
   // If no products are found
@@ -75,7 +80,7 @@ const Products = () => {
   };
 
   return (
-    <div className="flex space-y-5 flex-col border-b pb-10 h-full w-full xl:w-3/4">
+    <div className="flex bg-red space-y-5 flex-col border-b pb-10 h-full w-full xl:w-3/4">
       
       {/* Sort Options */}
       <section className="flex xl:flex items-center justify-between pt-0 border-[#E7EAF5] xl:border-[#EDEFF6]/60 xl:pr-10 lg:pr-10 md:pr-10">
@@ -86,7 +91,7 @@ const Products = () => {
       </section>
 
       {/* Products Grid */}
-      <section className="grid grid-cols-2 md:grid-cols-3 gap-5 xl:gap-x-2 xl:gap-y-8 place-items-center">
+      <section className="grid grid-cols-2 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-5 xl:gap-x-2 xl:gap-y-8 place-items-center">
         {currentProducts.map((product) => (
           <Product
             key={product._id}

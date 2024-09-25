@@ -34,7 +34,7 @@ const Shop = () => {
     <Header />
 
 
-    <div className='flex-1 flex flex-col h-full bg-white'>
+    <div className='flex-1 flex flex-col h-full' style={{background: "#f5f5f7"}}>
     {/* <ProductCycleFilter />  */}
      <section className='px-4 relative py-2 sm:px-9 sm:py-8 xl:py-12 flex flex-col xl:flex-row space-y-2 xl:space-y-0 xl:space-x-10'>
       <Filters

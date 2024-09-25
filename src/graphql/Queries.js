@@ -181,7 +181,7 @@ export const SEARCH_PRODUCTS = gql`
         Department
         subDepartment
         PurchaseInfo{
-        Price
+          Price
         }
     }
   }

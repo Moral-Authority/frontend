@@ -80,6 +80,9 @@ const ProductInfo = ({ _id, product, productDepartment }) => {
             <div className="flex space-x-1 items-center">
             <a href={product.PurchaseInfo[0].Link} target="_blank" rel="noopener noreferrer">
               <button className="text-white px-6 py-3 bg-[#8F8E63]">
+                Buy From Amazon
+              </button>
+              <button className="text-white px-6 py-3 bg-[#8F8E63]">
                 Buy From Brand
               </button>
             </a>
