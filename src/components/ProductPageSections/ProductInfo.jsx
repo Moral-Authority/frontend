@@ -43,53 +43,53 @@ const ProductInfo = ({ _id, product, productDepartment }) => {
 
   return (
     <div className="w-full md:w-1/2 flex flex-col px-5 md:px-10 items-start">
-      <section className="flex flex-col min-w-full">
-        <p className="text-lg text-[#8F8E63]">{product.Company.name}</p>
-        <p className="text-[#4F536C] mt-1 pb-3 mt-3">{product.Title}</p>
-        <div className="flex space-x-2 border-b  pb-3">
-                {Array(5)
-                  .fill(0)
-                  .map((item, index) =>
-                    index + 1 <= rating ? (
-                      <StarFilled
-                        key={index}
-                        onClick={() => setrating(index + 1)}
-                        className="h-5 w-5 text-[#FFB33E]"
-                      />
-                    ) : (
-                      <StarIcon
-                        key={index}
-                        onClick={() => setrating(index + 1)}
-                        className="h-5 w-5"
-                      />
-                    )
-                  )}
+        <section className="flex flex-col min-w-full">
+          <p className="text-lg text-[#8F8E63]">{product.Company.name}</p>
+          <p className="text-[#4F536C] mt-1 pb-3 mt-3">{product.Title}</p>
+          <div className="flex space-x-2 border-b pb-3">
+            {Array(5)
+              .fill(0)
+              .map((item, index) =>
+                index + 1 <= rating ? (
+                  <StarFilled
+                    key={index}
+                    onClick={() => setrating(index + 1)}
+                    className="h-5 w-5 text-[#FFB33E]"
+                  />
+                ) : (
+                  <StarIcon
+                    key={index}
+                    onClick={() => setrating(index + 1)}
+                    className="h-5 w-5"
+                  />
+                )
+              )}
+          </div>
+          <div className="flex flex-col-reverse md:flex-col">
+            <div className="flex flex-col w-full space-y-5 ml-6 pt-5"></div>
+            <p className="text-[#758BAE] leading-loose text-sm mt-4 mb-4 min-w-full">
+              {product.Description}
+            </p>
+            <div className="flex flex-col md:flex-row justify-between mt-5 items-center border-b pb-3 space-y-3 md:space-y-4">
+              <p className="text-[#5F646F] text-xl font-sm leading-5">
+                ${product.PurchaseInfo[0].Price}
+              </p>
+              <div className="flex flex-col space-y-3 md:space-y-0 md:space-x-2 md:flex-row items-center">
+                <a href="https://www.amazon.com/" target="_blank" rel="noopener noreferrer">
+                  <button className="text-white px-6 py-3 bg-[#8F8E63]">
+                    Buy From Amazon
+                  </button>
+                </a>
+                <a href={product.PurchaseInfo[0].BrandLink} target="_blank" rel="noopener noreferrer">
+                  <button className="text-white px-6 py-3 bg-[#8F8E63]">
+                    Buy From Brand
+                  </button>
+                </a>
               </div>
-        <div className="flex flex-col-reverse md:flex-col">
-        <div className="flex flex-col w-full space-y-5 ml-6 pt-5">
-        </div>
-          <p className="text-[#758BAE] leading-loose text-sm mt-5 min-w-full">
-            {product.Description} 
-          </p>
-          <div className="flex justify-between mt-3 items-center border-b pb-3">
-            <p className="text-[#5F646F] leading-5">
-            <p className="text-[#5F646F] text-xl font-sm leading-5">
-              ${product.PurchaseInfo[0].Price}
-            </p>
-            </p>
-            <div className="flex space-x-1 items-center">
-            <a href={product.PurchaseInfo[0].Link} target="_blank" rel="noopener noreferrer">
-              <button className="text-white px-6 py-3 bg-[#8F8E63]">
-                Buy From Amazon
-              </button>
-              <button className="text-white px-6 py-3 bg-[#8F8E63]">
-                Buy From Brand
-              </button>
-            </a>
             </div>
           </div>
-        </div>
-      </section>
+        </section>
+
       <section className="flex flex-col py-4 space-y-5">
         <div className="flex md:flex-col space-x-0 space-y-0">
           <div className="flex" style={{ marginTop: '50%' }}>
