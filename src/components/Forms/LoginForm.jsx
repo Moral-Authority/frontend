@@ -47,7 +47,7 @@ const LoginForm = () => {
         setTimeout(() => {
           setShowPopup(false);
           navigate("/");
-        }, 2000);
+        }, 700);
       }
     } catch (err) {
       console.error("Login error:", err);
@@ -75,9 +75,9 @@ const LoginForm = () => {
     navigate("/"); // Redirect after Google login
   };
 
-  const handleGoogleFailure = (error) => {
-    console.error("Google login failed:", error);
-  };
+  // const handleGoogleFailure = (error) => {
+  //   console.error("Google login failed:", error);
+  // };
 
   return (
     <div>
@@ -145,7 +145,7 @@ const LoginForm = () => {
 
       {error && (
         <div className="text-red-500 mt-2">
-          <p>Failed to log in. Please try again.</p>
+          <p>Oh no! That's the wrong email or password please try again.</p>
         </div>
       )}
     </div>

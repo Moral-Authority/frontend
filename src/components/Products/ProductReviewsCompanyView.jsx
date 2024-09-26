@@ -1,12 +1,12 @@
 import React from "react";
 import CommentCard from "./CommentCard";
 
-const ReviewProductCard = ({ approved }) => {
+const ProductReviewsCompanyView = ({ approved }) => {
   return (
     <div className="w-full h-full flex flex-col border-2 p-2 border-[#EDEFF6]">
       <div className="flex space-x-2">
         <div className="bg-[#F6FBFF] flex w-3/4 lg:w-1/2 justify-center items-center">
-          <img className=" lg:w-full lg:h-full" src={Chair} alt="" />
+          <img className=" lg:w-full lg:h-full" src="" alt="" />
         </div>
         <div className="flex pr-4 w-full pt-4 justify-between">
           <div className="flex  flex-col space-y-2">
@@ -50,4 +50,4 @@ const ReviewProductCard = ({ approved }) => {
   );
 };
 
-export default ReviewProductCard;
+export default ProductReviewsCompanyView;

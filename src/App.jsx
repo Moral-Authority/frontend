@@ -17,6 +17,7 @@ import VerifyEmail from "./components/ProfileComponents/VerifyEmail";
 import ProductPage from "./pages/ProductPage.jsx";
 import PrivacyPolicy from "./pages/privacyPolicy";
 import Footer from "./components/Footer";
+import ProductReviewsUserProfileView from "./components/Products/ProductReviewsUserProfileView.jsx";
 
 export const App = () => {
   const [{ navMenu, user }, dispatch] = useStateValue();
@@ -74,8 +75,8 @@ export const App = () => {
               {user && (
                 <Route path="/profile" element={<Profile />}>
                   <Route index element={<FavoritedProducts userId={user?.id} />} />
-                  <Route path="favorited" element={<FavoritedProducts userId={user?.id} />} />
-                  <Route path="products-reviews" element={<ProductsReview />} />
+                  <Route path="/profile/saved" element={<FavoritedProducts userId={user?.id} />} />
+                  <Route path="/profile/reviews" element={<ProductReviewsUserProfileView userId={user?.id} />} />
                 </Route>
               )}
             </Routes>

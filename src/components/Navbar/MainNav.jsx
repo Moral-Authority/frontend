@@ -1,13 +1,11 @@
 import React, { useState } from "react";
-import { HeartIcon, UserCircleIcon, MagnifyingGlassIcon } from "@heroicons/react/24/outline";
+import { HeartIcon, UserCircleIcon} from "@heroicons/react/24/outline";
 import NavItems from "./NavItems";
 import { Bars3Icon } from "@heroicons/react/24/solid";
-import { useLazyQuery } from "@apollo/client";
 import { useStateValue, actionTypes } from "@/utils/stateProvider/useStateValue"; // Ensure actionTypes is imported here
 import { useNavigate } from "react-router-dom";
 import { Link } from "react-router-dom";
 import Logo from "images/MoralAuthorityLogo.png";
-import { SEARCH_PRODUCTS } from "../../graphql/Queries.js"; 
 import Search from './Search';  // Import the new SearchComponent
  
 const MainNav = ({ userLoggedIn }) => {
@@ -38,7 +36,7 @@ const MainNav = ({ userLoggedIn }) => {
             <ul className="flex items-center space-x-5">
               {/* Show favorites if user is logged in */}
               <li>
-                <Link to="/favorites">
+                <Link to="/profile">
                   <div className="h-10 w-10 rounded-full">
                     <HeartIcon className="h-10 w-10 text-[#1a1a0a]" />
                   </div>

@@ -1,4 +1,5 @@
 import React from "react";
+import { Route, Routes, useLocation } from "react-router-dom";
 import { Outlet } from "react-router-dom";
 import Header from "../components/Header";
 import ProductLinks from "../components/Products/ProductLinks";
@@ -8,7 +9,8 @@ import CompanyProfile from "../components/ProfileComponents/CompanyProfile";
 
 const Profile = () => {
   const [{ userProfile }] = useStateValue();
-
+  const location = useLocation(); // Track the current route
+  
   return (
     <div
       className="min-h-screen flex flex-col w-full"

@@ -1,7 +1,7 @@
 import { ChevronLeftIcon } from "@heroicons/react/24/outline";
 import React from "react";
 import { useNavigate } from "react-router-dom";
-import ReviewProductCard from "../Products/ReviewProductCard";
+import ProductReviewsCompanyView from "../Products/ProductReviewsCompanyView";
 
 const ProductsReview = () => {
   const navigate = useNavigate();
@@ -18,8 +18,8 @@ const ProductsReview = () => {
       </div>
       <div className="w-full h-full">
         <div className="flex flex-col space-y-5">
-          <ReviewProductCard approved={true} />
-          <ReviewProductCard approved={true} />
+          <ProductReviewsCompanyView approved={true} />
+          <ProductReviewsCompanyView approved={true} />
         </div>
       </div>
     </div>

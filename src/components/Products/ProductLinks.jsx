@@ -24,8 +24,8 @@ const ProductLinks = () => {
     >
       {userProfile && (
         <>
-          <ProductLink title={"Saved Products"} link="favorited" />
-          <ProductLink title={"Product Reviews"} link="products-reviews" />
+          <ProductLink title={"Saved Products"} link="/profile/saved" />
+          <ProductLink title={"Product Reviews"} link="/profile/reviews" />
         </>
       )}
       {isCompany && (
@@ -33,9 +33,9 @@ const ProductLinks = () => {
           <ProductLink
             title={"Add a Product"}
             className="hidden sm:block"
-            link="add-product"
+            link="/add-product"
           />
-          <ProductLink title={"Added Products"} link="added" />
+          <ProductLink title={"Added Products"} link="/added" />
         </>
       )}
     </div>
