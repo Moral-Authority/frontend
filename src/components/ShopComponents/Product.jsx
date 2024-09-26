@@ -42,7 +42,7 @@ const Product = ({ title, _id, company, imageLinks, purchaseInfo, productDepartm
   return (
 <div className="w-64 md:w-60 sm:w-56 h-90 lg:h-90 xl:h-90 relative flex flex-col border-1 border-white overflow-hidden shadow-lg hover:shadow-xl rounded-lg">
   <div className="flex z-20 justify-between absolute top-1 sm:top-4 lg:top-8 w-11/12 -ml-1 lg:-ml-2">
-    <div className="!text-white text-xs sm:text-sm !border-none py-1 px-4 z-10 " style={{ backgroundColor: '#0C0F18', border: '2px solid #0C0F18', color: '#B4B5B5' }}>
+    <div className="!text-white text-xs sm:text-sm !border-none py-1 px-4 z-" style={{ backgroundColor: '#0C0F18', border: '2px solid #0C0F18', color: '#B4B5B5' }}>
       New
     </div>
     {user && (

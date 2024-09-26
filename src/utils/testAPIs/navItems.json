@@ -7,35 +7,35 @@
         "items": [
           {
             "title": "Cleaning Supplies",
-            "navLink": "/shop"
+            "navLink": "/shop/home-and-garden/cleaning-supplies"
           },
           {
             "title": "Kitchen & Dining",
-            "navLink": "/shop"
+            "navLink": "/shop/home-and-garden/kitchen-and-dining"
           },
           {
             "title": "Furniture & Art",
-            "navLink": "/shop"
+            "navLink": "/shop/home-and-garden/furniture-and-art"
           },
           {
             "title": "Garden",
-            "navLink": "/shop"
+            "navLink": "/shop/home-and-garden/garden"
           },
           {
             "title": "Bedding & Linens",
-            "navLink": "/shop"
+            "navLink": "/shop/home-and-garden/bedding-and-linens"
           },
           {
             "title": "Home Decor",
-            "navLink": "/shop"
+            "navLink": "/shop/home-and-garden/home-decor"
           },
           {
             "title": "Lighting & Lamps",
-            "navLink": "/shop"
+            "navLink": "/shop/home-and-garden/lighting-and-lamps"
           },
           {
             "title": "Bath & Laundry",
-            "navLink": "/shop"
+            "navLink": "/shop/home-and-garden/bath-and-laundry"
           }
         ],
         "length": 4

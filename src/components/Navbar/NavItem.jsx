@@ -6,7 +6,7 @@ const NavItem = ({ item }) => {
   const navigate = useNavigate();
   const [, dispatch] = useStateValue();
 
-  const handleNavigation = (departmentTitle, subDepartmentTitle = null) => {
+  const handleNavigation = (departmentTitle, subDepartmentTitle) => {
     // Construct URL based on department and subDepartment
     departmentTitle = departmentTitle.toLowerCase().replace(/ /g, "-").replace("&", "and").replace(",", "-");
     subDepartmentTitle = subDepartmentTitle.toLowerCase().replace(/ /g, "-").replace("&", "and").replace(",", "-");
@@ -37,7 +37,7 @@ const NavItem = ({ item }) => {
                       bg-white
                       text-black
                       rounded-md
-                      z-49 !important">
+                      z-50 !important">
           {item.children.items.map((childItem, index) => (
             <li
               key={index}

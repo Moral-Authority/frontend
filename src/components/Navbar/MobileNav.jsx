@@ -26,8 +26,6 @@ const MobileNav = () => {
   const userLoggedIn = !!user;
 
   const handleNavigation = (departmentTitle, subDepartmentTitle ) => {
-    departmentTitle = departmentTitle.toLowerCase().replace(/ /g, "-").replace("&", "and").replace(",", "-");
-    subDepartmentTitle = subDepartmentTitle.toLowerCase().replace(/ /g, "-").replace("&", "and").replace(",", "-");
     let url = `/shop/${departmentTitle}/${subDepartmentTitle}`;
     navigate(url);
     // Close the menu after navigation

@@ -12,17 +12,23 @@ import { useParams } from "react-router-dom"; // Import useParams to extract URL
 
 const Shop = () => {
  const [{ shopFiltersToggle, filteredProducts }, dispatch] = useStateValue();
- const location = useLocation();
- const { department, subDepartment } = useParams(); // Get department and subDepartment from URL
+ const { department, subDepartment } = useParams(); 
+ console.log("department", department, subDepartment)
 
+  // Reset filters when the Shop component mounts
+  useEffect(() => {
+    // Clear the filtered products and reset filters when navigating back to the shop
+    dispatch({
+      type: actionTypes.SET_FILTERED_PRODUCTS,
+      filteredProducts: [], // Clear filtered products
+    });
 
- // Set initial filters based on department and sub-department titles when the page loads
- useEffect(() => {
-  dispatch({
-   type: actionTypes.SET_FILTERS,
-   filters: { department: department, subDepartment: subDepartment },
-  });
- }, [department, subDepartment, dispatch]);
+    // Optionally reset other filter-related state here if needed
+    dispatch({
+      type: actionTypes.SET_FILTERS,
+      filters: { department, subDepartment }, // Set initial department/sub-department filters
+    });
+  }, [department, subDepartment, dispatch]);
 
  return (
   <div className='min-h-screen relative'>
@@ -43,8 +49,6 @@ const Shop = () => {
       />
 
       <Products
-       department={department}
-       subDepartment={subDepartment}
        filteredProducts={filteredProducts} 
       />
      </section>
