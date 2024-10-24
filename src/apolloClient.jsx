@@ -7,7 +7,7 @@ const httpLink = createHttpLink({
 
 //  LOCAL TESTING CONFIG
 // const httpLink = createHttpLink({
-//   uri: 'http://localhost:8080/graphql', // Change to local backend for testing
+//   uri: 'http://localhost:8080/graphql', 
 // });
 
 const authLink = setContext((_, { headers }) => {

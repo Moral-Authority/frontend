@@ -18,6 +18,7 @@ import ProductPage from "./pages/ProductPage.jsx";
 import PrivacyPolicy from "./pages/privacyPolicy";
 import Footer from "./components/Footer";
 import Reviews from "./components/ProfileComponents/Reviews.jsx";
+import { ProtectedRoute } from "./components/ProtectedRoute";
 
 export const App = () => {
   const [{ navMenu, user }, dispatch] = useStateValue();
@@ -56,6 +57,7 @@ export const App = () => {
   if (error) return <p>Error loading app: {error.message}</p>;
 
   return (
+    <ProtectedRoute>
     <Router>
       <AnimatePresence>
         {navMenu ? (
@@ -86,5 +88,6 @@ export const App = () => {
       </AnimatePresence>
       <Footer />
     </Router>
+    </ProtectedRoute>
   );
 };

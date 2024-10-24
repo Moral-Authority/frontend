@@ -1,24 +1,49 @@
-/* 
+
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&display=swap');
 
-.protectiveRoute {
-    color: #1b5537;
-    font-size: medium;
-}
-
-html,body {
+html, body {
     font-family: 'Poppins', sans-serif;
     color: #1b5537;
+    height: 100%;
+    margin: 0;
+}
+
+.protectiveRoute {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background-color: #f2f2eb;
+}
+
+.form {
+    max-width: 20rem;
+    font-family: 'Poppins', sans-serif;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: #e2e2dc;
+    padding: 2rem;
+    border-radius: 0.5em;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.heading {
+    color: #1b5537;
+    font-size: x-large;
+    font-family: 'Poppins', sans-serif; 
+    margin-bottom: 1.5em;
+    text-align: center;
 }
 
 .submit {
-    color:  #F2F2EB;
-    background-color:#1b5537;
-    padding: 0.25em;
-    margin: 0.5em;
-    margin-left: 3em;
-    margin-right: 3em;
+    color: #F2F2EB;
+    background-color: #1b5537;
+    padding: 0.5em 1.5em;
+    margin-top: 1em;
     border-radius: 0.5em;
+    border: none;
+    cursor: pointer;
 }
 
 .submit:hover {
@@ -28,30 +53,21 @@ html,body {
 
 .formInput {
     border-radius: 0.5em;
-    padding: .25em;
+    padding: 0.5em;
     color: #1b5537;
     font-family: 'Poppins', sans-serif;
-    background-color:#e2e2dc;
-    max-width: 11.5rem;
+    background-color: #f9f9f9;
+    max-width: 100%;
+    width: 100%;
+    border: 1px solid #ccc;
+    margin-bottom: 1em;
 }
 
-.form {
-    max-width: 11.5rem;
-    font-family: 'Poppins', sans-serif;
-}
-
-.heading {
-    color:#1b5537;
-    font-size: x-large;
-    font-family: 'Poppins', sans-serif; 
-    margin-left: .2em;
-    margin-bottom: .25em;
-} */
 
 
 /* #043019 */
-/* 
-background-color: #043019;
+
+/* background-color: #043019;
 text-transform: capitalize;
-}
-#D6AD60 */
+}  */
+/* #D6AD60 */

@@ -9,7 +9,7 @@ export default defineConfig({
   server: {
     port: process.env.PORT || 3000, // Use Heroku's port if available
     // port: 3000, // Local development port
-    // open: true, // Automatically open the browser on server start
+    open: true, // Automatically open the browser on server start
   },
   resolve: {
     alias: [
